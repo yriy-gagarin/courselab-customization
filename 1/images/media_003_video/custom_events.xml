@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><events>
+	<event>
+		<name>onChangePlayState</name>
+		<label>Проигрывание - Изменение состояния</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onPlayBegin</name>
+		<label>Проигрывание - Начало</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onPlayPause</name>
+		<label>Проигрывание - Пауза</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onPlayResume</name>
+		<label>Проигрывание - Продолжение</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onTickTimer</name>
+		<label>Проигрывание - Посекундно</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onPositionChange</name>
+		<label>Изменение позиции</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onMediaEnded</name>
+		<label>Проигрывание - Конец ролика</label>
+		<group>Объект - собственные</group>
+	</event>
+</events>

@@ -1,0 +1,1029 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+'*	media_003_video.xml
+'*	Copyright (c) Websoft, 2006.  All rights reserved.
+--><params>
+	<object>
+		<label>Видео</label>
+		<width>320</width>
+		<height>240</height>
+		<description>Видеоролик</description>
+		<state_extension>false</state_extension>
+	</object>
+    <page name="Основные" w="320" h="160">
+		<param type="edit" id="hidden.label.nosrc" text="" def="Источник видео не задан" x="10" y="-50" w="1" h="1"/>
+
+		<param type="label" text="Источник" x="10" y="10" w="120" h="13"/>
+		<param type="select" id="source" text="" def="file" x="130" y="8" w="120" h="13">
+			<items>
+				<item id="file" label="Файл">
+					<events>
+						<event name="selendok" target="lab_video_uri" action="enable"/>
+						<event name="selendok" target="video_uri" action="enable"/>
+						<event name="selendok" target="lab_video_url" action="disable"/>
+						<event name="selendok" target="video_url" action="disable"/>
+					</events>
+				</item>
+				<item id="url" label="Ссылка">
+					<events>
+						<event name="selendok" target="lab_video_uri" action="disable"/>
+						<event name="selendok" target="video_uri" action="disable"/>
+						<event name="selendok" target="lab_video_url" action="enable"/>
+						<event name="selendok" target="video_url" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="label" id="lab_video_uri" text="Файл" x="10" y="26" w="120" h="13"/>
+		<param type="file" id="video_uri" text="" def="" x="130" y="24" w="163" h="13" ext="Видео (*.webm;*.mp4;*.ogv;*.ogg;*.mov;*.3gp;*.avi;*.wmv;*.flv;*.f4v)|*.webm;*.mp4;*.ogv;*.ogg;*.mov;*.3gp;*.avi;*.wmv;*.flv;*.f4v|WebM (*.webm)|*.webm|H.264 (*.mp4)|*.mp4|OGG (*.ogv;*.ogg)|*.ogg;*.ogv|Windows Media (*.avi;*.wmv)|*.avi;*.wmv|QuickTime (*.mov;*3gp)|*.mov;*.3gp|Flash (*.flv;*.f4v)|*.flv;*.f4v|Все файлы|*.*|||"/>
+		<param type="label" id="lab_video_url" text="URL" x="10" y="42" w="120" h="13"/>
+		<param type="edit" id="video_url" text="" def="http://" x="130" y="40" w="180" h="13"/>
+		<param type="label" text="Выбор плейера" x="10" y="58" w="120" h="13"/>
+		<param type="select" id="player" text="" def="auto" x="130" y="56" w="180" h="13">
+			<items>
+				<item id="auto" label="Автовыбор"/>
+				<item id="html5" label="HTML5 Player"/>
+				<item id="wmp" label="Windows Media Player"/>
+				<item id="qtp" label="Apple QuickTime Player"/>
+				<item id="flv" label="Flash Video Player"/>
+			</items>
+		</param>
+		<param type="label" text="Органы управления" x="10" y="74" w="120" h="13"/>
+		<param type="select" id="video_controls" text="" def="no" x="130" y="72" w="180" h="13">
+			<items>
+				<item id="none" label="Спрятать"/>
+				<item id="mini" label="Показывать минимальный набор"/>
+				<item id="full" label="Показывать полный набор"/>
+			</items>
+		</param>
+		<param type="check" id="video_autostart" text="Автозапуск ролика" def="yes" x="10" y="88" w="240" h="13"/>
+		<param type="check" id="video_invisible" text="Скрытый режим показа" def="no" x="10" y="104" w="240" h="13"/>
+	</page>
+	<methods>
+		<method name="Constructor" label="_Constructor" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function Constructor(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				oCurObj.data =
+				{
+					bAutoStart: (oCurObj.jxParams.find("video_autostart").text()=="yes"),
+					bControls: (oCurObj.jxParams.find("video_controls").text()!="none"),
+					bInvisible: (oCurObj.jxParams.find("video_invisible").text()=="yes"),
+					sPlayer: jCurObjDiv.find(".cl-container").attr("data-player"),
+					sUIMode: oCurObj.jxParams.find("video_controls").text()
+				};
+				if(oCurObj.data.sUIMode=="no") oCurObj.data.sUIMode = "none";
+				var sPath = (oCurObj.jxParams.find("source").text()=="url") ? oCurObj.jxParams.find("video_url").text() : oCurObj.jxParams.find("video_uri").text();
+				var sURL = document.location.href;
+				var iPtr = sURL.indexOf("?");
+				if(iPtr!=-1) sURL = sURL.substr(0,iPtr);
+				iPtr = sURL.lastIndexOf("/");
+				sURL = sURL.substr(0,iPtr+1);
+				var bEmbed = false;
+				var bFF = false;
+				var oPlayer;
+				var oParent;
+				var sPlayerID;
+				var jContainer = jCurObjDiv.find(".cl-container");
+				switch(oCurObj.data.sPlayer)
+				{
+					case "html5":
+					{
+						var jPlayer = jCurObjDiv.find("video");
+						jPlayer[0].onplay = function (e)
+						{
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayBegin" });
+						}
+						jPlayer[0].onplaying = function (e)
+						{
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayResume" });
+							oCurObj.iCheckTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Tick" }); }, 1000);
+						}
+						jPlayer[0].onpause = function (e)
+						{
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayPause" });
+							clearTimeout(oCurObj.iCheckTimer);
+						}
+						jPlayer[0].onseeked = function (e)
+						{
+							oCurObj.FireEvent({ sName: "onPositionChange" });
+						}
+						jPlayer[0].onended = function (e)
+						{
+							oCurObj.FireEvent({ sName: "onMediaEnded" });
+							clearTimeout(oCurObj.iCheckTimer);
+						}
+						break;
+					}
+					case "flv":
+					{
+						var sPlayer = (oCurObj.data.bControls) ? "images/media_003_video/player1.swf" : "images/media_003_video/player0.swf";
+						var sFile = sPath;
+						var reImages = new RegExp(/images/);
+						sFile = sFile.replace(reImages,"..");
+						var oParams = { "quality": "high", "wmode": "transparent" };
+						oParams.flashvars = "objID=" + argobj.pid + "&objtype=media_003_video&file=" + escape(sFile) + "&objwidth=" + oCurObj.initial.w + "&objheight=" + oCurObj.initial.h + "&fit=false&autorewind=true&autostart=" + (oCurObj.data.bAutoStart ? "true" : "false");
+						var oFlash = new CLFlash(
+						{
+							container: jContainer,
+							sPath: sPlayer,
+							nWidth: oCurObj.initial.w,
+							nHeight: oCurObj.initial.h,
+							oParams: oParams
+						});
+						break;
+					}
+					case "qtp":
+					{
+						break;
+					}
+					case "wmp":
+					{
+						break;
+					}
+				}
+				if(oCurObj.data.bAutoStart)
+				{
+					if(oCurObj.data.sPlayer!="flv") oCurObj.iCheckTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Tick" }); }, 1000);
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+        <method name="EventHandler" label="_EventHandler" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function EventHandler(argobj)
+			{
+				return true;
+			}]]>
+            </body>
+        </method>
+ 		<method name="SetProperty" label="УСТАНОВИТЬ СВОЙСТВО" access="public">
+            <params>
+				<param name="property" label="Свойство" default="mute">
+					<items>
+						<item id="currentposition" label="Позиция"/>
+						<item id="mute" label="Заглушить звук"/>
+						<item id="volume" label="Громкость звука"/>
+					</items>
+				</param>
+ 				<param name="value" label="Значение"/>
+			</params>
+            <body>
+			<![CDATA[function SetProperty(argobj)
+			{
+				if(argobj.property==null || argobj.value==null) return false;
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var jPlayer;
+				switch(oCurObj.data.sPlayer)
+				{
+					case "html5":
+					{
+						jPlayer = jCurObjDiv.find("video");
+						if(jPlayer.length>0)
+						{
+							switch(argobj.property)
+							{
+								case "currentposition":
+								{
+									var iTime = parseInt(argobj.value, 10);
+									if(!isNaN(iTime))
+									{
+										jPlayer[0].currentTime = iTime;
+									}
+									break;
+								}
+								case "volume":
+								{
+									var iVolume = parseInt(argobj.value, 10);
+									if(!isNaN(iVolume))
+									{
+										if(iVolume<0) iVolume = 0;
+										if(iVolume>100) iVolume = 100;
+										jPlayer[0].volume = 0.01*iVolume;
+									}
+									break;
+								}
+								case "mute":
+								{
+									var iValue = parseInt(argobj.value, 10);
+									if(!isNaN(iValue))
+									{
+										if(iValue<0) iValue = 0;
+										if(iValue>1) iValue = 1;
+										jPlayer[0].muted = (iValue>0);
+									}
+									break;
+								}
+							}
+						}
+						break;
+					}
+					case "wmp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							try
+							{
+								var oControls = jPlayer[0].controls;
+								var oSettings = jPlayer[0].settings;
+								switch(argobj.property)
+								{
+									case "mute":
+									{
+										if(oSettings.mute!=null) oSettings.mute = (argobj.value==1 || argobj.value=="1");
+										break;
+									}
+									case "volume":
+									{
+										var iVolume = parseInt(argobj.value,10);
+										if(isNaN(iVolume)) return false;
+										if(iVolume<0) iVolume = 0;
+										if(iVolume>100) iVolume = 100;
+										if(oSettings.volume!=null) oSettings.volume = iVolume.toString();
+										break;
+									}
+									case "currentposition":
+									{
+										var nCurPos = parseFloat(argobj.value);
+										if(isNaN(nCurPos)) return false;
+										oControls.currentPosition = nCurPos;
+										oCurObj.FireEvent({ sName: "onPositionChange" });
+										break;
+									}
+								}
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+					case "qtp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							switch(argobj.property)
+							{
+								case "mute":
+								{
+									jPlayer[0].SetMute((argobj.value.toString()=="1") ? true : false);
+									break;
+								}
+								case "volume":
+								{
+									var iVolume = parseInt(argobj.value, 10);
+									if(!isNaN(iVolume))
+									{
+										if(iVolume<0) iVolume = 0;
+										if(iVolume>100) iVolume = 100;
+										jPlayer[0].SetVolume(Math.round(iVolume*2.55));
+									}
+									break;
+								}
+								case "currentposition":
+								{
+									var iTime = parseInt(argobj.value, 10);
+									if(!isNaN(iTime))
+									{
+										var iDuration = jPlayer[0].GetDuration();
+										var iScale = jPlayer[0].GetTimeScale();
+										iTime = Math.floor(iTime*iScale);
+										if(iTime>=iDuration) iTime = iDuration;
+										if(iTime<=0) iTime = 0;
+										jPlayer[0].SetTime(iTime);
+										oCurObj.FireEvent({ sName: "onPositionChange" });
+									}
+									break;
+								}
+							}
+						}
+						break;
+					}
+					case "flv":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							switch(argobj.property)
+							{
+								case "currentposition":
+								{
+									var iTime = parseInt(argobj.value, 10);
+									if(!isNaN(iTime))
+									{
+										try
+										{
+											jPlayer[0].FLVAction("position", iTime.toString());
+										}
+										catch(x1)
+										{
+											try
+											{
+												jPlayer[0].CallFunction("<invoke name=\"FLVAction\" returntype=\"string\"><arguments><string>position</string><string>" + iTime.toString() + "</string></arguments></invoke>");
+											}
+											catch(x2)
+											{
+											}
+										}
+									}
+									oCurObj.FireEvent({ sName: "onPositionChange" });
+									break;
+								}
+								case "volume":
+								{
+									var iVolume = parseInt(argobj.value, 10);
+									if(!isNaN(iVolume))
+									{
+										if(iVolume<0) iVolume = 0;
+										if(iVolume>100) iVolume = 100;
+										try
+										{
+											jPlayer[0].FLVAction("volume", iVolume.toString());
+										}
+										catch(x1)
+										{
+											try
+											{
+												jPlayer[0].CallFunction("<invoke name=\"FLVAction\" returntype=\"string\"><arguments><string>volume</string><string>" + iVolume.toString() + "</string></arguments></invoke>");
+											}
+											catch(x2)
+											{
+											}
+										}
+									}
+									break;
+								}
+								case "mute":
+								{
+									var iValue = parseInt(argobj.value, 10);
+									if(!isNaN(iValue))
+									{
+										if(iValue<0) iValue = 0;
+										if(iValue>1) iValue = 1;
+										var sAction = (iValue>0) ? "mute" : "unmute";
+										try
+										{
+											jPlayer[0].FLVAction(sAction, "");
+										}
+										catch(x1)
+										{
+											try
+											{
+												jPlayer[0].CallFunction("<invoke name=\"FLVAction\" returntype=\"string\"><arguments><string>" + sAction + "</string><string></string></arguments></invoke>");
+											}
+											catch(x2)
+											{
+											}
+										}
+									}
+									break;
+								}
+							}
+						}
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="GetProperty" label="_GetProperty" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function GetProperty(argobj)
+			{
+				if(argobj.pid==null || argobj.property==null) return false;
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var jPlayer;
+				var aPlayStates = ["undefined", "stopped", "paused", "playing", "forward", "backward", "buffering", "waiting", "ended", "preparing", "ready", "reconnect"];
+				switch(oCurObj.data.sPlayer)
+				{
+					case "html5":
+					{
+						jPlayer = jCurObjDiv.find("video");
+						if(jPlayer.length>0)
+						{
+							switch(argobj.property.toLowerCase())
+							{
+								case "autostart":
+								{
+									return (jPlayer[0].autoplay ? "1" : "0");
+								}
+								case "mute":
+								{
+									return (jPlayer[0].muted ? "1" : "0");
+								}
+								case "volume":
+								{
+									return (100*Player[0].volume);
+								}
+								case "currentmedia":
+								{
+									return jPlayer[0].currentSrc;
+								}
+								case "duration":
+								{
+									return jPlayer[0].duration;
+								}
+								case "currentposition":
+								{
+									return Math.round(jPlayer[0].currentTime);
+								}
+								case "currentstate":
+								{
+									var sState = aPlayStates[0];
+									if(jPlayer[0].ended)
+									{
+										sState = "ended";
+									}
+									else if(jPlayer[0].paused)
+									{
+										sState = "paused";
+									}
+									else if(!jPlayer[0].paused)
+									{
+										sState = "playing";
+									}
+									return sState;
+								}
+								case "isonline":
+								{
+									return (jPlayer[0].networkState!=0 ? "1" : "0");
+								}
+								case "url":
+								{
+									var sURL = jPlayer[0].currentSrc;
+									var reSlash = new RegExp(/\//g);
+									sURL = sURL.replace(reSlash,"\\/");
+									return sURL;
+								}
+							}
+						}
+						break;
+					}
+					case "wmp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							try
+							{
+								var oControls = jPlayer[0].controls;
+								var oMedia = jPlayer[0].currentMedia;
+								var oSettings = jPlayer[0].settings;
+								switch(argobj.property.toLowerCase())
+								{
+									case "autostart":
+									{
+										return (oSettings.autoStart ? "1" : "0");
+									}
+									case "mute":
+									{
+										return (oSettings.mute ? "1" : "0");
+									}
+									case "volume":
+									{
+										return oSettings.volume;
+									}
+									case "currentmedia":
+									{
+										return oMedia.name;
+									}
+									case "duration":
+									{
+										return oMedia.duration;
+									}
+									case "currentposition":
+									{
+										var sPos = oControls.currentPosition;
+										var nPos = parseFloat(sPos);
+										var iPos = Math.floor(nPos);
+										return iPos.toString();
+									}
+									case "currentstate":
+									{
+										var sState = oPlayer.playState;
+										if(sState==null) sState = 0;
+										var iState = parseInt(sState, 10);
+										if(isNaN(iState)) iState = 0;
+										return aPlayStates[iState];
+									}
+									case "isonline":
+									{
+										return (oPlayer.isOnline ? "1" : "0");
+									}
+									case "url":
+									{
+										var sURL = oPlayer.URL;
+										var reSlash = new RegExp(/\//g);
+										sURL = sURL.replace(reSlash,"\\/");
+										return sURL;
+									}
+								}
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+					case "qtp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							try
+							{
+								switch(argobj.property.toLowerCase())
+								{
+									case "autostart":
+									{
+										return (jPlayer[0].GetAutoPlay() ? "1" : "0");
+									}
+									case "mute":
+									{
+										return (jPlayer[0].GetMute() ? "1" : "0");
+									}
+									case "volume":
+									{
+										var iVolume = jPlayer[0].GetVolume();
+										iVolume = Math.round(iVolume/255);
+										return iVolume;
+									}
+									case "currentmedia":
+									{
+										return jPlayer[0].GetMovieName();
+									}
+									case "duration":
+									{
+										var iDuration = jPlayer[0].GetDuration();
+										var iScale = oPlayer.GetTimeScale();
+										return Math.round(iDuration/iScale*10)/10;
+									}
+									case "currentposition":
+									{
+										var iTime = jPlayer[0].GetTime();
+										var iScale = jPlayer[0].GetTimeScale();
+										return Math.round(iTime/iScale*10)/10;
+									}
+									case "url":
+									{
+										var sURL = jPlayer[0].GetURL();
+										var reSlash = new RegExp(/\//g);
+										sURL = sURL.replace(reSlash,"\\/");
+										return sURL;
+									}
+								}
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+					case "flv":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						var sValue = "";
+						if(jPlayer.length>0)
+						{
+							try
+							{
+								sValue = oFPlayer.GetProp(argobj.property.toLowerCase());
+							}
+							catch(x1)
+							{
+								try
+								{
+									sValue = oFPlayer.CallFunction("<invoke name=\"GetProp\" returntype=\"string\"><arguments><string>" + argobj.property.toLowerCase() + "</string></arguments></invoke>");
+									if(sValue.indexOf("<string>")!=-1 && sValue.indexOf("</string>")!=-1)
+									{
+										sValue = sValue.substring(8, sValue.indexOf("</string>"));
+									}
+								}
+								catch(x2)
+								{
+								}
+							}
+						}
+						return sValue;;
+					}
+				}
+				return "";
+			}]]>
+			</body>
+		</method>
+ 		<method name="PLAY" label="ПРОИГРАТЬ" access="public">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function Play(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var jPlayer;
+				switch(oCurObj.data.sPlayer)
+				{
+					case "html5":
+					{
+						jPlayer = jCurObjDiv.find("video");
+						if(jPlayer.length>0)
+						{
+							jPlayer[0].play();
+						}
+						break;
+					}
+					case "wmp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							jPlayer[0].controls.play();
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayBegin" });
+							oCurObj.iCheckTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Tick" }); }, 1000);
+						}
+						break;
+					}
+					case "qtp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							jPlayer[0].play();
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayBegin" });
+							oCurObj.iCheckTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Tick" }); }, 1000);
+						}
+						break;
+					}
+					case "flv":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							try
+							{
+								jPlayer[0].FLVAction("play", "");
+							}
+							catch(x1)
+							{
+								try
+								{
+									jPlayer[0].CallFunction("<invoke name=\"FLVAction\" returntype=\"string\"><arguments><string>play</string><string></string></arguments></invoke>");
+								}
+								catch(x2)
+								{
+								}
+							}
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayBegin" });
+						}
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="STOP" label="ОСТАНОВИТЬ" access="public">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function Stop(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var jPlayer;
+				switch(oCurObj.data.sPlayer)
+				{
+					case "html5":
+					{
+						jPlayer = jCurObjDiv.find("video");
+						if(jPlayer.length>0)
+						{
+							jPlayer[0].pause();
+							jPlayer[0].currentTime = 0;
+							try
+							{
+								clearTimeout(oCurObj.iCheckTimer);
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+					case "wmp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							jPlayer[0].controls.stop();
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayStop" });
+							try
+							{
+								clearTimeout(oCurObj.iCheckTimer);
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+					case "qtp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							jPlayer[0].stop();
+							jPlayer[0].SetTime(0);
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayStop" });
+							try
+							{
+								clearTimeout(oCurObj.iCheckTimer);
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+					case "flv":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							try
+							{
+								jPlayer[0].FLVAction("pause", "");
+							}
+							catch(x1)
+							{
+								try
+								{
+									jPlayer[0].CallFunction("<invoke name=\"FLVAction\" returntype=\"string\"><arguments><string>pause</string><string></string></arguments></invoke>");
+								}
+								catch(x2)
+								{
+								}
+							}
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayStop" });
+						}
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="PAUSE" label="ПАУЗА" access="public">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function Pause(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var jPlayer;
+				switch(oCurObj.data.sPlayer)
+				{
+					case "html5":
+					{
+						jPlayer = jCurObjDiv.find("video");
+						if(jPlayer.length>0)
+						{
+							jPlayer[0].pause();
+							try
+							{
+								clearTimeout(oCurObj.iCheckTimer);
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+					case "wmp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							jPlayer[0].controls.pause();
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayPause" });
+							try
+							{
+								clearTimeout(oCurObj.iCheckTimer);
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+					case "qtp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							jPlayer[0].stop();
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayPause" });
+							try
+							{
+								clearTimeout(oCurObj.iCheckTimer);
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+					case "flv":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							try
+							{
+								jPlayer[0].FLVAction("pause", "");
+							}
+							catch(x1)
+							{
+								try
+								{
+									jPlayer[0].CallFunction("<invoke name=\"FLVAction\" returntype=\"string\"><arguments><string>pause</string><string></string></arguments></invoke>");
+								}
+								catch(x2)
+								{
+								}
+							}
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayPause" });
+						}
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="Tick" label="_Tick" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function Tick(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				if(oCurObj==null) return false;
+				var jCurObjDiv = $(oCurObj.div);
+				if(jCurObjDiv==null) return false;
+				var jPlayer;
+				switch(oCurObj.data.sPlayer)
+				{
+					case "html5":
+					{
+						jPlayer = jCurObjDiv.find("video");
+						if(jPlayer.length>0)
+						{
+							if(!jPlayer[0].paused)
+							{
+								oCurObj.FireEvent({ sName: "onTickTimer" });
+								oCurObj.iCheckTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Tick" }); }, 1000);
+							}
+						}
+						else
+						{
+							return false;
+						}
+						break;
+					}
+					case "wmp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							var iState = 0;
+							try { iState = oPlayer[0].playState; } catch(e) {}
+							if(iState==3)
+							{
+								oCurObj.FireEvent({ sName: "onTickTimer" });
+								oCurObj.iCheckTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Tick" }); }, 1000);
+							}
+						}
+						break;
+					}
+					case "qtp":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							var nState = jPlayer[0].GetRate(); // 0 - paused, 1 - playing normal speed
+							if(nState!=0)
+							{
+								oCurObj.FireEvent({ sName: "onTickTimer" });
+								oCurObj.iCheckTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Tick" }); }, 1000);
+							}
+						}
+						break;
+					}
+					case "flv":
+					{
+						jPlayer = jCurObjDiv.find("object");
+						if(jPlayer.length>0)
+						{
+							try
+							{
+								jPlayer[0].FLVAction("pause", "");
+							}
+							catch(x1)
+							{
+								try
+								{
+									jPlayer[0].CallFunction("<invoke name=\"FLVAction\" returntype=\"string\"><arguments><string>pause</string><string></string></arguments></invoke>");
+								}
+								catch(x2)
+								{
+								}
+							}
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayPause" });
+							try
+							{
+								clearTimeout(oCurObj.iCheckTimer);
+							}
+							catch(e)
+							{}
+						}
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="Listener" label="_Listener" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function Listener(argobj)
+			{
+				if(argobj.pid==null) return false;
+				var oCurObj = CLO[argobj.pid];
+				if(oCurObj==null) return false;
+				// set props
+				if(argobj.position!=null) oCurObj.data.iFLVPosition = argobj.position;
+				if(argobj.volume!=null) oCurObj.data.iFLVVolume =  argobj.volume;
+				if(argobj.totaltime!=null) oCurObj.data.iFLVTotalTime = argobj.totaltime;
+				if(argobj.state!=null) oCurObj.data.sFLVState = argobj.state;
+				if(argobj.mute!=null) oCurObj.data.iFLVMute = argobj.mute;
+				// FireEvent
+				if(argobj.eventname!=null)
+				{
+					switch(argobj.eventname)
+					{
+						case "tick":
+						{
+							oCurObj.FireEvent({ sName: "onPlayTick" });
+							break;
+						}
+						case "stop":
+						{
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayStop" });
+							break;
+						}
+						case "play":
+						{
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPlayStart" });
+							break;
+						}
+						case "drag":
+						{
+							oCurObj.FireEvent({ sName: "onChangePlayState" });
+							oCurObj.FireEvent({ sName: "onPositionChange" });
+							break;
+						}
+						case "eom":
+						{
+							oCurObj.FireEvent({ sName: "onMediaEnded" });
+							break;
+						}
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+	</methods>
+</params>

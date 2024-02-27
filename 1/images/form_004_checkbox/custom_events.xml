@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><events>
+	<event>
+		<name>onCheck</name>
+		<label>Установка маркера</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onUncheck</name>
+		<label>Снятие маркера</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onChangeValue</name>
+		<label>Изменение значения</label>
+		<group>Объект - собственные</group>
+	</event>
+</events>

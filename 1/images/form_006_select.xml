@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+'*	form_006_select.xml
+'*	Copyright (c) Websoft, 2006.  All rights reserved.
+--><params>
+	<object>
+		<label>Выпадающее меню</label>
+		<width>150</width>
+		<height>30</height>
+		<description>Выпадающее меню. Текущее выбранное значение доступно через переменную run-time.</description>
+		<default_color_bg>bg_color</default_color_bg>
+		<default_color_border>border_color</default_color_border>
+		<state_extension>false</state_extension>
+	</object>
+	<page name="Основные" w="320" h="200">
+		<param type="label" text="Список элементов" x="10" y="10" w="120" h="13"/>
+		<param type="list" id="valuelist" text="" def="yes" x="10" y="8" w="300" h="80">
+			<page w="260" h="90" name="Элемент">
+				<param type="label" text="Название" x="10" y="10" w="120" h="13"/>
+				<param type="edit" id="input_text" text="Название" def="Элемент" x="130" y="8" w="120" h="13"/>
+				<param type="label" text="Значение при выборе" x="10" y="26" w="120" h="13"/>
+				<param type="edit" id="input_value" text="Значение" def="" x="130" y="24" w="120" h="13"/>
+				<param type="check" id="input_checked" text="Выбран при старте" def="no" x="10" y="42" w="240" h="13"/>
+			</page>
+		</param>
+		<param type="label" text="Имя переменной" x="10" y="94" w="120" h="13"/>
+		<param type="edit" id="input_id" text="" def="select_var" x="130" y="92" w="120" h="13"/>
+		<param type="label" text="Область действия переменной" x="10" y="110" w="120" h="13"/>
+		<param type="select" id="var_scope" text="" def="slide" x="130" y="108" w="120" h="13">
+			<items>
+				<item id="slide" label="В пределах слайда"/>
+				<item id="global" label="Весь модуль"/>
+			</items>
+		</param>
+		<param type="check" id="restore" text="Восстанавливать значение" def="yes" x="10" y="124" w="300" h="13"/>
+	</page>
+	<page name="Вид" w="320" h="200">
+
+		<param type="label" text="Граница" x="10" y="10" w="120" h="13"/>
+		<param type="select" id="border_style" text="" def="solid" x="130" y="8" w="120" h="13">
+			<items>
+				<item id="none" label="Без границы">
+                    <events>
+                        <event name="selendok" target="border_width" action="disable"/>
+                        <event name="selendok" target="lab_border_width_px" action="disable"/>
+                        <event name="selendok" target="border_color" action="disable"/>
+					</events>
+				</item>
+				<item id="solid" label="Сплошная">
+                    <events>
+                        <event name="selendok" target="border_width" action="enable"/>
+                        <event name="selendok" target="lab_border_width_px" action="enable"/>
+                        <event name="selendok" target="border_color" action="enable"/>
+					</events>
+				</item>
+				<item id="double" label="Двойная">
+                    <events>
+                        <event name="selendok" target="border_width" action="enable"/>
+                        <event name="selendok" target="lab_border_width_px" action="enable"/>
+                        <event name="selendok" target="border_color" action="enable"/>
+					</events>
+				</item>
+				<item id="ridge" label="Гребень">
+                    <events>
+                        <event name="selendok" target="border_width" action="enable"/>
+                        <event name="selendok" target="lab_border_width_px" action="enable"/>
+                        <event name="selendok" target="border_color" action="enable"/>
+					</events>
+				</item>
+				<item id="groove" label="Канавка">
+                    <events>
+                        <event name="selendok" target="border_width" action="enable"/>
+                        <event name="selendok" target="lab_border_width_px" action="enable"/>
+                        <event name="selendok" target="border_color" action="enable"/>
+					</events>
+				</item>
+				<item id="inset" label="Поднимающаяся">
+                    <events>
+                        <event name="selendok" target="border_width" action="enable"/>
+                        <event name="selendok" target="lab_border_width_px" action="enable"/>
+                        <event name="selendok" target="border_color" action="enable"/>
+					</events>
+				</item>
+				<item id="outset" label="Опускающаяся">
+                    <events>
+                        <event name="selendok" target="border_width" action="enable"/>
+                        <event name="selendok" target="lab_border_width_px" action="enable"/>
+                        <event name="selendok" target="border_color" action="enable"/>
+					</events>
+				</item>
+				<item id="dashed" label="Пунктирная">
+                    <events>
+                        <event name="selendok" target="border_width" action="enable"/>
+                        <event name="selendok" target="lab_border_width_px" action="enable"/>
+                        <event name="selendok" target="border_color" action="enable"/>
+					</events>
+				</item>
+				<item id="dotted" label="Точечная">
+                    <events>
+                        <event name="selendok" target="border_width" action="enable"/>
+                        <event name="selendok" target="lab_border_width_px" action="enable"/>
+                        <event name="selendok" target="border_color" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="spinner" id="border_width" text="" def="1" x="252" y="8" w="32" h="13" min="0" max="49"/>
+		<param type="label" id="lab_border_width_px" text="пкс" x="287" y="10" w="20" h="11"/>
+
+		<param type="label" text="Радиус" x="10" y="26" w="120" h="11"/>
+		<param type="spinner" id="border_radius" text="" def="3" x="130" y="24" w="32" h="13" min="0" max="99"/>
+		<param type="label" text="пкс" x="165" y="26" w="30" h="11"/>
+
+		<param type="label" text="Заливка, граница, шрифт" x="10" y="42" w="120" h="11"/>
+		<param type="color" id="bg_color" text="" def="#FFFFFF" x="130" y="40" w="40" h="13"/>
+		<param type="color" id="border_color" text="" def="#0080c0" x="190" y="40" w="40" h="13"/>
+		<param type="color" id="font_color" text="" def="#336699" x="250" y="40" w="40" h="13"/>
+
+		<param type="label" id="lab_shadow_strength" text="Тень" def="" x="10" y="58" w="120" h="11"/>
+		<param type="select" id="shadow_strength" text="" def="normal" x="130" y="56" w="120" h="13">
+			<items>
+				<item id="none" label="Без тени"/>
+				<item id="extralight" label="Очень слабая"/>
+				<item id="light" label="Слабая"/>
+				<item id="normal" label="Нормальная"/>
+				<item id="dark" label="Интенсивная"/>
+				<item id="extradark" label="Очень интенсивная"/>
+			</items>
+		</param>
+
+		<param type="label" text="Выравнивание текста" x="10" y="74" w="120" h="11"/>
+		<param type="select" id="text_align" text="" def="left" x="130" y="72" w="120" h="13">
+			<items>
+				<item id="center" label="По центру"/>
+				<item id="left" label="Влево"/>
+				<item id="right" label="Вправо"/>
+			</items>
+		</param>
+
+		<param type="label" id="lab_padding" text="Отбивка" def="" x="10" y="90" w="120" h="11"/>
+		<param type="spinner" id="padding" text="" def="1" x="130" y="88" w="32" h="13" min="0" max="99"/>
+		<param type="label" id="lab_padding2" text="пкс" def="" x="165" y="90" w="30" h="13"/>
+
+		<param type="line" id="LINE_font_1" text="" def="" x="5" y="112" w="310" h="78"/>
+        <param type="line" id="LINE_font_2" text="" def="" x="5" y="128" w="310" h="62"/>
+		<param type="label" id="lab_font" text="Шрифт" x="15" y="116" w="120" h="11"/>
+
+		<param type="select" id="font" text="" def="robotoregular" x="15" y="136" w="113" h="13">
+			<items>
+				<item id="Arial" label="Arial">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="ArialBlack" label="Arial Black">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="ArialNarrow" label="Arial Narrow">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="ComicSansMS" label="Comic Sans MS">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="CourierNew" label="Courier New">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Georgia" label="Georgia">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Impact" label="Impact">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="LucidaConsole" label="Lucida Console">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="LucidaSansUnicode" label="Lucida Sans Unicode">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Palatino" label="Palatino">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Tahoma" label="Tahoma">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Times" label="Times New Roman">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="TrebuchetMS" label="Trebuchet MS">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Verdana" label="Verdana">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="clear_sans_lightregular" label="WF Clear Sans Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="clear_sans_mediumregular" label="WF Clear Sans Medium">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="clear_sansregular" label="WF Clear Sans Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="clear_sans_thinregular" label="WF Clear Sans Thin">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="droid_sans_monoregular" label="WF Droid Sans Mono">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="droid_sansregular" label="WF Droid Sans Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="droid_serifregular" label="WF Droid Serif Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Fira_Mono" label="WF Fira Mono">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Fira_Sans" label="WF Fira Sans">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="FiraSansLight" label="WF Fira Sans Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="FiraSansMedium" label="WF Fira Sans Medium">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Fregat_Sans" label="WF Fregat Sans">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Lato_Sans" label="WF Lato Sans">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="LatoSansLight" label="WF Lato Sans Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="nerisblack" label="WF Neris Black">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="nerislight" label="WF Neris Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="nerissemibold" label="WF Neris SemiBold">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="neristhin" label="WF Neris Thin">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="noto_sansregular" label="WF Noto Sans Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="noto_serifregular" label="WF Noto Serif Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="open_sanscondensed_light" label="WF Open Sans Condensed Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="open_sansextrabold" label="WF Open Sans Extra Bold">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="open_sanslight" label="WF Open Sans Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="open_sansregular" label="WF Open Sans Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="open_sanssemibold" label="WF Open Sans SemiBold">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="permiansanstypefaceregular" label="WF Permian Sans Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="permianseriftypefaceregular" label="WF Permian Serif Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="permianslabseriftypefaceRg" label="WF Permian Slab Serif Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="robotoblack" label="WF Roboto Black">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="roboto_condensedregular" label="WF Roboto Condensed">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="roboto_condensedlight" label="WF Roboto Condensed Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="robotolight" label="WF Roboto Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="robotomedium" label="WF Roboto Medium">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="robotoregular" label="WF Roboto Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="robotothin" label="WF Roboto Thin">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="roboto_slablight" label="WF Roboto Slab Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="roboto_slabregular" label="WF Roboto Slab Regular">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="roboto_slabthin" label="WF Roboto Slab Thin">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="font_custom" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="edit" id="font_custom" text="" def="" x="130" y="136" w="175" h="13"/>
+
+		<param type="label" id="lab_font_style" text="Стиль, размер" def="" x="15" y="154" w="115" h="11"/>
+		<param type="select" id="font_style" text="" def="normal" x="130" y="152" w="118" h="13">
+			<items>
+				<item id="normal" label="Обычный"/>
+				<item id="bold" label="Жирный"/>
+				<item id="italic" label="Курсив"/>
+				<item id="bolditalic" label="Курсив жирный"/>
+			</items>
+		</param>
+		<param type="spinner" id="font_size" text="" def="14" x="250" y="152" w="32" h="13" min="1" max="100"/>
+		<param type="label" id="lab_font_size2" text="пкс" x="285" y="154" w="25" h="11"/>
+
+		<param type="label" id="lab_text_shadow_strength" text="Тень" def="" x="15" y="170" w="115" h="11"/>
+		<param type="select" id="text_shadow_strength" text="" def="none" x="130" y="168" w="118" h="13">
+			<items>
+				<item id="none" label="Без тени">
+					<events>
+						<event name="selendok" target="text_shadow_color" action="disable"/>
+					</events>
+				</item>
+				<item id="extralight" label="Очень слабая">
+					<events>
+						<event name="selendok" target="text_shadow_color" action="enable"/>
+					</events>
+				</item>
+				<item id="light" label="Слабая">
+					<events>
+						<event name="selendok" target="text_shadow_color" action="enable"/>
+					</events>
+				</item>
+				<item id="normal" label="Нормальная">
+					<events>
+						<event name="selendok" target="text_shadow_color" action="enable"/>
+					</events>
+				</item>
+				<item id="dark" label="Интенсивная">
+					<events>
+						<event name="selendok" target="text_shadow_color" action="enable"/>
+					</events>
+				</item>
+				<item id="extradark" label="Очень интенсивная">
+					<events>
+						<event name="selendok" target="text_shadow_color" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="color" id="text_shadow_color" text="" def="#666666" x="250" y="168" w="40" h="13"/>
+
+	</page>
+    <page name="Звук" w="320" h="200">
+
+		<param type="line" id="LINE_snd_1" text="" def="" x="5" y="8" w="310" h="48"/>
+		<param type="line" id="LINE_snd_2" text="" def="" x="5" y="24" w="310" h="32"/>
+		<param type="label" id="lab_snd_click" text="Выбор элемента" def="" x="15" y="12" w="120" h="11"/>
+		<param type="select" id="sound_click" text="" def="none" x="15" y="34" w="113" h="13">
+			<items>
+				<item id="none" label="Без звука">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click1" label="Стандартный 1">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click2" label="Стандартный 2">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click3" label="Стандартный 3">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click4" label="Стандартный 4">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="file" id="sound_click_file_custom" text="" def="" x="130" y="34" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+    </page>
+	<methods>
+		<method name="Constructor" label="_Constructor" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function Constructor(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var bDefer = false;
+				switch(oCurObj.display)
+				{
+					case "none":
+					{
+						bDefer = true;
+						CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						break;
+					}
+					case "time":
+					case "frame":
+					case "slide":
+					{
+						if(oCurObj.iBegin!=null && +oCurObj.iBegin!=0)
+						{
+							bDefer = true;
+							CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						}
+						break;
+					}
+				}
+				var jxItems = oCurObj.jxParams.find("valuelist > item");
+				var sVarName = oCurObj.jxParams.children("input_id").text();
+				if(sVarName=="") sVarName = "my_var";
+				var jFld = jCurObjDiv.find(".cl-fld");
+				jFld.on("change", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+				oCurObj.data =
+				{
+					sVarName: sVarName,
+					sCurrentValue: jFld.val(),
+					bGlobal: (oCurObj.jxParams.children("var_scope").text()=="global"),
+					bCreated: true,
+					bRestore: (oCurObj.jxParams.children("restore").text()=="yes"),
+					sSoundClick: oCurObj.jxParams.children("sound_click").text()
+				};
+				if(oCurObj.data.sSoundClick=="custom")
+				{
+					oCurObj.data.sSoundClickFile = oCurObj.jxParams.children("sound_click_file_custom").text();
+				}
+				if(oCurObj.data.bRestore)
+				{
+					if(CLZ.oStore[argobj.pid]==null)
+					{
+						CLZ.oStore[argobj.pid] = [ oCurObj.data.sCurrentValue ];
+					}
+					else
+					{
+						if(CLZ.oStore[argobj.pid][0]!=null)
+						{
+							oCurObj.data.sCurrentValue = CLZ.oStore[argobj.pid][0];
+							var jFlds = jCurObjDiv.find(".cl-fld option");
+							for(var i=1; i<=jFlds.length; i++)
+							{
+								if($(jFlds[i-1]).val()==oCurObj.data.sCurrentValue)
+								{
+									$(jFlds[i-1]).prop("selected", true);
+									break;
+								}
+							}
+
+						}
+					}
+				}
+				if(oCurObj.data.bGlobal)
+				{
+					CLV.oGlobal[oCurObj.data.sVarName] = oCurObj.data.sCurrentValue;
+				}
+				else
+				{
+					CLV.oSlide[oCurObj.data.sVarName] = oCurObj.data.sCurrentValue;
+				}
+				if(!bDefer)
+				{
+					oCurObj.CallMethod({ sMethod: "Display" });
+				}
+				else
+				{
+					jCurObjDiv.find(".cl-container:first").hide();
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="HandleEvt" label="_HandleEvt" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function HandleEvt(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				if(oCurObj==null || oCurObj.div==null) return false;
+				switch(argobj.evt)
+				{
+					case "EVENT_OBJECT_SHOW":
+					{
+						if(!oCurObj.data.bCreated) return false;
+						CLO[argobj.pid].CallMethod({ sMethod: "Display" });
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="Display" label="_Display" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Display(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				oCurObj.FireEvent({ sName: "onStartDisplay" });
+				jCurObjDiv.find(".cl-container:first").show();
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="UIEvent" label="_UIEvent" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function UIEvent(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jFld = $(argobj.elem);
+				if(jFld.hasClass("cl-fld"))
+				{
+					if(jFld.is(":disabled")) return false;
+					switch(argobj.evt.type)
+					{
+						case "change":
+						{
+							var sValue = jFld.val();
+							oCurObj.data.sCurrentValue = sValue;
+							if(oCurObj.data.bGlobal)
+							{
+								CLV.oGlobal[oCurObj.data.sVarName] = sValue;
+							}
+							else
+							{
+								CLV.oSlide[oCurObj.data.sVarName] = sValue;
+							}
+							if(oCurObj.data.bRestore)
+							{
+								CLZ.oStore[argobj.pid][0] = sValue;
+							}
+							CL.Sound.Stop({ sId: argobj.pid, sEvent: "click" });
+							if(oCurObj.data.sSoundClick!="none")
+							{
+								CL.Sound.Play({ sId: argobj.pid, sEvent: "click", sType: oCurObj.data.sSoundClick, sFile: oCurObj.data.sSoundClickFile })
+							}
+							oCurObj.FireEvent({ sName: "onSelectItem" });
+							break;
+						}
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="DisableInput" label="ЗАПРЕТИТЬ" access="public">
+            <params>
+            </params>
+            <body>
+                <![CDATA[function DisableInput(argobj)
+                {
+ 					var oCurObj = CLO[argobj.pid];
+					var jCurObjDiv = $(oCurObj.div);
+					jCurObjDiv.find(".cl-fld").prop("disabled", true);
+					oCurObj.FireEvent({ sName:  "onDisable" });
+					return true;
+				}]]>
+			</body>
+		</method>
+		<method name="EnableInput" label="РАЗРЕШИТЬ" access="public">
+            <params>
+            </params>
+            <body>
+                <![CDATA[function EnableInput(argobj)
+                {
+					var oCurObj = CLO[argobj.pid];
+					var jCurObjDiv = $(oCurObj.div);
+                    jCurObjDiv.find(".cl-fld").prop("disabled", false);
+					oCurObj.FireEvent({ sName: "onEnable" });
+					return true;
+				}]]>
+			</body>
+		</method>
+		<method name="GetProperty" label="_GetProperty" access="private">
+			<params>
+			</params>
+			<body>
+				<![CDATA[function GetProperty(argobj)
+				{
+					if(argobj.pid==null || argobj.property==null) return false;
+					var oCurObj = CLO[argobj.pid];
+					var jFld = $("#" + argobj.pid + "_FLD");
+					if(jFld.length>0)
+					{
+						switch(argobj.property.toLowerCase())
+						{
+							case "disabled":
+							{
+								return (jFld.is(":disabled") ? "1" : "0");
+							}
+							case "value":
+							{
+								return oCurObj.data.sCurrentValue;
+							}
+							case "selectedname":
+							{
+								return $(jFld.children("option")[jFld.prop("selectedIndex")]).text();
+							}
+						}
+					}
+					return "";
+				}]]>
+			</body>
+		</method>
+	</methods>
+</params>

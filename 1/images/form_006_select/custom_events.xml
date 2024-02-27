@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><events>
+	<event>
+		<name>onSelectItem</name>
+		<label>Элемент выбран</label>
+		<group>Объект - собственные</group>
+	</event>
+</events>

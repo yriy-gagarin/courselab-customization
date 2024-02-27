@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><events>
+	<event>
+		<name>onStart</name>
+		<label>Начало отсчета</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onTimeout</name>
+		<label>Окончание времени</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onTick</name>
+		<label>Тик таймера</label>
+		<group>Объект - собственные</group>
+	</event>
+</events>

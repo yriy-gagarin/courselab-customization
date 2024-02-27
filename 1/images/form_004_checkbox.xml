@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+'*	form_004_checkbox.xml
+'*	Copyright (c) Websoft, 2006.  All rights reserved.
+--><params>
+	<object>
+		<label>Маркер</label>
+		<width>200</width>
+		<height>28</height>
+		<description>Поле-маркер. Значение поля доступно через переменную run-time.</description>
+		<state_extension>false</state_extension>
+	</object>
+	<page name="Основные" w="320" h="140">
+		<param type="label" text="Имя переменной" x="10" y="10" w="120" h="13"/>
+		<param type="edit" id="input_id" text="" def="checkbox_var" x="130" y="8" w="180" h="13"/>
+		<param type="label" text="Значение с маркером" x="10" y="26" w="120" h="13"/>
+		<param type="edit" id="input_value" text="" def="1" x="130" y="24" w="180" h="13"/>
+		<param type="label" text="Значение без маркера" x="10" y="42" w="120" h="13"/>
+		<param type="edit" id="input_value_not" text="" def="0" x="130" y="40" w="180" h="13"/>
+		<param type="label" text="Начальное значение" x="10" y="58" w="120" h="13"/>
+		<param type="select" id="initial_state" text="" def="no" x="130" y="56" w="120" h="13">
+			<items>
+				<item id="no" label="Не установлен"/>
+				<item id="yes" label="Установлен"/>
+			</items>
+		</param>
+		<param type="label" text="Область действия переменной" x="10" y="74" w="120" h="13"/>
+		<param type="select" id="var_scope" text="" def="slide" x="130" y="72" w="120" h="13">
+			<items>
+				<item id="slide" label="В пределах слайда"/>
+				<item id="global" label="Весь модуль"/>
+			</items>
+		</param>
+		<param type="check" id="restore" text="Восстанавливать значение" def="yes" x="10" y="88" w="300" h="13"/>
+	</page>
+	<page name="Вид" w="320" h="140">
+		<param type="check" id="input_showtext" text="Показывать описание" def="yes" x="10" y="8" w="240" h="13">
+			<events>
+				<event name="check" target="fs_desc" action="show"/>
+				<event name="uncheck" target="fs_desc" action="hide"/>
+			</events>
+		</param>
+		<param type="fieldset" id="fs_desc">
+			<param type="label" id="lab_input_text" text="Текст описания" x="10" y="26" w="120" h="13"/>
+			<param type="textedit" id="input_text" text="" def="Текст по умолчанию" x="130" y="24" w="163" h="13"/>
+			<param type="label" id="lab_input_margin" text="Отбивка текста" x="10" y="42" w="120" h="13"/>
+			<param type="spinner" id="input_margin" text="" def="10" x="130" y="40" w="32" h="13" min="0" max="99"/>
+			<param type="label" id="input_margin_label2" text="пкс" x="165" y="42" w="30" h="13"/>
+			<param type="label" id="lab_input_where" text="Расположение описания" x="10" y="58" w="120" h="13"/>
+			<param type="select" id="input_where" text="" def="right" x="130" y="56" w="120" h="13">
+				<items>
+					<item id="right" label="Справа"/>
+					<item id="left" label="Слева"/>
+				</items>
+			</param>
+		</param>
+	</page>
+    <page name="Звук" w="320" h="140">
+
+		<param type="line" id="LINE_snd_1" text="" def="" x="5" y="8" w="310" h="48"/>
+		<param type="line" id="LINE_snd_2" text="" def="" x="5" y="24" w="310" h="32"/>
+		<param type="label" id="lab_snd_click" text="Нажатие мыши" def="" x="15" y="12" w="120" h="11"/>
+		<param type="select" id="sound_click" text="" def="none" x="15" y="34" w="113" h="13">
+			<items>
+				<item id="none" label="Без звука">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click1" label="Стандартный 1">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click2" label="Стандартный 2">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click3" label="Стандартный 3">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click4" label="Стандартный 4">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="file" id="sound_click_file_custom" text="" def="" x="130" y="34" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+    </page>
+	<methods>
+		<method name="Constructor" label="_Constructor" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function Constructor(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var bDefer = false; 
+				switch(oCurObj.display)
+				{
+					case "none":
+					{
+						bDefer = true;
+						CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						break;
+					}
+					case "time":
+					case "frame":
+					case "slide":
+					{
+						if(oCurObj.iBegin!=null && +oCurObj.iBegin!=0)
+						{
+							bDefer = true;
+							CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						}
+						break;
+					}
+				}
+				var sVarName = oCurObj.jxParams.children("input_id").text();
+				if(sVarName=="") sVarName = "checkbox_var";
+				var jFld = $("#" + argobj.pid + "_FLD");
+				jFld.on("click", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+				oCurObj.data =
+				{
+					sVarName: sVarName,
+					sValueChecked: oCurObj.jxParams.children("input_value").text(),
+					sValueUnchecked: oCurObj.jxParams.children("input_value_not").text(),
+					bGlobal: (oCurObj.jxParams.children("var_scope").text()=="global"),
+					bCreated: true,
+					bRestore: (oCurObj.jxParams.children("restore").text()=="yes"),
+					sSoundClick: oCurObj.jxParams.children("sound_click").text()
+				};
+				if(oCurObj.data.sSoundClick=="custom")
+				{
+					oCurObj.data.sSoundClickFile = oCurObj.jxParams.children("sound_click_file_custom").text();
+				}
+				if(oCurObj.data.bRestore)
+				{
+					if(CLZ.oStore[argobj.pid]==null)
+					{
+						CLZ.oStore[argobj.pid] = [ (jFld.is(":checked") ? 1 : 0) ];
+					}
+					else
+					{
+						if(CLZ.oStore[argobj.pid][0]!=null)
+						{
+							jFld.prop("checked", (+CLZ.oStore[argobj.pid][0]==1));
+						}
+					}
+				}
+				if(oCurObj.data.bGlobal)
+				{
+					CLV.oGlobal[oCurObj.data.sVarName] = jFld.is(":checked") ? oCurObj.data.sValueChecked : oCurObj.data.sValueUnchecked;
+				}
+				else
+				{
+					CLV.oSlide[oCurObj.data.sVarName] = jFld.is(":checked") ? oCurObj.data.sValueChecked : oCurObj.data.sValueUnchecked;
+				}
+				if(!bDefer)
+				{
+					oCurObj.CallMethod({ sMethod: "Display" });
+				}
+				else
+				{
+					jCurObjDiv.find(".cl-container:first").hide();
+				}				
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="HandleEvt" label="_HandleEvt" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function HandleEvt(argobj)
+			{
+				if(CLO[argobj.pid]==null || CLO[argobj.pid].div==null) return false; 
+				switch(argobj.evt)
+				{
+					case "EVENT_OBJECT_SHOW":
+					{
+						if(!CLO[argobj.pid].data.bCreated) return false;
+						CLO[argobj.pid].CallMethod({ sMethod: "Display" });
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="Display" label="_Display" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Display(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				oCurObj.FireEvent({ sName: "onStartDisplay" });
+				jCurObjDiv.find(".cl-container:first").show();
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="UIEvent" label="_UIEvent" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function UIEvent(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jFld = $(argobj.elem);
+				if(jFld.hasClass("cl-fld"))
+				{
+					if(jFld.is(":disabled")) return false;
+					if(CLO[argobj.pid].data.bGlobal)
+					{
+						CLV.oGlobal[CLO[argobj.pid].data.sVarName] = jFld.is(":checked") ? CLO[argobj.pid].data.sValueChecked : CLO[argobj.pid].data.sValueUnchecked;
+					}
+					else
+					{
+						CLV.oSlide[CLO[argobj.pid].data.sVarName] = jFld.is(":checked") ? CLO[argobj.pid].data.sValueChecked : CLO[argobj.pid].data.sValueUnchecked;
+					}
+					if(oCurObj.data.bRestore)
+					{
+						CLZ.oStore[argobj.pid] = [ (jFld.is(":checked") ? 1 : 0) ];
+					}
+					switch(argobj.evt.type)
+					{
+						case "click":
+						{
+							CL.Sound.Stop({ sId: argobj.pid, sEvent: "click" });
+							if(oCurObj.data.sSoundClick!="none")
+							{
+								CL.Sound.Play({ sId: argobj.pid, sEvent: "click", sType: oCurObj.data.sSoundClick, sFile: oCurObj.data.sSoundClickFile })
+							}
+							CLO[argobj.pid].FireEvent({ sName: "onChangeValue" });
+							CLO[argobj.pid].FireEvent({ sName: (jFld.is(":checked") ? "onCheck" : "onUncheck") });
+							break;
+						}
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="DisableInput" label="ЗАПРЕТИТЬ" access="public">
+            <params>
+            </params>
+            <body>
+                <![CDATA[function DisableInput(argobj)
+                {
+                    $(CLO[argobj.pid].div).find(".cl-fld").prop("disabled", true);
+					CLO[argobj.pid].FireEvent({ sName: "onDisable" });
+					return true;
+				}]]>
+			</body>
+		</method>
+		<method name="EnableInput" label="РАЗРЕШИТЬ" access="public">
+            <params>
+            </params>
+            <body>
+                <![CDATA[function EnableInput(argobj)
+                {
+                    $(CLO[argobj.pid].div).find(".cl-fld").prop("disabled", false);
+					CLO[argobj.pid].FireEvent({ sName: "onEnable" });
+					return true;
+				}]]>
+			</body>
+		</method>
+		<method name="SetState" label="УСТАНОВИТЬ ЗНАЧЕНИЕ" access="public">
+            <params>
+				<param name="val" label="Значение" default="yes">
+					<items>
+						<item id="yes" label="Установлен"/>
+						<item id="no" label="Не установлен"/>
+					</items>
+				</param>
+            </params>
+            <body>
+                <![CDATA[function SetState(argobj)
+                {
+                    if(argobj.pid==null || argobj.val==null) return false;
+					var jFld = $("#" + argobj.pid + "_FLD");
+					jFld.prop("checked", (argobj.val=="yes"));
+					if(CLO[argobj.pid].data.bGlobal)
+					{
+						CLV.oGlobal[CLO[argobj.pid].data.sVarName] = jFld.is(":checked") ? CLO[argobj.pid].data.sValueChecked : CLO[argobj.pid].data.sValueUnchecked;
+					}
+					else
+					{
+						CLV.oSlide[CLO[argobj.pid].data.sVarName] = jFld.is(":checked") ? CLO[argobj.pid].data.sValueChecked : CLO[argobj.pid].data.sValueUnchecked;
+					}
+					if(oCurObj.data.bRestore)
+					{
+						CLZ.oStore[argobj.pid] = [ (jFld.is(":checked") ? 1 : 0) ];
+					}
+					CLO[argobj.pid].FireEvent({ sName: "onValueSet" });
+					return true;
+				}]]>
+			</body>
+		</method>
+		<method name="GetProperty" label="_GetProperty" access="private">
+			<params>
+			</params>
+			<body>
+				<![CDATA[function GetProperty(argobj)
+				{
+					if(argobj.pid==null || argobj.property==null) return false;
+					var jFld = $("#" + argobj.pid + "_FLD");
+					switch(argobj.property.toLowerCase())
+					{
+						case "disabled":
+						{
+							return (jFld.is(":disabled") ? "1" : "0");
+						}
+						case "value":
+						{
+							return (jFld.is(":checked") ? CLO[argobj.pid].data.sValueChecked : CLO[argobj.pid].data.sValueUnchecked);
+						}
+					}
+					return "";
+				}]]>
+			</body>
+		</method>
+	</methods>
+</params>

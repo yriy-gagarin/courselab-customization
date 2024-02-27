@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><events>
+	<event>
+		<name>onRefresh</name>
+		<label>Текст обновлен</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onAddText</name>
+		<label>Текст добавлен</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onReset</name>
+		<label>Текст сброшен</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onTypeWriterEnd</name>
+		<label>Текст развернут</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onChangeState</name>
+		<label>Изменение состояния</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onChangeStableState</name>
+		<label>Изменение стабильного состояния</label>
+		<group>Объект - собственные</group>
+	</event>
+</events>

@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+'*	v_rapid_010.xml
+--><params>
+	<object>
+		<format>2.0</format>
+		<label>Блок управления</label>
+		<description>Блок управления указателями на слайде</description>
+		<width>980</width>
+		<height>540</height>
+		<state_extension>false</state_extension>
+	</object>
+    <page name="Основные" w="320" h="200">
+		<param type="label" id="lab_objects" text="Порядок активации объектов" def="" x="10" y="10" w="120" h="13"/>
+		<param type="list" id="objects" text="yes" def="no" x="10" y="8" w="300" h="136">
+			<page name="Объект" w="320" h="80">
+				<param type="check" id="display_first" listcolumn="0" text="Показывать при старте" def="no" x="10" y="8" w="300" h="13"/>
+				<param type="label" id="lab_objectid" text="Объект" def="" x="10" y="26" w="120" h="13"/>
+				<param type="objectid" id="objectid" text="ID" def="" x="130" y="24" w="163" h="13"/>
+				<param type="label" id="lab_narration" text="Звуковой файл" def="" x="10" y="42" w="120" h="13"/>
+				<param type="file" id="narration" text="Звук" def="" listcolumn="0" x="130" y="40" w="163" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+			</page>
+		</param>
+
+		<param type="check" id="restore_state" text="Сохранять состояние" def="yes" x="10" y="150" w="240" h="13"/>
+
+		<param type="label" id="lab_shadow" text="Тень" def="" x="10" y="166" w="120" h="13"/>
+		<param type="select" id="shadow_strength" text="" def="normal" x="130" y="164" w="120" h="13">
+			<items>
+				<item id="none" label="Без тени"/>
+				<item id="extralight" label="Очень слабая"/>
+				<item id="light" label="Слабая"/>
+				<item id="normal" label="Нормальная"/>
+				<item id="dark" label="Интенсивная"/>
+				<item id="extradark" label="Очень интенсивная"/>
+			</items>
+		</param>
+
+    </page>
+	<page name="Управление" w="320" h="200">
+
+		<param type="check" id="display_ribbon" text="Показывать собственную полосу управления" def="yes" x="10" y="8" w="300" h="13">
+			<events>
+				<event name="check" target="fs_ribbon" action="show"/>
+				<event name="uncheck" target="fs_ribbon" action="hide"/>
+			</events>
+		</param>
+
+		<param type="fieldset" id="fs_ribbon">
+
+			<param type="label" id="lab_ribbon_text" text="Название на полосе" def="" x="10" y="30" w="130" h="13"/>
+			<param type="edit" id="ribbon_text" text="" def="Название" x="130" y="28" w="180" h="13"/>
+
+			<param type="label" id="lab_ribbon_color_scheme" text="Цветовая схема" def="" x="10" y="46" w="120" h="11"/>
+			<param type="select" id="ribbon_color_scheme" def="blue" text="" x="130" y="44" w="180" h="13">
+				<items>
+					<item id="turquoise" label="Бирюзовый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="lightblue" label="Голубой">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="yellow" label="Желтый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="green" label="Зеленый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="brown" label="Коричневый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="red" label="Красный">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="deeppink" label="Малиновый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="olive" label="Оливковый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="orange" label="Оранжевый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="pink" label="Розовый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="grey" label="Серый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="bluegreen" label="Сине-зеленый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="blue" label="Синий">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="steelblue" label="Стальной синий">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="violet" label="Фиолетовый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="white" label="Белый">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="black" label="Черный">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="disable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="auto" label="Автоградиент">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="enable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="disable"/>
+							<event name="selendok" target="ribbon_border_color" action="disable"/>
+						</events>
+					</item>
+					<item id="custom" label="По выбору">
+						<events>
+							<event name="selendok" target="ribbon_bg_color" action="enable"/>
+							<event name="selendok" target="ribbon_gradient_color" action="enable"/>
+							<event name="selendok" target="ribbon_border_color" action="enable"/>
+						</events>
+					</item>
+				</items>
+			</param>
+			<param type="color" id="ribbon_bg_color" text="" def="#E8EEFF" x="130" y="60" w="40" h="13"/>
+			<param type="color" id="ribbon_gradient_color" text="" def="#FFFFFF" x="190" y="60" w="40" h="13"/>
+			<param type="color" id="ribbon_border_color" text="" def="#336699" x="250" y="60" w="40" h="13"/>
+
+			<param type="line" id="LINE_ribbon_font_1" text="" def="" x="5" y="82" w="310" h="78"/>
+			<param type="line" id="LINE_ribbon_font_2" text="" def="" x="5" y="98" w="310" h="62"/>
+
+			<param type="label" id="lab_ribbon_font" text="Шрифт" x="15" y="86" w="120" h="11"/>
+			<param type="select" id="ribbon_font" text="" def="robotomedium" x="15" y="106" w="113" h="13">
+				<items>
+					<item id="Arial" label="Arial">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="ArialBlack" label="Arial Black">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="ArialNarrow" label="Arial Narrow">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="ComicSansMS" label="Comic Sans MS">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="CourierNew" label="Courier New">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Georgia" label="Georgia">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Impact" label="Impact">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="LucidaConsole" label="Lucida Console">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="LucidaSansUnicode" label="Lucida Sans Unicode">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Palatino" label="Palatino">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Tahoma" label="Tahoma">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Times" label="Times New Roman">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="TrebuchetMS" label="Trebuchet MS">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Verdana" label="Verdana">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="clear_sans_lightregular" label="WF Clear Sans Light">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="clear_sans_mediumregular" label="WF Clear Sans Medium">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="clear_sansregular" label="WF Clear Sans Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="clear_sans_thinregular" label="WF Clear Sans Thin">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="droid_sans_monoregular" label="WF Droid Sans Mono">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="droid_sansregular" label="WF Droid Sans Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="droid_serifregular" label="WF Droid Serif Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Fira_Mono" label="WF Fira Mono">
+						<events>
+							<event name="selendok" target="font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Fira_Sans" label="WF Fira Sans">
+						<events>
+							<event name="selendok" target="font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="FiraSansLight" label="WF Fira Sans Light">
+						<events>
+							<event name="selendok" target="font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="FiraSansMedium" label="WF Fira Sans Medium">
+						<events>
+							<event name="selendok" target="font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Fregat_Sans" label="WF Fregat Sans">
+						<events>
+							<event name="selendok" target="font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="Lato_Sans" label="WF Lato Sans">
+						<events>
+							<event name="selendok" target="font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="LatoSansLight" label="WF Lato Sans Light">
+						<events>
+							<event name="selendok" target="font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="nerisblack" label="WF Neris Black">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="nerislight" label="WF Neris Light">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="nerissemibold" label="WF Neris SemiBold">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="neristhin" label="WF Neris Thin">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="noto_sansregular" label="WF Noto Sans Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="noto_serifregular" label="WF Noto Serif Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="open_sanscondensed_light" label="WF Open Sans Condensed Light">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="open_sansextrabold" label="WF Open Sans Extra Bold">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="open_sanslight" label="WF Open Sans Light">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="open_sansregular" label="WF Open Sans Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="open_sanssemibold" label="WF Open Sans SemiBold">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="permiansanstypefaceregular" label="WF Permian Sans Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="permianseriftypefaceregular" label="WF Permian Serif Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="permianslabseriftypefaceRg" label="WF Permian Slab Serif Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="robotoblack" label="WF Roboto Black">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="roboto_condensedregular" label="WF Roboto Condensed">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="roboto_condensedlight" label="WF Roboto Condensed Light">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="robotolight" label="WF Roboto Light">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="robotomedium" label="WF Roboto Medium">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="robotoregular" label="WF Roboto Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="robotothin" label="WF Roboto Thin">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="roboto_slablight" label="WF Roboto Slab Light">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="roboto_slabregular" label="WF Roboto Slab Regular">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="roboto_slabthin" label="WF Roboto Slab Thin">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="disable"/>
+						</events>
+					</item>
+					<item id="custom" label="По выбору">
+						<events>
+							<event name="selendok" target="ribbon_font_custom" action="enable"/>
+						</events>
+					</item>
+				</items>
+			</param>
+			<param type="edit" id="ribbon_font_custom" text="" def="" x="130" y="106" w="175" h="13"/>
+
+			<param type="label" id="lab_ribbon_font_style" text="Стиль, размер" def="" x="15" y="124" w="115" h="11"/>
+			<param type="select" id="ribbon_font_style" text="" def="normal" x="130" y="122" w="118" h="13">
+				<items>
+					<item id="normal" label="Обычный"/>
+					<item id="bold" label="Жирный"/>
+					<item id="italic" label="Курсив"/>
+					<item id="bolditalic" label="Курсив жирный"/>
+				</items>
+			</param>
+			<param type="spinner" id="ribbon_font_size" text="" def="18" x="250" y="122" w="32" h="13" min="1" max="100"/>
+			<param type="label" id="lab_ribbon_font_size2" text="пкс" x="285" y="124" w="25" h="11"/>
+
+			<param type="label" id="lab_ribbon_text_shadow_strength" text="Тень" def="" x="15" y="140" w="115" h="11"/>
+			<param type="select" id="ribbon_text_shadow_strength" text="" def="light" x="130" y="138" w="118" h="13">
+				<items>
+					<item id="none" label="Без тени">
+						<events>
+							<event name="selendok" target="text_shadow_color" action="disable"/>
+						</events>
+					</item>
+					<item id="extralight" label="Очень слабая">
+						<events>
+							<event name="selendok" target="text_shadow_color" action="enable"/>
+						</events>
+					</item>
+					<item id="light" label="Слабая">
+						<events>
+							<event name="selendok" target="text_shadow_color" action="enable"/>
+						</events>
+					</item>
+					<item id="normal" label="Нормальная">
+						<events>
+							<event name="selendok" target="text_shadow_color" action="enable"/>
+						</events>
+					</item>
+					<item id="dark" label="Интенсивная">
+						<events>
+							<event name="selendok" target="text_shadow_color" action="enable"/>
+						</events>
+					</item>
+					<item id="extradark" label="Очень интенсивная">
+						<events>
+							<event name="selendok" target="text_shadow_color" action="enable"/>
+						</events>
+					</item>
+				</items>
+			</param>
+			<param type="color" id="ribbon_text_shadow_color" text="" def="#666666" x="250" y="138" w="40" h="13"/>
+		</param>
+	</page>
+	<page name="Подложка" w="320" h="200">
+		<param type="check" id="display_bg" text="Показывать подложку" def="yes" x="10" y="8" w="240" h="13">
+			<events>
+				<event name="check" target="fs_bg" action="show"/>
+				<event name="uncheck" target="fs_bg" action="hide"/>
+			</events>
+		</param>
+
+		<param type="fieldset" id="fs_bg">
+
+			<param type="line" id="LINE_bg_1" text="" def="" x="5" y="24" w="310" h="110"/>
+			<param type="line" id="LINE_bg_2" text="" def="" x="5" y="40" w="310" h="94"/>
+			<param type="label" id="lab_desc_view" text="Вид" def="" x="15" y="28" w="120" h="11"/>
+
+			<param type="label" id="lab_bg_color_scheme" text="Цветовая схема" def="" x="15" y="50" w="115" h="11"/>
+			<param type="select" id="bg_color_scheme" text="" def="custom" x="130" y="48" w="175" h="13">
+				<items>
+					<item id="turquoise" label="Бирюзовый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="lightblue" label="Голубой">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="yellow" label="Желтый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="green" label="Зеленый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="brown" label="Коричневый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="red" label="Красный">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="deeppink" label="Малиновый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="olive" label="Оливковый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="orange" label="Оранжевый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="pink" label="Розовый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="grey" label="Серый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="bluegreen" label="Сине-зеленый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="blue" label="Синий">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="steelblue" label="Стальной синий">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="violet" label="Фиолетовый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="white" label="Белый">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="black" label="Черный">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="disable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="disable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="auto" label="Автоматически">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="enable"/>
+							<event name="selendok" target="bg_border_color" action="disable"/>
+							<event name="selendok" target="bg_bg_color" action="enable"/>
+							<event name="selendok" target="bg_gradient_color" action="disable"/>
+						</events>
+					</item>
+					<item id="custom" label="По выбору">
+						<events>
+							<event name="selendok" target="lab_bg_colors" action="enable"/>
+							<event name="selendok" target="bg_border_color" action="enable"/>
+							<event name="selendok" target="bg_bg_color" action="enable"/>
+							<event name="selendok" target="bg_gradient_color" action="enable"/>
+						</events>
+					</item>
+				</items>
+			</param>
+			<param type="label" id="lab_bg_colors" text="Заливка, градиент, граница	" def="" x="15" y="66" w="110" h="11"/>
+			<param type="color" id="bg_bg_color" text="" def="#E8EEFF" x="130" y="64" w="40" h="13"/>
+			<param type="color" id="bg_gradient_color" text="" def="#FFFFFF" x="190" y="64" w="40" h="13"/>
+			<param type="color" id="bg_border_color" text="" def="#336699" x="250" y="64" w="40" h="13"/>
+
+			<param type="label" id="lab_bg_grad_angle" text="Угол градиента" def="" x="15" y="82" w="115" h="13"/>
+			<param type="spinner" id="bg_grad_angle" text="" def="0" x="130" y="80" w="32" h="13" min="0" max="359"/>
+			<param type="label" id="lab_bg_grad_angle2" text="°" def="" x="165" y="82" w="20" h="13"/>
+
+			<param type="label" id="lab_bg_border_width" text="Граница, радиус" def="" x="15" y="98" w="115" h="13"/>
+			<param type="spinner" id="bg_border_width" text="" def="1" x="130" y="96" w="32" h="13" min="0" max="99"/>
+			<param type="label" id="lab_bg_border_width2" text="пкс" def="" x="165" y="98" w="30" h="13"/>
+			<param type="spinner" id="bg_radius" text="" def="10" x="190" y="96" w="32" h="13" min="0" max="99"/>
+			<param type="label" id="lab_bg_radius2" text="пкс" def="" x="225" y="98" w="50" h="13"/>
+
+			<param type="label" id="lab_bg_padding" text="Отбивка" def="" x="15" y="114" w="115" h="13"/>
+			<param type="spinner" id="bg_padding" text="" def="20" x="130" y="112" w="32" h="13" min="0" max="99"/>
+			<param type="label" id="lab_bg_padding2" text="пкс" def="" x="165" y="114" w="20" h="13"/>
+		</param>
+	</page>
+    <page name="Звук" w="320" h="200">
+
+		<param type="line" id="LINE_snd_1" text="" def="" x="5" y="8" w="310" h="48"/>
+		<param type="line" id="LINE_snd_2" text="" def="" x="5" y="24" w="310" h="32"/>
+		<param type="label" id="lab_snd_click" text="Нажатие мыши" def="" x="15" y="12" w="120" h="11"/>
+		<param type="select" id="sound_click" text="" def="none" x="15" y="34" w="113" h="13">
+			<items>
+				<item id="none" label="Без звука">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click1" label="Стандартный 1">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click2" label="Стандартный 2">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click3" label="Стандартный 3">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click4" label="Стандартный 4">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="file" id="sound_click_file_custom" text="" def="" x="130" y="34" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+
+		<param type="line" id="LINE_snd_3" text="" def="" x="5" y="62" w="310" h="48"/>
+		<param type="line" id="LINE_snd_4" text="" def="" x="5" y="78" w="310" h="32"/>
+		<param type="label" id="lab_snd_over" text="Наведение мыши" def="" x="15" y="66" w="120" h="11"/>
+		<param type="select" id="sound_over" text="" def="none" x="15" y="88" w="113" h="13">
+			<items>
+				<item id="none" label="Без звука">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="over1" label="Стандартный 1">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="over2" label="Стандартный 2">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="over3" label="Стандартный 3">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="over4" label="Стандартный 4">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="file" id="sound_over_file_custom" text="" def="" x="130" y="88" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+    </page>
+    <methods>
+		<method name="Constructor" label="_Constructor" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Constructor(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var bDefer = false;
+				switch(oCurObj.display)
+				{
+					case "none":
+					{
+						bDefer = true;
+						CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						break;
+					}
+					case "time":
+					case "frame":
+					case "slide":
+					{
+						if(oCurObj.iBegin!=null && +oCurObj.iBegin!=0)
+						{
+							bDefer = true;
+							CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						}
+						break;
+					}
+				}
+				oCurObj.data =
+				{
+					bRestore: (oCurObj.jxParams.find("restore_state").text()=="yes"),
+					bDisplayRibbon: (oCurObj.jxParams.find("display_ribbon").text()=="yes"),
+					iTotalElems: oCurObj.jxParams.find("objects > item").length,
+					sSoundClick: oCurObj.jxParams.children("sound_click").text(),
+					sSoundOver: oCurObj.jxParams.children("sound_over").text()
+				};
+				if(oCurObj.data.sSoundClick=="custom")
+				{
+					oCurObj.data.sSoundClickFile = oCurObj.jxParams.children("sound_click_file_custom").text();
+				}
+				if(oCurObj.data.sSoundOver=="custom")
+				{
+					oCurObj.data.sSoundOverFile = oCurObj.jxParams.children("sound_over_file_custom").text();
+				}
+				if(CLZ.oStore[argobj.pid]!=null && oCurObj.data.bRestore)
+				{
+					oCurObj.data.iCurrent = CLZ.oStore[argobj.pid][CLZ.oStore[argobj.pid].length-1];
+				}
+				else
+				{
+					CLZ.oStore[argobj.pid] = [];
+					var aElementDisplay = oCurObj.jxParams.find("objects > item > display_first");
+					var iIdx = -1;
+					for(var i=0; i<aElementDisplay.length; i++)
+					{
+						if($(aElementDisplay[i]).text()=="yes")
+						{
+							iIdx = i + 1;
+							break;
+						}
+					}
+					if(iIdx==-1)
+					{
+						oCurObj.data.iCurrent = 1;
+					}
+					else
+					{
+						oCurObj.data.iCurrent = iIdx;
+					}
+				}
+				if(oCurObj.data.bDisplayRibbon)
+				{
+					if(CL.bTouch)
+					{
+						jCurObjDiv.find(".cl-header-btn").on("click", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+					}
+					else
+					{
+						jCurObjDiv.find(".cl-header-btn").on("mouseover", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("mouseout", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("click", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+					}
+				}
+				oCurObj.data.bCreated = true;
+				oCurObj.FireEvent({ sName: "onCreated" });
+				if(!bDefer)
+				{
+					oCurObj.CallMethod({ sMethod: "Display", oMethodArgs: { elindex: oCurObj.data.iCurrent, bInit: true } });
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="HandleEvt" label="_HandleEvt" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function HandleEvt(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				if(oCurObj==null || oCurObj.div==null) return false;
+				switch(argobj.evt)
+				{
+					case "EVENT_OBJECT_SHOW":
+					{
+						if(!oCurObj.data.bCreated) return false;
+						oCurObj.CallMethod({ sMethod: "Display", oMethodArgs: { elindex: oCurObj.data.iCurrent, bInit: true } });
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="UIEvent" label="_UIEvent" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function UIEvent(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				if(argobj.evt==null) return false;
+				var jElem = $(argobj.elem);
+				if($(argobj.elem).hasClass("cl-header-btn"))
+				{
+					if(jElem.hasClass("cl-header-btn-disabled")) return false;
+					switch(argobj.evt.type)
+					{
+						case "mouseover":
+						{
+							jElem.removeClass("cl-header-btn-idle").addClass("cl-header-btn-over");
+							CL.Sound.Stop({ sId: argobj.pid, sEvent: "over" });
+							if(oCurObj.data.sSoundOver!="none")
+							{
+								CL.Sound.Play({ sId: argobj.pid, sEvent: "over", sType: oCurObj.data.sSoundOver, sFile: oCurObj.data.sSoundOverFile })
+							}
+							break;
+						}
+						case "mouseout":
+						{
+							jElem.removeClass("cl-header-btn-over").addClass("cl-header-btn-idle");
+							break;
+						}
+						case "click":
+						{
+							CL.Sound.Stop({ sId: argobj.pid, sEvent: "click" });
+							if(oCurObj.data.sSoundClick!="none")
+							{
+								CL.Sound.Play({ sId: argobj.pid, sEvent: "click", sType: oCurObj.data.sSoundClick, sFile: oCurObj.data.sSoundClickFile })
+							}
+							jElem.removeClass("cl-header-btn-over").addClass("cl-header-btn-idle");
+							oCurObj.CallMethod({ sMethod: (jElem.hasClass("cl-header-btn-left") ? "Prev" : "Next") });
+							break;
+						}
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="UpdateButtons" label="_UpdateButtons" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function UpdateButtons(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var jPrev = jCurObjDiv.find(".cl-header-btn-left");
+				var jNext = jCurObjDiv.find(".cl-header-btn-right");
+				jPrev.removeClass("cl-header-btn-disabled");
+				jNext.removeClass("cl-header-btn-disabled");
+				if(oCurObj.data.iCurrent<=1 && oCurObj.data.iTotalElems<=1)
+				{
+					jPrev.addClass("cl-header-btn-disabled");
+					jNext.addClass("cl-header-btn-disabled");
+				}
+				else if(oCurObj.data.iCurrent==1 && oCurObj.data.iTotalElems>1)
+				{
+					oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: { type: "mouseout" }, elem: jPrev } });
+					jPrev.addClass("cl-header-btn-disabled");
+				}
+				else if(oCurObj.data.iCurrent==oCurObj.data.iTotalElems)
+				{
+					oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: { type: "mouseout" }, elem: jNext } });
+					jNext.addClass("cl-header-btn-disabled");
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="Next" label="СЛЕДУЮЩИЙ" access="public">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Next(argobj)
+			{
+				if(CLO[argobj.pid].div==null) return false;
+				CLO[argobj.pid].CallMethod({ sMethod: "Display", oMethodArgs: { elindex: CLO[argobj.pid].data.iCurrent + 1 } });
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="Prev" label="ПРЕДЫДУЩИЙ" access="public">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Prev(argobj)
+			{
+				if(CLO[argobj.pid].div==null) return false;
+				CLO[argobj.pid].CallMethod({ sMethod: "Display", oMethodArgs: { elindex: CLO[argobj.pid].data.iCurrent - 1 } });
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="Display" label="ПОКАЗАТЬ" access="public">
+			<params>
+				<param name="elindex" label="Номер элемента"/>
+			</params>
+			<body>
+			<![CDATA[function Display(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				if(oCurObj==null || oCurObj.div==null) return false;
+				var jCurObjDiv = $(oCurObj.div);
+				var iIndex = 1;
+				if(argobj.elindex!=null)
+				{
+					iIndex = parseInt(argobj.elindex, 10);
+					if(isNaN(iIndex)) return false;
+				}
+				else
+				{
+					if(argobj.elem!=null)
+					{
+						if($(argobj.elem).hasClass("cl-header-btn-right"))
+						{
+							iIndex = oCurObj.data.iCurrent + 1;
+						}
+						else if($(argobj.elem).hasClass("cl-header-btn-left"))
+						{
+							iIndex = oCurObj.data.iCurrent - 1;
+						}
+					}
+				}
+				if(iIndex<1 || iIndex>oCurObj.data.iMax) return false;
+				var aObjects = oCurObj.jxParams.find("objects > item");
+				var sObjectId;
+				var oObject;
+				for(var i=1; i<=aObjects.length; i++)
+				{
+					if(i==iIndex)
+					{
+						sObjectId = $(aObjects[i-1]).children("objectid").text();
+						oObject = CLO[sObjectId];
+						if(oObject==null) continue;
+						if(oObject.type!=null)
+						{
+							if(CL.oMethods[oObject.type]!=null)
+							{
+								if(CL.oMethods[oObject.type]["Open"]!=null)
+								{
+									oObject.CallMethod({ sMethod: "Open" });
+								}
+								else
+								{
+									oObject.Show();
+								}
+							}
+							else
+							{
+								oObject.Show();
+							}
+						}
+						else
+						{
+							oObject.Show();
+						}
+					}
+					else
+					{
+						sObjectId = $(aObjects[i-1]).children("objectid").text();
+						oObject = CLO[sObjectId];
+						if(oObject==null) continue;
+						if(oObject.type!=null)
+						{
+							if(CL.oMethods[oObject.type]!=null)
+							{
+								if(CL.oMethods[oObject.type]["Close"]!=null)
+								{
+									oObject.CallMethod({ sMethod: "Close" });
+								}
+								else
+								{
+									oObject.Hide();
+								}
+							}
+							else
+							{
+								oObject.Hide();
+							}
+						}
+						else
+						{
+							oObject.Hide();
+						}
+					}
+				}
+				oCurObj.FireEvent({ sName: "onDisplayItem" });
+				if(iIndex==1 && oCurObj.data.iTotalElems>1)
+				{
+					oCurObj.FireEvent({ sName: "onDisplayFirstItem" });
+				}
+				else if(iIndex==oCurObj.data.iTotalElems && oCurObj.data.iTotalElems>1)
+				{
+					oCurObj.FireEvent({ sName: "onDisplayLastItem" });
+				}
+				var iIdx = $.inArray(iIndex, CLZ.oStore[argobj.pid]);
+				if(iIdx==-1)
+				{
+					CLZ.oStore[argobj.pid].push(iIndex);
+					if(CLZ.oStore[argobj.pid].length>=oCurObj.data.iTotalElems)
+					{
+						oCurObj.FireEvent({ sName: "onAllVisited" });
+					}
+				}
+				else
+				{
+					CLZ.oStore[argobj.pid].splice(iIdx, 1);
+					CLZ.oStore[argobj.pid].push(iIndex);
+				}
+
+				var sNarrationFile = $(oCurObj.jxParams.find("objects > item")[iIndex-1]).children("narration").text();
+				if(sNarrationFile!="")
+				{
+					CL.Sound.Play({ sId: argobj.pid + "_" + argobj.iLevel, sEvent: "narration", sType: "custom", sFile: sNarrationFile });
+				}
+				else
+				{
+					CL.Sound.Stop({ sId: argobj.pid, sEvent: "narration" });
+				}
+				oCurObj.data.iCurrent = iIndex;
+				oCurObj.CallMethod({ sMethod: "UpdateButtons" });
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="GetProperty" label="_GetProperty" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function GetProperty(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				if(oCurObj.div==null) return false;
+				switch(argobj.property.toLowerCase())
+				{
+					case "allvisited":
+					{
+						return (CLZ.oStore[argobj.pid].length>=oCurObj.data.iTotalElems ? 1 : 0);
+					}
+					case "item":
+					{
+						return oCurObj.data.iCurrent;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+    </methods>
+</params>
