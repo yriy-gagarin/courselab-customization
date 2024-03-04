@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Course file, saved 28-Feb-24 12:58:35 AM by Gagarin using CourseLab 240108 -->
+<!-- Course file, saved 04-Mar-24 1:57:55 PM by Gagarin using CourseLab 240108 -->
 <course3>
 <aicc_code></aicc_code>
 <aicc_name>Course</aicc_name>
@@ -19,10 +19,10 @@
 <windows>
 <window>
 <module>1</module>
-<zoom>90</zoom>
+<zoom>100</zoom>
 <subSlideVisible>true</subSlideVisible>
 <active>true</active>
-<slide>SLIDE_5</slide>
+<slide>SLIDE_8</slide>
 </window>
 </windows>
 </course3>

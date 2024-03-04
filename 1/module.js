@@ -1,3 +1,15 @@
+const BREAKPOINTS = {
+  MOBILE: 'MOBILE',
+  TABLET: 'TABLET',
+  DESKTOP: 'DESKTOP',
+};
+
+const BREAKPOINTS_RANGE = {
+  [BREAKPOINTS.MOBILE]: [360, 767],
+  [BREAKPOINTS.TABLET]: [768, 1279],
+  [BREAKPOINTS.DESKTOP]: [1280, '~'],
+};
+
 let $boardFrame;
 
 /**
@@ -9,9 +21,12 @@ function makeMarkupResponsive(){
   const jMeta = $("head").children("meta[name='viewport']");
   jMeta.attr({ "content": "width=device-width, initial-scale=1" });
 
+  if(!$boardFrame){
+    return;
+  }
 
   // store original course height
-  const courseHeight = $(CL.oBoard).parent().height();
+  const courseHeight = $boardFrame.parent().height();
 
   $boardFrame.css({
     position: 'relative', // remove absolute positioning;
@@ -24,7 +39,8 @@ function makeMarkupResponsive(){
     transform: 'none', // remove transform(was used for the scaling cl-container)
     display: "flex", // new way of the centered layout
     justifyContent: "center",
-    minHeight: courseHeight+'px', // add vertical scroll in case user open in small window(small phone or landscape orientation)
+    minHeight: courseHeight+'px', // add vertical scroll in case the user opens the course on a small window(small phone or landscape orientation)
+    minWidth: 360+'px', // set horizontal scroll in the case user opens the course on a small phone
     boxShadow: 'none' // remove .cl-container box-shadow style(move it into the boardFrame)
   });
 }
@@ -35,24 +51,21 @@ function updateBreakpoint(){
 
   const w = $(window).width();
 
-  const mobileFrameId =  Object.keys(CLF).find(frame=>frame.indexOf('MOBILE')!==-1);
-  const tabletFrameId =  Object.keys(CLF).find(frame=>frame.indexOf('TABLET')!==-1);
-  const desktopFrameId =  Object.keys(CLF).find(frame=>frame.indexOf('DESKTOP')!==-1);
+  const [desktopFrameId,tabletFrameId,mobileFrameId] = CLS[CLZ.sCurrentSlideId].aFrameIds;
 
-  //console.log(mobileFrameId,tabletFrameId,desktopFrameId);
   // TODO: optimize - Navigate only if breakpoints have changed
   if(w<768){
     $boardFrame.width(360);
-    CLM['MOBILE'].Show();
-    //CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: mobileFrameId });
+    CLM[BREAKPOINTS.MOBILE].Show();
+    CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: mobileFrameId });
   }else if(w>=768 && w<1280){
     $boardFrame.width(768);
-    CLM['TABLET'].Show();
-    //CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: tabletFrameId });
+    CLM[BREAKPOINTS.TABLET].Show();
+    CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: tabletFrameId });
   }else if(w>=1280){
     $boardFrame.width(1280);
-    CLM['DESKTOP'].Show();
-    //CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: desktopFrameId });
+    CLM[BREAKPOINTS.DESKTOP].Show();
+    CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: desktopFrameId });
   }
 }
 
@@ -61,7 +74,6 @@ function InitModule()
   $boardFrame = $(CL.oBoard);
 
   makeMarkupResponsive();
-  // updateBreakpoint();
 
   $(window).resize(updateBreakpoint);
 
