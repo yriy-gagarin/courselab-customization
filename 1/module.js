@@ -1,16 +1,19 @@
-const BREAKPOINTS = {
+const BREAKPOINT = {
   MOBILE: 'MOBILE',
   TABLET: 'TABLET',
   DESKTOP: 'DESKTOP',
 };
 
-const BREAKPOINTS_RANGE = {
-  [BREAKPOINTS.MOBILE]: [360, 767],
-  [BREAKPOINTS.TABLET]: [768, 1279],
-  [BREAKPOINTS.DESKTOP]: [1280, '~'],
+const BREAKPOINT_VALUES = {
+  [BREAKPOINT.MOBILE]: 360,
+  [BREAKPOINT.TABLET]: 768,
+  [BREAKPOINT.DESKTOP]: 1280,
 };
 
+const minWidth = BREAKPOINT_VALUES[BREAKPOINT.MOBILE];
+
 let $boardFrame;
+let currentBreakpoint;
 
 /**
  * Prepare the courseLab markup to work using breakpoints approach.
@@ -40,7 +43,7 @@ function makeMarkupResponsive(){
     display: "flex", // new way of the centered layout
     justifyContent: "center",
     minHeight: courseHeight+'px', // add vertical scroll in case the user opens the course on a small window(small phone or landscape orientation)
-    minWidth: 360+'px', // set horizontal scroll in the case user opens the course on a small phone
+    minWidth: minWidth+'px', // set horizontal scroll in the case user opens the course on a small phone
     boxShadow: 'none' // remove .cl-container box-shadow style(move it into the boardFrame)
   });
 }
@@ -49,23 +52,31 @@ function makeMarkupResponsive(){
 
 function updateBreakpoint(){
 
-  const w = $(window).width();
+  const width = $(window).width();
 
-  const [desktopFrameId,tabletFrameId,mobileFrameId] = CLS[CLZ.sCurrentSlideId].aFrameIds;
+  const frameIds = CLS[CLZ.sCurrentSlideId].aFrameIds;
 
-  // TODO: optimize - Navigate only if breakpoints have changed
-  if(w<768){
-    $boardFrame.width(360);
-    CLM[BREAKPOINTS.MOBILE].Show();
-    CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: mobileFrameId });
-  }else if(w>=768 && w<1280){
-    $boardFrame.width(768);
-    CLM[BREAKPOINTS.TABLET].Show();
-    CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: tabletFrameId });
-  }else if(w>=1280){
-    $boardFrame.width(1280);
-    CLM[BREAKPOINTS.DESKTOP].Show();
-    CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: desktopFrameId });
+  const frameIdMap = {
+    [BREAKPOINT.MOBILE]: frameIds[2],
+    [BREAKPOINT.TABLET]: frameIds[1],
+    [BREAKPOINT.DESKTOP]: frameIds[0],
+  }
+
+  const breakpoint = Object.keys(BREAKPOINT_VALUES).reduce((acc,current)=>{
+    if(width >= BREAKPOINT_VALUES[current] && BREAKPOINT_VALUES[current] > BREAKPOINT_VALUES[acc]){
+      return current;
+    }
+    return acc;
+  }, BREAKPOINT.MOBILE);
+
+
+  if(currentBreakpoint!==breakpoint){
+    currentBreakpoint = breakpoint;
+
+    // Switch view according to the new breakpoint
+    $boardFrame.width(BREAKPOINT_VALUES[currentBreakpoint]);
+    CLM[currentBreakpoint].Show();
+    CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: frameIdMap[currentBreakpoint] });
   }
 }
 
@@ -84,6 +95,8 @@ function InitModule()
     // console.log('Start', oArgs);
     CLSlide.prototype.__proto__.Start.call(this, oArgs);
     CLM[this.sMasterId].Hide();
+    // reset breakpoint
+    currentBreakpoint = undefined;
     updateBreakpoint();
   }
 }
