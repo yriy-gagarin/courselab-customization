@@ -88,15 +88,19 @@ function InitModule()
 
   $(window).resize(updateBreakpoint);
 
-  // TODO: use method extend - Constructor pattern by Douglas Crockford
-  CLSlide.prototype = Object.create(CLSlide.prototype);
-  // Update Breakpoint for the new Slide
+  // Store the original CLSlide Start method
+  CLSlide.prototype.CLStart = CLSlide.prototype.Start;
+
+  // Override the original CLSlide Start method
   CLSlide.prototype.Start = function (oArgs){
-    // console.log('Start', oArgs);
-    CLSlide.prototype.__proto__.Start.call(this, oArgs);
+
+    // Call the original CLSlide Start method (something like 'super')
+    CLSlide.prototype.CLStart.call(this, oArgs);
+
     CLM[this.sMasterId].Hide();
     // reset breakpoint
     currentBreakpoint = undefined;
+    // update Breakpoint for the new Slide
     updateBreakpoint();
   }
 }
