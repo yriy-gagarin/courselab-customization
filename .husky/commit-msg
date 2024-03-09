@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+valid_types="feat|fix|refactor|test|revert|chore|style|docs|license|build|ci"
+commit_regex="(\(($valid_types)\) .+)|(merge)"
+error_msg="Aborting commit. Your commit message should be structured as follows: '(type) subject' or 'Merge'. Valid types: $valid_types"
+
+if ! grep -iqE "$commit_regex" "$1"; then
+    echo "$1"
+    echo "$error_msg" >&2
+    exit 1
+fi
