@@ -48,8 +48,6 @@ function makeMarkupResponsive(){
   });
 }
 
-
-
 function updateBreakpoint(){
 
   const width = $(window).width();
@@ -73,11 +71,66 @@ function updateBreakpoint(){
   if(currentBreakpoint!==breakpoint){
     currentBreakpoint = breakpoint;
 
+    synchronizeComponents();
+
     // Switch view according to the new breakpoint
     $boardFrame.width(BREAKPOINT_VALUES[currentBreakpoint]);
     CLM[currentBreakpoint].Show();
     CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: frameIdMap[currentBreakpoint] });
   }
+}
+
+/**
+ * Experimental functionality for synchronizing components between breakpoints.
+ * Try to synchronize the same components on the current slide when switching frames.
+ */
+function synchronizeComponents(){
+
+  var iCurrent;
+  var oStore;
+
+  // CLZ.oStore contains all CourseLab objects(CLO) keys with their custom data if any
+  Object.keys(CLZ.oStore).forEach((objKey)=>{
+
+    // Try to sync simple objects that use the same variable(sVarName) on the current slide
+    // (for example objects with sType  "form_006_select", "form_004_checkbox" and etc.)
+    // CLO contains all CourseLab objects on the current slide
+    const clObj = CLO[objKey];
+    // So find variable name for this courseLab object if any
+    if(clObj){
+      const sVarName = clObj.data && clObj.data.sVarName;
+      if(sVarName){
+
+        // CLV.oSlide contains all CourseLab variables existing on the current slide
+        // Find current variable value and set this value for all courseLab objects data that uses this variable.
+        const sVarCurrentValue = CLV.oSlide[sVarName]
+
+        // Update all courseLab objects custom data that uses this variable
+        CLZ.oStore[objKey][0] = sVarCurrentValue;//CLV.oSlide[CLO[objKey].data.sVarName];
+
+        // Special case for "form_006_select":
+        // Update the sCurrentValue field now since it only updates when switching slides and
+        // not updating when switching frames (see the "form_006_select" constructor logic)
+        if(clObj.data.sCurrentValue){
+           //clObj.data.sCurrentValue = CLV.oSlide[CLO[objKey].data.sVarName];
+        }
+
+        // Rerender current courseLab object to update in view with the new value
+        clObj.Render();
+      }
+
+      // TODO: try to sync the v_rapid_001 component
+      /*if(CLO[elem].data.iCurrent!==undefined){
+        if(iCurrent===undefined){
+          iCurrent = CLO[elem].data.iCurrent;
+          oStore = CLZ.oStore[elem];
+        }
+        console.log('iCurrent = '+ CLO[elem].data.iCurrent);
+        CLO[elem].data.iCurrent = iCurrent
+        CLZ.oStore[elem] = oStore;
+      }*/
+    }
+  });
 }
 
 function InitModule()
