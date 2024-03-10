@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><events>
+	<event>
+		<name>onDisplayItem</name>
+		<label>Элемент показан</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onDisplayFirstItem</name>
+		<label>Первый элемент показан</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onDisplayLastItem</name>
+		<label>Последний элемент показан</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onAllVisited</name>
+		<label>Все элементы показаны</label>
+		<group>Объект - собственные</group>
+	</event>
+</events>

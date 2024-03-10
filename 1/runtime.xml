@@ -1,10 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Presentation file, saved 06-Mar-24 2:19:26 AM using CourseLab 240108 -->
+<!-- Presentation file, saved 10-Mar-24 1:34:20 PM using CourseLab 240108 -->
 <module>
 <runtime preview_fullscreen="no" preview_fitwindow="no" fit_small_window="no" showsplash="no" seqslides="yes" preloadimages="yes" normalize="no"/>
 <groups>
 </groups>
 <slides>
+<slide id="SLIDE_11" expanded="yes" sid="t" masterid="DESKTOP" advance="wait" transition="-1" durout="0" name="Cлайд №0." indent="0">
+<frames>
+<frame id="FRAME_27" expanded="yes" dur="0" infinite="1">
+<object id="OBJ_103" expanded="yes" x="14" y="116" w="1256" h="540" z="100" display="frame" begin="0" type="v_rapid_001">
+<data>
+<![CDATA[<div class="cl-wrapper" style=""><div class="cl-audio-files-list" style="display: none"   /><div class="style-custom" style="display: none"  ><div class="rule" data-name="#OBJ_103 .cl-container"><span class="rule-static">width: 1256px; height: 540px;</span></div><div class="rule" data-name="#OBJ_103 .cl-bg"><span class="rule-static">width: 1214px; height: 498px; padding: 20px; background-color: #DDDDDD; border-width: 1px; border-color: #777777;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_103 .cl-header-part"><span class="rule-static">border-color: #000000; padding: 0 0 3px 0; width: 1214px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-table"><span class="rule-static">width: 1214px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-cell-name"><span class="rule-static">width: -40.8px; height: 28.8px; padding: 0 6px 0 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-cell-btn"><span class="rule-static">width: 28.8px; height: 28.8px; padding: 0 0 0 3px;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-btn"><span class="rule-static">background-color: #000000; border-width: 1px; border-color: #000000; width: 26.8px; height: 26.8px;</span><span class="rule-dynamic" data-type="border-radius" data-value="15%" /></div><div class="rule" data-name="#OBJ_103 .cl-header-btn-idle"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_103 .cl-header-btn-over"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_103 .cl-arrow-left"><span class="rule-static">margin: -8px 0 0 -5px; border-width: 8px 8px 8px 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-arrow-right"><span class="rule-static">margin: -8px 0 0 -3px; border-width: 8px 0 8px 8px;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-title"><span class="rule-static">width: -40.8px; color: #000000; font-family: robotomedium, Arial, Helvetica, sans-serif; font-size: 18px; text-shadow: 1px 1px 2px rgba(102,102,102,0.5);</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-block"><span class="rule-static">margin: 3px 0 0 0; width: 1214px; height: 462.2px;</span></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg"><span class="rule-static">width: 908.5px; height: 460.2px; border-width: 1px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg-regular"><span class="rule-dynamic" data-type="border-radius" data-value="13px" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg-single"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 0" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg-first"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 13px" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg-last"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="13px 13px 13px 0" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-wrapper"><span class="rule-static">margin: 3px; padding: 20px; width: 860.5px; height: 412.2px; background-color: #FFFFFF; border-width: 1px; border-color: #336699;</span><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_103 .cl-desc"><span class="rule-static">width: 860.5px; height: 412.2px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-part"><span class="rule-static">width: 303.5px; height: 462.2px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg"><span class="rule-static">width: 303.5px; height: 152.73333333333332px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-left"><span class="rule-static">clip: rect(-6px, 304.5px, 160.73333333333332px, -6px); border-width: 1px 0 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 0 0 3px" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-right"><span class="rule-static">clip: rect(-6px, 310.5px, 160.73333333333332px, 0); border-width: 1px 1px 1px 0;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 3px 3px 0" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-top"><span class="rule-static">clip: rect(-6px, 311.5px, 153.73333333333332px, -6px); border-width: 1px 1px 0 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 3px 0 0" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-bottom"><span class="rule-static">clip: rect(0, 311.5px, 159.73333333333332px, -6px); border-width: 0 1px 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 0 3px 3px" /></div><div class="rule" data-name="#OBJ_103 .cl-tab"><span class="rule-static">margin: 4px; width: 294.5px; height: 144.73333333333332px; border-width: 1px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-idle"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-over"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-inner-div"><span class="rule-static">font-family: roboto_condensedregular, 'Arial Narrow', sans-serif; font-size: 12px; text-shadow: 1px 1px 2px rgba(255,255,255,0.66);</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-idle .cl-tab-inner-div"><span class="rule-static">color: #466621;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-selected"><span class="rule-static">border-color: #000000; background-color: #9CCDFF;</span><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#9CCDFF|10;#BDDEFF|50;#C7E3FF|50;#9CCDFF|90" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-selected .cl-tab-inner-div"><span class="rule-static">color: #000000;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-table-cell"><span class="rule-static">width: 268.5px; height: 118.73333333333332px; padding: 12px 12px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-2"><span class="rule-static">left: 0;top: 153.73333333333332px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-2"><span class="rule-static">left: 0;top: 153.73333333333332px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-3"><span class="rule-static">left: 0;bottom: 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-3"><span class="rule-static">left: 0;bottom: 0;</span></div></div><div class="cl-container unselectable"  ><div class="cl-bg"><div class="cl-header-part"><table class="cl-header-table"><tr><td class="cl-header-cell-name"><div class="cl-header-title unselectable">Название</div></td><td class="cl-header-cell-btn"><div id="OBJ_103_HEADER_BTN_left" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-left unselectable"><div class="cl-arrow cl-arrow-left">
+			 
+		</div></div></td><td class="cl-header-cell-btn"><div id="OBJ_103_HEADER_BTN_right" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-right unselectable"><div class="cl-arrow cl-arrow-right">
+			 
+		</div></div></td></tr></table></div><div class="cl-tab-block"><div class="cl-desc-bg-left cl-desc-bg  cl-desc-bg-first "><div id="OBJ_103_DESC_WRAPPER" class="cl-desc-wrapper"><div id="OBJ_103_DESC_1" class="cl-desc cl-desc-1" data-number="1" style=""><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_103_DESC_2" class="cl-desc cl-desc-2" data-number="2" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_103_DESC_3" class="cl-desc cl-desc-3" data-number="3" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div></div></div><div class="cl-tab-part-left"><div id="OBJ_103_TAB_BG_1" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-1" style="" data-number="1">
+		 
+	</div><div id="OBJ_103_TAB_BG_2" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-2" style="display: none;" data-number="2">
+		 
+	</div><div id="OBJ_103_TAB_BG_3" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-3" style="display: none;" data-number="3">
+		 
+	</div><div id="OBJ_103_TAB_1" class="cl-tab cl-tab-selected cl-tab-selected-1 unselectable cl-tab-1" style="" data-number="1"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 1</div></td></tr></table></div><div id="OBJ_103_TAB_2" class="cl-tab cl-tab-idle cl-tab-idle-2 unselectable cl-tab-2" style="" data-number="2"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 2</div></td></tr></table></div><div id="OBJ_103_TAB_3" class="cl-tab cl-tab-idle cl-tab-idle-3 unselectable cl-tab-3" style="" data-number="3"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 3</div></td></tr></table></div></div></div></div></div></div>]]>
+</data>
+</object>
+<timeline>
+</timeline>
+</frame>
+<frame id="FRAME_28" expanded="yes" dur="0" infinite="1">
+<object id="OBJ_140" expanded="yes" x="14" y="116" w="747" h="540" z="100" display="frame" begin="0" type="v_rapid_001">
+<data>
+<![CDATA[<div class="cl-wrapper" style=""><div class="cl-audio-files-list" style="display: none"   /><div class="style-custom" style="display: none"  ><div class="rule" data-name="#OBJ_140 .cl-container"><span class="rule-static">width: 747px; height: 540px;</span></div><div class="rule" data-name="#OBJ_140 .cl-bg"><span class="rule-static">width: 705px; height: 498px; padding: 20px; background-color: #DDDDDD; border-width: 1px; border-color: #777777;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_140 .cl-header-part"><span class="rule-static">border-color: #000000; padding: 0 0 3px 0; width: 705px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-table"><span class="rule-static">width: 705px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-cell-name"><span class="rule-static">width: -40.8px; height: 28.8px; padding: 0 6px 0 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-cell-btn"><span class="rule-static">width: 28.8px; height: 28.8px; padding: 0 0 0 3px;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-btn"><span class="rule-static">background-color: #000000; border-width: 1px; border-color: #000000; width: 26.8px; height: 26.8px;</span><span class="rule-dynamic" data-type="border-radius" data-value="15%" /></div><div class="rule" data-name="#OBJ_140 .cl-header-btn-idle"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_140 .cl-header-btn-over"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_140 .cl-arrow-left"><span class="rule-static">margin: -8px 0 0 -5px; border-width: 8px 8px 8px 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-arrow-right"><span class="rule-static">margin: -8px 0 0 -3px; border-width: 8px 0 8px 8px;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-title"><span class="rule-static">width: -40.8px; color: #000000; font-family: robotomedium, Arial, Helvetica, sans-serif; font-size: 18px; text-shadow: 1px 1px 2px rgba(102,102,102,0.5);</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-block"><span class="rule-static">margin: 3px 0 0 0; width: 705px; height: 462.2px;</span></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg"><span class="rule-static">width: 526.75px; height: 460.2px; border-width: 1px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg-regular"><span class="rule-dynamic" data-type="border-radius" data-value="13px" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg-single"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 0" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg-first"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 13px" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg-last"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="13px 13px 13px 0" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-wrapper"><span class="rule-static">margin: 3px; padding: 20px; width: 478.75px; height: 412.2px; background-color: #FFFFFF; border-width: 1px; border-color: #336699;</span><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_140 .cl-desc"><span class="rule-static">width: 478.75px; height: 412.2px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-part"><span class="rule-static">width: 176.25px; height: 462.2px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg"><span class="rule-static">width: 176.25px; height: 152.73333333333332px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-left"><span class="rule-static">clip: rect(-6px, 177.25px, 160.73333333333332px, -6px); border-width: 1px 0 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 0 0 3px" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-right"><span class="rule-static">clip: rect(-6px, 183.25px, 160.73333333333332px, 0); border-width: 1px 1px 1px 0;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 3px 3px 0" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-top"><span class="rule-static">clip: rect(-6px, 184.25px, 153.73333333333332px, -6px); border-width: 1px 1px 0 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 3px 0 0" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-bottom"><span class="rule-static">clip: rect(0, 184.25px, 159.73333333333332px, -6px); border-width: 0 1px 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 0 3px 3px" /></div><div class="rule" data-name="#OBJ_140 .cl-tab"><span class="rule-static">margin: 4px; width: 167.25px; height: 144.73333333333332px; border-width: 1px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-idle"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-over"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-inner-div"><span class="rule-static">font-family: roboto_condensedregular, 'Arial Narrow', sans-serif; font-size: 12px; text-shadow: 1px 1px 2px rgba(255,255,255,0.66);</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-idle .cl-tab-inner-div"><span class="rule-static">color: #466621;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-selected"><span class="rule-static">border-color: #000000; background-color: #9CCDFF;</span><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#9CCDFF|10;#BDDEFF|50;#C7E3FF|50;#9CCDFF|90" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-selected .cl-tab-inner-div"><span class="rule-static">color: #000000;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-table-cell"><span class="rule-static">width: 141.25px; height: 118.73333333333332px; padding: 12px 12px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-2"><span class="rule-static">left: 0;top: 153.73333333333332px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-2"><span class="rule-static">left: 0;top: 153.73333333333332px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-3"><span class="rule-static">left: 0;bottom: 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-3"><span class="rule-static">left: 0;bottom: 0;</span></div></div><div class="cl-container unselectable"  ><div class="cl-bg"><div class="cl-header-part"><table class="cl-header-table"><tr><td class="cl-header-cell-name"><div class="cl-header-title unselectable">Название</div></td><td class="cl-header-cell-btn"><div id="OBJ_140_HEADER_BTN_left" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-left unselectable"><div class="cl-arrow cl-arrow-left">
+			 
+		</div></div></td><td class="cl-header-cell-btn"><div id="OBJ_140_HEADER_BTN_right" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-right unselectable"><div class="cl-arrow cl-arrow-right">
+			 
+		</div></div></td></tr></table></div><div class="cl-tab-block"><div class="cl-desc-bg-left cl-desc-bg  cl-desc-bg-first "><div id="OBJ_140_DESC_WRAPPER" class="cl-desc-wrapper"><div id="OBJ_140_DESC_1" class="cl-desc cl-desc-1" data-number="1" style=""><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_140_DESC_2" class="cl-desc cl-desc-2" data-number="2" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_140_DESC_3" class="cl-desc cl-desc-3" data-number="3" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div></div></div><div class="cl-tab-part-left"><div id="OBJ_140_TAB_BG_1" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-1" style="" data-number="1">
+		 
+	</div><div id="OBJ_140_TAB_BG_2" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-2" style="display: none;" data-number="2">
+		 
+	</div><div id="OBJ_140_TAB_BG_3" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-3" style="display: none;" data-number="3">
+		 
+	</div><div id="OBJ_140_TAB_1" class="cl-tab cl-tab-selected cl-tab-selected-1 unselectable cl-tab-1" style="" data-number="1"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 1</div></td></tr></table></div><div id="OBJ_140_TAB_2" class="cl-tab cl-tab-idle cl-tab-idle-2 unselectable cl-tab-2" style="" data-number="2"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 2</div></td></tr></table></div><div id="OBJ_140_TAB_3" class="cl-tab cl-tab-idle cl-tab-idle-3 unselectable cl-tab-3" style="" data-number="3"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 3</div></td></tr></table></div></div></div></div></div></div>]]>
+</data>
+</object>
+<timeline>
+</timeline>
+</frame>
+<frame id="FRAME_29" expanded="yes" dur="0" infinite="1">
+<object id="OBJ_141" expanded="yes" x="5" y="128" w="350" h="531" z="100" display="frame" begin="0" type="v_rapid_001">
+<data>
+<![CDATA[<div class="cl-wrapper" style=""><div class="cl-audio-files-list" style="display: none"   /><div class="style-custom" style="display: none"  ><div class="rule" data-name="#OBJ_141 .cl-container"><span class="rule-static">width: 350px; height: 531px;</span></div><div class="rule" data-name="#OBJ_141 .cl-bg"><span class="rule-static">width: 308px; height: 489px; padding: 20px; background-color: #DDDDDD; border-width: 1px; border-color: #777777;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_141 .cl-header-part"><span class="rule-static">border-color: #000000; padding: 0 0 3px 0; width: 308px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-table"><span class="rule-static">width: 308px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-cell-name"><span class="rule-static">width: -40.8px; height: 28.8px; padding: 0 6px 0 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-cell-btn"><span class="rule-static">width: 28.8px; height: 28.8px; padding: 0 0 0 3px;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-btn"><span class="rule-static">background-color: #000000; border-width: 1px; border-color: #000000; width: 26.8px; height: 26.8px;</span><span class="rule-dynamic" data-type="border-radius" data-value="15%" /></div><div class="rule" data-name="#OBJ_141 .cl-header-btn-idle"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_141 .cl-header-btn-over"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_141 .cl-arrow-left"><span class="rule-static">margin: -8px 0 0 -5px; border-width: 8px 8px 8px 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-arrow-right"><span class="rule-static">margin: -8px 0 0 -3px; border-width: 8px 0 8px 8px;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-title"><span class="rule-static">width: -40.8px; color: #000000; font-family: robotomedium, Arial, Helvetica, sans-serif; font-size: 18px; text-shadow: 1px 1px 2px rgba(102,102,102,0.5);</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-block"><span class="rule-static">margin: 3px 0 0 0; width: 308px; height: 453.2px;</span></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg"><span class="rule-static">width: 229px; height: 451.2px; border-width: 1px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg-regular"><span class="rule-dynamic" data-type="border-radius" data-value="13px" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg-single"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 0" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg-first"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 13px" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg-last"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="13px 13px 13px 0" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-wrapper"><span class="rule-static">margin: 3px; padding: 20px; width: 181px; height: 403.2px; background-color: #FFFFFF; border-width: 1px; border-color: #336699;</span><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_141 .cl-desc"><span class="rule-static">width: 181px; height: 403.2px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-part"><span class="rule-static">width: 77px; height: 453.2px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg"><span class="rule-static">width: 77px; height: 149.73333333333332px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-left"><span class="rule-static">clip: rect(-6px, 78px, 157.73333333333332px, -6px); border-width: 1px 0 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 0 0 3px" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-right"><span class="rule-static">clip: rect(-6px, 84px, 157.73333333333332px, 0); border-width: 1px 1px 1px 0;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 3px 3px 0" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-top"><span class="rule-static">clip: rect(-6px, 85px, 150.73333333333332px, -6px); border-width: 1px 1px 0 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 3px 0 0" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-bottom"><span class="rule-static">clip: rect(0, 85px, 156.73333333333332px, -6px); border-width: 0 1px 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 0 3px 3px" /></div><div class="rule" data-name="#OBJ_141 .cl-tab"><span class="rule-static">margin: 4px; width: 68px; height: 141.73333333333332px; border-width: 1px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-idle"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-over"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-inner-div"><span class="rule-static">font-family: roboto_condensedregular, 'Arial Narrow', sans-serif; font-size: 12px; text-shadow: 1px 1px 2px rgba(255,255,255,0.66);</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-idle .cl-tab-inner-div"><span class="rule-static">color: #466621;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-selected"><span class="rule-static">border-color: #000000; background-color: #9CCDFF;</span><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#9CCDFF|10;#BDDEFF|50;#C7E3FF|50;#9CCDFF|90" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-selected .cl-tab-inner-div"><span class="rule-static">color: #000000;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-table-cell"><span class="rule-static">width: 42px; height: 115.73333333333332px; padding: 12px 12px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-2"><span class="rule-static">left: 0;top: 150.73333333333332px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-2"><span class="rule-static">left: 0;top: 150.73333333333332px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-3"><span class="rule-static">left: 0;bottom: 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-3"><span class="rule-static">left: 0;bottom: 0;</span></div></div><div class="cl-container unselectable"  ><div class="cl-bg"><div class="cl-header-part"><table class="cl-header-table"><tr><td class="cl-header-cell-name"><div class="cl-header-title unselectable">Название</div></td><td class="cl-header-cell-btn"><div id="OBJ_141_HEADER_BTN_left" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-left unselectable"><div class="cl-arrow cl-arrow-left">
+			 
+		</div></div></td><td class="cl-header-cell-btn"><div id="OBJ_141_HEADER_BTN_right" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-right unselectable"><div class="cl-arrow cl-arrow-right">
+			 
+		</div></div></td></tr></table></div><div class="cl-tab-block"><div class="cl-desc-bg-left cl-desc-bg  cl-desc-bg-first "><div id="OBJ_141_DESC_WRAPPER" class="cl-desc-wrapper"><div id="OBJ_141_DESC_1" class="cl-desc cl-desc-1" data-number="1" style=""><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_141_DESC_2" class="cl-desc cl-desc-2" data-number="2" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_141_DESC_3" class="cl-desc cl-desc-3" data-number="3" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div></div></div><div class="cl-tab-part-left"><div id="OBJ_141_TAB_BG_1" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-1" style="" data-number="1">
+		 
+	</div><div id="OBJ_141_TAB_BG_2" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-2" style="display: none;" data-number="2">
+		 
+	</div><div id="OBJ_141_TAB_BG_3" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-3" style="display: none;" data-number="3">
+		 
+	</div><div id="OBJ_141_TAB_1" class="cl-tab cl-tab-selected cl-tab-selected-1 unselectable cl-tab-1" style="" data-number="1"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 1</div></td></tr></table></div><div id="OBJ_141_TAB_2" class="cl-tab cl-tab-idle cl-tab-idle-2 unselectable cl-tab-2" style="" data-number="2"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 2</div></td></tr></table></div><div id="OBJ_141_TAB_3" class="cl-tab cl-tab-idle cl-tab-idle-3 unselectable cl-tab-3" style="" data-number="3"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 3</div></td></tr></table></div></div></div></div></div></div>]]>
+</data>
+</object>
+<timeline>
+</timeline>
+</frame>
+</frames>
+</slide>
 <slide id="SLIDE_5" expanded="yes" sid="6" masterid="DESKTOP" advance="wait" transition="-1" durout="0" name="Cлайд №1. Интерактивные объекты" indent="0">
 <frames>
 <frame id="FRAME_8" expanded="yes" dur="0" infinite="1">
@@ -3311,6 +3372,411 @@
                 }
                 return true;
             }                                                                                                                                                                                                                                                ]]>
+</method>
+<method type="v_rapid_001" name="Constructor">
+<![CDATA[function Constructor(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var bDefer = false;
+				switch(oCurObj.display)
+				{
+					case "none":
+					{
+						bDefer = true;
+						CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						break;
+					}
+					case "time":
+					case "frame":
+					case "slide":
+					{
+						if(oCurObj.iBegin!=null && +oCurObj.iBegin!=0)
+						{
+							bDefer = true;
+							CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						}
+						break;
+					}
+				}
+				oCurObj.data =
+				{
+					bRestore: (oCurObj.jxParams.find("restore_state").text()=="yes"),
+					bDisplayDefaultText: (oCurObj.jxParams.find("display_default_text").text()=="yes"),
+					bDisplayRibbon: (oCurObj.jxParams.find("display_ribbon").text()=="yes"),
+					bSpecColorsIdle: (oCurObj.jxParams.find("tab_color_scheme").text()=="spec"),
+					bSpecColorsSelected: (oCurObj.jxParams.find("tab_color_scheme_selected").text()=="spec"),
+					iTotalElems: oCurObj.jxParams.find("elements > item").length,
+					sTabType: (oCurObj.jxParams.children("tab_type").text()),
+					sSoundClick: oCurObj.jxParams.children("sound_click").text(),
+					sSoundOver: oCurObj.jxParams.children("sound_over").text()
+				};
+				if(oCurObj.data.sSoundClick=="custom")
+				{
+					oCurObj.data.sSoundClickFile = oCurObj.jxParams.children("sound_click_file_custom").text();
+				}
+				if(oCurObj.data.sSoundOver=="custom")
+				{
+					oCurObj.data.sSoundOverFile = oCurObj.jxParams.children("sound_over_file_custom").text();
+				}
+				if(CLZ.oStore[argobj.pid]!=null && oCurObj.data.bRestore)
+				{
+					oCurObj.data.iCurrent = CLZ.oStore[argobj.pid][CLZ.oStore[argobj.pid].length-1];
+				}
+				else
+				{
+					CLZ.oStore[argobj.pid] = [];
+					var aElementDisplay = oCurObj.jxParams.find("elements > item > display_first");
+					var iIdx = -1;
+					for(var i=0; i<aElementDisplay.length; i++)
+					{
+						if($(aElementDisplay[i]).text()=="yes")
+						{
+							iIdx = i + 1;
+							break;
+						}
+					}
+					if(iIdx==-1)
+					{
+						if(oCurObj.data.bDisplayDefaultText)
+						{
+							oCurObj.data.iCurrent = 0;
+						}
+						else
+						{
+							oCurObj.data.iCurrent = 1;
+						}
+					}
+					else
+					{
+						oCurObj.data.iCurrent = iIdx;
+					}
+				}
+				if(CL.bTouch)
+				{
+					jCurObjDiv.find(".cl-tab").on("click", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+					if(oCurObj.data.bDisplayRibbon)
+					{
+						jCurObjDiv.find(".cl-header-btn").on("click", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+					}
+				}
+				else
+				{
+					jCurObjDiv.find(".cl-tab").css({ "cursor": "pointer" }).on("mouseover", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("mouseout", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("click", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+					if(oCurObj.data.bDisplayRibbon)
+					{
+						jCurObjDiv.find(".cl-header-btn").on("mouseover", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("mouseout", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("click", function (e) { CLO[argobj.pid].CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+					}
+				}
+				oCurObj.data.bCreated = true;
+				oCurObj.FireEvent({ sName: "onCreated" });
+				if(!bDefer)
+				{
+					oCurObj.CallMethod({ sMethod: "Display", oMethodArgs: { elindex: oCurObj.data.iCurrent, bInit: true } });
+				}
+				return true;
+			}]]>
+</method>
+<method type="v_rapid_001" name="HandleEvt">
+<![CDATA[function HandleEvt(argobj)
+			{
+				if(CLO[argobj.pid]==null || CLO[argobj.pid].div==null) return false;
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				switch(argobj.evt)
+				{
+					case "EVENT_OBJECT_SHOW":
+					{
+						if(!oCurObj.data.bCreated) return false;
+						oCurObj.CallMethod({ sMethod: "Display", oMethodArgs: { elindex: oCurObj.data.iCurrent, bInit: true } });
+						break;
+					}
+				}
+				return true;
+			}]]>
+</method>
+<method type="v_rapid_001" name="UIEvent">
+<![CDATA[function UIEvent(argobj)
+			{
+				if(argobj.evt==null) return false;
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var jElem = $(argobj.elem);
+				var iTabIdx = jElem.attr("data-number");
+				if(jElem.hasClass("cl-tab") && !jElem.hasClass("cl-tab-selected"))
+				{
+					switch(argobj.evt.type)
+					{
+						case "mouseover":
+						{
+							if(oCurObj.data.bSpecColorsIdle)
+							{
+								jElem.removeClass("cl-tab-idle-" + iTabIdx).addClass("cl-tab-over-" + iTabIdx);
+							}
+							else
+							{
+								jElem.removeClass("cl-tab-idle").addClass("cl-tab-over");
+							}
+							CL.Sound.Stop({ sId: argobj.pid, sEvent: "over" });
+							if(oCurObj.data.sSoundOver!="none")
+							{
+								CL.Sound.Play({ sId: argobj.pid, sEvent: "over", sType: oCurObj.data.sSoundOver, sFile: oCurObj.data.sSoundOverFile })
+							}
+							break;
+						}
+						case "mouseout":
+						{
+							if(oCurObj.data.bSpecColorsIdle)
+							{
+								jElem.removeClass("cl-tab-over-" + iTabIdx).addClass("cl-tab-idle-" + iTabIdx);
+							}
+							else
+							{
+								jElem.removeClass("cl-tab-over").addClass("cl-tab-idle");
+							}
+							break;
+						}
+						case "click":
+						{
+							if(oCurObj.data.bSpecColorsIdle)
+							{
+								jElem.removeClass("cl-tab-over-" + iTabIdx).addClass("cl-tab-idle-" + iTabIdx);
+							}
+							else
+							{
+								jElem.removeClass("cl-tab-over").addClass("cl-tab-idle");
+							}
+							CL.Sound.Stop({ sId: argobj.pid, sEvent: "click" });
+							if(oCurObj.data.sSoundClick!="none")
+							{
+								CL.Sound.Play({ sId: argobj.pid, sEvent: "click", sType: oCurObj.data.sSoundClick, sFile: oCurObj.data.sSoundClickFile })
+							}
+							oCurObj.CallMethod({ sMethod: "Display", oMethodArgs: { elem: argobj.elem } });
+							break;
+						}
+					}
+				}
+				else if(jElem.hasClass("cl-header-btn"))
+				{
+					if(jElem.hasClass("cl-header-btn-disabled")) return false;
+					switch(argobj.evt.type)
+					{
+						case "mouseover":
+						{
+							jElem.removeClass("cl-header-btn-idle").addClass("cl-header-btn-over");
+							if(oCurObj.data.sSoundOver!="none")
+							{
+								CL.Sound.Play({ sId: argobj.pid, sEvent: "over", sType: oCurObj.data.sSoundOver, sFile: oCurObj.data.sSoundOverFile })
+							}
+							break;
+						}
+						case "mouseout":
+						{
+							jElem.removeClass("cl-header-btn-over").addClass("cl-header-btn-idle");
+							break;
+						}
+						case "click":
+						{
+							jElem.removeClass("cl-header-btn-over").addClass("cl-header-btn-idle");
+							CL.Sound.Stop({ sId: argobj.pid, sEvent: "click" });
+							if(oCurObj.data.sSoundClick!="none")
+							{
+								CL.Sound.Play({ sId: argobj.pid, sEvent: "click", sType: oCurObj.data.sSoundClick, sFile: oCurObj.data.sSoundClickFile })
+							}
+							oCurObj.CallMethod({ sMethod: (jElem.hasClass("cl-header-btn-left") ? "Prev" : "Next") });
+							break;
+						}
+					}
+				}
+				return true;
+			}]]>
+</method>
+<method type="v_rapid_001" name="UpdateButtons">
+<![CDATA[function UpdateButtons(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var jPrev = jCurObjDiv.find(".cl-header-btn-left");
+				var jNext = jCurObjDiv.find(".cl-header-btn-right");
+				jPrev.removeClass("cl-header-btn-disabled");
+				jNext.removeClass("cl-header-btn-disabled");
+				if(oCurObj.data.iCurrent<=1 && oCurObj.data.iTotalElems<=1)
+				{
+					jPrev.addClass("cl-header-btn-disabled");
+					jNext.addClass("cl-header-btn-disabled");
+				}
+				else if(oCurObj.data.iCurrent==0 && oCurObj.data.iTotalElems>=1)
+				{
+					jPrev.addClass("cl-header-btn-disabled");
+				}
+				else if(oCurObj.data.iCurrent==1 && oCurObj.data.iTotalElems>1)
+				{
+					oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: { type: "mouseout" }, elem: jPrev } });
+					jPrev.addClass("cl-header-btn-disabled");
+				}
+				else if(oCurObj.data.iCurrent==oCurObj.data.iTotalElems)
+				{
+					oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: { type: "mouseout" }, elem: jNext } });
+					jNext.addClass("cl-header-btn-disabled");
+				}
+				return true;
+			}]]>
+</method>
+<method type="v_rapid_001" name="Next">
+<![CDATA[function Next(argobj)
+			{
+				if(CLO[argobj.pid].div==null) return false;
+				CLO[argobj.pid].CallMethod({ sMethod: "Display", oMethodArgs: { elindex: CLO[argobj.pid].data.iCurrent + 1 } });
+				return true;
+			}]]>
+</method>
+<method type="v_rapid_001" name="Prev">
+<![CDATA[function Prev(argobj)
+			{
+				if(CLO[argobj.pid].div==null) return false;
+				CLO[argobj.pid].CallMethod({ sMethod: "Display", oMethodArgs: { elindex: CLO[argobj.pid].data.iCurrent - 1 } });
+				return true;
+			}]]>
+</method>
+<method type="v_rapid_001" name="Display">
+<![CDATA[function Display(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				if(oCurObj.div==null) return false;
+				var jCurObjDiv = $(oCurObj.div);
+				var iIndex = 1;
+				if(argobj.elindex!=null)
+				{
+					iIndex = parseInt(argobj.elindex, 10);
+					if(isNaN(iIndex)) return false;
+					if(iIndex==0 && oCurObj.data.bDisplayDefaultText)
+					{
+						oCurObj.CallMethod({ sMethod: "UpdateButtons" });
+						oCurObj.data.bDisplayDefaultText =  false;
+						return true;
+					}
+				}
+				else
+				{
+					if(argobj.elem!=null)
+					{
+						if($(argobj.elem).hasClass("cl-tab"))
+						{
+							iIndex = +$(argobj.elem).attr("data-number");
+						}
+						else if($(argobj.elem).hasClass("cl-header-btn-right"))
+						{
+							iIndex = CLO[argobj.pid].data.iCurrent + 1;
+						}
+						else if($(argobj.elem).hasClass("cl-header-btn-left"))
+						{
+							iIndex = CLO[argobj.pid].data.iCurrent - 1;
+						}
+					}
+				}
+				if(iIndex<1 || iIndex>oCurObj.data.iTotalElems) return false;
+				jCurObjDiv.find(".cl-tab-bg, .cl-desc").hide();
+				var iTabIdx = 1;
+				jCurObjDiv.find(".cl-tab").each(function ()
+				{
+					if(oCurObj.data.bSpecColorsSelected)
+					{
+						$(this).removeClass("cl-tab-selected cl-tab-selected-" + iTabIdx);
+					}
+					else
+					{
+						$(this).removeClass("cl-tab-selected");
+					}
+					if(oCurObj.data.bSpecColorsIdle)
+					{
+						$(this).addClass("cl-tab-idle-" + iTabIdx);
+					}
+					else
+					{
+						$(this).addClass("cl-tab-idle");
+					}
+					iTabIdx++;
+				});
+				$("#" + argobj.pid + "_TAB_BG_" + iIndex).show();
+				$("#" + argobj.pid + "_DESC_" + iIndex).show();
+				var jTab = $("#" + argobj.pid + "_TAB_" + iIndex);
+				if(oCurObj.data.bSpecColorsIdle)
+				{
+					jTab.removeClass("cl-tab-idle-" + iIndex);
+				}
+				else
+				{
+					jTab.removeClass("cl-tab-idle");
+				}
+				if(oCurObj.data.bSpecColorsSelected)
+				{
+					jTab.addClass("cl-tab-selected cl-tab-selected-" + iIndex);
+				}
+				else
+				{
+					jTab.addClass("cl-tab-selected");
+				}
+				oCurObj.FireEvent({ sName: "onDisplayItem" });
+				if(iIndex==1 && oCurObj.data.iTotalElems>1)
+				{
+					jCurObjDiv.find(".cl-desc-bg").addClass("cl-desc-bg-first").removeClass("cl-desc-bg-last cl-desc-bg-regular");
+					oCurObj.FireEvent({ sName: "onDisplayFirstItem" });
+				}
+				else if(iIndex==oCurObj.data.iTotalElems && oCurObj.data.iTotalElems>1)
+				{
+					jCurObjDiv.find(".cl-desc-bg").addClass("cl-desc-bg-last").removeClass("cl-desc-bg-first cl-desc-bg-regular");
+					oCurObj.FireEvent({ sName: "onDisplayLastItem" });
+				}
+				else
+				{
+					jCurObjDiv.find(".cl-desc-bg").removeClass("cl-desc-bg-last cl-desc-bg-first").addClass("cl-desc-bg-regular");
+				}
+				var iIdx = $.inArray(iIndex, CLZ.oStore[argobj.pid]);
+				if(iIdx==-1)
+				{
+					CLZ.oStore[argobj.pid].push(iIndex);
+					if(CLZ.oStore[argobj.pid].length>=oCurObj.data.iTotalElems)
+					{
+						oCurObj.FireEvent({ sName: "onAllVisited" });
+					}
+				}
+				else
+				{
+					CLZ.oStore[argobj.pid].splice(iIdx, 1);
+					CLZ.oStore[argobj.pid].push(iIndex);
+				}
+				CL.Sound.Stop({ sId: argobj.pid, sEvent: "narration" });
+				var sNarrationFile = $(oCurObj.jxParams.find("elements > item")[iIndex-1]).children("narration").text();
+				if(sNarrationFile!="")
+				{
+					CL.Sound.Play({ sId: argobj.pid + "_" + argobj.iLevel, sEvent: "narration", sType: "custom", sFile: sNarrationFile });
+				}
+				else
+				{
+					CL.Sound.Stop({ sId: argobj.pid, sEvent: "narration" });
+				}
+				oCurObj.data.iCurrent = iIndex;
+				oCurObj.CallMethod({ sMethod: "UpdateButtons" });
+				return true;
+			}]]>
+</method>
+<method type="v_rapid_001" name="GetProperty">
+<![CDATA[function GetProperty(argobj)
+			{
+				if(CLO[argobj.pid].div==null) return false;
+				switch(argobj.property.toLowerCase())
+				{
+					case "allvisited":
+					{
+						return ((CLZ.oStore[argobj.pid].length>=oCurObj.data.iTotalElems) ? 1 : 0);
+					}
+					case "item":
+					{
+						return CLO[argobj.pid].data.iCurrent;
+					}
+				}
+				return true;
+			}]]>
 </method>
 <method type="form_006_select" name="Constructor">
 <![CDATA[function Constructor(argobj)
@@ -12857,6 +13323,345 @@
 <status_u>Неизвестно</status_u>
 <status_p>Успешно</status_p>
 <status_f>Неуспешно</status_f>
+<sound_click>none</sound_click>
+<sound_click_file_custom></sound_click_file_custom>
+<sound_over>none</sound_over>
+<sound_over_file_custom></sound_over_file_custom>
+</param>
+<param objectid="OBJ_103">
+<tab_type>left</tab_type>
+<elements>
+<item>
+<display_first>no</display_first>
+<text_type>plain</text_type>
+<tab_text>Текст по умолчанию 1</tab_text>
+<tab_text_html><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></tab_text_html>
+<desc_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></desc_text>
+<narration></narration>
+<spec_tabcolor_scheme>red</spec_tabcolor_scheme>
+<spec_tabbg_color>#9BCDFF</spec_tabbg_color>
+<spec_tabgradient_color>#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color>#9BCDFF</spec_tabborder_color>
+<spec_tabcolor_scheme_selected>custom</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected>#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected>#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected>#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first>no</display_first>
+<text_type>plain</text_type>
+<tab_text>Текст по умолчанию 2</tab_text>
+<tab_text_html><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></tab_text_html>
+<desc_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></desc_text>
+<narration></narration>
+<spec_tabcolor_scheme>steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color>#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color>#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color>#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected>olive</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected>#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected>#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected>#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first>no</display_first>
+<text_type>plain</text_type>
+<tab_text>Текст по умолчанию 3</tab_text>
+<tab_text_html><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></tab_text_html>
+<desc_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></desc_text>
+<narration></narration>
+<spec_tabcolor_scheme>steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color>#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color>#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color>#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected>green</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected>#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected>#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected>#336699</spec_tabborder_color_selected>
+</item>
+</elements>
+<display_default_text>no</display_default_text>
+<default_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Выберите одну из закладок</span>]]></default_text>
+<restore_state>yes</restore_state>
+<tab_size>25</tab_size>
+<shadow_strength>normal</shadow_strength>
+<tab_color_scheme>green</tab_color_scheme>
+<tab_bg_color>#E8EEFF</tab_bg_color>
+<tab_gradient_color>#9BCDFF</tab_gradient_color>
+<tab_border_color>#E8EEFF</tab_border_color>
+<tab_color_scheme_selected>custom</tab_color_scheme_selected>
+<tab_bg_color_selected>#9BCDFF</tab_bg_color_selected>
+<tab_gradient_color_selected>#9BCDFF</tab_gradient_color_selected>
+<tab_border_color_selected>#000000</tab_border_color_selected>
+<tab_border_width>1</tab_border_width>
+<tab_radius>0</tab_radius>
+<tab_padding_tb>12</tab_padding_tb>
+<tab_padding_lr>12</tab_padding_lr>
+<font>roboto_condensedregular</font>
+<font_custom></font_custom>
+<font_style>normal</font_style>
+<font_size>12</font_size>
+<text_shadow_strength>normal</text_shadow_strength>
+<text_shadow_color>#FFFFFF</text_shadow_color>
+<display_ribbon>yes</display_ribbon>
+<fs_ribbon></fs_ribbon>
+<ribbon_text>Название</ribbon_text>
+<ribbon_color_scheme>black</ribbon_color_scheme>
+<ribbon_bg_color>#E8EEFF</ribbon_bg_color>
+<ribbon_gradient_color>#FFFFFF</ribbon_gradient_color>
+<ribbon_border_color>#E8EEFF</ribbon_border_color>
+<ribbon_font>robotomedium</ribbon_font>
+<ribbon_font_custom></ribbon_font_custom>
+<ribbon_font_style>normal</ribbon_font_style>
+<ribbon_font_size>18</ribbon_font_size>
+<ribbon_text_shadow_strength>light</ribbon_text_shadow_strength>
+<ribbon_text_shadow_color>#666666</ribbon_text_shadow_color>
+<desc_color_scheme>custom</desc_color_scheme>
+<desc_bg_color>#E8EEFF</desc_bg_color>
+<desc_gradient_color>#FFFFFF</desc_gradient_color>
+<desc_border_color>#336699</desc_border_color>
+<desc_bg_override>yes</desc_bg_override>
+<desc_bg_color_custom>#FFFFFF</desc_bg_color_custom>
+<desc_bg_grad_angle>0</desc_bg_grad_angle>
+<desc_border_width>1</desc_border_width>
+<desc_radius>10</desc_radius>
+<desc_padding>20</desc_padding>
+<display_bg>yes</display_bg>
+<fs_bg></fs_bg>
+<bg_color_scheme>custom</bg_color_scheme>
+<bg_bg_color>#DDDDDD</bg_bg_color>
+<bg_gradient_color>#DDDDDD</bg_gradient_color>
+<bg_border_color>#777777</bg_border_color>
+<bg_grad_angle>0</bg_grad_angle>
+<bg_border_width>1</bg_border_width>
+<bg_radius>10</bg_radius>
+<bg_padding>20</bg_padding>
+<sound_click>none</sound_click>
+<sound_click_file_custom></sound_click_file_custom>
+<sound_over>none</sound_over>
+<sound_over_file_custom></sound_over_file_custom>
+</param>
+<param objectid="OBJ_140">
+<tab_type>left</tab_type>
+<elements>
+<item>
+<display_first>no</display_first>
+<text_type>plain</text_type>
+<tab_text>Текст по умолчанию 1</tab_text>
+<tab_text_html><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></tab_text_html>
+<desc_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></desc_text>
+<narration></narration>
+<spec_tabcolor_scheme>red</spec_tabcolor_scheme>
+<spec_tabbg_color>#9BCDFF</spec_tabbg_color>
+<spec_tabgradient_color>#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color>#9BCDFF</spec_tabborder_color>
+<spec_tabcolor_scheme_selected>custom</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected>#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected>#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected>#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first>no</display_first>
+<text_type>plain</text_type>
+<tab_text>Текст по умолчанию 2</tab_text>
+<tab_text_html><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></tab_text_html>
+<desc_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></desc_text>
+<narration></narration>
+<spec_tabcolor_scheme>steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color>#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color>#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color>#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected>olive</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected>#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected>#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected>#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first>no</display_first>
+<text_type>plain</text_type>
+<tab_text>Текст по умолчанию 3</tab_text>
+<tab_text_html><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></tab_text_html>
+<desc_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></desc_text>
+<narration></narration>
+<spec_tabcolor_scheme>steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color>#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color>#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color>#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected>green</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected>#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected>#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected>#336699</spec_tabborder_color_selected>
+</item>
+</elements>
+<display_default_text>no</display_default_text>
+<default_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Выберите одну из закладок</span>]]></default_text>
+<restore_state>yes</restore_state>
+<tab_size>25</tab_size>
+<shadow_strength>normal</shadow_strength>
+<tab_color_scheme>green</tab_color_scheme>
+<tab_bg_color>#E8EEFF</tab_bg_color>
+<tab_gradient_color>#9BCDFF</tab_gradient_color>
+<tab_border_color>#E8EEFF</tab_border_color>
+<tab_color_scheme_selected>custom</tab_color_scheme_selected>
+<tab_bg_color_selected>#9BCDFF</tab_bg_color_selected>
+<tab_gradient_color_selected>#9BCDFF</tab_gradient_color_selected>
+<tab_border_color_selected>#000000</tab_border_color_selected>
+<tab_border_width>1</tab_border_width>
+<tab_radius>0</tab_radius>
+<tab_padding_tb>12</tab_padding_tb>
+<tab_padding_lr>12</tab_padding_lr>
+<font>roboto_condensedregular</font>
+<font_custom></font_custom>
+<font_style>normal</font_style>
+<font_size>12</font_size>
+<text_shadow_strength>normal</text_shadow_strength>
+<text_shadow_color>#FFFFFF</text_shadow_color>
+<display_ribbon>yes</display_ribbon>
+<fs_ribbon></fs_ribbon>
+<ribbon_text>Название</ribbon_text>
+<ribbon_color_scheme>black</ribbon_color_scheme>
+<ribbon_bg_color>#E8EEFF</ribbon_bg_color>
+<ribbon_gradient_color>#FFFFFF</ribbon_gradient_color>
+<ribbon_border_color>#E8EEFF</ribbon_border_color>
+<ribbon_font>robotomedium</ribbon_font>
+<ribbon_font_custom></ribbon_font_custom>
+<ribbon_font_style>normal</ribbon_font_style>
+<ribbon_font_size>18</ribbon_font_size>
+<ribbon_text_shadow_strength>light</ribbon_text_shadow_strength>
+<ribbon_text_shadow_color>#666666</ribbon_text_shadow_color>
+<desc_color_scheme>custom</desc_color_scheme>
+<desc_bg_color>#E8EEFF</desc_bg_color>
+<desc_gradient_color>#FFFFFF</desc_gradient_color>
+<desc_border_color>#336699</desc_border_color>
+<desc_bg_override>yes</desc_bg_override>
+<desc_bg_color_custom>#FFFFFF</desc_bg_color_custom>
+<desc_bg_grad_angle>0</desc_bg_grad_angle>
+<desc_border_width>1</desc_border_width>
+<desc_radius>10</desc_radius>
+<desc_padding>20</desc_padding>
+<display_bg>yes</display_bg>
+<fs_bg></fs_bg>
+<bg_color_scheme>custom</bg_color_scheme>
+<bg_bg_color>#DDDDDD</bg_bg_color>
+<bg_gradient_color>#DDDDDD</bg_gradient_color>
+<bg_border_color>#777777</bg_border_color>
+<bg_grad_angle>0</bg_grad_angle>
+<bg_border_width>1</bg_border_width>
+<bg_radius>10</bg_radius>
+<bg_padding>20</bg_padding>
+<sound_click>none</sound_click>
+<sound_click_file_custom></sound_click_file_custom>
+<sound_over>none</sound_over>
+<sound_over_file_custom></sound_over_file_custom>
+</param>
+<param objectid="OBJ_141">
+<tab_type>left</tab_type>
+<elements>
+<item>
+<display_first>no</display_first>
+<text_type>plain</text_type>
+<tab_text>Текст по умолчанию 1</tab_text>
+<tab_text_html><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></tab_text_html>
+<desc_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></desc_text>
+<narration></narration>
+<spec_tabcolor_scheme>red</spec_tabcolor_scheme>
+<spec_tabbg_color>#9BCDFF</spec_tabbg_color>
+<spec_tabgradient_color>#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color>#9BCDFF</spec_tabborder_color>
+<spec_tabcolor_scheme_selected>custom</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected>#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected>#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected>#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first>no</display_first>
+<text_type>plain</text_type>
+<tab_text>Текст по умолчанию 2</tab_text>
+<tab_text_html><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></tab_text_html>
+<desc_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></desc_text>
+<narration></narration>
+<spec_tabcolor_scheme>steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color>#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color>#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color>#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected>olive</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected>#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected>#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected>#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first>no</display_first>
+<text_type>plain</text_type>
+<tab_text>Текст по умолчанию 3</tab_text>
+<tab_text_html><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></tab_text_html>
+<desc_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span>]]></desc_text>
+<narration></narration>
+<spec_tabcolor_scheme>steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color>#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color>#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color>#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected>green</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected>#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected>#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected>#336699</spec_tabborder_color_selected>
+</item>
+</elements>
+<display_default_text>no</display_default_text>
+<default_text><![CDATA[<span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Выберите одну из закладок</span>]]></default_text>
+<restore_state>yes</restore_state>
+<tab_size>25</tab_size>
+<shadow_strength>normal</shadow_strength>
+<tab_color_scheme>green</tab_color_scheme>
+<tab_bg_color>#E8EEFF</tab_bg_color>
+<tab_gradient_color>#9BCDFF</tab_gradient_color>
+<tab_border_color>#E8EEFF</tab_border_color>
+<tab_color_scheme_selected>custom</tab_color_scheme_selected>
+<tab_bg_color_selected>#9BCDFF</tab_bg_color_selected>
+<tab_gradient_color_selected>#9BCDFF</tab_gradient_color_selected>
+<tab_border_color_selected>#000000</tab_border_color_selected>
+<tab_border_width>1</tab_border_width>
+<tab_radius>0</tab_radius>
+<tab_padding_tb>12</tab_padding_tb>
+<tab_padding_lr>12</tab_padding_lr>
+<font>roboto_condensedregular</font>
+<font_custom></font_custom>
+<font_style>normal</font_style>
+<font_size>12</font_size>
+<text_shadow_strength>normal</text_shadow_strength>
+<text_shadow_color>#FFFFFF</text_shadow_color>
+<display_ribbon>yes</display_ribbon>
+<fs_ribbon></fs_ribbon>
+<ribbon_text>Название</ribbon_text>
+<ribbon_color_scheme>black</ribbon_color_scheme>
+<ribbon_bg_color>#E8EEFF</ribbon_bg_color>
+<ribbon_gradient_color>#FFFFFF</ribbon_gradient_color>
+<ribbon_border_color>#E8EEFF</ribbon_border_color>
+<ribbon_font>robotomedium</ribbon_font>
+<ribbon_font_custom></ribbon_font_custom>
+<ribbon_font_style>normal</ribbon_font_style>
+<ribbon_font_size>18</ribbon_font_size>
+<ribbon_text_shadow_strength>light</ribbon_text_shadow_strength>
+<ribbon_text_shadow_color>#666666</ribbon_text_shadow_color>
+<desc_color_scheme>custom</desc_color_scheme>
+<desc_bg_color>#E8EEFF</desc_bg_color>
+<desc_gradient_color>#FFFFFF</desc_gradient_color>
+<desc_border_color>#336699</desc_border_color>
+<desc_bg_override>yes</desc_bg_override>
+<desc_bg_color_custom>#FFFFFF</desc_bg_color_custom>
+<desc_bg_grad_angle>0</desc_bg_grad_angle>
+<desc_border_width>1</desc_border_width>
+<desc_radius>10</desc_radius>
+<desc_padding>20</desc_padding>
+<display_bg>yes</display_bg>
+<fs_bg></fs_bg>
+<bg_color_scheme>custom</bg_color_scheme>
+<bg_bg_color>#DDDDDD</bg_bg_color>
+<bg_gradient_color>#DDDDDD</bg_gradient_color>
+<bg_border_color>#777777</bg_border_color>
+<bg_grad_angle>0</bg_grad_angle>
+<bg_border_width>1</bg_border_width>
+<bg_radius>10</bg_radius>
+<bg_padding>20</bg_padding>
 <sound_click>none</sound_click>
 <sound_click_file_custom></sound_click_file_custom>
 <sound_over>none</sound_over>

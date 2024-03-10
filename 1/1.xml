@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Module file, saved 06-Mar-24 2:19:26 AM by Gagarin using CourseLab 240108 -->
+<!-- Module file, saved 10-Mar-24 1:34:19 PM by Gagarin using CourseLab 240108 -->
 <module format="3.5 240108" rev="2" slideWidth="1280" slideHeight="720" template="" file="C:\JavaScriptWS\courselab-customization\1\1.xml">
 <font face="clear_sansregular, Arial, sans-serif" style="1" size="12" color="#000000"/>
 <default_text></default_text>
 <newids slide="SLIDE_" subslide="FRAME_" iebox="TXT_" image="IMG_" object="OBJ_" group="GROUP_"/>
 <import masterid="" left="0" top="0" width="0" height="0" commentsLeft="0" commentsTop="0" commentsWidth="0" commentsHeight="0" importComments="no" commentscolor="#000000" fiximages="yes"/>
 <runtime preview_fullscreen="no" preview_fitwindow="no" fit_small_window="no" showsplash="no" seqslides="yes" preloadimages="yes" normalize="no"/>
-<nextidentity slide="28" subslide="0" object="0" group="0" mousepointer="0" actionbox="0"/>
+<nextidentity slide="29" subslide="0" object="0" group="0" mousepointer="0" actionbox="0"/>
 <moduleColors>
 <color>996600</color>
 <color>cc9900</color>
@@ -5488,6 +5488,568 @@
 <status_u type="edit">Неизвестно</status_u>
 <status_p type="edit">Успешно</status_p>
 <status_f type="edit">Неуспешно</status_f>
+<sound_click type="select">none</sound_click>
+<sound_click_file_custom type="file"></sound_click_file_custom>
+<sound_over type="select">none</sound_over>
+<sound_over_file_custom type="file"></sound_over_file_custom>
+</params>
+</object>
+</objects>
+</subslide>
+</subslides>
+</slide>
+<slide guid="4c83f318_bfe7_4c2e_a4c5_88e23859f165" id="SLIDE_11" expanded="yes" sid="29" masterid="DESKTOP" name="Cлайд №0." indent="0" infinite="1" advance="wait" transition="-1" durout="0">
+<subslides>
+<subslide guid="85b2e4c4_5a43_4dd8_b699_04702d3cae15" id="FRAME_27" expanded="yes" infinite="1" dur="0">
+<objects>
+<object type="div" guid="09ce9e9d_eedc_4e04_9c54_f05cf15cc1b3" id="OBJ_103" label="Блок закладок универсальный" expanded="yes" state_extension="false" left="14" top="116" width="1256" height="540" display="frame" begin="0">
+<template>v_rapid_001</template>
+<design_content><![CDATA[<style  >
+		.cl-container { width: 1256px; height: 540px; }
+		.cl-bg { width: 1214px; height: 498px; padding: 20px; background-color: #DDDDDD;  border-width: 1px; border-color: #777777; border-radius: 10px;box-shadow: 2px 2px 6px rgba(102,102,102,0.66); }
+        
+			.cl-header-part { border-color: #000000; padding: 0 0 3px 0; width: 1214px; height: 28.8px; }
+			.cl-header-table { width: 1214px; height: 28.8px; }
+			.cl-header-cell-name { width: -40.8px; height: 28.8px; padding: 0 6px 0 0; }
+			.cl-header-cell-btn { width: 28.8px; height: 28.8px; padding: 0 0 0 3px; }
+			.cl-header-btn { background-color: #000000; border-width: 1px; border-color: #000000; width: 26.8px; height: 26.8px; border-radius: 15%; }
+			.cl-header-btn-idle { box-shadow: 2px 2px 6px rgba(102,102,102,0.66); background-image: linear-gradient(0deg, #000000 10%, #000000 50%, #000000 50%, #333333 90%); }
+			.cl-arrow-left { margin: -8px 0 0 -5px; border-width: 8px 8px 8px 0; }
+			.cl-arrow-right { margin: -8px 0 0 -3px; border-width: 8px 0 8px 8px; }
+			.cl-header-title { width: -40.8px; color: #000000; font-family: robotomedium, Arial, Helvetica, sans-serif; font-size: 18px; text-shadow: 1px 1px 2px rgba(102,102,102,0.5); }
+		
+		.cl-tab-block { margin: 3px 0 0 0; width: 1214px; height: 462.2px; }
+		.cl-desc-bg { width: 908.5px; height: 460.2px; border-width: 1px; border-radius: 13px; box-shadow: 2px 2px 6px rgba(102,102,102,0.66); }
+		.cl-desc-bg-single { border-radius: 0 13px 13px 0 !important; }
+		.cl-desc-bg-first { border-radius: 0 13px 13px 13px !important; }
+		.cl-desc-bg-last { border-radius: 13px 13px 13px 0 !important; }
+		.cl-desc-wrapper { margin: 3px; padding: 20px; width: 860.5px; height: 412.2px; background-color: #FFFFFF; border-width: 1px; border-color: #336699; border-radius: 10px;  }
+		.cl-desc { width: 860.5px; height: 412.2px; }
+
+		.cl-tab-part { width: 303.5px; height: 462.2px; }
+		.cl-tab-bg { width: 303.5px; height: 152.73333333333332px; box-shadow: 2px 2px 6px rgba(102,102,102,0.66); }
+		.cl-tab-bg-left { clip: rect(-6px, 304.5px, 160.73333333333332px, -6px); border-width: 1px 0 1px 1px; border-radius: 3px 0 0 3px; }
+		.cl-tab-bg-right { clip: rect(-6px, 310.5px, 160.73333333333332px, 0); border-width: 1px 1px 1px 0; border-radius: 0 3px 3px 0; }
+		.cl-tab-bg-top { clip: rect(-6px, 311.5px, 153.73333333333332px, -6px); border-width: 1px 1px 0 1px; border-radius: 3px 3px 0 0; }
+		.cl-tab-bg-bottom { clip: rect(0, 311.5px, 159.73333333333332px, -6px); border-width: 0 1px 1px 1px; border-radius: 0 0 3px 3px; }
+		.cl-tab { margin: 4px; width: 294.5px; height: 144.73333333333332px; border-width: 1px; border-radius: 0px; }
+		.cl-tab-idle { border-color: #7EB83A; background-color: #96DB46; background-image: linear-gradient(0deg, #96DB46 10%, #BAED80 50%, #CBF799 50%, #DDFFCC 90%); }
+		.cl-tab-selected { border-color: #000000; background-color: #9CCDFF; background-image: linear-gradient(0deg, #9CCDFF 10%, #BDDEFF 50%, #C7E3FF 50%, #9CCDFF 90%); }
+		.cl-tab-inner-div { font-family: roboto_condensedregular, 'Arial Narrow', sans-serif; font-size: 12px; text-shadow: 1px 1px 2px rgba(255,255,255,0.66); }
+		.cl-tab-idle .cl-tab-inner-div { color: #466621; }
+		.cl-tab-selected .cl-tab-inner-div { color: #000000; }
+		.cl-tab-table-cell { width: 268.5px; height: 118.73333333333332px; padding: 12px 12px; }
+		
+			.cl-tab-bg-1 { left: 0;top: 0; }
+			.cl-tab-1 { left: 0;top: 0; }
+			
+			.cl-tab-bg-2 { left: 0;top: 153.73333333333332px; }
+			.cl-tab-2 { left: 0;top: 153.73333333333332px; }
+			
+			.cl-tab-bg-3 { left: 0;bottom: 0; }
+			.cl-tab-3 { left: 0;bottom: 0; }
+			</style><div class="clo-v_rapid_001"  ><div class="cl-container"><div class="cl-bg"><div class="cl-header-part"><table class="cl-header-table"><tr><td class="cl-header-cell-name"><div class="cl-header-title unselectable">Название</div></td><td class="cl-header-cell-btn"><div id="OBJ_103_HEADER_BTN_left" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-left unselectable"><div class="cl-arrow cl-arrow-left">
+			 
+		</div></div></td><td class="cl-header-cell-btn"><div id="OBJ_103_HEADER_BTN_right" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-right unselectable"><div class="cl-arrow cl-arrow-right">
+			 
+		</div></div></td></tr></table></div><div class="cl-tab-block"><div class="cl-desc-bg-left cl-desc-bg  cl-desc-bg-first"><div id="OBJ_103_DESC_WRAPPER" class="cl-desc-wrapper"><div id="OBJ_103_DESC_1" class="cl-desc cl-desc-1" data-number="1" style=""><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_103_DESC_2" class="cl-desc cl-desc-2" data-number="2" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_103_DESC_3" class="cl-desc cl-desc-3" data-number="3" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div></div></div><div class="cl-tab-part-left"><div id="OBJ_103_TAB_BG_1" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-1" style="" data-number="1">
+		 
+	</div><div id="OBJ_103_TAB_BG_2" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-2" style="display: none;" data-number="2">
+		 
+	</div><div id="OBJ_103_TAB_BG_3" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-3" style="display: none;" data-number="3">
+		 
+	</div><div id="OBJ_103_TAB_1" class="cl-tab cl-tab-selected cl-tab-selected-1 unselectable cl-tab-1" data-number="1"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 1</div></td></tr></table></div><div id="OBJ_103_TAB_2" class="cl-tab cl-tab-idle cl-tab-idle-2 unselectable cl-tab-2" data-number="2"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 2</div></td></tr></table></div><div id="OBJ_103_TAB_3" class="cl-tab cl-tab-idle cl-tab-idle-3 unselectable cl-tab-3" data-number="3"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 3</div></td></tr></table></div></div></div></div></div></div>]]></design_content>
+<export_content><![CDATA[<div class="cl-audio-files-list" style="display: none"   /><div class="style-custom" style="display: none"  ><div class="rule" data-name="#OBJ_103 .cl-container"><span class="rule-static">width: 1256px; height: 540px;</span></div><div class="rule" data-name="#OBJ_103 .cl-bg"><span class="rule-static">width: 1214px; height: 498px; padding: 20px; background-color: #DDDDDD; border-width: 1px; border-color: #777777;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_103 .cl-header-part"><span class="rule-static">border-color: #000000; padding: 0 0 3px 0; width: 1214px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-table"><span class="rule-static">width: 1214px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-cell-name"><span class="rule-static">width: -40.8px; height: 28.8px; padding: 0 6px 0 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-cell-btn"><span class="rule-static">width: 28.8px; height: 28.8px; padding: 0 0 0 3px;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-btn"><span class="rule-static">background-color: #000000; border-width: 1px; border-color: #000000; width: 26.8px; height: 26.8px;</span><span class="rule-dynamic" data-type="border-radius" data-value="15%" /></div><div class="rule" data-name="#OBJ_103 .cl-header-btn-idle"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_103 .cl-header-btn-over"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_103 .cl-arrow-left"><span class="rule-static">margin: -8px 0 0 -5px; border-width: 8px 8px 8px 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-arrow-right"><span class="rule-static">margin: -8px 0 0 -3px; border-width: 8px 0 8px 8px;</span></div><div class="rule" data-name="#OBJ_103 .cl-header-title"><span class="rule-static">width: -40.8px; color: #000000; font-family: robotomedium, Arial, Helvetica, sans-serif; font-size: 18px; text-shadow: 1px 1px 2px rgba(102,102,102,0.5);</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-block"><span class="rule-static">margin: 3px 0 0 0; width: 1214px; height: 462.2px;</span></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg"><span class="rule-static">width: 908.5px; height: 460.2px; border-width: 1px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg-regular"><span class="rule-dynamic" data-type="border-radius" data-value="13px" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg-single"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 0" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg-first"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 13px" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-bg-last"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="13px 13px 13px 0" /></div><div class="rule" data-name="#OBJ_103 .cl-desc-wrapper"><span class="rule-static">margin: 3px; padding: 20px; width: 860.5px; height: 412.2px; background-color: #FFFFFF; border-width: 1px; border-color: #336699;</span><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_103 .cl-desc"><span class="rule-static">width: 860.5px; height: 412.2px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-part"><span class="rule-static">width: 303.5px; height: 462.2px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg"><span class="rule-static">width: 303.5px; height: 152.73333333333332px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-left"><span class="rule-static">clip: rect(-6px, 304.5px, 160.73333333333332px, -6px); border-width: 1px 0 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 0 0 3px" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-right"><span class="rule-static">clip: rect(-6px, 310.5px, 160.73333333333332px, 0); border-width: 1px 1px 1px 0;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 3px 3px 0" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-top"><span class="rule-static">clip: rect(-6px, 311.5px, 153.73333333333332px, -6px); border-width: 1px 1px 0 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 3px 0 0" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-bottom"><span class="rule-static">clip: rect(0, 311.5px, 159.73333333333332px, -6px); border-width: 0 1px 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 0 3px 3px" /></div><div class="rule" data-name="#OBJ_103 .cl-tab"><span class="rule-static">margin: 4px; width: 294.5px; height: 144.73333333333332px; border-width: 1px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-idle"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-over"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-inner-div"><span class="rule-static">font-family: roboto_condensedregular, 'Arial Narrow', sans-serif; font-size: 12px; text-shadow: 1px 1px 2px rgba(255,255,255,0.66);</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-idle .cl-tab-inner-div"><span class="rule-static">color: #466621;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-selected"><span class="rule-static">border-color: #000000; background-color: #9CCDFF;</span><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#9CCDFF|10;#BDDEFF|50;#C7E3FF|50;#9CCDFF|90" /></div><div class="rule" data-name="#OBJ_103 .cl-tab-selected .cl-tab-inner-div"><span class="rule-static">color: #000000;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-table-cell"><span class="rule-static">width: 268.5px; height: 118.73333333333332px; padding: 12px 12px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-2"><span class="rule-static">left: 0;top: 153.73333333333332px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-2"><span class="rule-static">left: 0;top: 153.73333333333332px;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-bg-3"><span class="rule-static">left: 0;bottom: 0;</span></div><div class="rule" data-name="#OBJ_103 .cl-tab-3"><span class="rule-static">left: 0;bottom: 0;</span></div></div><div class="cl-container unselectable"  ><div class="cl-bg"><div class="cl-header-part"><table class="cl-header-table"><tr><td class="cl-header-cell-name"><div class="cl-header-title unselectable">Название</div></td><td class="cl-header-cell-btn"><div id="OBJ_103_HEADER_BTN_left" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-left unselectable"><div class="cl-arrow cl-arrow-left">
+			 
+		</div></div></td><td class="cl-header-cell-btn"><div id="OBJ_103_HEADER_BTN_right" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-right unselectable"><div class="cl-arrow cl-arrow-right">
+			 
+		</div></div></td></tr></table></div><div class="cl-tab-block"><div class="cl-desc-bg-left cl-desc-bg  cl-desc-bg-first "><div id="OBJ_103_DESC_WRAPPER" class="cl-desc-wrapper"><div id="OBJ_103_DESC_1" class="cl-desc cl-desc-1" data-number="1" style=""><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_103_DESC_2" class="cl-desc cl-desc-2" data-number="2" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_103_DESC_3" class="cl-desc cl-desc-3" data-number="3" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div></div></div><div class="cl-tab-part-left"><div id="OBJ_103_TAB_BG_1" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-1" style="" data-number="1">
+		 
+	</div><div id="OBJ_103_TAB_BG_2" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-2" style="display: none;" data-number="2">
+		 
+	</div><div id="OBJ_103_TAB_BG_3" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-3" style="display: none;" data-number="3">
+		 
+	</div><div id="OBJ_103_TAB_1" class="cl-tab cl-tab-selected cl-tab-selected-1 unselectable cl-tab-1" style="" data-number="1"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 1</div></td></tr></table></div><div id="OBJ_103_TAB_2" class="cl-tab cl-tab-idle cl-tab-idle-2 unselectable cl-tab-2" style="" data-number="2"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 2</div></td></tr></table></div><div id="OBJ_103_TAB_3" class="cl-tab cl-tab-idle cl-tab-idle-3 unselectable cl-tab-3" style="" data-number="3"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 3</div></td></tr></table></div></div></div></div></div>]]></export_content>
+<params>
+<tab_type type="select">left</tab_type>
+<elements type="list">
+<item>
+<display_first type="check">no</display_first>
+<text_type type="select">plain</text_type>
+<tab_text type="edit">Текст по умолчанию 1</tab_text>
+<tab_text_html type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</tab_text_html>
+<desc_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</desc_text>
+<narration type="file"></narration>
+<spec_tabcolor_scheme type="select">red</spec_tabcolor_scheme>
+<spec_tabbg_color type="color">#9BCDFF</spec_tabbg_color>
+<spec_tabgradient_color type="color">#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color type="color">#9BCDFF</spec_tabborder_color>
+<spec_tabcolor_scheme_selected type="select">custom</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected type="color">#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected type="color">#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected type="color">#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first type="check">no</display_first>
+<text_type type="select">plain</text_type>
+<tab_text type="edit">Текст по умолчанию 2</tab_text>
+<tab_text_html type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</tab_text_html>
+<desc_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</desc_text>
+<narration type="file"></narration>
+<spec_tabcolor_scheme type="select">steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color type="color">#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color type="color">#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color type="color">#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected type="select">olive</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected type="color">#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected type="color">#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected type="color">#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first type="check">no</display_first>
+<text_type type="select">plain</text_type>
+<tab_text type="edit">Текст по умолчанию 3</tab_text>
+<tab_text_html type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</tab_text_html>
+<desc_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</desc_text>
+<narration type="file"></narration>
+<spec_tabcolor_scheme type="select">steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color type="color">#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color type="color">#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color type="color">#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected type="select">green</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected type="color">#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected type="color">#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected type="color">#336699</spec_tabborder_color_selected>
+</item>
+</elements>
+<display_default_text type="check">no</display_default_text>
+<default_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Выберите одну из закладок&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</default_text>
+<restore_state type="check">yes</restore_state>
+<tab_size type="spinner">25</tab_size>
+<shadow_strength type="select">normal</shadow_strength>
+<tab_color_scheme type="select">green</tab_color_scheme>
+<tab_bg_color type="color">#E8EEFF</tab_bg_color>
+<tab_gradient_color type="color">#9BCDFF</tab_gradient_color>
+<tab_border_color type="color">#E8EEFF</tab_border_color>
+<tab_color_scheme_selected type="select">custom</tab_color_scheme_selected>
+<tab_bg_color_selected type="color">#9BCDFF</tab_bg_color_selected>
+<tab_gradient_color_selected type="color">#9BCDFF</tab_gradient_color_selected>
+<tab_border_color_selected type="color">#000000</tab_border_color_selected>
+<tab_border_width type="spinner">1</tab_border_width>
+<tab_radius type="spinner">0</tab_radius>
+<tab_padding_tb type="spinner">12</tab_padding_tb>
+<tab_padding_lr type="spinner">12</tab_padding_lr>
+<font type="select">roboto_condensedregular</font>
+<font_custom type="edit"></font_custom>
+<font_style type="select">normal</font_style>
+<font_size type="spinner">12</font_size>
+<text_shadow_strength type="select">normal</text_shadow_strength>
+<text_shadow_color type="color">#FFFFFF</text_shadow_color>
+<display_ribbon type="check">yes</display_ribbon>
+<fs_ribbon type="fieldset"></fs_ribbon>
+<ribbon_text type="edit">Название</ribbon_text>
+<ribbon_color_scheme type="select">black</ribbon_color_scheme>
+<ribbon_bg_color type="color">#E8EEFF</ribbon_bg_color>
+<ribbon_gradient_color type="color">#FFFFFF</ribbon_gradient_color>
+<ribbon_border_color type="color">#E8EEFF</ribbon_border_color>
+<ribbon_font type="select">robotomedium</ribbon_font>
+<ribbon_font_custom type="edit"></ribbon_font_custom>
+<ribbon_font_style type="select">normal</ribbon_font_style>
+<ribbon_font_size type="spinner">18</ribbon_font_size>
+<ribbon_text_shadow_strength type="select">light</ribbon_text_shadow_strength>
+<ribbon_text_shadow_color type="color">#666666</ribbon_text_shadow_color>
+<desc_color_scheme type="select">custom</desc_color_scheme>
+<desc_bg_color type="color">#E8EEFF</desc_bg_color>
+<desc_gradient_color type="color">#FFFFFF</desc_gradient_color>
+<desc_border_color type="color">#336699</desc_border_color>
+<desc_bg_override type="check">yes</desc_bg_override>
+<desc_bg_color_custom type="color">#FFFFFF</desc_bg_color_custom>
+<desc_bg_grad_angle type="spinner">0</desc_bg_grad_angle>
+<desc_border_width type="spinner">1</desc_border_width>
+<desc_radius type="spinner">10</desc_radius>
+<desc_padding type="spinner">20</desc_padding>
+<display_bg type="check">yes</display_bg>
+<fs_bg type="fieldset"></fs_bg>
+<bg_color_scheme type="select">custom</bg_color_scheme>
+<bg_bg_color type="color">#DDDDDD</bg_bg_color>
+<bg_gradient_color type="color">#DDDDDD</bg_gradient_color>
+<bg_border_color type="color">#777777</bg_border_color>
+<bg_grad_angle type="spinner">0</bg_grad_angle>
+<bg_border_width type="spinner">1</bg_border_width>
+<bg_radius type="spinner">10</bg_radius>
+<bg_padding type="spinner">20</bg_padding>
+<sound_click type="select">none</sound_click>
+<sound_click_file_custom type="file"></sound_click_file_custom>
+<sound_over type="select">none</sound_over>
+<sound_over_file_custom type="file"></sound_over_file_custom>
+</params>
+</object>
+</objects>
+</subslide>
+<subslide guid="1c3850af_ad86_40ef_8cb7_db31ad7fe845" id="FRAME_28" expanded="yes" infinite="1" dur="0">
+<objects>
+<object type="div" guid="478e9885_93a8_4ee0_95a5_e1291cc730dc" id="OBJ_140" label="Блок закладок универсальный 1" expanded="yes" state_extension="false" left="14" top="116" width="747" height="540" display="frame" begin="0">
+<template>v_rapid_001</template>
+<design_content><![CDATA[<style  >
+		.cl-container { width: 747px; height: 540px; }
+		.cl-bg { width: 705px; height: 498px; padding: 20px; background-color: #DDDDDD;  border-width: 1px; border-color: #777777; border-radius: 10px;box-shadow: 2px 2px 6px rgba(102,102,102,0.66); }
+        
+			.cl-header-part { border-color: #000000; padding: 0 0 3px 0; width: 705px; height: 28.8px; }
+			.cl-header-table { width: 705px; height: 28.8px; }
+			.cl-header-cell-name { width: -40.8px; height: 28.8px; padding: 0 6px 0 0; }
+			.cl-header-cell-btn { width: 28.8px; height: 28.8px; padding: 0 0 0 3px; }
+			.cl-header-btn { background-color: #000000; border-width: 1px; border-color: #000000; width: 26.8px; height: 26.8px; border-radius: 15%; }
+			.cl-header-btn-idle { box-shadow: 2px 2px 6px rgba(102,102,102,0.66); background-image: linear-gradient(0deg, #000000 10%, #000000 50%, #000000 50%, #333333 90%); }
+			.cl-arrow-left { margin: -8px 0 0 -5px; border-width: 8px 8px 8px 0; }
+			.cl-arrow-right { margin: -8px 0 0 -3px; border-width: 8px 0 8px 8px; }
+			.cl-header-title { width: -40.8px; color: #000000; font-family: robotomedium, Arial, Helvetica, sans-serif; font-size: 18px; text-shadow: 1px 1px 2px rgba(102,102,102,0.5); }
+		
+		.cl-tab-block { margin: 3px 0 0 0; width: 705px; height: 462.2px; }
+		.cl-desc-bg { width: 526.75px; height: 460.2px; border-width: 1px; border-radius: 13px; box-shadow: 2px 2px 6px rgba(102,102,102,0.66); }
+		.cl-desc-bg-single { border-radius: 0 13px 13px 0 !important; }
+		.cl-desc-bg-first { border-radius: 0 13px 13px 13px !important; }
+		.cl-desc-bg-last { border-radius: 13px 13px 13px 0 !important; }
+		.cl-desc-wrapper { margin: 3px; padding: 20px; width: 478.75px; height: 412.2px; background-color: #FFFFFF; border-width: 1px; border-color: #336699; border-radius: 10px;  }
+		.cl-desc { width: 478.75px; height: 412.2px; }
+
+		.cl-tab-part { width: 176.25px; height: 462.2px; }
+		.cl-tab-bg { width: 176.25px; height: 152.73333333333332px; box-shadow: 2px 2px 6px rgba(102,102,102,0.66); }
+		.cl-tab-bg-left { clip: rect(-6px, 177.25px, 160.73333333333332px, -6px); border-width: 1px 0 1px 1px; border-radius: 3px 0 0 3px; }
+		.cl-tab-bg-right { clip: rect(-6px, 183.25px, 160.73333333333332px, 0); border-width: 1px 1px 1px 0; border-radius: 0 3px 3px 0; }
+		.cl-tab-bg-top { clip: rect(-6px, 184.25px, 153.73333333333332px, -6px); border-width: 1px 1px 0 1px; border-radius: 3px 3px 0 0; }
+		.cl-tab-bg-bottom { clip: rect(0, 184.25px, 159.73333333333332px, -6px); border-width: 0 1px 1px 1px; border-radius: 0 0 3px 3px; }
+		.cl-tab { margin: 4px; width: 167.25px; height: 144.73333333333332px; border-width: 1px; border-radius: 0px; }
+		.cl-tab-idle { border-color: #7EB83A; background-color: #96DB46; background-image: linear-gradient(0deg, #96DB46 10%, #BAED80 50%, #CBF799 50%, #DDFFCC 90%); }
+		.cl-tab-selected { border-color: #000000; background-color: #9CCDFF; background-image: linear-gradient(0deg, #9CCDFF 10%, #BDDEFF 50%, #C7E3FF 50%, #9CCDFF 90%); }
+		.cl-tab-inner-div { font-family: roboto_condensedregular, 'Arial Narrow', sans-serif; font-size: 12px; text-shadow: 1px 1px 2px rgba(255,255,255,0.66); }
+		.cl-tab-idle .cl-tab-inner-div { color: #466621; }
+		.cl-tab-selected .cl-tab-inner-div { color: #000000; }
+		.cl-tab-table-cell { width: 141.25px; height: 118.73333333333332px; padding: 12px 12px; }
+		
+			.cl-tab-bg-1 { left: 0;top: 0; }
+			.cl-tab-1 { left: 0;top: 0; }
+			
+			.cl-tab-bg-2 { left: 0;top: 153.73333333333332px; }
+			.cl-tab-2 { left: 0;top: 153.73333333333332px; }
+			
+			.cl-tab-bg-3 { left: 0;bottom: 0; }
+			.cl-tab-3 { left: 0;bottom: 0; }
+			</style><div class="clo-v_rapid_001"  ><div class="cl-container"><div class="cl-bg"><div class="cl-header-part"><table class="cl-header-table"><tr><td class="cl-header-cell-name"><div class="cl-header-title unselectable">Название</div></td><td class="cl-header-cell-btn"><div id="OBJ_140_HEADER_BTN_left" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-left unselectable"><div class="cl-arrow cl-arrow-left">
+			 
+		</div></div></td><td class="cl-header-cell-btn"><div id="OBJ_140_HEADER_BTN_right" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-right unselectable"><div class="cl-arrow cl-arrow-right">
+			 
+		</div></div></td></tr></table></div><div class="cl-tab-block"><div class="cl-desc-bg-left cl-desc-bg  cl-desc-bg-first"><div id="OBJ_140_DESC_WRAPPER" class="cl-desc-wrapper"><div id="OBJ_140_DESC_1" class="cl-desc cl-desc-1" data-number="1" style=""><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_140_DESC_2" class="cl-desc cl-desc-2" data-number="2" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_140_DESC_3" class="cl-desc cl-desc-3" data-number="3" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div></div></div><div class="cl-tab-part-left"><div id="OBJ_140_TAB_BG_1" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-1" style="" data-number="1">
+		 
+	</div><div id="OBJ_140_TAB_BG_2" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-2" style="display: none;" data-number="2">
+		 
+	</div><div id="OBJ_140_TAB_BG_3" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-3" style="display: none;" data-number="3">
+		 
+	</div><div id="OBJ_140_TAB_1" class="cl-tab cl-tab-selected cl-tab-selected-1 unselectable cl-tab-1" data-number="1"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 1</div></td></tr></table></div><div id="OBJ_140_TAB_2" class="cl-tab cl-tab-idle cl-tab-idle-2 unselectable cl-tab-2" data-number="2"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 2</div></td></tr></table></div><div id="OBJ_140_TAB_3" class="cl-tab cl-tab-idle cl-tab-idle-3 unselectable cl-tab-3" data-number="3"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 3</div></td></tr></table></div></div></div></div></div></div>]]></design_content>
+<export_content><![CDATA[<div class="cl-audio-files-list" style="display: none"   /><div class="style-custom" style="display: none"  ><div class="rule" data-name="#OBJ_140 .cl-container"><span class="rule-static">width: 747px; height: 540px;</span></div><div class="rule" data-name="#OBJ_140 .cl-bg"><span class="rule-static">width: 705px; height: 498px; padding: 20px; background-color: #DDDDDD; border-width: 1px; border-color: #777777;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_140 .cl-header-part"><span class="rule-static">border-color: #000000; padding: 0 0 3px 0; width: 705px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-table"><span class="rule-static">width: 705px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-cell-name"><span class="rule-static">width: -40.8px; height: 28.8px; padding: 0 6px 0 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-cell-btn"><span class="rule-static">width: 28.8px; height: 28.8px; padding: 0 0 0 3px;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-btn"><span class="rule-static">background-color: #000000; border-width: 1px; border-color: #000000; width: 26.8px; height: 26.8px;</span><span class="rule-dynamic" data-type="border-radius" data-value="15%" /></div><div class="rule" data-name="#OBJ_140 .cl-header-btn-idle"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_140 .cl-header-btn-over"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_140 .cl-arrow-left"><span class="rule-static">margin: -8px 0 0 -5px; border-width: 8px 8px 8px 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-arrow-right"><span class="rule-static">margin: -8px 0 0 -3px; border-width: 8px 0 8px 8px;</span></div><div class="rule" data-name="#OBJ_140 .cl-header-title"><span class="rule-static">width: -40.8px; color: #000000; font-family: robotomedium, Arial, Helvetica, sans-serif; font-size: 18px; text-shadow: 1px 1px 2px rgba(102,102,102,0.5);</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-block"><span class="rule-static">margin: 3px 0 0 0; width: 705px; height: 462.2px;</span></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg"><span class="rule-static">width: 526.75px; height: 460.2px; border-width: 1px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg-regular"><span class="rule-dynamic" data-type="border-radius" data-value="13px" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg-single"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 0" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg-first"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 13px" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-bg-last"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="13px 13px 13px 0" /></div><div class="rule" data-name="#OBJ_140 .cl-desc-wrapper"><span class="rule-static">margin: 3px; padding: 20px; width: 478.75px; height: 412.2px; background-color: #FFFFFF; border-width: 1px; border-color: #336699;</span><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_140 .cl-desc"><span class="rule-static">width: 478.75px; height: 412.2px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-part"><span class="rule-static">width: 176.25px; height: 462.2px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg"><span class="rule-static">width: 176.25px; height: 152.73333333333332px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-left"><span class="rule-static">clip: rect(-6px, 177.25px, 160.73333333333332px, -6px); border-width: 1px 0 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 0 0 3px" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-right"><span class="rule-static">clip: rect(-6px, 183.25px, 160.73333333333332px, 0); border-width: 1px 1px 1px 0;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 3px 3px 0" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-top"><span class="rule-static">clip: rect(-6px, 184.25px, 153.73333333333332px, -6px); border-width: 1px 1px 0 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 3px 0 0" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-bottom"><span class="rule-static">clip: rect(0, 184.25px, 159.73333333333332px, -6px); border-width: 0 1px 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 0 3px 3px" /></div><div class="rule" data-name="#OBJ_140 .cl-tab"><span class="rule-static">margin: 4px; width: 167.25px; height: 144.73333333333332px; border-width: 1px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-idle"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-over"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-inner-div"><span class="rule-static">font-family: roboto_condensedregular, 'Arial Narrow', sans-serif; font-size: 12px; text-shadow: 1px 1px 2px rgba(255,255,255,0.66);</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-idle .cl-tab-inner-div"><span class="rule-static">color: #466621;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-selected"><span class="rule-static">border-color: #000000; background-color: #9CCDFF;</span><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#9CCDFF|10;#BDDEFF|50;#C7E3FF|50;#9CCDFF|90" /></div><div class="rule" data-name="#OBJ_140 .cl-tab-selected .cl-tab-inner-div"><span class="rule-static">color: #000000;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-table-cell"><span class="rule-static">width: 141.25px; height: 118.73333333333332px; padding: 12px 12px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-2"><span class="rule-static">left: 0;top: 153.73333333333332px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-2"><span class="rule-static">left: 0;top: 153.73333333333332px;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-bg-3"><span class="rule-static">left: 0;bottom: 0;</span></div><div class="rule" data-name="#OBJ_140 .cl-tab-3"><span class="rule-static">left: 0;bottom: 0;</span></div></div><div class="cl-container unselectable"  ><div class="cl-bg"><div class="cl-header-part"><table class="cl-header-table"><tr><td class="cl-header-cell-name"><div class="cl-header-title unselectable">Название</div></td><td class="cl-header-cell-btn"><div id="OBJ_140_HEADER_BTN_left" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-left unselectable"><div class="cl-arrow cl-arrow-left">
+			 
+		</div></div></td><td class="cl-header-cell-btn"><div id="OBJ_140_HEADER_BTN_right" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-right unselectable"><div class="cl-arrow cl-arrow-right">
+			 
+		</div></div></td></tr></table></div><div class="cl-tab-block"><div class="cl-desc-bg-left cl-desc-bg  cl-desc-bg-first "><div id="OBJ_140_DESC_WRAPPER" class="cl-desc-wrapper"><div id="OBJ_140_DESC_1" class="cl-desc cl-desc-1" data-number="1" style=""><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_140_DESC_2" class="cl-desc cl-desc-2" data-number="2" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_140_DESC_3" class="cl-desc cl-desc-3" data-number="3" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div></div></div><div class="cl-tab-part-left"><div id="OBJ_140_TAB_BG_1" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-1" style="" data-number="1">
+		 
+	</div><div id="OBJ_140_TAB_BG_2" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-2" style="display: none;" data-number="2">
+		 
+	</div><div id="OBJ_140_TAB_BG_3" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-3" style="display: none;" data-number="3">
+		 
+	</div><div id="OBJ_140_TAB_1" class="cl-tab cl-tab-selected cl-tab-selected-1 unselectable cl-tab-1" style="" data-number="1"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 1</div></td></tr></table></div><div id="OBJ_140_TAB_2" class="cl-tab cl-tab-idle cl-tab-idle-2 unselectable cl-tab-2" style="" data-number="2"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 2</div></td></tr></table></div><div id="OBJ_140_TAB_3" class="cl-tab cl-tab-idle cl-tab-idle-3 unselectable cl-tab-3" style="" data-number="3"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 3</div></td></tr></table></div></div></div></div></div>]]></export_content>
+<params>
+<tab_type type="select">left</tab_type>
+<elements type="list">
+<item>
+<display_first type="check">no</display_first>
+<text_type type="select">plain</text_type>
+<tab_text type="edit">Текст по умолчанию 1</tab_text>
+<tab_text_html type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</tab_text_html>
+<desc_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</desc_text>
+<narration type="file"></narration>
+<spec_tabcolor_scheme type="select">red</spec_tabcolor_scheme>
+<spec_tabbg_color type="color">#9BCDFF</spec_tabbg_color>
+<spec_tabgradient_color type="color">#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color type="color">#9BCDFF</spec_tabborder_color>
+<spec_tabcolor_scheme_selected type="select">custom</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected type="color">#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected type="color">#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected type="color">#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first type="check">no</display_first>
+<text_type type="select">plain</text_type>
+<tab_text type="edit">Текст по умолчанию 2</tab_text>
+<tab_text_html type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</tab_text_html>
+<desc_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</desc_text>
+<narration type="file"></narration>
+<spec_tabcolor_scheme type="select">steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color type="color">#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color type="color">#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color type="color">#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected type="select">olive</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected type="color">#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected type="color">#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected type="color">#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first type="check">no</display_first>
+<text_type type="select">plain</text_type>
+<tab_text type="edit">Текст по умолчанию 3</tab_text>
+<tab_text_html type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</tab_text_html>
+<desc_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</desc_text>
+<narration type="file"></narration>
+<spec_tabcolor_scheme type="select">steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color type="color">#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color type="color">#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color type="color">#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected type="select">green</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected type="color">#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected type="color">#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected type="color">#336699</spec_tabborder_color_selected>
+</item>
+</elements>
+<display_default_text type="check">no</display_default_text>
+<default_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Выберите одну из закладок&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</default_text>
+<restore_state type="check">yes</restore_state>
+<tab_size type="spinner">25</tab_size>
+<shadow_strength type="select">normal</shadow_strength>
+<tab_color_scheme type="select">green</tab_color_scheme>
+<tab_bg_color type="color">#E8EEFF</tab_bg_color>
+<tab_gradient_color type="color">#9BCDFF</tab_gradient_color>
+<tab_border_color type="color">#E8EEFF</tab_border_color>
+<tab_color_scheme_selected type="select">custom</tab_color_scheme_selected>
+<tab_bg_color_selected type="color">#9BCDFF</tab_bg_color_selected>
+<tab_gradient_color_selected type="color">#9BCDFF</tab_gradient_color_selected>
+<tab_border_color_selected type="color">#000000</tab_border_color_selected>
+<tab_border_width type="spinner">1</tab_border_width>
+<tab_radius type="spinner">0</tab_radius>
+<tab_padding_tb type="spinner">12</tab_padding_tb>
+<tab_padding_lr type="spinner">12</tab_padding_lr>
+<font type="select">roboto_condensedregular</font>
+<font_custom type="edit"></font_custom>
+<font_style type="select">normal</font_style>
+<font_size type="spinner">12</font_size>
+<text_shadow_strength type="select">normal</text_shadow_strength>
+<text_shadow_color type="color">#FFFFFF</text_shadow_color>
+<display_ribbon type="check">yes</display_ribbon>
+<fs_ribbon type="fieldset"></fs_ribbon>
+<ribbon_text type="edit">Название</ribbon_text>
+<ribbon_color_scheme type="select">black</ribbon_color_scheme>
+<ribbon_bg_color type="color">#E8EEFF</ribbon_bg_color>
+<ribbon_gradient_color type="color">#FFFFFF</ribbon_gradient_color>
+<ribbon_border_color type="color">#E8EEFF</ribbon_border_color>
+<ribbon_font type="select">robotomedium</ribbon_font>
+<ribbon_font_custom type="edit"></ribbon_font_custom>
+<ribbon_font_style type="select">normal</ribbon_font_style>
+<ribbon_font_size type="spinner">18</ribbon_font_size>
+<ribbon_text_shadow_strength type="select">light</ribbon_text_shadow_strength>
+<ribbon_text_shadow_color type="color">#666666</ribbon_text_shadow_color>
+<desc_color_scheme type="select">custom</desc_color_scheme>
+<desc_bg_color type="color">#E8EEFF</desc_bg_color>
+<desc_gradient_color type="color">#FFFFFF</desc_gradient_color>
+<desc_border_color type="color">#336699</desc_border_color>
+<desc_bg_override type="check">yes</desc_bg_override>
+<desc_bg_color_custom type="color">#FFFFFF</desc_bg_color_custom>
+<desc_bg_grad_angle type="spinner">0</desc_bg_grad_angle>
+<desc_border_width type="spinner">1</desc_border_width>
+<desc_radius type="spinner">10</desc_radius>
+<desc_padding type="spinner">20</desc_padding>
+<display_bg type="check">yes</display_bg>
+<fs_bg type="fieldset"></fs_bg>
+<bg_color_scheme type="select">custom</bg_color_scheme>
+<bg_bg_color type="color">#DDDDDD</bg_bg_color>
+<bg_gradient_color type="color">#DDDDDD</bg_gradient_color>
+<bg_border_color type="color">#777777</bg_border_color>
+<bg_grad_angle type="spinner">0</bg_grad_angle>
+<bg_border_width type="spinner">1</bg_border_width>
+<bg_radius type="spinner">10</bg_radius>
+<bg_padding type="spinner">20</bg_padding>
+<sound_click type="select">none</sound_click>
+<sound_click_file_custom type="file"></sound_click_file_custom>
+<sound_over type="select">none</sound_over>
+<sound_over_file_custom type="file"></sound_over_file_custom>
+</params>
+</object>
+</objects>
+</subslide>
+<subslide guid="c5cb8e4b_c4c4_440f_b003_cf0ad8d12cff" id="FRAME_29" expanded="yes" infinite="1" dur="0">
+<objects>
+<object type="div" guid="ef2934d9_b6be_450d_90de_10d37b24f3dd" id="OBJ_141" label="Блок закладок универсальный 2" expanded="yes" state_extension="false" left="5" top="128" width="350" height="531" display="frame" begin="0">
+<template>v_rapid_001</template>
+<design_content><![CDATA[<style  >
+		.cl-container { width: 350px; height: 531px; }
+		.cl-bg { width: 308px; height: 489px; padding: 20px; background-color: #DDDDDD;  border-width: 1px; border-color: #777777; border-radius: 10px;box-shadow: 2px 2px 6px rgba(102,102,102,0.66); }
+        
+			.cl-header-part { border-color: #000000; padding: 0 0 3px 0; width: 308px; height: 28.8px; }
+			.cl-header-table { width: 308px; height: 28.8px; }
+			.cl-header-cell-name { width: -40.8px; height: 28.8px; padding: 0 6px 0 0; }
+			.cl-header-cell-btn { width: 28.8px; height: 28.8px; padding: 0 0 0 3px; }
+			.cl-header-btn { background-color: #000000; border-width: 1px; border-color: #000000; width: 26.8px; height: 26.8px; border-radius: 15%; }
+			.cl-header-btn-idle { box-shadow: 2px 2px 6px rgba(102,102,102,0.66); background-image: linear-gradient(0deg, #000000 10%, #000000 50%, #000000 50%, #333333 90%); }
+			.cl-arrow-left { margin: -8px 0 0 -5px; border-width: 8px 8px 8px 0; }
+			.cl-arrow-right { margin: -8px 0 0 -3px; border-width: 8px 0 8px 8px; }
+			.cl-header-title { width: -40.8px; color: #000000; font-family: robotomedium, Arial, Helvetica, sans-serif; font-size: 18px; text-shadow: 1px 1px 2px rgba(102,102,102,0.5); }
+		
+		.cl-tab-block { margin: 3px 0 0 0; width: 308px; height: 453.2px; }
+		.cl-desc-bg { width: 229px; height: 451.2px; border-width: 1px; border-radius: 13px; box-shadow: 2px 2px 6px rgba(102,102,102,0.66); }
+		.cl-desc-bg-single { border-radius: 0 13px 13px 0 !important; }
+		.cl-desc-bg-first { border-radius: 0 13px 13px 13px !important; }
+		.cl-desc-bg-last { border-radius: 13px 13px 13px 0 !important; }
+		.cl-desc-wrapper { margin: 3px; padding: 20px; width: 181px; height: 403.2px; background-color: #FFFFFF; border-width: 1px; border-color: #336699; border-radius: 10px;  }
+		.cl-desc { width: 181px; height: 403.2px; }
+
+		.cl-tab-part { width: 77px; height: 453.2px; }
+		.cl-tab-bg { width: 77px; height: 149.73333333333332px; box-shadow: 2px 2px 6px rgba(102,102,102,0.66); }
+		.cl-tab-bg-left { clip: rect(-6px, 78px, 157.73333333333332px, -6px); border-width: 1px 0 1px 1px; border-radius: 3px 0 0 3px; }
+		.cl-tab-bg-right { clip: rect(-6px, 84px, 157.73333333333332px, 0); border-width: 1px 1px 1px 0; border-radius: 0 3px 3px 0; }
+		.cl-tab-bg-top { clip: rect(-6px, 85px, 150.73333333333332px, -6px); border-width: 1px 1px 0 1px; border-radius: 3px 3px 0 0; }
+		.cl-tab-bg-bottom { clip: rect(0, 85px, 156.73333333333332px, -6px); border-width: 0 1px 1px 1px; border-radius: 0 0 3px 3px; }
+		.cl-tab { margin: 4px; width: 68px; height: 141.73333333333332px; border-width: 1px; border-radius: 0px; }
+		.cl-tab-idle { border-color: #7EB83A; background-color: #96DB46; background-image: linear-gradient(0deg, #96DB46 10%, #BAED80 50%, #CBF799 50%, #DDFFCC 90%); }
+		.cl-tab-selected { border-color: #000000; background-color: #9CCDFF; background-image: linear-gradient(0deg, #9CCDFF 10%, #BDDEFF 50%, #C7E3FF 50%, #9CCDFF 90%); }
+		.cl-tab-inner-div { font-family: roboto_condensedregular, 'Arial Narrow', sans-serif; font-size: 12px; text-shadow: 1px 1px 2px rgba(255,255,255,0.66); }
+		.cl-tab-idle .cl-tab-inner-div { color: #466621; }
+		.cl-tab-selected .cl-tab-inner-div { color: #000000; }
+		.cl-tab-table-cell { width: 42px; height: 115.73333333333332px; padding: 12px 12px; }
+		
+			.cl-tab-bg-1 { left: 0;top: 0; }
+			.cl-tab-1 { left: 0;top: 0; }
+			
+			.cl-tab-bg-2 { left: 0;top: 150.73333333333332px; }
+			.cl-tab-2 { left: 0;top: 150.73333333333332px; }
+			
+			.cl-tab-bg-3 { left: 0;bottom: 0; }
+			.cl-tab-3 { left: 0;bottom: 0; }
+			</style><div class="clo-v_rapid_001"  ><div class="cl-container"><div class="cl-bg"><div class="cl-header-part"><table class="cl-header-table"><tr><td class="cl-header-cell-name"><div class="cl-header-title unselectable">Название</div></td><td class="cl-header-cell-btn"><div id="OBJ_141_HEADER_BTN_left" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-left unselectable"><div class="cl-arrow cl-arrow-left">
+			 
+		</div></div></td><td class="cl-header-cell-btn"><div id="OBJ_141_HEADER_BTN_right" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-right unselectable"><div class="cl-arrow cl-arrow-right">
+			 
+		</div></div></td></tr></table></div><div class="cl-tab-block"><div class="cl-desc-bg-left cl-desc-bg  cl-desc-bg-first"><div id="OBJ_141_DESC_WRAPPER" class="cl-desc-wrapper"><div id="OBJ_141_DESC_1" class="cl-desc cl-desc-1" data-number="1" style=""><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_141_DESC_2" class="cl-desc cl-desc-2" data-number="2" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_141_DESC_3" class="cl-desc cl-desc-3" data-number="3" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div></div></div><div class="cl-tab-part-left"><div id="OBJ_141_TAB_BG_1" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-1" style="" data-number="1">
+		 
+	</div><div id="OBJ_141_TAB_BG_2" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-2" style="display: none;" data-number="2">
+		 
+	</div><div id="OBJ_141_TAB_BG_3" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-3" style="display: none;" data-number="3">
+		 
+	</div><div id="OBJ_141_TAB_1" class="cl-tab cl-tab-selected cl-tab-selected-1 unselectable cl-tab-1" data-number="1"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 1</div></td></tr></table></div><div id="OBJ_141_TAB_2" class="cl-tab cl-tab-idle cl-tab-idle-2 unselectable cl-tab-2" data-number="2"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 2</div></td></tr></table></div><div id="OBJ_141_TAB_3" class="cl-tab cl-tab-idle cl-tab-idle-3 unselectable cl-tab-3" data-number="3"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 3</div></td></tr></table></div></div></div></div></div></div>]]></design_content>
+<export_content><![CDATA[<div class="cl-audio-files-list" style="display: none"   /><div class="style-custom" style="display: none"  ><div class="rule" data-name="#OBJ_141 .cl-container"><span class="rule-static">width: 350px; height: 531px;</span></div><div class="rule" data-name="#OBJ_141 .cl-bg"><span class="rule-static">width: 308px; height: 489px; padding: 20px; background-color: #DDDDDD; border-width: 1px; border-color: #777777;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_141 .cl-header-part"><span class="rule-static">border-color: #000000; padding: 0 0 3px 0; width: 308px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-table"><span class="rule-static">width: 308px; height: 28.8px;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-cell-name"><span class="rule-static">width: -40.8px; height: 28.8px; padding: 0 6px 0 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-cell-btn"><span class="rule-static">width: 28.8px; height: 28.8px; padding: 0 0 0 3px;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-btn"><span class="rule-static">background-color: #000000; border-width: 1px; border-color: #000000; width: 26.8px; height: 26.8px;</span><span class="rule-dynamic" data-type="border-radius" data-value="15%" /></div><div class="rule" data-name="#OBJ_141 .cl-header-btn-idle"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_141 .cl-header-btn-over"><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#000000|10;#000000|50;#000000|50;#333333|90" /></div><div class="rule" data-name="#OBJ_141 .cl-arrow-left"><span class="rule-static">margin: -8px 0 0 -5px; border-width: 8px 8px 8px 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-arrow-right"><span class="rule-static">margin: -8px 0 0 -3px; border-width: 8px 0 8px 8px;</span></div><div class="rule" data-name="#OBJ_141 .cl-header-title"><span class="rule-static">width: -40.8px; color: #000000; font-family: robotomedium, Arial, Helvetica, sans-serif; font-size: 18px; text-shadow: 1px 1px 2px rgba(102,102,102,0.5);</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-block"><span class="rule-static">margin: 3px 0 0 0; width: 308px; height: 453.2px;</span></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg"><span class="rule-static">width: 229px; height: 451.2px; border-width: 1px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg-regular"><span class="rule-dynamic" data-type="border-radius" data-value="13px" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg-single"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 0" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg-first"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="0 13px 13px 13px" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-bg-last"><span class="rule-dynamic" data-type="border-radius" data-important="1" data-value="13px 13px 13px 0" /></div><div class="rule" data-name="#OBJ_141 .cl-desc-wrapper"><span class="rule-static">margin: 3px; padding: 20px; width: 181px; height: 403.2px; background-color: #FFFFFF; border-width: 1px; border-color: #336699;</span><span class="rule-dynamic" data-type="border-radius" data-value="10px" /></div><div class="rule" data-name="#OBJ_141 .cl-desc"><span class="rule-static">width: 181px; height: 403.2px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-part"><span class="rule-static">width: 77px; height: 453.2px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg"><span class="rule-static">width: 77px; height: 149.73333333333332px;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-left"><span class="rule-static">clip: rect(-6px, 78px, 157.73333333333332px, -6px); border-width: 1px 0 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 0 0 3px" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-right"><span class="rule-static">clip: rect(-6px, 84px, 157.73333333333332px, 0); border-width: 1px 1px 1px 0;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 3px 3px 0" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-top"><span class="rule-static">clip: rect(-6px, 85px, 150.73333333333332px, -6px); border-width: 1px 1px 0 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="3px 3px 0 0" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-bottom"><span class="rule-static">clip: rect(0, 85px, 156.73333333333332px, -6px); border-width: 0 1px 1px 1px;</span><span class="rule-dynamic" data-type="border-radius" data-value="0 0 3px 3px" /></div><div class="rule" data-name="#OBJ_141 .cl-tab"><span class="rule-static">margin: 4px; width: 68px; height: 141.73333333333332px; border-width: 1px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-idle"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-over"><span class="rule-static">border-color: #7EB83A; background-color: #96DB46;</span><span class="rule-dynamic" data-type="box-shadow" data-value="2px 2px 6px rgba(102,102,102,0.66)" /><span class="rule-dynamic" data-type="linear-gradient" data-angle="180" data-colors="#96DB46|10;#BAED80|50;#CBF799|50;#DDFFCC|90" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-inner-div"><span class="rule-static">font-family: roboto_condensedregular, 'Arial Narrow', sans-serif; font-size: 12px; text-shadow: 1px 1px 2px rgba(255,255,255,0.66);</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-idle .cl-tab-inner-div"><span class="rule-static">color: #466621;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-selected"><span class="rule-static">border-color: #000000; background-color: #9CCDFF;</span><span class="rule-dynamic" data-type="linear-gradient" data-angle="0" data-colors="#9CCDFF|10;#BDDEFF|50;#C7E3FF|50;#9CCDFF|90" /></div><div class="rule" data-name="#OBJ_141 .cl-tab-selected .cl-tab-inner-div"><span class="rule-static">color: #000000;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-table-cell"><span class="rule-static">width: 42px; height: 115.73333333333332px; padding: 12px 12px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-1"><span class="rule-static">left: 0;top: 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-2"><span class="rule-static">left: 0;top: 150.73333333333332px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-2"><span class="rule-static">left: 0;top: 150.73333333333332px;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-bg-3"><span class="rule-static">left: 0;bottom: 0;</span></div><div class="rule" data-name="#OBJ_141 .cl-tab-3"><span class="rule-static">left: 0;bottom: 0;</span></div></div><div class="cl-container unselectable"  ><div class="cl-bg"><div class="cl-header-part"><table class="cl-header-table"><tr><td class="cl-header-cell-name"><div class="cl-header-title unselectable">Название</div></td><td class="cl-header-cell-btn"><div id="OBJ_141_HEADER_BTN_left" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-left unselectable"><div class="cl-arrow cl-arrow-left">
+			 
+		</div></div></td><td class="cl-header-cell-btn"><div id="OBJ_141_HEADER_BTN_right" class="cl-btn cl-header-btn cl-header-btn-idle cl-header-btn-right unselectable"><div class="cl-arrow cl-arrow-right">
+			 
+		</div></div></td></tr></table></div><div class="cl-tab-block"><div class="cl-desc-bg-left cl-desc-bg  cl-desc-bg-first "><div id="OBJ_141_DESC_WRAPPER" class="cl-desc-wrapper"><div id="OBJ_141_DESC_1" class="cl-desc cl-desc-1" data-number="1" style=""><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_141_DESC_2" class="cl-desc cl-desc-2" data-number="2" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div><div id="OBJ_141_DESC_3" class="cl-desc cl-desc-3" data-number="3" style="display: none;"><div class="cl-desc-inner"><span style="font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;">Текст по умолчанию</span></div></div></div></div><div class="cl-tab-part-left"><div id="OBJ_141_TAB_BG_1" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-1" style="" data-number="1">
+		 
+	</div><div id="OBJ_141_TAB_BG_2" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-2" style="display: none;" data-number="2">
+		 
+	</div><div id="OBJ_141_TAB_BG_3" class="cl-tab-bg unselectable cl-tab-bg-left cl-tab-bg-3" style="display: none;" data-number="3">
+		 
+	</div><div id="OBJ_141_TAB_1" class="cl-tab cl-tab-selected cl-tab-selected-1 unselectable cl-tab-1" style="" data-number="1"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 1</div></td></tr></table></div><div id="OBJ_141_TAB_2" class="cl-tab cl-tab-idle cl-tab-idle-2 unselectable cl-tab-2" style="" data-number="2"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 2</div></td></tr></table></div><div id="OBJ_141_TAB_3" class="cl-tab cl-tab-idle cl-tab-idle-3 unselectable cl-tab-3" style="" data-number="3"><table class="cl-tab-table"><tr><td class="cl-tab-table-cell"><div class="cl-tab-inner-div">Текст по умолчанию 3</div></td></tr></table></div></div></div></div></div>]]></export_content>
+<params>
+<tab_type type="select">left</tab_type>
+<elements type="list">
+<item>
+<display_first type="check">no</display_first>
+<text_type type="select">plain</text_type>
+<tab_text type="edit">Текст по умолчанию 1</tab_text>
+<tab_text_html type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</tab_text_html>
+<desc_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</desc_text>
+<narration type="file"></narration>
+<spec_tabcolor_scheme type="select">red</spec_tabcolor_scheme>
+<spec_tabbg_color type="color">#9BCDFF</spec_tabbg_color>
+<spec_tabgradient_color type="color">#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color type="color">#9BCDFF</spec_tabborder_color>
+<spec_tabcolor_scheme_selected type="select">custom</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected type="color">#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected type="color">#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected type="color">#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first type="check">no</display_first>
+<text_type type="select">plain</text_type>
+<tab_text type="edit">Текст по умолчанию 2</tab_text>
+<tab_text_html type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</tab_text_html>
+<desc_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</desc_text>
+<narration type="file"></narration>
+<spec_tabcolor_scheme type="select">steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color type="color">#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color type="color">#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color type="color">#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected type="select">olive</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected type="color">#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected type="color">#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected type="color">#336699</spec_tabborder_color_selected>
+</item>
+<item>
+<display_first type="check">no</display_first>
+<text_type type="select">plain</text_type>
+<tab_text type="edit">Текст по умолчанию 3</tab_text>
+<tab_text_html type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</tab_text_html>
+<desc_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Текст по умолчанию&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</desc_text>
+<narration type="file"></narration>
+<spec_tabcolor_scheme type="select">steelblue</spec_tabcolor_scheme>
+<spec_tabbg_color type="color">#E8EEFF</spec_tabbg_color>
+<spec_tabgradient_color type="color">#FFFFFF</spec_tabgradient_color>
+<spec_tabborder_color type="color">#336699</spec_tabborder_color>
+<spec_tabcolor_scheme_selected type="select">green</spec_tabcolor_scheme_selected>
+<spec_tabbg_color_selected type="color">#E8EEFF</spec_tabbg_color_selected>
+<spec_tabgradient_color_selected type="color">#FFFFFF</spec_tabgradient_color_selected>
+<spec_tabborder_color_selected type="color">#336699</spec_tabborder_color_selected>
+</item>
+</elements>
+<display_default_text type="check">no</display_default_text>
+<default_text type="textedit">&lt;ietext&gt;&lt;text&gt;&amp;lt;span style=&amp;quot;font-family: clear_sansregular, Arial, sans-serif;font-size: 12px; color: #000000;&amp;quot;&amp;gt;Выберите одну из закладок&amp;lt;/span&amp;gt;&lt;/text&gt;&lt;hyperlinks&gt;&lt;/hyperlinks&gt;&lt;/ietext&gt;</default_text>
+<restore_state type="check">yes</restore_state>
+<tab_size type="spinner">25</tab_size>
+<shadow_strength type="select">normal</shadow_strength>
+<tab_color_scheme type="select">green</tab_color_scheme>
+<tab_bg_color type="color">#E8EEFF</tab_bg_color>
+<tab_gradient_color type="color">#9BCDFF</tab_gradient_color>
+<tab_border_color type="color">#E8EEFF</tab_border_color>
+<tab_color_scheme_selected type="select">custom</tab_color_scheme_selected>
+<tab_bg_color_selected type="color">#9BCDFF</tab_bg_color_selected>
+<tab_gradient_color_selected type="color">#9BCDFF</tab_gradient_color_selected>
+<tab_border_color_selected type="color">#000000</tab_border_color_selected>
+<tab_border_width type="spinner">1</tab_border_width>
+<tab_radius type="spinner">0</tab_radius>
+<tab_padding_tb type="spinner">12</tab_padding_tb>
+<tab_padding_lr type="spinner">12</tab_padding_lr>
+<font type="select">roboto_condensedregular</font>
+<font_custom type="edit"></font_custom>
+<font_style type="select">normal</font_style>
+<font_size type="spinner">12</font_size>
+<text_shadow_strength type="select">normal</text_shadow_strength>
+<text_shadow_color type="color">#FFFFFF</text_shadow_color>
+<display_ribbon type="check">yes</display_ribbon>
+<fs_ribbon type="fieldset"></fs_ribbon>
+<ribbon_text type="edit">Название</ribbon_text>
+<ribbon_color_scheme type="select">black</ribbon_color_scheme>
+<ribbon_bg_color type="color">#E8EEFF</ribbon_bg_color>
+<ribbon_gradient_color type="color">#FFFFFF</ribbon_gradient_color>
+<ribbon_border_color type="color">#E8EEFF</ribbon_border_color>
+<ribbon_font type="select">robotomedium</ribbon_font>
+<ribbon_font_custom type="edit"></ribbon_font_custom>
+<ribbon_font_style type="select">normal</ribbon_font_style>
+<ribbon_font_size type="spinner">18</ribbon_font_size>
+<ribbon_text_shadow_strength type="select">light</ribbon_text_shadow_strength>
+<ribbon_text_shadow_color type="color">#666666</ribbon_text_shadow_color>
+<desc_color_scheme type="select">custom</desc_color_scheme>
+<desc_bg_color type="color">#E8EEFF</desc_bg_color>
+<desc_gradient_color type="color">#FFFFFF</desc_gradient_color>
+<desc_border_color type="color">#336699</desc_border_color>
+<desc_bg_override type="check">yes</desc_bg_override>
+<desc_bg_color_custom type="color">#FFFFFF</desc_bg_color_custom>
+<desc_bg_grad_angle type="spinner">0</desc_bg_grad_angle>
+<desc_border_width type="spinner">1</desc_border_width>
+<desc_radius type="spinner">10</desc_radius>
+<desc_padding type="spinner">20</desc_padding>
+<display_bg type="check">yes</display_bg>
+<fs_bg type="fieldset"></fs_bg>
+<bg_color_scheme type="select">custom</bg_color_scheme>
+<bg_bg_color type="color">#DDDDDD</bg_bg_color>
+<bg_gradient_color type="color">#DDDDDD</bg_gradient_color>
+<bg_border_color type="color">#777777</bg_border_color>
+<bg_grad_angle type="spinner">0</bg_grad_angle>
+<bg_border_width type="spinner">1</bg_border_width>
+<bg_radius type="spinner">10</bg_radius>
+<bg_padding type="spinner">20</bg_padding>
 <sound_click type="select">none</sound_click>
 <sound_click_file_custom type="file"></sound_click_file_custom>
 <sound_over type="select">none</sound_over>

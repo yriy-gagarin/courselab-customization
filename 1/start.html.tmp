@@ -11,7 +11,6 @@
 <title></title>
 <style type="text/css"></style>
 <link href="../ckeditor/cl-rte-fonts.css" rel="stylesheet" type="text/css"/>
-<link href="../ckeditor/Userfonts/cl-rtf-user-fonts.css" rel="stylesheet" type="text/css"/>
 <link href="../courseimages/courselab.css" rel="stylesheet" type="text/css"/>
 <link href="images/course.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" language="javascript" src="../courseimages/jquery.js"></script>
