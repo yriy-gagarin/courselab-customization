@@ -2,8 +2,9 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 valid_types="feat|fix|refactor|test|revert|chore|style|docs|license|build|ci"
-commit_regex="(\(($valid_types)\) .+)|(merge)"
-error_msg="Aborting commit. Your commit message should be structured as follows: '(type) subject' or 'Merge'. Valid types: $valid_types"
+commit_regex="(\(($valid_types)\) .+)|(merge)|([0-9]\.[0-9]\.[0-9])"
+error_msg="Aborting commit. Your commit message should be structured as follows: '(type) subject' or 'Merge', or version in format x.x.x-y. Valid types: $valid_types"
+
 
 if ! grep -iqE "$commit_regex" "$1"; then
     echo "$1"
