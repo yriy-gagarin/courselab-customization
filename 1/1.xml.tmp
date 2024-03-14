@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Module file, saved 10-Mar-24 1:34:05 PM by Gagarin using CourseLab 240108 -->
+<!-- Module file, saved 14-Mar-24 2:05:55 PM by Gagarin using CourseLab 240108 -->
 <module format="3.5 240108" rev="2" slideWidth="1280" slideHeight="720" template="" file="C:\JavaScriptWS\courselab-customization\1\1.xml">
 <font face="clear_sansregular, Arial, sans-serif" style="1" size="12" color="#000000"/>
 <default_text></default_text>
@@ -5503,6 +5503,7 @@
 <subslide guid="85b2e4c4_5a43_4dd8_b699_04702d3cae15" id="FRAME_27" expanded="yes" infinite="1" dur="0">
 <objects>
 <object type="div" guid="09ce9e9d_eedc_4e04_9c54_f05cf15cc1b3" id="OBJ_103" label="Блок закладок универсальный" expanded="yes" state_extension="false" left="14" top="116" width="1256" height="540" display="frame" begin="0">
+<selectedDialogButton>cancel</selectedDialogButton>
 <template>v_rapid_001</template>
 <design_content><![CDATA[<style  >
 		.cl-container { width: 1256px; height: 540px; }
@@ -6994,6 +6995,21 @@
 <sound_click_file_custom type="file"></sound_click_file_custom>
 </params>
 </object>
+<object type="div" guid="6d0e8bd4_bd98_41f3_8a25_11d3a2704599" id="OBJ_142" label="Видео 3" expanded="yes" state_extension="false" left="4" top="635" width="350" height="479" display="frame" begin="0">
+<template>media_003_video</template>
+<design_content><![CDATA[<div class="clo-media_003_video"><table class="cl-html5-table" style="width: 350px; height: 479px;"><tr><td class="cl-html5-cell"><svg height="64" viewBox="0 0 512 512" width="64" xmlns="http://www.w3.org/2000/svg"><g transform="translate(0.32800146,0.07000866)"><g style="fill:#e44d26;"><path d="m 511.672,255.92999 c 0,141.3849 -114.61511,256 -256,256 -141.3849,0 -256.00000293,-114.6151 -256.00000293,-256 C -0.32800293,114.5451 114.2871,-0.07000732 255.672,-0.07000732 c 141.38489,0 256,114.61510732 256,255.99999732 z" /></g><g transform="translate(546.9375,-48.721188)"><polygon points="255.8,486.486 389.249,449.489 418.938,116.909 93.063,116.909 122.719,449.542" style="fill: #ffffff; fill-rule:evenodd" transform="matrix(0.67510549,0,0,0.67510549,-464.09284,131.48662)" /><path d="m -353.99731,163.21455 h -12.80338 v -13.82818 h -13.99561 v 41.87544 h 13.99629 v -14.02262 h 12.8027 v 14.02262 h 13.99629 v -41.87544 h -13.99697 v 13.82818 z m 20.08101,0.0581 h 12.32203 v 27.9892 h 13.99696 v -27.9892 h 12.32742 v -13.88624 h -38.64641 v 13.88624 z m 68.35173,0.82768 -8.97823,-14.71392 h -14.59375 v 41.87544 h 13.69451 v -20.75612 l 9.63578,14.88945 h 0.24102 l 9.62903,-14.88945 v 20.75612 h 13.93822 v -41.87544 h -14.59983 l -8.96675,14.71392 z m 44.53401,13.31983 v -28.03375 h -14.00034 v 41.87544 h 33.68372 v -13.84169 h -19.68338 z" style="fill: #ffffff; fill-rule:evenodd" /><path d="m -360.5,255.75 138.25,0 -2.25,28.5 -105.75,0 3,27.5 99.5,0 -7,85.25 -56,15.25 -56.75,-15.25 -4.25,-43.5 27.75,0 2.25,21.5 30.75,8.75 30.75,-8.75 3,-35.25 -95.5,0 z" style="fill: #e44d26; stroke:none" transform="translate(-0.32800146,-0.07000866)" /></g></g></svg><br />images/test_video.mp4</td></tr></table></div>]]></design_content>
+<export_content><![CDATA[<div class="cl-container unselectable" data-player="html5"><video id="OBJ_142_HTML5" src="images/test_video.mp4" width="350" height="479" autobuffer="true" controls="true" /></div>]]></export_content>
+<params>
+<hidden.label.nosrc type="edit">Источник видео не задан</hidden.label.nosrc>
+<source type="select">file</source>
+<video_uri type="file">images/test_video.mp4</video_uri>
+<video_url type="edit"></video_url>
+<player type="select">html5</player>
+<video_controls type="select">full</video_controls>
+<video_autostart type="check">no</video_autostart>
+<video_invisible type="check">no</video_invisible>
+</params>
+</object>
 </objects>
 </subslide>
 </subslides>
@@ -7107,6 +7123,7 @@
 </params>
 </object>
 <object type="div" guid="efc84982_889d_4529_92de_ae5cc74ef580" id="OBJ_70" label="Фигура 2" expanded="yes" left="172" top="256" width="300" height="150" display="frame" begin="0">
+<selectedDialogButton>cancel</selectedDialogButton>
 <default_text>text_main</default_text>
 <default_color_bg>bg_color</default_color_bg>
 <default_color_border>border_color</default_color_border>
@@ -7408,6 +7425,7 @@
 <subslide guid="8782cba4_26ec_4780_9236_8bb5d6453308" id="FRAME_21" expanded="yes" infinite="1" dur="0">
 <objects>
 <object type="div" guid="c308a4b3_f78a_408e_80d8_a4dde14bd906" id="OBJ_114" label="Блок управления 2" expanded="yes" state_extension="false" left="7" top="115" width="753" height="540" display="frame" begin="0">
+<selectedDialogButton>apply</selectedDialogButton>
 <template>v_rapid_010</template>
 <design_content><![CDATA[<style >
 		.cl-container { width: 753px; height: 540px; }
@@ -7436,22 +7454,22 @@
 <objects type="list">
 <item>
 <display_first type="check">yes</display_first>
-<objectid type="objectid">OBJ_70</objectid>
+<objectid type="objectid">OBJ_115</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_73</objectid>
+<objectid type="objectid">OBJ_116</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_77</objectid>
+<objectid type="objectid">OBJ_118</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_76</objectid>
+<objectid type="objectid">OBJ_117</objectid>
 <narration type="file"></narration>
 </item>
 </objects>
@@ -7788,6 +7806,7 @@
 <subslide guid="e86dd394_a088_4e9e_8045_511b09ddb6a5" id="FRAME_22" expanded="yes" infinite="1" dur="0">
 <objects>
 <object type="div" guid="4eb59c96_c730_4084_93e0_17f2a1df3e06" id="OBJ_119" label="Блок управления" expanded="yes" state_extension="false" left="5" top="122" width="350" height="537" display="frame" begin="0">
+<selectedDialogButton>apply</selectedDialogButton>
 <template>v_rapid_010</template>
 <design_content><![CDATA[<style >
 		.cl-container { width: 350px; height: 537px; }
@@ -7816,22 +7835,22 @@
 <objects type="list">
 <item>
 <display_first type="check">yes</display_first>
-<objectid type="objectid">OBJ_70</objectid>
+<objectid type="objectid">OBJ_120</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_73</objectid>
+<objectid type="objectid">OBJ_121</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_77</objectid>
+<objectid type="objectid">OBJ_123</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_76</objectid>
+<objectid type="objectid">OBJ_122</objectid>
 <narration type="file"></narration>
 </item>
 </objects>

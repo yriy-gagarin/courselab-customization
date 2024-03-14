@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Presentation file, saved 10-Mar-24 1:33:46 PM using CourseLab 240108 -->
+<!-- Presentation file, saved 14-Mar-24 2:05:55 PM using CourseLab 240108 -->
 <module>
 <runtime preview_fullscreen="no" preview_fitwindow="no" fit_small_window="no" showsplash="no" seqslides="yes" preloadimages="yes" normalize="no"/>
 <groups>
@@ -178,6 +178,11 @@
 <object id="OBJ_113" expanded="yes" x="15" y="606" w="338" h="51" z="101" display="frame" begin="0" type="form_004_checkbox">
 <data>
 <![CDATA[<div class="cl-wrapper" style=""><div class="cl-audio-files-list" style="display: none"  /><div id="OBJ_113_CONTAINER" class="cl-container unselectable" ><table class="cl-checkbox-table"><tr><td><input type="checkbox" id="OBJ_113_FLD" class="cl-fld" value="0" /></td><td class="cl-label-cell" style="padding: 0 10px; text-align: left;"><span style="font-size:14px;"><span style="font-family: Roboto, Tahoma; font-style: normal; font-variant: normal; line-height: 20.399999618530273px; orphans: 2; widows: 2;">С политикой конфиденциальности и пользовательским соглашением ознакомлен</span></span></td></tr></table></div></div>]]>
+</data>
+</object>
+<object id="OBJ_142" expanded="yes" x="4" y="635" w="350" h="479" z="102" display="frame" begin="0" type="media_003_video">
+<data>
+<![CDATA[<div class="cl-wrapper" style=""><div class="cl-container unselectable" data-player="html5"><video id="OBJ_142_HTML5" src="images/test_video.mp4" width="350" height="479" autobuffer="true" controls="true" /></div></div>]]>
 </data>
 </object>
 <timeline>
@@ -14360,6 +14365,16 @@
 <sound_click>none</sound_click>
 <sound_click_file_custom></sound_click_file_custom>
 </param>
+<param objectid="OBJ_142">
+<hidden.label.nosrc>Источник видео не задан</hidden.label.nosrc>
+<source>file</source>
+<video_uri>images/test_video.mp4</video_uri>
+<video_url></video_url>
+<player>html5</player>
+<video_controls>full</video_controls>
+<video_autostart>no</video_autostart>
+<video_invisible>no</video_invisible>
+</param>
 <param objectid="OBJ_68">
 <objects>
 <item>
@@ -14661,22 +14676,22 @@
 <objects>
 <item>
 <display_first>yes</display_first>
-<objectid>OBJ_70</objectid>
+<objectid>OBJ_115</objectid>
 <narration></narration>
 </item>
 <item>
 <display_first>no</display_first>
-<objectid>OBJ_73</objectid>
+<objectid>OBJ_116</objectid>
 <narration></narration>
 </item>
 <item>
 <display_first>no</display_first>
-<objectid>OBJ_77</objectid>
+<objectid>OBJ_118</objectid>
 <narration></narration>
 </item>
 <item>
 <display_first>no</display_first>
-<objectid>OBJ_76</objectid>
+<objectid>OBJ_117</objectid>
 <narration></narration>
 </item>
 </objects>
@@ -14958,22 +14973,22 @@
 <objects>
 <item>
 <display_first>yes</display_first>
-<objectid>OBJ_70</objectid>
+<objectid>OBJ_120</objectid>
 <narration></narration>
 </item>
 <item>
 <display_first>no</display_first>
-<objectid>OBJ_73</objectid>
+<objectid>OBJ_121</objectid>
 <narration></narration>
 </item>
 <item>
 <display_first>no</display_first>
-<objectid>OBJ_77</objectid>
+<objectid>OBJ_123</objectid>
 <narration></narration>
 </item>
 <item>
 <display_first>no</display_first>
-<objectid>OBJ_76</objectid>
+<objectid>OBJ_122</objectid>
 <narration></narration>
 </item>
 </objects>

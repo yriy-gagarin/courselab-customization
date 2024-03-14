@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Module file, saved 10-Mar-24 1:34:19 PM by Gagarin using CourseLab 240108 -->
+<!-- Module file, saved 14-Mar-24 2:06:56 PM by Gagarin using CourseLab 240108 -->
 <module format="3.5 240108" rev="2" slideWidth="1280" slideHeight="720" template="" file="C:\JavaScriptWS\courselab-customization\1\1.xml">
 <font face="clear_sansregular, Arial, sans-serif" style="1" size="12" color="#000000"/>
 <default_text></default_text>
@@ -5503,6 +5503,7 @@
 <subslide guid="85b2e4c4_5a43_4dd8_b699_04702d3cae15" id="FRAME_27" expanded="yes" infinite="1" dur="0">
 <objects>
 <object type="div" guid="09ce9e9d_eedc_4e04_9c54_f05cf15cc1b3" id="OBJ_103" label="Блок закладок универсальный" expanded="yes" state_extension="false" left="14" top="116" width="1256" height="540" display="frame" begin="0">
+<selectedDialogButton>cancel</selectedDialogButton>
 <template>v_rapid_001</template>
 <design_content><![CDATA[<style  >
 		.cl-container { width: 1256px; height: 540px; }
@@ -7107,6 +7108,7 @@
 </params>
 </object>
 <object type="div" guid="efc84982_889d_4529_92de_ae5cc74ef580" id="OBJ_70" label="Фигура 2" expanded="yes" left="172" top="256" width="300" height="150" display="frame" begin="0">
+<selectedDialogButton>cancel</selectedDialogButton>
 <default_text>text_main</default_text>
 <default_color_bg>bg_color</default_color_bg>
 <default_color_border>border_color</default_color_border>
@@ -7408,6 +7410,7 @@
 <subslide guid="8782cba4_26ec_4780_9236_8bb5d6453308" id="FRAME_21" expanded="yes" infinite="1" dur="0">
 <objects>
 <object type="div" guid="c308a4b3_f78a_408e_80d8_a4dde14bd906" id="OBJ_114" label="Блок управления 2" expanded="yes" state_extension="false" left="7" top="115" width="753" height="540" display="frame" begin="0">
+<selectedDialogButton>apply</selectedDialogButton>
 <template>v_rapid_010</template>
 <design_content><![CDATA[<style >
 		.cl-container { width: 753px; height: 540px; }
@@ -7436,22 +7439,22 @@
 <objects type="list">
 <item>
 <display_first type="check">yes</display_first>
-<objectid type="objectid">OBJ_70</objectid>
+<objectid type="objectid">OBJ_115</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_73</objectid>
+<objectid type="objectid">OBJ_116</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_77</objectid>
+<objectid type="objectid">OBJ_118</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_76</objectid>
+<objectid type="objectid">OBJ_117</objectid>
 <narration type="file"></narration>
 </item>
 </objects>
@@ -7788,6 +7791,7 @@
 <subslide guid="e86dd394_a088_4e9e_8045_511b09ddb6a5" id="FRAME_22" expanded="yes" infinite="1" dur="0">
 <objects>
 <object type="div" guid="4eb59c96_c730_4084_93e0_17f2a1df3e06" id="OBJ_119" label="Блок управления" expanded="yes" state_extension="false" left="5" top="122" width="350" height="537" display="frame" begin="0">
+<selectedDialogButton>apply</selectedDialogButton>
 <template>v_rapid_010</template>
 <design_content><![CDATA[<style >
 		.cl-container { width: 350px; height: 537px; }
@@ -7816,22 +7820,22 @@
 <objects type="list">
 <item>
 <display_first type="check">yes</display_first>
-<objectid type="objectid">OBJ_70</objectid>
+<objectid type="objectid">OBJ_120</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_73</objectid>
+<objectid type="objectid">OBJ_121</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_77</objectid>
+<objectid type="objectid">OBJ_123</objectid>
 <narration type="file"></narration>
 </item>
 <item>
 <display_first type="check">no</display_first>
-<objectid type="objectid">OBJ_76</objectid>
+<objectid type="objectid">OBJ_122</objectid>
 <narration type="file"></narration>
 </item>
 </objects>
