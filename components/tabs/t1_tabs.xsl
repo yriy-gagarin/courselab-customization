@@ -993,7 +993,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 					<xsl:attribute name="data-value"><xsl:value-of select="$main.sShadowString"/></xsl:attribute>
 				</span>
 			</xsl:if>
-			<xsl:if test="tab_color_scheme!='spec'">
+			<xsl:if test="tab_color_scheme!='spec' and tab_color_scheme!='custom_color'">
 				<span class="rule-dynamic">
 					<xsl:attribute name="data-type">linear-gradient</xsl:attribute>
 					<xsl:attribute name="data-angle">0</xsl:attribute>
@@ -1010,7 +1010,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 					<xsl:attribute name="data-value"><xsl:value-of select="$main.sShadowString"/></xsl:attribute>
 				</span>
 			</xsl:if>
-			<xsl:if test="tab_color_scheme!='spec'">
+			<xsl:if test="tab_color_scheme!='spec' and tab_color_scheme!='custom_color'">
 				<span class="rule-dynamic">
 					<xsl:attribute name="data-type">linear-gradient</xsl:attribute>
 					<xsl:attribute name="data-angle">180</xsl:attribute>
@@ -1032,11 +1032,13 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 			<div class="rule">
 				<xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .cl-tab-selected</xsl:attribute>
 				<span class="rule-static">border-color: <xsl:value-of select="$main.sTabColorSelBorder"/>; background-color: <xsl:value-of select="$main.sTabColorSel1"/>;</span>
-				<span class="rule-dynamic">
-					<xsl:attribute name="data-type">linear-gradient</xsl:attribute>
-					<xsl:attribute name="data-angle">0</xsl:attribute>
-					<xsl:attribute name="data-colors"><xsl:value-of select="$main.sTabColorSel1"/>|10;<xsl:value-of select="$main.sTabColorSel3"/>|50;<xsl:value-of select="$main.sTabColorSel4"/>|50;<xsl:value-of select="$main.sTabColorSel2"/>|90</xsl:attribute>
-				</span>
+        <xsl:if test="tab_color_scheme_selected!='custom_color'">
+          <span class="rule-dynamic">
+            <xsl:attribute name="data-type">linear-gradient</xsl:attribute>
+            <xsl:attribute name="data-angle">0</xsl:attribute>
+            <xsl:attribute name="data-colors"><xsl:value-of select="$main.sTabColorSel1"/>|10;<xsl:value-of select="$main.sTabColorSel3"/>|50;<xsl:value-of select="$main.sTabColorSel4"/>|50;<xsl:value-of select="$main.sTabColorSel2"/>|90</xsl:attribute>
+          </span>
+        </xsl:if>
 			</div>
 			<div class="rule">
 				<xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .cl-tab-selected .cl-tab-inner-div</xsl:attribute>
@@ -1265,6 +1267,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 				<xsl:when test="$sProfile='black'">#000000</xsl:when>
 				<xsl:when test="$sProfile='auto'"><xsl:value-of select="$sCustom"/></xsl:when>
 				<xsl:when test="$sProfile='custom'"><xsl:value-of select="$sCustom"/></xsl:when>
+				<xsl:when test="$sProfile='custom_color'"><xsl:value-of select="$sCustom"/></xsl:when>
 			</xsl:choose>
 		</xsl:when>
 		<xsl:when test="$sColorType='color2'">
@@ -1320,6 +1323,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:when test="$sProfile='custom'"><xsl:value-of select="$sCustomBorder"/></xsl:when>
+        <xsl:when test="$sProfile='custom_color'"><xsl:value-of select="$sCustomBorder"/></xsl:when>
 			</xsl:choose>
 		</xsl:when>
 		<xsl:when test="$sColorType='font'">
@@ -1348,6 +1352,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:when test="$sProfile='custom'"><xsl:value-of select="$sCustomBorder"/></xsl:when>
+        <xsl:when test="$sProfile='custom_color'"><xsl:value-of select="$sCustomBorder"/></xsl:when>
 			</xsl:choose>
 		</xsl:when>
 	</xsl:choose>

@@ -4,7 +4,7 @@
 --><params>
 	<object>
 		<format>2.0</format>
-		<label>Блок закладок универсальный</label>
+		<label>Блок закладок v0.0-1</label>
 		<description>Блок закладок с описаниями с последовательным прохождением</description>
 		<width>980</width>
 		<height>540</height>
@@ -373,6 +373,13 @@
 		<param type="label" id="lab_tab_color_scheme" text="Цветовая схема" def="" x="15" y="34" w="115" h="11"/>
 		<param type="select" id="tab_color_scheme" def="steelblue" text="" x="130" y="32" w="175" h="13">
 			<items>
+        <item id="custom_color" label="Цвет без градиента">
+          <events>
+            <event name="selendok" target="tab_bg_color" action="enable"/>
+            <event name="selendok" target="tab_gradient_color" action="disable"/>
+            <event name="selendok" target="tab_border_color" action="enable"/>
+          </events>
+        </item>
 				<item id="spec" label="Для каждой закладки">
 					<events>
 						<event name="selendok" target="tab_bg_color" action="disable"/>
@@ -522,6 +529,13 @@
 		<param type="label" id="lab_tab_color_scheme_selected" text="Цветовая схема выбр." def="" x="15" y="66" w="115" h="11"/>
 		<param type="select" id="tab_color_scheme_selected" def="olive" text="" x="130" y="64" w="175" h="13">
 			<items>
+        <item id="custom_color" label="Цвет без градиента">
+          <events>
+            <event name="selendok" target="tab_bg_color_selected" action="enable"/>
+            <event name="selendok" target="tab_gradient_color_selected" action="disable"/>
+            <event name="selendok" target="tab_border_color_selected" action="enable"/>
+          </events>
+        </item>
 				<item id="spec" label="Для каждой закладки">
 					<events>
 						<event name="selendok" target="tab_bg_color_selected" action="disable"/>
@@ -1963,6 +1977,9 @@
 			{
 				var oCurObj = CLO[argobj.pid];
 				var jCurObjDiv = $(oCurObj.div);
+				// Add 'parent'(the component from which the inheritance was based) classname
+				// See also CLObject constructor
+				jCurObjDiv.addClass("clo-v_rapid_001");
 				var bDefer = false;
 				switch(oCurObj.display)
 				{

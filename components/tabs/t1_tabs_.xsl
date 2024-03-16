@@ -773,8 +773,25 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 		.cl-tab-bg-top { clip: rect(-<xsl:value-of select="$main.nShadowOffset"/>px, <xsl:value-of select="number($main.nTabBGWidth) + 2*number(desc_border_width) + number($main.nShadowOffset)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + number(desc_border_width)"/>px, -<xsl:value-of select="$main.nShadowOffset"/>px); border-width: <xsl:value-of select="desc_border_width"/>px <xsl:value-of select="desc_border_width"/>px 0 <xsl:value-of select="desc_border_width"/>px; border-radius: <xsl:value-of select="$main.nTabBGRadius"/>px <xsl:value-of select="$main.nTabBGRadius"/>px 0 0; }
 		.cl-tab-bg-bottom { clip: rect(0, <xsl:value-of select="number($main.nTabBGWidth) + 2*number(desc_border_width) + number($main.nShadowOffset)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + number(desc_border_width) + number($main.nShadowOffset)"/>px, -<xsl:value-of select="$main.nShadowOffset"/>px); border-width: 0 <xsl:value-of select="desc_border_width"/>px <xsl:value-of select="desc_border_width"/>px <xsl:value-of select="desc_border_width"/>px; border-radius: 0 0 <xsl:value-of select="$main.nTabBGRadius"/>px <xsl:value-of select="$main.nTabBGRadius"/>px; }
 		.cl-tab { margin: <xsl:value-of select="number($main.nDescWrapperMargin) + number(desc_border_width)"/>px; width: <xsl:value-of select="$main.nTabWidth"/>px; height: <xsl:value-of select="$main.nTabHeight"/>px; border-width: <xsl:value-of select="tab_border_width"/>px; border-radius: <xsl:value-of select="tab_radius"/>px; }
-		.cl-tab-idle { <xsl:if test="tab_color_scheme!='spec'">border-color: <xsl:value-of select="$main.sTabColorBorder"/>; background-color: <xsl:value-of select="$main.sTabColor1"/>; background-image: linear-gradient(0deg, <xsl:value-of select="$main.sTabColor1"/> 10%, <xsl:value-of select="$main.sTabColor3"/> 50%, <xsl:value-of select="$main.sTabColor4"/> 50%, <xsl:value-of select="$main.sTabColor2"/> 90%);</xsl:if> <xsl:if test="tab_shadow!='none'">box-shadow: <xsl:value-of select="$main.sShadowString"/>;</xsl:if> }
-		.cl-tab-selected { <xsl:if test="tab_color_scheme_selected!='spec'">border-color: <xsl:value-of select="$main.sTabColorSelBorder"/>; background-color: <xsl:value-of select="$main.sTabColorSel1"/>; background-image: linear-gradient(0deg, <xsl:value-of select="$main.sTabColorSel1"/> 10%, <xsl:value-of select="$main.sTabColorSel3"/> 50%, <xsl:value-of select="$main.sTabColorSel4"/> 50%, <xsl:value-of select="$main.sTabColorSel2"/> 90%);</xsl:if> }
+		.cl-tab-idle {
+      <xsl:if test="tab_color_scheme!='spec'">
+        border-color: <xsl:value-of select="$main.sTabColorBorder"/>;
+        background-color: <xsl:value-of select="$main.sTabColor1"/>;
+        <xsl:if test="tab_color_scheme!='custom_color'">
+          background-image: linear-gradient(0deg, <xsl:value-of select="$main.sTabColor1"/> 10%, <xsl:value-of select="$main.sTabColor3"/> 50%, <xsl:value-of select="$main.sTabColor4"/> 50%, <xsl:value-of select="$main.sTabColor2"/> 90%);
+        </xsl:if>
+      </xsl:if>
+      <xsl:if test="tab_shadow!='none'">box-shadow: <xsl:value-of select="$main.sShadowString"/>;</xsl:if>
+    }
+		.cl-tab-selected {
+      <xsl:if test="tab_color_scheme_selected!='spec'">
+        border-color: <xsl:value-of select="$main.sTabColorSelBorder"/>;
+        background-color: <xsl:value-of select="$main.sTabColorSel1"/>;
+        <xsl:if test="tab_color_scheme_selected!='custom_color'">
+          background-image: linear-gradient(0deg, <xsl:value-of select="$main.sTabColorSel1"/> 10%, <xsl:value-of select="$main.sTabColorSel3"/> 50%, <xsl:value-of select="$main.sTabColorSel4"/> 50%, <xsl:value-of select="$main.sTabColorSel2"/> 90%);
+        </xsl:if>
+      </xsl:if>
+    }
 		.cl-tab-inner-div { <xsl:value-of select="$main.sTabFontCSS"/> }
 		.cl-tab-idle .cl-tab-inner-div { <xsl:if test="tab_color_scheme!='spec'">color: <xsl:value-of select="$main.sTabColorFont"/>;</xsl:if> }
 		.cl-tab-selected .cl-tab-inner-div { <xsl:if test="tab_color_scheme_selected!='spec'">color: <xsl:value-of select="$main.sTabColorSelFont"/>;</xsl:if> }
@@ -961,6 +978,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 				<xsl:when test="$sProfile='black'">#000000</xsl:when>
 				<xsl:when test="$sProfile='auto'"><xsl:value-of select="$sCustom"/></xsl:when>
 				<xsl:when test="$sProfile='custom'"><xsl:value-of select="$sCustom"/></xsl:when>
+				<xsl:when test="$sProfile='custom_color'"><xsl:value-of select="$sCustom"/></xsl:when>
 			</xsl:choose>
 		</xsl:when>
 		<xsl:when test="$sColorType='color2'">
@@ -1016,6 +1034,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:when test="$sProfile='custom'"><xsl:value-of select="$sCustomBorder"/></xsl:when>
+        <xsl:when test="$sProfile='custom_color'"><xsl:value-of select="$sCustomBorder"/></xsl:when>
 			</xsl:choose>
 		</xsl:when>
 		<xsl:when test="$sColorType='font'">
@@ -1044,6 +1063,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 					</xsl:call-template>
 				</xsl:when>
 				<xsl:when test="$sProfile='custom'"><xsl:value-of select="$sCustomBorder"/></xsl:when>
+        <xsl:when test="$sProfile='custom_color'"><xsl:value-of select="$sCustomBorder"/></xsl:when>
 			</xsl:choose>
 		</xsl:when>
 	</xsl:choose>
