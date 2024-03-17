@@ -348,7 +348,23 @@
 
 		<param type="label" id="lab_tab_size" text="Размер закладок" def="" x="10" y="166" w="120" h="11"/>
 		<param type="spinner" id="tab_size" text="" def="25" x="130" y="164" w="32" h="13" min="1" max="99"/>
-		<param type="label" id="lab_tab_size_pc" text="%" def="" x="165" y="166" w="28" h="13"/>
+    <param type="spinner" id="tab_size_px" text="" def="100" x="130" y="164" w="32" h="13" min="1" max="1500"/>
+    <param type="select" id="tab_size_unit" text="" def="percent" x="165" y="164" w="30" h="13">
+      <items>
+        <item id="percent" label="  %">
+          <events>
+            <event name="selendok" target="tab_size" action="show"/>
+            <event name="selendok" target="tab_size_px" action="hide"/>
+          </events>
+        </item>
+        <item id="pixel" label="пкс">
+          <events>
+            <event name="selendok" target="tab_size" action="hide"/>
+            <event name="selendok" target="tab_size_px" action="show"/>
+          </events>
+        </item>
+      </items>
+    </param>
 
 
 		<param type="label" id="lab_shadow" text="Тень" def="" x="10" y="182" w="120" h="13"/>

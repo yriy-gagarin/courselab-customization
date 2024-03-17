@@ -357,7 +357,16 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 
 	<xsl:variable name="main.nTabPartWidth">
 		<xsl:choose>
-			<xsl:when test="tab_type='left' or tab_type='right'"><xsl:value-of select="0.01*number(tab_size)*number($main.nInnerWidth)"/></xsl:when>
+			<xsl:when test="tab_type='left' or tab_type='right'">
+        <xsl:choose>
+          <xsl:when test="tab_size_unit='percent'">
+            <xsl:value-of select="0.01*number(tab_size)*number($main.nInnerWidth)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="number(tab_size_px)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
 			<xsl:otherwise><xsl:value-of select="$main.nInnerWidth"/></xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
@@ -369,7 +378,16 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 	</xsl:variable>
 	<xsl:variable name="main.nTabPartHeight">
 		<xsl:choose>
-			<xsl:when test="tab_type='top' or tab_type='bottom'"><xsl:value-of select="0.01*number(tab_size)*number($main.nTabBlockHeight)"/></xsl:when>
+			<xsl:when test="tab_type='top' or tab_type='bottom'">
+        <xsl:choose>
+          <xsl:when test="tab_size_unit='percent'">
+            <xsl:value-of select="0.01*number(tab_size)*number($main.nTabBlockHeight)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="number(tab_size_px)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
 			<xsl:otherwise><xsl:value-of select="$main.nTabBlockHeight"/></xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
