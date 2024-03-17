@@ -379,8 +379,8 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 			<xsl:otherwise><xsl:value-of select="$main.nTabBlockHeight"/></xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
-	<xsl:variable name="main.nDescWrapperWidth" select="number($main.nDescPartWidth) - 2*number($main.nDescWrapperMargin) - 2*number(desc_border_width)"/>
-	<xsl:variable name="main.nDescWrapperHeight" select="number($main.nDescPartHeight) - 2*number($main.nDescWrapperMargin) - 2*number(desc_border_width)"/>
+	<xsl:variable name="main.nDescWrapperWidth" select="number($main.nDescPartWidth) - 2*number($main.nDescWrapperMargin) - 2*number(lab_border_width)"/>
+	<xsl:variable name="main.nDescWrapperHeight" select="number($main.nDescPartHeight) - 2*number($main.nDescWrapperMargin) - 2*number(lab_border_width)"/>
 	<xsl:variable name="main.nTabBGHeight">
 		<xsl:choose>
 			<xsl:when test="count(elements/item)=0">0</xsl:when>
@@ -388,8 +388,8 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 				<xsl:choose>
 					<xsl:when test="tab_type='left' or tab_type='right'">
 						<xsl:choose>
-							<xsl:when test="count(elements/item)=1"><xsl:value-of select="number($main.nTabPartHeight) - 2*number(desc_border_width)"/></xsl:when>
-							<xsl:otherwise><xsl:value-of select="(((number($main.nDescPartHeight) - number(desc_border_width))) div count(elements/item)) - number(desc_border_width)"/></xsl:otherwise>
+							<xsl:when test="count(elements/item)=1"><xsl:value-of select="number($main.nTabPartHeight) - 2*number(lab_border_width)"/></xsl:when>
+							<xsl:otherwise><xsl:value-of select="(((number($main.nDescPartHeight) - number(lab_border_width))) div count(elements/item)) - number(lab_border_width)"/></xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
 					<xsl:otherwise><xsl:value-of select="$main.nTabPartHeight"/></xsl:otherwise>
@@ -397,7 +397,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
-	<xsl:variable name="main.nTabBGStepY" select="number($main.nTabBGHeight) + number(desc_border_width)"/>
+	<xsl:variable name="main.nTabBGStepY" select="number($main.nTabBGHeight) + number(lab_border_width)"/>
 	<xsl:variable name="main.nTabBGRadius" select="number(tab_radius) + number($main.nDescWrapperMargin)"/>
 	<xsl:variable name="main.nTabBGWidth">
 		<xsl:choose>
@@ -406,8 +406,8 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 				<xsl:choose>
 					<xsl:when test="tab_type='top' or tab_type='bottom'">
 						<xsl:choose>
-							<xsl:when test="count(elements/item)=1"><xsl:value-of select="number($main.nTabPartWidth) - 2*number(desc_border_width)"/></xsl:when>
-							<xsl:otherwise><xsl:value-of select="((number($main.nDescPartWidth) - number(desc_border_width)) div count(elements/item)) - number(desc_border_width)"/></xsl:otherwise>
+							<xsl:when test="count(elements/item)=1"><xsl:value-of select="number($main.nTabPartWidth) - 2*number(lab_border_width)"/></xsl:when>
+							<xsl:otherwise><xsl:value-of select="((number($main.nDescPartWidth)) div count(elements/item)) - 2*number(lab_border_width)"/></xsl:otherwise>
 						</xsl:choose>
 					</xsl:when>
 					<xsl:otherwise><xsl:value-of select="$main.nTabPartWidth"/></xsl:otherwise>
@@ -415,16 +415,16 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
-	<xsl:variable name="main.nTabBGStepX" select="number($main.nTabBGWidth) + number(desc_border_width)"/>
+	<xsl:variable name="main.nTabBGStepX" select="number($main.nTabBGWidth) + 2*number(lab_border_width)"/>
 	<xsl:variable name="main.nTabWidth">
 		<xsl:choose>
 			<xsl:when test="tab_type='top' or tab_type='bottom'"><xsl:value-of select="number($main.nTabBGWidth) - 2*number($main.nDescWrapperMargin) - 2*number(tab_border_width)"/></xsl:when>
-			<xsl:otherwise><xsl:value-of select="number($main.nTabBGWidth) - 2*number($main.nDescWrapperMargin) - 2*number(tab_border_width) - number(desc_border_width)"/></xsl:otherwise>
+			<xsl:otherwise><xsl:value-of select="number($main.nTabBGWidth) - 2*number($main.nDescWrapperMargin) - 2*number(tab_border_width) - number(lab_border_width)"/></xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
 	<xsl:variable name="main.nTabHeight">
 		<xsl:choose>
-			<xsl:when test="tab_type='top' or tab_type='bottom'"><xsl:value-of select="number($main.nTabBGHeight) - 2*number($main.nDescWrapperMargin) - 2*number(tab_border_width) - number(desc_border_width)"/></xsl:when>
+			<xsl:when test="tab_type='top' or tab_type='bottom'"><xsl:value-of select="number($main.nTabBGHeight) - 2*number($main.nDescWrapperMargin) - 2*number(tab_border_width) - number(lab_border_width)"/></xsl:when>
 			<xsl:otherwise><xsl:value-of select="number($main.nTabBGHeight) - 2*number($main.nDescWrapperMargin) - 2*number(tab_border_width)"/></xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
@@ -759,7 +759,15 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 			.cl-header-title { width: <xsl:value-of select="number($main.nHeaderTableHeight) - 2*number($main.nHeaderTableHeight) - 4*number($main.nHeaderPadding)"/>px; color: <xsl:value-of select="$main.sRibbonBorderColor"/>; <xsl:value-of select="$main.sRibbonFontCSS"/> }
 		</xsl:if>
 		.cl-tab-block { margin: <xsl:value-of select="$main.nHeaderPadding"/>px 0 0 0; width: <xsl:value-of select="$main.nInnerWidth"/>px; height: <xsl:value-of select="$main.nTabBlockHeight"/>px; }
-		.cl-desc-bg { width: <xsl:value-of select="number($main.nDescPartWidth) - 2*number(desc_border_width)"/>px; height: <xsl:value-of select="number($main.nDescPartHeight) - 2*number(desc_border_width)"/>px; border-width: <xsl:value-of select="desc_border_width"/>px; border-radius: <xsl:value-of select="$main.nDescBGRadius"/>px; <xsl:if test="shadow_strength!='none'">box-shadow: <xsl:value-of select="$main.sShadowString"/>;</xsl:if> }
+		.cl-desc-bg {
+      width: <xsl:value-of select="number($main.nDescPartWidth) - 2*number(lab_border_width)"/>px;
+      height: <xsl:value-of select="number($main.nDescPartHeight) - 2*number(lab_border_width)"/>px;
+      border-width: <xsl:value-of select="lab_border_width"/>px;
+      border-color: <xsl:value-of select="lab_border_color"/> !important;
+      border-radius: <xsl:value-of select="$main.nDescBGRadius"/>px;
+      <xsl:if test="shadow_strength!='none'">
+        box-shadow: <xsl:value-of select="$main.sShadowString"/>;</xsl:if>
+    }
 		.cl-desc-bg-single { border-radius: <xsl:choose><xsl:when test="tab_type='left'">0 <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px 0</xsl:when><xsl:when test="tab_type='right'"><xsl:value-of select="$main.nDescBGRadius"/>px 0 0 <xsl:value-of select="$main.nDescBGRadius"/>px</xsl:when><xsl:when test="tab_type='top'">0 0 <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px</xsl:when><xsl:when test="tab_type='bottom'"><xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px 0 0</xsl:when></xsl:choose> !important; }
 		.cl-desc-bg-first { border-radius: <xsl:choose><xsl:when test="tab_type='left'">0 <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px</xsl:when><xsl:when test="tab_type='right'"><xsl:value-of select="$main.nDescBGRadius"/>px 0 <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px</xsl:when><xsl:when test="tab_type='top'">0 <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px</xsl:when><xsl:when test="tab_type='bottom'"><xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px 0</xsl:when></xsl:choose> !important; }
 		.cl-desc-bg-last { border-radius: <xsl:choose><xsl:when test="tab_type='left'"><xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px 0</xsl:when><xsl:when test="tab_type='right'"><xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px 0 <xsl:value-of select="$main.nDescBGRadius"/>px</xsl:when><xsl:when test="tab_type='top'"><xsl:value-of select="$main.nDescBGRadius"/>px 0 <xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px</xsl:when><xsl:when test="tab_type='bottom'"><xsl:value-of select="$main.nDescBGRadius"/>px <xsl:value-of select="$main.nDescBGRadius"/>px 0 <xsl:value-of select="$main.nDescBGRadius"/>px</xsl:when></xsl:choose> !important; }
@@ -767,12 +775,34 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 		.cl-desc { width: <xsl:value-of select="number($main.nDescWrapperWidth) - 2*number(desc_border_width) - 2*number(desc_padding)"/>px; height: <xsl:value-of select="number($main.nDescWrapperHeight) - 2*number(desc_border_width) - 2*number(desc_padding)"/>px; }
 
 		.cl-tab-part { width: <xsl:value-of select="$main.nTabPartWidth"/>px; height: <xsl:value-of select="$main.nTabPartHeight"/>px; }
-		.cl-tab-bg { width: <xsl:value-of select="$main.nTabBGWidth"/>px; height: <xsl:value-of select="$main.nTabBGHeight"/>px; <xsl:if test="shadow_strength!='none'">box-shadow: <xsl:value-of select="$main.sShadowString"/>;</xsl:if> }
-		.cl-tab-bg-left { clip: rect(-<xsl:value-of select="$main.nShadowOffset"/>px, <xsl:value-of select="number($main.nTabBGWidth) + number(desc_border_width)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + 2*number(desc_border_width) + number($main.nShadowOffset)"/>px, -<xsl:value-of select="$main.nShadowOffset"/>px); border-width: <xsl:value-of select="desc_border_width"/>px 0 <xsl:value-of select="desc_border_width"/>px <xsl:value-of select="desc_border_width"/>px; border-radius: <xsl:value-of select="$main.nTabBGRadius"/>px 0 0 <xsl:value-of select="$main.nTabBGRadius"/>px; }
-		.cl-tab-bg-right { clip: rect(-<xsl:value-of select="$main.nShadowOffset"/>px, <xsl:value-of select="number($main.nTabBGWidth) + number(desc_border_width) + number($main.nShadowOffset)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + 2*number(desc_border_width) + number($main.nShadowOffset)"/>px, 0); border-width: <xsl:value-of select="desc_border_width"/>px <xsl:value-of select="desc_border_width"/>px <xsl:value-of select="desc_border_width"/>px 0; border-radius: 0 <xsl:value-of select="$main.nTabBGRadius"/>px <xsl:value-of select="$main.nTabBGRadius"/>px 0; }
-		.cl-tab-bg-top { clip: rect(-<xsl:value-of select="$main.nShadowOffset"/>px, <xsl:value-of select="number($main.nTabBGWidth) + 2*number(desc_border_width) + number($main.nShadowOffset)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + number(desc_border_width)"/>px, -<xsl:value-of select="$main.nShadowOffset"/>px); border-width: <xsl:value-of select="desc_border_width"/>px <xsl:value-of select="desc_border_width"/>px 0 <xsl:value-of select="desc_border_width"/>px; border-radius: <xsl:value-of select="$main.nTabBGRadius"/>px <xsl:value-of select="$main.nTabBGRadius"/>px 0 0; }
-		.cl-tab-bg-bottom { clip: rect(0, <xsl:value-of select="number($main.nTabBGWidth) + 2*number(desc_border_width) + number($main.nShadowOffset)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + number(desc_border_width) + number($main.nShadowOffset)"/>px, -<xsl:value-of select="$main.nShadowOffset"/>px); border-width: 0 <xsl:value-of select="desc_border_width"/>px <xsl:value-of select="desc_border_width"/>px <xsl:value-of select="desc_border_width"/>px; border-radius: 0 0 <xsl:value-of select="$main.nTabBGRadius"/>px <xsl:value-of select="$main.nTabBGRadius"/>px; }
-		.cl-tab { margin: <xsl:value-of select="number($main.nDescWrapperMargin) + number(desc_border_width)"/>px; width: <xsl:value-of select="$main.nTabWidth"/>px; height: <xsl:value-of select="$main.nTabHeight"/>px; border-width: <xsl:value-of select="tab_border_width"/>px; border-radius: <xsl:value-of select="tab_radius"/>px; }
+		.cl-tab-bg {
+      width: <xsl:value-of select="$main.nTabBGWidth"/>px;
+      height: <xsl:value-of select="$main.nTabBGHeight"/>px;
+      border-color: <xsl:value-of select="lab_border_color"/> !important;
+      <xsl:if test="shadow_strength!='none'">
+        box-shadow: <xsl:value-of select="$main.sShadowString"/>;</xsl:if>
+    }
+		.cl-tab-bg-left {
+      clip: rect(-<xsl:value-of select="$main.nShadowOffset"/>px, <xsl:value-of select="number($main.nTabBGWidth) + number(lab_border_width)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + 2*number(lab_border_width) + number($main.nShadowOffset)"/>px, -<xsl:value-of select="$main.nShadowOffset"/>px);
+      border-width: <xsl:value-of select="lab_border_width"/>px 0 <xsl:value-of select="lab_border_width"/>px <xsl:value-of select="lab_border_width"/>px;
+      border-radius: <xsl:value-of select="$main.nTabBGRadius"/>px 0 0 <xsl:value-of select="$main.nTabBGRadius"/>px;
+    }
+		.cl-tab-bg-right {
+      clip: rect(-<xsl:value-of select="$main.nShadowOffset"/>px, <xsl:value-of select="number($main.nTabBGWidth) + number(lab_border_width) + number($main.nShadowOffset)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + 2*number(lab_border_width) + number($main.nShadowOffset)"/>px, 0);
+      border-width: <xsl:value-of select="lab_border_width"/>px <xsl:value-of select="lab_border_width"/>px <xsl:value-of select="lab_border_width"/>px 0;
+      border-radius: 0 <xsl:value-of select="$main.nTabBGRadius"/>px <xsl:value-of select="$main.nTabBGRadius"/>px 0;
+    }
+		.cl-tab-bg-top {
+      clip: rect(-<xsl:value-of select="$main.nShadowOffset"/>px, <xsl:value-of select="number($main.nTabBGWidth) + 2*number(lab_border_width) + number($main.nShadowOffset)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + number(lab_border_width)"/>px, -<xsl:value-of select="$main.nShadowOffset"/>px);
+      border-width: <xsl:value-of select="lab_border_width"/>px <xsl:value-of select="lab_border_width"/>px 0 <xsl:value-of select="lab_border_width"/>px;
+      border-radius: <xsl:value-of select="$main.nTabBGRadius"/>px <xsl:value-of select="$main.nTabBGRadius"/>px 0 0;
+    }
+		.cl-tab-bg-bottom {
+      clip: rect(0, <xsl:value-of select="number($main.nTabBGWidth) + 2*number(lab_border_width) + number($main.nShadowOffset)"/>px, <xsl:value-of select="number($main.nTabBGHeight) + number(lab_border_width) + number($main.nShadowOffset)"/>px, -<xsl:value-of select="$main.nShadowOffset"/>px);
+      border-width: 0 <xsl:value-of select="lab_border_width"/>px <xsl:value-of select="lab_border_width"/>px <xsl:value-of select="lab_border_width"/>px;
+      border-radius: 0 0 <xsl:value-of select="$main.nTabBGRadius"/>px <xsl:value-of select="$main.nTabBGRadius"/>px;
+    }
+		.cl-tab { margin: <xsl:value-of select="number($main.nDescWrapperMargin) + number(lab_border_width)"/>px; width: <xsl:value-of select="$main.nTabWidth"/>px; height: <xsl:value-of select="$main.nTabHeight"/>px; border-width: <xsl:value-of select="tab_border_width"/>px; border-radius: <xsl:value-of select="tab_radius"/>px; }
 		.cl-tab-idle {
       <xsl:if test="tab_color_scheme!='spec'">
         border-color: <xsl:value-of select="$main.sTabColorBorder"/>;

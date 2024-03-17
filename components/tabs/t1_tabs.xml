@@ -363,6 +363,11 @@
 			</items>
 		</param>
 
+    <param type="label" id="lab_border" text="Граница, цвет" def="" x="10" y="198" w="120" h="13"/>
+    <param type="spinner" id="lab_border_width" text="" def="1" x="130" y="196" w="32" h="13" min="0" max="99"/>
+    <param type="label" id="lab_border_width_label" text="пкс" def="" x="165" y="198" w="30" h="13"/>
+    <param type="color" id="lab_border_color" text="" def="#CCCCCC" x="190" y="197" w="40" h="13"/>
+
 	</page>
 	<page name="Закладки" w="320" h="270">
 
