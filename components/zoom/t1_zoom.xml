@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+'*	Based on v_block_005.xml
+--><params>
+	<object>
+		<format>2.0</format>
+		<label>Картинка с увеличением</label>
+		<description>Картинка с показом увеличенного варианта</description>
+		<width>320</width>
+		<height>240</height>
+		<state_extension>false</state_extension>
+	</object>
+	<page name="Основные" w="320" h="160">
+		<param type="edit" id="hidden_noimg" text="" def="Картинка не задана" x="-10" y="-10" w="1" h="1"/>
+
+		<param type="label" id="lab_imagefile" text="Картинка" def="" x="10" y="10" w="120" h="13"/>
+		<param type="file" id="imagefile" text="" def="" x="130" y="8" w="163" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+
+		<param type="label" id="lab_bg_color_profile" text="Цвет фона" def="" x="10" y="26" w="120" h="13"/>
+		<param type="select" id="bg_color_profile" text="" def="grey" x="130" y="24" w="118" h="13">
+            <items>
+                <item id="turquoise" label="Бирюзовый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="lightblue" label="Голубой">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+					</events>
+                </item>
+                <item id="yellow" label="Желтый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="green" label="Зеленый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="brown" label="Коричневый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="red" label="Красный">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="deeppink" label="Малиновый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="olive" label="Оливковый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="orange" label="Оранжевый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                   </events>
+                </item>
+                <item id="pink" label="Розовый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="grey" label="Серый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="bluegreen" label="Сине-зеленый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                   </events>
+                </item>
+                <item id="blue" label="Синий">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="steelblue" label="Стальной синий">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="violet" label="Фиолетовый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="white" label="Белый">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="black" label="Черный">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="custom" label="По выбору">
+                    <events>
+						<event name="selendok" target="bg_color_custom" action="enable"/>
+                    </events>
+                </item>
+            </items>
+		</param>
+		<param type="color" id="bg_color_custom" text="" def="#999999" x="250" y="24" w="40" h="13"/>
+
+		<param type="label" id="lab_button_color_profile" text="Цвет кнопки" def="" x="10" y="42" w="120" h="13"/>
+		<param type="select" id="button_color_profile" text="" def="yellow" x="130" y="40" w="118" h="13">
+            <items>
+                <item id="turquoise" label="Бирюзовый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="lightblue" label="Голубой">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+					</events>
+                </item>
+                <item id="yellow" label="Желтый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="green" label="Зеленый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="brown" label="Коричневый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="red" label="Красный">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="deeppink" label="Малиновый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="olive" label="Оливковый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="orange" label="Оранжевый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                   </events>
+                </item>
+                <item id="pink" label="Розовый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="grey" label="Серый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="bluegreen" label="Сине-зеленый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                   </events>
+                </item>
+                <item id="blue" label="Синий">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="steelblue" label="Стальной синий">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="violet" label="Фиолетовый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="white" label="Белый">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="black" label="Черный">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="custom" label="По выбору">
+                    <events>
+						<event name="selendok" target="button_color_custom" action="enable"/>
+                    </events>
+                </item>
+            </items>
+		</param>
+		<param type="color" id="button_color_custom" text="" def="#0080C0" x="250" y="40" w="40" h="13"/>
+
+		<param type="label" id="lab_radius" text="Радиус" x="10" y="58" w="120" h="13"/>
+		<param type="spinner" id="radius" text="" def="10" x="130" y="56" w="32" h="13" min="0" max="9999"/>
+		<param type="label" id="lab_radius_px" text="пкс" x="165" y="58" w="25" h="13"/>
+
+		<param type="label" id="lab_shadow" text="Тень" def="" x="10" y="74" w="120" h="13"/>
+		<param type="select" id="shadow" text="" def="normal" x="130" y="72" w="118" h="13">
+			<items>
+				<item id="none" label="Без тени"/>
+				<item id="extralight" label="Очень слабая"/>
+				<item id="light" label="Слабая"/>
+				<item id="normal" label="Нормальная"/>
+				<item id="dark" label="Интенсивная"/>
+				<item id="extradark" label="Очень интенсивная"/>
+			</items>
+		</param>
+
+		<param type="label" id="lab_tooltip_zoomin" text="Подсказка для увеличения" def="" x="10" y="90" w="120" h="11"/>
+		<param type="edit" id="tooltip_zoomin" text="" def="Нажите здесь, чтобы увеличить картинку" x="130" y="88" w="180" h="13"/>
+
+		<param type="label" id="lab_tooltip_close" text="Подсказка для закрытия" def="" x="10" y="106" w="120" h="11"/>
+		<param type="edit" id="tooltip_close" text="" def="Нажмите здесь, чтобы закрыть картинку" x="130" y="104" w="180" h="13"/>
+
+		<param type="check" id="hide_onclick" text="Закрывать при нажатии на всю картинку" def="yes" x="10" y="120" w="240" h="13"/>
+		<param type="check" id="modal" text="Модальный режим показа" def="yes" x="10" y="136" w="240" h="13"/>
+	</page>
+    <methods>
+      <method name="Constructor" label="_Constructor" access="private">
+        <params>
+        </params>
+        <body>
+        <![CDATA[function Constructor(argobj)
+		{
+			var oCurObj = CLO[argobj.pid];
+			oCurObj.data = { bModal: (oCurObj.jxParams.find("modal").text()=="yes"), bAdjusted: false, jBox: $("#" + argobj.pid + "_ZOOM") };
+			$(oCurObj.div).find(".cl-btn, .cl-close-on-img").on("click", function () { oCurObj.CallMethod({ sMethod: "HandleClick", oMethodArgs: { elem: this } }); });
+			oCurObj.CallMethod({ sMethod: "Adjust" });
+			return true;
+		}]]>
+        </body>
+      </method>
+      <method name="Adjust" label="_Adjust" access="private">
+        <params>
+        </params>
+        <body>
+        <![CDATA[function Adjust(argobj)
+		{
+			var oCurObj = CLO[argobj.pid];
+			var iBW = $(CL.oBoard).innerWidth();
+			var iBH = $(CL.oBoard).innerHeight();
+			oCurObj.data.jBox.css({ "width": (iBW-10) + "px", "height": (iBH-10) + "px", "left": "5px", "top": "5px" }).hide();
+			oCurObj.data.jBox.children(":first").css({ "width": (iBW-30) + "px", "height": (iBH-30) + "px", "margin": "10px" });
+			oCurObj.data.bAdjusted = true;
+			return true;
+		}]]>
+        </body>
+      </method>
+      <method name="HandleClick" label="_HandleClick" access="private">
+        <params>
+        </params>
+        <body>
+        <![CDATA[function HandleClick(argobj)
+		{
+			var oCurObj = CLO[argobj.pid];
+			if(!oCurObj.data.bAdjusted) return false;
+			var jElem = $(argobj.elem);
+			if(jElem.hasClass("cl-btn-magnify"))
+			{
+				oCurObj.CallMethod({ sMethod: "Open" });
+			}
+			else
+			{
+				oCurObj.CallMethod({ sMethod: "Close" });
+			}
+			return true;
+		}]]>
+        </body>
+      </method>
+      <method name="Open" label="_Open" access="private">
+        <params>
+        </params>
+        <body>
+        <![CDATA[function Open(argobj)
+		{
+			var oCurObj = CLO[argobj.pid];
+			var jBox = $("#" + argobj.pid + "_ZOOM");
+			if(oCurObj.data.bModal)
+			{
+				CL.Modal({ bOn: true, sSrcId: argobj.pid });
+			}
+			jBox.css({ "z-index": 5001 }).appendTo(CL.oBoard).fadeIn();
+			return true;
+		}]]>
+        </body>
+      </method>
+      <method name="Close" label="_Close" access="private">
+        <params>
+        </params>
+        <body>
+        <![CDATA[function Close(argobj)
+		{
+			var oCurObj = CLO[argobj.pid];
+			var jBox = $("#" + argobj.pid + "_ZOOM");
+			if(oCurObj.data.bModal)
+			{
+				CL.Modal({ bOn: false, sSrcId: argobj.pid });
+			}
+			jBox.css({ "z-index": 5001 }).fadeOut("fast", function () { $(this).appendTo($(oCurObj.div).find(".cl-container")); });
+			return true;
+		}]]>
+        </body>
+      </method>
+    </methods>
+</params>
