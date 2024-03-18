@@ -4,7 +4,7 @@
 --><params>
 	<object>
 		<format>2.0</format>
-		<label>Блок закладок v0.0-1</label>
+		<label>Блок закладок v0.1</label>
 		<description>Блок закладок с описаниями с последовательным прохождением</description>
 		<width>980</width>
 		<height>540</height>
