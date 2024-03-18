@@ -866,7 +866,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 					<xsl:attribute name="class">cl-tab-table-cell</xsl:attribute>
 					<div>
 						<xsl:attribute name="class">cl-tab-text cl-tab-text-<xsl:value-of select="../../tab_type"/></xsl:attribute>
-						<xsl:value-of select="tab_text"/>
+						<xsl:value-of select="tab_text" disable-output-escaping="yes"/>
 					</div>
 				</td>
 			</tr>

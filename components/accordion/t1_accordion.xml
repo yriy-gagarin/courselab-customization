@@ -23,9 +23,10 @@
             <page name="Элемент" w="320" h="140">
                 <param type="check" id="display_first" listcolumn="0" text="Показывать при старте" def="no" x="10" y="8" w="240" h="13"/>
 				<param type="label" id="" text="Текст на закладке" def="" x="10" y="26" w="120" h="13"/>
-				<param type="edit" id="tab_text" text="Закладка" def="Закладка" x="130" y="24" w="180" h="13"/>
-                <param type="label" id="lab_desc_text" text="Текст описания" def="" x="10" y="42" w="120" h="13"/>
-                <param type="textedit" id="desc_text" text="Описание" def="Текст по умолчанию" x="130" y="40" w="163" h="13" listcolumn="0"/>
+				<param type="textedit" id="tab_text" text="Закладка" def="Закладка" x="130" y="24" w="163" h="13" listcolumn="0"/>
+        <param type="label" id="lab_desc_text" text="Текст описания" def="" x="10" y="42" w="120" h="13"/>
+        <param type="textedit" id="desc_text" text="Описание" def="Текст по умолчанию" x="130" y="40" w="163" h="13" listcolumn="0"/>
+
 				<param type="label" id="lab_narration" text="Звуковой файл" def="" x="10" y="58" w="120" h="13"/>
 				<param type="file" id="narration" text="Звук" def="" listcolumn="0" x="130" y="56" w="163" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
 
