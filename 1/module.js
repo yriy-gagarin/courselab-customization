@@ -1,6 +1,6 @@
 /*
- *  courselab-customization version: "v0.0.1"
- *  commit: "8791aa41"
+ *  courselab-customization version: "v0.0.2"
+ *  commit: "6560aa57"
  */
 const BREAKPOINT = {
   MOBILE: 'MOBILE',
