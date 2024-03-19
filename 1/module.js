@@ -14,15 +14,21 @@ const BREAKPOINT_VALUES = {
   [BREAKPOINT.DESKTOP]: 1280,
 };
 
+// Used to properly scale to fit the window(adds extra space for the shadow).
+const boxShadowMargin = 25;
+
 const minWidth = BREAKPOINT_VALUES[BREAKPOINT.MOBILE];
 
 let $boardFrame;
+let $window;
 let currentBreakpoint;
 
 /**
  * Prepare the courseLab markup to work using breakpoints approach.
  */
 function makeMarkupResponsive(){
+
+  //TODO: check function Mobile 8077 cl.js (work in the webtutor)
 
   // Set viewport for correct work on the mobile devices
   const jMeta = $("head").children("meta[name='viewport']");
@@ -38,6 +44,8 @@ function makeMarkupResponsive(){
   $boardFrame.css({
     position: 'relative', // remove absolute positioning;
     boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)',// apply.cl-container box-shadow style
+    height: courseHeight+'px', // add vertical scroll in case the user opens the course on a small window(small phone or landscape orientation)
+    transformOrigin: 'top',
   }).parent().css({ // cl-container
     width: '100%', // remove fixed width value;
     height: '100%', // remove fixed height value;
@@ -46,7 +54,7 @@ function makeMarkupResponsive(){
     transform: 'none', // remove transform(was used for the scaling cl-container)
     display: "flex", // new way of the centered layout
     justifyContent: "center",
-    minHeight: courseHeight+'px', // add vertical scroll in case the user opens the course on a small window(small phone or landscape orientation)
+    overflow: "visible",
     minWidth: minWidth+'px', // set horizontal scroll in the case user opens the course on a small phone
     boxShadow: 'none' // remove .cl-container box-shadow style(move it into the boardFrame)
   });
@@ -54,7 +62,7 @@ function makeMarkupResponsive(){
 
 function updateBreakpoint(){
 
-  const width = $(window).width();
+  const width = $window.width();
 
   const frameIds = CLS[CLZ.sCurrentSlideId].aFrameIds;
 
@@ -81,6 +89,11 @@ function updateBreakpoint(){
     $boardFrame.width(BREAKPOINT_VALUES[currentBreakpoint]);
     CLM[currentBreakpoint].Show();
     CL.Navigation.GoTo({ sTargetType: "frame", sTargetId: frameIdMap[currentBreakpoint] });
+  }
+
+  if(CLZ.bFitWindow){
+    // TODO: add throttling
+    scaleToFitWindow();
   }
 }
 
@@ -137,9 +150,46 @@ function synchronizeComponents(){
   });
 }
 
+function scaleToFitWindow(){
+  let scale = 1;
+  let scaleX = 1;
+  let scaleY = 1;
+
+  var frameWidth = $boardFrame.width();
+  var frameHeight = $boardFrame.height();
+  var windowWidth = $window.width() - boxShadowMargin;
+  var windowHeight = $window.height() - boxShadowMargin;
+
+  scaleX = windowWidth/frameWidth;
+  scaleY = windowHeight/frameHeight;
+  scale = Math.round(1000*Math.min(scaleX,scaleY))/1000;
+
+  if(scale<1){
+    scale = 1
+  }
+
+  $boardFrame.css({
+    transform: 'scale(' + scale + ')'
+  });
+}
+
+/**
+ * Turn off the courseLab Zoom functionality
+ */
+function disableCLZoom(){
+  CL.Zoom = function(arg){
+    // Also disable the fitscreen function from the nav_0001_toggle_btn component(arg.bNaviBtn: true)
+    // Use the scaleToFitWindow method instead.
+    return false;
+  }
+}
+
 function InitModule()
 {
   $boardFrame = $(CL.oBoard);
+  $window = $(window);
+
+  disableCLZoom();
 
   makeMarkupResponsive();
 
