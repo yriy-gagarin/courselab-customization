@@ -3,7 +3,7 @@
 --><params>
     <object>
         <format>2.0</format>
-        <label>Блок раздвижной v0.0-1</label>
+        <label>Блок раздвижной v0.1</label>
         <description>Блок раздвижной</description>
         <width>980</width>
         <height>540</height>
@@ -23,7 +23,7 @@
             <page name="Элемент" w="320" h="140">
                 <param type="check" id="display_first" listcolumn="0" text="Показывать при старте" def="no" x="10" y="8" w="240" h="13"/>
 				<param type="label" id="" text="Текст на закладке" def="" x="10" y="26" w="120" h="13"/>
-				<param type="textedit" id="tab_text" text="Закладка" def="Закладка" x="130" y="24" w="163" h="13" listcolumn="0"/>
+				<param type="textedit" id="tab_text" text="Закладка" def="Закладка" x="130" y="24" w="163" h="13"/>
         <param type="label" id="lab_desc_text" text="Текст описания" def="" x="10" y="42" w="120" h="13"/>
         <param type="textedit" id="desc_text" text="Описание" def="Текст по умолчанию" x="130" y="40" w="163" h="13" listcolumn="0"/>
 
@@ -341,8 +341,8 @@
 
     </page>
 	<page name="Закладки" w="320" h="270">
-		<param type="line" id="LINE_bg_1" text="" def="" x="5" y="8" w="310" h="126"/>
-		<param type="line" id="LINE_bg_2" text="" def="" x="5" y="24" w="310" h="110"/>
+		<param type="line" id="LINE_bg_1" text="" def="" x="5" y="8" w="310" h="142"/>
+		<param type="line" id="LINE_bg_2" text="" def="" x="5" y="24" w="310" h="126"/>
 		<param type="label" id="lab_desc_view" text="Вид" def="" x="15" y="12" w="120" h="11"/>
 
 		<param type="label" id="lab_tab_color_scheme" text="Цветовая схема" def="" x="15" y="34" w="115" h="11"/>
@@ -669,11 +669,28 @@
 		<param type="spinner" id="tab_padding_lr" text="" def="12" x="190" y="112" w="32" h="13" min="0" max="99"/>
 		<param type="label" id="lab_tab_padding_lr2" text="пкс" def="" x="225" y="114" w="36" h="13"/>
 
-		<param type="line" id="LINE_font_1" text="" def="" x="5" y="142" w="310" h="78"/>
-        <param type="line" id="LINE_font_2" text="" def="" x="5" y="158" w="310" h="62"/>
+    <param type="label" id="tab_size_label" text="Размер закладки" def="" x="15" y="130" w="115" h="13"/>
+    <param type="spinner" id="tab_size" text="" def="14" x="130" y="128" w="32" h="13" min="0" max="99"/>
+    <param type="select" id="tab_size_unit" text="" def="percent" x="165" y="128" w="35" h="13">
+      <items>
+        <item id="auto_size" label="авто">
+          <events>
+            <event name="selendok" target="tab_size" action="disable"/>
+          </events>
+        </item>
+        <item id="pixel" label="пкс">
+          <events>
+            <event name="selendok" target="tab_size" action="enable"/>
+          </events>
+        </item>
+      </items>
+    </param>
 
-		<param type="label" id="lab_font" text="Шрифт" x="15" y="146" w="120" h="11"/>
-		<param type="select" id="font" text="" def="roboto_condensedregular" x="15" y="166" w="113" h="13">
+		<param type="line" id="LINE_font_1" text="" def="" x="5" y="158" w="310" h="96"/>
+    <param type="line" id="LINE_font_2" text="" def="" x="5" y="174" w="310" h="80"/>
+
+		<param type="label" id="lab_font" text="Шрифт*" x="15" y="162" w="120" h="11"/>
+		<param type="select" id="font" text="" def="roboto_condensedregular" x="15" y="182" w="113" h="13">
 			<items>
 				<item id="Arial" label="Arial">
 					<events>
@@ -942,10 +959,10 @@
 				</item>
 			</items>
 		</param>
-		<param type="edit" id="font_custom" text="" def="" x="130" y="166" w="175" h="13"/>
+		<param type="edit" id="font_custom" text="" def="" x="130" y="182" w="175" h="13"/>
 
-		<param type="label" id="lab_font_style" text="Стиль, размер" def="" x="15" y="184" w="115" h="11"/>
-		<param type="select" id="font_style" text="" def="normal" x="130" y="182" w="118" h="13">
+		<param type="label" id="lab_font_style" text="Стиль, размер" def="" x="15" y="200" w="115" h="11"/>
+		<param type="select" id="font_style" text="" def="normal" x="130" y="198" w="118" h="13">
 			<items>
 				<item id="normal" label="Обычный"/>
 				<item id="bold" label="Жирный"/>
@@ -953,11 +970,11 @@
 				<item id="bolditalic" label="Курсив жирный"/>
 			</items>
 		</param>
-		<param type="spinner" id="font_size" text="" def="12" x="250" y="182" w="32" h="13" min="1" max="100"/>
-		<param type="label" id="lab_font_size2" text="пкс" x="285" y="184" w="25" h="11"/>
+		<param type="spinner" id="font_size" text="" def="12" x="250" y="198" w="32" h="13" min="1" max="100"/>
+		<param type="label" id="lab_font_size2" text="пкс" x="285" y="200" w="25" h="11"/>
 
-		<param type="label" id="lab_text_shadow_strength" text="Тень" def="" x="15" y="200" w="115" h="11"/>
-		<param type="select" id="text_shadow_strength" text="" def="normal" x="130" y="198" w="118" h="13">
+		<param type="label" id="lab_text_shadow_strength" text="Тень" def="" x="15" y="216" w="115" h="11"/>
+		<param type="select" id="text_shadow_strength" text="" def="normal" x="130" y="214" w="118" h="13">
 			<items>
 				<item id="none" label="Без тени">
 					<events>
@@ -991,7 +1008,8 @@
 				</item>
 			</items>
 		</param>
-		<param type="color" id="text_shadow_color" text="" def="#FFFFFF" x="250" y="198" w="40" h="13"/>
+		<param type="color" id="text_shadow_color" text="" def="#FFFFFF" x="250" y="214" w="40" h="13"/>
+    <param type="label" id="info_label" text="* Для применения этих настроек используйте кнопку 'Убрать форматирование' в текстовом редакторе при изменении текста закладки (Основные -> Элементы)" def="" x="10" y="232" w="295" h="20"/>
 	</page>
 	<page name="Управление" w="320" h="270">
 
