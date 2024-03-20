@@ -483,14 +483,28 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 
 	<xsl:variable name="main.nTabInnerHeight">
 		<xsl:choose>
-			<xsl:when test="tab_type='v'"><xsl:value-of select="round(1.2*number(font_size))"/></xsl:when>
+			<xsl:when test="tab_type='v'">
+        <xsl:if test="tab_size_unit='auto_size'">
+          <xsl:value-of select="round(1.2*number(font_size))"/>
+        </xsl:if>
+        <xsl:if test="tab_size_unit='pixel'">
+          <xsl:value-of select="number(tab_size)"/>
+        </xsl:if>
+      </xsl:when>
 			<xsl:otherwise><xsl:value-of select="number($main.nTabBlockHeight) - 2*number(tab_border_width) - 2*number(tab_padding_tb)"/></xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
 	<xsl:variable name="main.nTabInnerWidth">
 		<xsl:choose>
 			<xsl:when test="tab_type='v'"><xsl:value-of select="number($main.nInnerWidth) - 2*number(tab_border_width) - 2*number(tab_padding_lr)"/></xsl:when>
-			<xsl:otherwise><xsl:value-of select="round(1.2*number(font_size))"/></xsl:otherwise>
+			<xsl:otherwise>
+        <xsl:if test="tab_size_unit='auto_size'">
+          <xsl:value-of select="round(1.2*number(font_size))"/>
+        </xsl:if>
+        <xsl:if test="tab_size_unit='pixel'">
+          <xsl:value-of select="number(tab_size)"/>
+        </xsl:if>
+      </xsl:otherwise>
 		</xsl:choose>
 	</xsl:variable>
 	<xsl:variable name="main.nTabHeight">
@@ -866,7 +880,7 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 					<xsl:attribute name="class">cl-tab-table-cell</xsl:attribute>
 					<div>
 						<xsl:attribute name="class">cl-tab-text cl-tab-text-<xsl:value-of select="../../tab_type"/></xsl:attribute>
-						<xsl:value-of select="tab_text"/>
+						<xsl:value-of select="tab_text" disable-output-escaping="yes"/>
 					</div>
 				</td>
 			</tr>
