@@ -48,6 +48,11 @@
 			<xsl:with-param name="sCustomBorder" select="$bg-color-custom-fixed"/>
 		</xsl:call-template>
 	</xsl:variable>
+  <xsl:variable name="main.sBGColorRGB">
+    <xsl:call-template name="hex2rgb">
+      <xsl:with-param name="hexcolor" select="$main.sBGColor"/>
+    </xsl:call-template>
+  </xsl:variable>
 	<xsl:variable name="main.sShadowString">
 		<xsl:if test="shadow_strength!='none'">
 			<xsl:call-template name="shadow_builder">
@@ -60,7 +65,17 @@
 	</xsl:variable>
 	<style>
 		.cl-container { width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; }
-		.cl-box { width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; background-color: <xsl:value-of select="$main.sBGColor"/>; <xsl:if test="number(radius)!=0">border-radius: <xsl:value-of select="radius"/>px;</xsl:if> <xsl:if test="shadow_strength!='none'">box-shadow: <xsl:value-of select="$main.sShadowString"/>px;</xsl:if> }
+		.cl-box {
+      width: <xsl:value-of select="$width"/>px;
+      height: <xsl:value-of select="$height"/>px;
+      background-color: rgba(<xsl:value-of select="$main.sBGColorRGB"/>,<xsl:value-of select="number(bg_color_opacity) div 100"/>);
+      <xsl:if test="number(radius)!=0">
+        border-radius: <xsl:value-of select="radius"/>px;
+      </xsl:if>
+      <xsl:if test="shadow_strength!='none'">
+        box-shadow: <xsl:value-of select="$main.sShadowString"/>;
+      </xsl:if>
+    }
 		.cl-box img { width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; <xsl:if test="number(radius)!=0">border-radius: <xsl:value-of select="radius"/>px;</xsl:if> }
 		.cl-noimg-table { width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; }
 		.cl-noimg-table td { width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; color: <xsl:value-of select="$main.sButtonColor"/>; }

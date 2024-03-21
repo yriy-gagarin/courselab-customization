@@ -46,6 +46,11 @@
 			<xsl:with-param name="sCustomBorder" select="$bg-color-custom-fixed"/>
 		</xsl:call-template>
 	</xsl:variable>
+  <xsl:variable name="main.hex2Opacity">
+    <xsl:call-template name="dectohex2">
+      <xsl:with-param name="dec2" select="round((255 * number(bg_color_opacity)) div 100)"/>
+    </xsl:call-template>
+  </xsl:variable>
 	<xsl:variable name="main.sShadowString">
 		<xsl:if test="shadow_strength!='none'">
 			<xsl:call-template name="shadow_builder">
@@ -63,7 +68,11 @@
 		</div>
 		<div class="rule">
 			<xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .cl-box</xsl:attribute>
-			<span class="rule-static">width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; background-color: <xsl:value-of select="$main.sBGColor"/>;</span>
+			<span class="rule-static">
+        width: <xsl:value-of select="$width"/>px;
+        height: <xsl:value-of select="$height"/>px;
+        background-color: <xsl:value-of select="$main.sBGColor"/><xsl:value-of select="$main.hex2Opacity"/>;
+      </span>
 			<xsl:if test="number(radius)!=0">
 				<span class="rule-dynamic">
 					<xsl:attribute name="data-type">border-radius</xsl:attribute>
@@ -104,7 +113,10 @@
 			</div>
 			<div class="rule">
 				<xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/>_ZOOM</xsl:attribute>
-				<span class="rule-static">position: absolute; left: -10000px; top: -10000px; background-color: <xsl:value-of select="$main.sBGColor"/>;</span>
+				<span class="rule-static">
+          position: absolute; left: -10000px; top: -10000px;
+          background-color: <xsl:value-of select="$main.sBGColor"/><xsl:value-of select="$main.hex2Opacity"/>;
+        </span>
 				<xsl:if test="number(radius)!=0">
 					<span class="rule-dynamic">
 						<xsl:attribute name="data-type">border-radius</xsl:attribute>

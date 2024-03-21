@@ -3,7 +3,7 @@
 --><params>
 	<object>
 		<format>2.0</format>
-		<label>Картинка с увеличением</label>
+		<label>Картинка с увеличением v0.0-1</label>
 		<description>Картинка с показом увеличенного варианта</description>
 		<width>320</width>
 		<height>240</height>
@@ -15,8 +15,8 @@
 		<param type="label" id="lab_imagefile" text="Картинка" def="" x="10" y="10" w="120" h="13"/>
 		<param type="file" id="imagefile" text="" def="" x="130" y="8" w="163" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
 
-		<param type="label" id="lab_bg_color_profile" text="Цвет фона" def="" x="10" y="26" w="120" h="13"/>
-		<param type="select" id="bg_color_profile" text="" def="grey" x="130" y="24" w="118" h="13">
+		<param type="label" id="lab_bg_color_profile" text="Цвет фона, прозрачность" def="" x="10" y="26" w="120" h="13"/>
+		<param type="select" id="bg_color_profile" text="" def="grey" x="130" y="24" w="83" h="13">
             <items>
                 <item id="turquoise" label="Бирюзовый">
                     <events>
@@ -110,7 +110,8 @@
                 </item>
             </items>
 		</param>
-		<param type="color" id="bg_color_custom" text="" def="#999999" x="250" y="24" w="40" h="13"/>
+		<param type="color" id="bg_color_custom" text="" def="#999999" x="215" y="24" w="40" h="13"/>
+    <param type="spinner" id="bg_color_opacity" text="" def="100" x="279" y="24" w="30" h="13" min="0" max="100"/>
 
 		<param type="label" id="lab_button_color_profile" text="Цвет кнопки" def="" x="10" y="42" w="120" h="13"/>
 		<param type="select" id="button_color_profile" text="" def="yellow" x="130" y="40" w="118" h="13">
@@ -214,7 +215,7 @@
 		<param type="label" id="lab_radius_px" text="пкс" x="165" y="58" w="25" h="13"/>
 
 		<param type="label" id="lab_shadow" text="Тень" def="" x="10" y="74" w="120" h="13"/>
-		<param type="select" id="shadow" text="" def="normal" x="130" y="72" w="118" h="13">
+		<param type="select" id="shadow_strength" text="" def="none" x="130" y="72" w="118" h="13">
 			<items>
 				<item id="none" label="Без тени"/>
 				<item id="extralight" label="Очень слабая"/>
@@ -232,7 +233,7 @@
 		<param type="edit" id="tooltip_close" text="" def="Нажмите здесь, чтобы закрыть картинку" x="130" y="104" w="180" h="13"/>
 
 		<param type="check" id="hide_onclick" text="Закрывать при нажатии на всю картинку" def="yes" x="10" y="120" w="240" h="13"/>
-		<param type="check" id="modal" text="Модальный режим показа" def="yes" x="10" y="136" w="240" h="13"/>
+		<param type="check" id="modal" text="Модальный режим показа" def="no" x="10" y="136" w="240" h="13"/>
 	</page>
     <methods>
       <method name="Constructor" label="_Constructor" access="private">
@@ -242,8 +243,12 @@
         <![CDATA[function Constructor(argobj)
 		{
 			var oCurObj = CLO[argobj.pid];
+			var jCurObjDiv = $(oCurObj.div);
+			// Add 'parent'(the component from which the inheritance was based) classname
+			// See also CLObject constructor
+			jCurObjDiv.addClass("clo-v_block_005");
 			oCurObj.data = { bModal: (oCurObj.jxParams.find("modal").text()=="yes"), bAdjusted: false, jBox: $("#" + argobj.pid + "_ZOOM") };
-			$(oCurObj.div).find(".cl-btn, .cl-close-on-img").on("click", function () { oCurObj.CallMethod({ sMethod: "HandleClick", oMethodArgs: { elem: this } }); });
+			jCurObjDiv.find(".cl-btn, .cl-close-on-img").on("click", function () { oCurObj.CallMethod({ sMethod: "HandleClick", oMethodArgs: { elem: this } }); });
 			oCurObj.CallMethod({ sMethod: "Adjust" });
 			return true;
 		}]]>
