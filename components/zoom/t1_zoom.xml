@@ -6,10 +6,10 @@
 		<label>Картинка с увеличением v0.0-1</label>
 		<description>Картинка с показом увеличенного варианта</description>
 		<width>320</width>
-		<height>240</height>
+		<height>250</height>
 		<state_extension>false</state_extension>
 	</object>
-	<page name="Основные" w="320" h="160">
+	<page name="Основные" w="320" h="170">
 		<param type="edit" id="hidden_noimg" text="" def="Картинка не задана" x="-10" y="-10" w="1" h="1"/>
 
 		<param type="label" id="lab_imagefile" text="Картинка" def="" x="10" y="10" w="120" h="13"/>
@@ -233,7 +233,8 @@
 		<param type="edit" id="tooltip_close" text="" def="Нажмите здесь, чтобы закрыть картинку" x="130" y="104" w="180" h="13"/>
 
 		<param type="check" id="hide_onclick" text="Закрывать при нажатии на всю картинку" def="yes" x="10" y="120" w="240" h="13"/>
-		<param type="check" id="modal" text="Модальный режим показа" def="no" x="10" y="136" w="240" h="13"/>
+    <param type="check" id="show_onclick" text="Открывать при нажатии на всю картинку" def="yes" x="10" y="136" w="240" h="13"/>
+		<param type="check" id="modal" text="Модальный режим показа" def="no" x="10" y="152" w="240" h="13"/>
 	</page>
     <methods>
       <method name="Constructor" label="_Constructor" access="private">
@@ -248,7 +249,7 @@
 			// See also CLObject constructor
 			jCurObjDiv.addClass("clo-v_block_005");
 			oCurObj.data = { bModal: (oCurObj.jxParams.find("modal").text()=="yes"), bAdjusted: false, jBox: $("#" + argobj.pid + "_ZOOM") };
-			jCurObjDiv.find(".cl-btn, .cl-close-on-img").on("click", function () { oCurObj.CallMethod({ sMethod: "HandleClick", oMethodArgs: { elem: this } }); });
+			jCurObjDiv.find(".cl-btn, .cl-close-on-img, .show_onclick").on("click", function () { oCurObj.CallMethod({ sMethod: "HandleClick", oMethodArgs: { elem: this } }); });
 			oCurObj.CallMethod({ sMethod: "Adjust" });
 			return true;
 		}]]>
@@ -279,7 +280,7 @@
 			var oCurObj = CLO[argobj.pid];
 			if(!oCurObj.data.bAdjusted) return false;
 			var jElem = $(argobj.elem);
-			if(jElem.hasClass("cl-btn-magnify"))
+			if(jElem.hasClass("cl-btn-magnify") || jElem.hasClass("show_onclick"))
 			{
 				oCurObj.CallMethod({ sMethod: "Open" });
 			}

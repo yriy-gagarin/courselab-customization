@@ -99,7 +99,11 @@
 		<xsl:if test="imagefile!=''">
 			<div class="rule">
 				<xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .cl-box img</xsl:attribute>
-				<span class="rule-static">width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px;</span>
+				<span class="rule-static">
+          width: <xsl:value-of select="$width"/>px;
+          height: <xsl:value-of select="$height"/>px;
+          <xsl:if test="show_onclick='yes'">cursor: pointer</xsl:if>;
+        </span>
 				<xsl:if test="number(radius)!=0">
 					<span class="rule-dynamic">
 						<xsl:attribute name="data-type">border-radius</xsl:attribute>
@@ -152,6 +156,8 @@
 				<xsl:when test="imagefile!=''">
 					<img>
 						<xsl:attribute name="src"><xsl:value-of select="imagefile"/></xsl:attribute>
+            <xsl:if test="show_onclick='yes'"><xsl:attribute name="class">show_onclick</xsl:attribute></xsl:if>
+            <xsl:if test="show_onclick='yes'"><xsl:attribute name="title"><xsl:value-of select="tooltip_zoomin"/></xsl:attribute></xsl:if>
 					</img>
 						<div>
 							<xsl:attribute name="class">cl-btn cl-btn-magnify</xsl:attribute>
@@ -183,9 +189,12 @@
 		<xsl:attribute name="class">cl-zoom</xsl:attribute>
         <div>
             <xsl:attribute name="id"><xsl:value-of select="$objectID"/>_ZOOM_IMGDIV</xsl:attribute>
-			<xsl:attribute name="class">cl-zoom-box <xsl:if test="hide_onclick='yes'">cl-close-on-img</xsl:if></xsl:attribute>
-			<xsl:attribute name="style">background-image: url(<xsl:value-of select="imagefile"/>);</xsl:attribute>
-				<xsl:if test="hide_onclick='yes'"><xsl:attribute name="title"><xsl:value-of select="tooltip_close"/></xsl:attribute></xsl:if>
+			      <xsl:attribute name="class">cl-zoom-box <xsl:if test="hide_onclick='yes'">cl-close-on-img</xsl:if></xsl:attribute>
+			      <xsl:attribute name="style">
+              background-image: url(<xsl:value-of select="imagefile"/>);
+              <xsl:if test="hide_onclick='yes'">cursor: pointer;</xsl:if>
+            </xsl:attribute>
+				    <xsl:if test="hide_onclick='yes'"><xsl:attribute name="title"><xsl:value-of select="tooltip_close"/></xsl:attribute></xsl:if>
         </div>
 		<div>
 			<xsl:attribute name="id"><xsl:value-of select="$objectID"/>_BTN_CLOSE</xsl:attribute>
