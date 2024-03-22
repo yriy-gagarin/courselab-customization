@@ -248,11 +248,48 @@
 			// Add 'parent'(the component from which the inheritance was based) classname
 			// See also CLObject constructor
 			jCurObjDiv.addClass("clo-v_block_005");
-			oCurObj.data = { bModal: (oCurObj.jxParams.find("modal").text()=="yes"), bAdjusted: false, jBox: $("#" + argobj.pid + "_ZOOM") };
+			oCurObj.data = {
+			  bModal: (oCurObj.jxParams.find("modal").text()=="yes"),
+			  bAdjusted: false,
+			  bOpened: false,
+			  jBox: $("#" + argobj.pid + "_ZOOM")
+			 };
 			jCurObjDiv.find(".cl-btn, .cl-close-on-img, .show_onclick").on("click", function () { oCurObj.CallMethod({ sMethod: "HandleClick", oMethodArgs: { elem: this } }); });
 			oCurObj.CallMethod({ sMethod: "Adjust" });
+
+			CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_BEFORE_DESTROY" } ] });
+			CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_HIDE" } ] });
+			CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
 			return true;
 		}]]>
+        </body>
+      </method>
+      <method name="HandleEvt" label="_HandleEvt" access="private">
+        <params>
+        </params>
+        <body>
+          <![CDATA[function HandleEvt(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+
+				switch(argobj.evt)
+				{
+					case "EVENT_OBJECT_SHOW":{
+            oCurObj.CallMethod({ sMethod: "Adjust" });
+					  break;
+					}
+					case "EVENT_OBJECT_BEFORE_DESTROY":
+					case "EVENT_OBJECT_HIDE":
+					{
+            if(oCurObj.data.bOpened){
+              // hide jBox if it was opened
+              oCurObj.data.jBox.appendTo(oCurObj.div).hide();
+            }
+            break;
+          }
+				}
+				return true;
+			}]]>
         </body>
       </method>
       <method name="Adjust" label="_Adjust" access="private">
@@ -299,12 +336,13 @@
         <![CDATA[function Open(argobj)
 		{
 			var oCurObj = CLO[argobj.pid];
-			var jBox = $("#" + argobj.pid + "_ZOOM");
+			var jBox = oCurObj.data.jBox;
 			if(oCurObj.data.bModal)
 			{
 				CL.Modal({ bOn: true, sSrcId: argobj.pid });
 			}
 			jBox.css({ "z-index": 5001 }).appendTo(CL.oBoard).fadeIn();
+			oCurObj.data.bOpened = true;
 			return true;
 		}]]>
         </body>
@@ -316,12 +354,13 @@
         <![CDATA[function Close(argobj)
 		{
 			var oCurObj = CLO[argobj.pid];
-			var jBox = $("#" + argobj.pid + "_ZOOM");
+			var jBox = oCurObj.data.jBox;
 			if(oCurObj.data.bModal)
 			{
 				CL.Modal({ bOn: false, sSrcId: argobj.pid });
 			}
-			jBox.css({ "z-index": 5001 }).fadeOut("fast", function () { $(this).appendTo($(oCurObj.div).find(".cl-container")); });
+			jBox.css({ "z-index": 5001 }).fadeOut("fast", function () { $(this).appendTo(oCurObj.div); });
+			oCurObj.data.bOpened = false;
 			return true;
 		}]]>
         </body>
