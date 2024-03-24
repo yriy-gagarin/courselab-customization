@@ -24,21 +24,22 @@
 			<xsl:with-param name="color" select="bg_color_custom"/>
 		</xsl:call-template>
 	</xsl:variable>
-	<xsl:variable name="button-color-custom-fixed">
+	<xsl:variable name="zoom-in-button-color-custom-fixed">
 		<xsl:call-template name="fix-color">
-			<xsl:with-param name="color" select="button_color_custom"/>
+			<xsl:with-param name="color" select="zoom_in_button_color_custom"/>
 		</xsl:call-template>
 	</xsl:variable>
 
-	<xsl:variable name="main.sButtonColor">
+	<xsl:variable name="main.sZoomInButtonColor">
 		<xsl:call-template name="define-color">
-			<xsl:with-param name="sProfile" select="button_color_profile"/>
+			<xsl:with-param name="sProfile" select="zoom_in_button_color_profile"/>
 			<xsl:with-param name="sColorType">color1</xsl:with-param>
-			<xsl:with-param name="sCustom" select="$button-color-custom-fixed"/>
-			<xsl:with-param name="sCustomGradient" select="$button-color-custom-fixed"/>
-			<xsl:with-param name="sCustomBorder" select="$button-color-custom-fixed"/>
+			<xsl:with-param name="sCustom" select="$zoom-in-button-color-custom-fixed"/>
+			<xsl:with-param name="sCustomGradient" select="$zoom-in-button-color-custom-fixed"/>
+			<xsl:with-param name="sCustomBorder" select="$zoom-in-button-color-custom-fixed"/>
 		</xsl:call-template>
 	</xsl:variable>
+
 	<xsl:variable name="main.sBGColor">
 		<xsl:call-template name="define-color">
 			<xsl:with-param name="sProfile" select="bg_color_profile"/>
@@ -78,8 +79,21 @@
     }
 		.cl-box img { width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; <xsl:if test="number(radius)!=0">border-radius: <xsl:value-of select="radius"/>px;</xsl:if> }
 		.cl-noimg-table { width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; }
-		.cl-noimg-table td { width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; color: <xsl:value-of select="$main.sButtonColor"/>; }
-		.cl-magnify-svg { fill: <xsl:value-of select="$main.sButtonColor"/>; }
+		.cl-noimg-table td { width: <xsl:value-of select="$width"/>px; height: <xsl:value-of select="$height"/>px; color: <xsl:value-of select="$main.sZoomInButtonColor"/>; }
+		.cl-magnify-svg {
+      fill: <xsl:value-of select="$main.sZoomInButtonColor"/>;
+      <xsl:if test="zoom_in_button_source!='zoom_in_auto'">
+        display: none;
+      </xsl:if>
+    }
+		.cl-btn-magnify {
+      <xsl:if test="zoom_in_button_source='zoom_in_file'">
+        background-image: url('file:///<xsl:value-of select="translate(substring-before($moduleImagesFolder,'images\'),'\','/')"/><xsl:value-of select="zoom_in_button_image_file"/>');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      </xsl:if>
+    }
 	</style>
 	<div>
 		<xsl:attribute name="class">clo-v_block_005</xsl:attribute>
@@ -94,12 +108,13 @@
 						</img>
 						<div>
 							<xsl:attribute name="class">cl-btn cl-btn-magnify</xsl:attribute>
-							<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-								<xsl:attribute name="class">cl-magnify-svg</xsl:attribute>
-								<g>
-									<path d="M497.913,497.914c-18.782,18.781-49.226,18.781-68.008,0l-84.862-84.864c-34.89,22.366-76.131,35.718-120.66,35.718  C100.468,448.768,0,348.314,0,224.384C0,100.454,100.468,0,224.383,0c123.931,0,224.384,100.453,224.384,224.384  c0,44.529-13.353,85.771-35.718,120.675l84.863,84.849C516.695,448.689,516.695,479.131,497.913,497.914z M224.383,64.11  c-88.511,0-160.274,71.763-160.274,160.274c0,88.526,71.764,160.274,160.274,160.274c88.526,0,160.273-71.748,160.273-160.274  C384.656,135.873,312.909,64.11,224.383,64.11z M256.438,320.548h-64.108v-64.109H128.22V192.33h64.109v-64.11h64.108v64.11h64.11  v64.109h-64.11V320.548z"/>
-								</g>
-							</svg>
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <xsl:attribute name="class">cl-magnify-svg</xsl:attribute>
+                <g>
+                  <path d="M496.939 496.939C505.256 488.619 505.256 475.133 496.939 466.813L396.786 366.663C386.455 356.332 385.829 339.942 393.665 327.612C450.776 237.722 432.97 117.293 348.467 48.1977C257.232 -26.4004 122.796 -12.9135 48.1976 78.3229C-26.4005 169.559 -12.9132 303.991 78.322 378.59C150.193 437.356 250.826 442.376 327.609 393.654C339.945 385.826 356.329 386.458 366.66 396.789L466.813 496.939C475.133 505.256 488.619 505.256 496.939 496.939ZM213.734 384.173C119.605 384.173 43.2978 307.866 43.2978 213.734C43.2978 119.605 119.605 43.2978 213.734 43.2978C307.866 43.2978 384.173 119.605 384.173 213.734C384.065 307.82 307.82 384.065 213.734 384.173Z"/>
+                  <path d="M235.036 149.819C235.036 138.052 225.499 128.514 213.731 128.514C201.967 128.514 192.427 138.052 192.427 149.819V192.427H149.819C138.052 192.427 128.514 201.967 128.514 213.731C128.514 225.499 138.052 235.036 149.819 235.036H192.427V277.646C192.427 289.414 201.967 298.951 213.731 298.951C225.499 298.951 235.036 289.414 235.036 277.646V235.036H277.646C289.414 235.036 298.951 225.499 298.951 213.731C298.951 201.967 289.414 192.427 277.646 192.427H235.036V149.819Z"/>
+                </g>
+              </svg>
 						</div>
 					</xsl:when>
 					<xsl:otherwise>
