@@ -13,12 +13,6 @@
 
 <xsl:template match="/"><xsl:apply-templates select="params"/></xsl:template>
 
-<msxsl:script language="JScript" implements-prefix="websoft">
-function arrayElem(sArrayString, iIndex, sDivider) { var aArray = sArrayString.split(sDivider); var iIdx = parseInt(iIndex, 10); if(isNaN(iIdx)) return ''; iIdx = iIdx - 1; if(iIdx!=Math.abs(iIdx)) return ''; if(aArray[iIdx]==null) return ''; return trim(aArray[iIdx]); }
-function trim(sString) { if(typeof sString != "string") return sString; var bStart = true; var bEnd = true; var bDblSpc = true; var bCRLF = true; var sReturn = sString; var sChar; if(bStart) { sChar = sReturn.substring(0, 1); while (sChar==" " || sChar=="\n" || sChar=="\r" || sChar=="\t") { sReturn = sReturn.substring(1, sReturn.length); sChar = sReturn.substring(0, 1); }}; if(bEnd) { sChar = sReturn.substring(sReturn.length-1, sReturn.length); while (sChar==" " || sChar=="\n" || sChar=="\r" || sChar=="\t") { sReturn = sReturn.substring(0, sReturn.length-1); sChar = sReturn.substring(sReturn.length-1, sReturn.length); }}; if(bCRLF) { while (sReturn.indexOf("\n") != -1) { sReturn = sReturn.substring(0, sReturn.indexOf("\n")) +" "+ sReturn.substring(sReturn.indexOf("\n")+1, sReturn.length); }; while (sReturn.indexOf("\r") != -1) { sReturn = sReturn.substring(0, sReturn.indexOf("\r")) + sReturn.substring(sReturn.indexOf("\r")+1, sReturn.length); }; while (sReturn.indexOf("\t") != -1) { sReturn = sReturn.substring(0, sReturn.indexOf("\t")) + sReturn.substring(sReturn.indexOf("\t") + 1, sReturn.length); }}; if(bDblSpc) { while (sReturn.indexOf("  ") != -1) { sReturn = sReturn.substring(0, sReturn.indexOf("  ")) + sReturn.substring(sReturn.indexOf("  ") + 1, sReturn.length); }}; return sReturn; }
-function getFirstChar(sString) { if(sString.length==0) return ""; var sStr = trim(sString).toUpperCase(); sStr = sStr.charAt(0); if(sStr=='"' || sStr=='"') sStr = sStr.charAt(1); return sStr; }
-function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.split(sDivider); var aPreSort = []; var sControlString = ""; var iCnt = 0; while(aArray[iCnt]!=null) { if(sControlString.indexOf(aArray[iCnt])==-1) { sControlString += aArray[iCnt]; aPreSort.push(aArray[iCnt]); } iCnt++; } return aPreSort.sort().join(sDivider); }
-</msxsl:script>
 
 <xsl:template match="params">
 
@@ -67,21 +61,7 @@ function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.sp
             <xsl:with-param name="color" select="forbidden_font_color"/>
         </xsl:call-template>
     </xsl:variable>
-    <xsl:variable name="search-input-border-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="search_input_border_color"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="search-input-bg-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="search_input_bg_color"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="search-input-font-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="search_input_font_color"/>
-        </xsl:call-template>
-    </xsl:variable>
+
     <xsl:variable name="highlight-bg-color-fixed">
         <xsl:call-template name="fix-color">
             <xsl:with-param name="color" select="highlight_bg_color"/>
@@ -92,66 +72,7 @@ function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.sp
             <xsl:with-param name="color" select="highlight_font_color"/>
         </xsl:call-template>
     </xsl:variable>
-    <xsl:variable name="search-button-bg-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="search_button_bg_color"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="search-button-font-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="search_button_font_color"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="search-button-border-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="search_button_border_color"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="gloss-font-color-idle-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="gloss_font_color_idle"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="gloss-font-color-selected-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="gloss_font_color_selected"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="gloss-border-color-idle-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="gloss_border_color_idle"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="gloss-border-color-selected-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="gloss_border_color_selected"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="gloss-bg-color-idle-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="gloss_bg_color_idle"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="gloss-bg-color-selected-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="gloss_bg_color_selected"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="gloss-gradient-color-idle-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="gloss_gradient_color_idle"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="gloss-gradient-color-selected-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="gloss_gradient_color_selected"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="sett-border-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="sett_border_color"/>
-        </xsl:call-template>
-    </xsl:variable>
+
 
     <xsl:variable name="panel_width"><xsl:value-of select="$width"/></xsl:variable>
     <xsl:variable name="panel_height"><xsl:value-of select="$height"/></xsl:variable>
@@ -240,106 +161,8 @@ function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.sp
         <xsl:if test="basic_font_style='italic' or basic_font_style='bolditalic'">font-style: italic;</xsl:if>
         font-size: <xsl:value-of select="basic_font_size"/>px;
     </xsl:variable>
-    <xsl:variable name="_css_search_font">
-        <xsl:choose>
-            <xsl:when test="basic_font!='custom'">font-family: <xsl:call-template name="font_selector"><xsl:with-param name="sFontID" select="basic_font"/></xsl:call-template>;</xsl:when>
-            <xsl:otherwise>font-family: <xsl:value-of select="basic_font_custom"/>;</xsl:otherwise>
-        </xsl:choose><xsl:if test="basic_font_style='bold' or basic_font_style='bolditalic'">font-weight: bold;</xsl:if><xsl:if test="basic_font_style='italic' or basic_font_style='bolditalic'">font-style: italic;</xsl:if> font-size: <xsl:value-of select="basic_font_size"/>px;</xsl:variable>
-    <xsl:variable name="_css_search_border">border-style: <xsl:value-of select="search_input_border_style"/>; border-color: <xsl:value-of select="$search-input-border-color-fixed"/>; border-width: <xsl:value-of select="search_input_border_width"/>px;
-        <xsl:if test="search_input_border_radius!='0'">border-radius: <xsl:value-of select="search_input_border_radius"/>px;</xsl:if>
-    </xsl:variable>
-    <xsl:variable name="_css_search_btn_font">
-        <xsl:choose>
-            <xsl:when test="basic_font_font!='custom'">font-family: <xsl:call-template name="font_selector"><xsl:with-param name="sFontID" select="basic_font"/></xsl:call-template>;</xsl:when>
-            <xsl:otherwise>font-family: <xsl:value-of select="basic_font_custom"/>;</xsl:otherwise>
-        </xsl:choose><xsl:if test="basic_font_style='bold' or basic_font_style='bolditalic'">font-weight: bold;</xsl:if><xsl:if test="basic_font_style='italic' or basic_font_style='bolditalic'">font-style: italic;</xsl:if>font-size: <xsl:value-of select="basic_font_size"/>px;</xsl:variable>
-    <xsl:variable name="_css_search_btn_border">border-style: <xsl:value-of select="search_button_border_style"/>; border-color: <xsl:value-of select="$search-button-border-color-fixed"/>; border-width: <xsl:value-of select="search_button_border_width"/>px;<xsl:if test="search_button_border_radius!='0'">-webkit-border-radius: <xsl:value-of select="search_button_border_radius"/>px; border-radius: <xsl:value-of select="search_button_border_radius"/>px;</xsl:if></xsl:variable>
-    <xsl:variable name="_css_search_param_font">
-        <xsl:choose>
-            <xsl:when test="basic_font!='custom'">font-family: <xsl:call-template name="font_selector"><xsl:with-param name="sFontID" select="basic_font"/></xsl:call-template>;</xsl:when>
-            <xsl:otherwise>font-family: <xsl:value-of select="basic_font_custom"/>;</xsl:otherwise>
-        </xsl:choose>
-        font-size: <xsl:value-of select="number(basic_font_size)-1"/>px;
-    </xsl:variable>
 
-    <xsl:variable name="_css_gloss_border">
-        <xsl:if test="gloss_border_style!='none' and number(gloss_border_width)!=0">border-width: <xsl:value-of select="gloss_border_width"/>px; border-style: <xsl:value-of select="gloss_border_style"/>;</xsl:if>
-    </xsl:variable>
-    <xsl:variable name="_css_gloss_border_radius">
-        <xsl:if test="number(gloss_border_radius)!=0">border-radius: <xsl:value-of select="gloss_border_radius"/>px 0 0 <xsl:value-of select="gloss_border_radius"/>px;;</xsl:if>
-    </xsl:variable>
-    <xsl:variable name="_css_gloss_font">
-        <xsl:choose>
-            <xsl:when test="basic_font!='custom'">font-family: <xsl:call-template name="font_selector"><xsl:with-param name="sFontID" select="basic_font"/></xsl:call-template>;</xsl:when>
-            <xsl:otherwise>font-family: <xsl:value-of select="basic_font_custom"/>;</xsl:otherwise>
-        </xsl:choose>
-        <xsl:choose>
-            <xsl:when test="basic_font_style='bold'">font-weight: bold;</xsl:when>
-            <xsl:when test="basic_font_style='bolditalic'">font-weight: bold; font-style: italic;</xsl:when>
-            <xsl:when test="basic_font_style='italic'">font-style: italic;</xsl:when>
-        </xsl:choose>
-        font-size: <xsl:value-of select="basic_font_size"/>px;
-    </xsl:variable>
-    <xsl:variable name="gloss_bgimg_position_css">
-        <xsl:choose>
-            <xsl:when test="gloss_img_position='lt'">background-position: left top;</xsl:when>
-            <xsl:when test="gloss_img_position='lm'">background-position: left center;</xsl:when>
-            <xsl:when test="gloss_img_position='lb'">background-position: left bottom;</xsl:when>
-            <xsl:when test="gloss_img_position='ct'">background-position: center top;</xsl:when>
-            <xsl:when test="gloss_img_position='cm'">background-position: center center;</xsl:when>
-            <xsl:when test="gloss_img_position='cb'">background-position: center bottom;</xsl:when>
-            <xsl:when test="gloss_img_position='rt'">background-position: right top;</xsl:when>
-            <xsl:when test="gloss_img_position='rm'">background-position: right center;</xsl:when>
-            <xsl:when test="gloss_img_position='rb'">background-position: right bottom;</xsl:when>
-            <xsl:when test="gloss_img_position='custom'">background-position: <xsl:value-of select="gloss_img_position_custom"/>;</xsl:when>
-            <xsl:otherwise>background-position: center center;</xsl:otherwise>
-        </xsl:choose>
-    </xsl:variable>
-    <xsl:variable name="_css_gloss_letter_font"><xsl:choose><xsl:when test="basic_font!='custom'">font-family: <xsl:call-template name="font_selector"><xsl:with-param name="sFontID" select="basic_font"/></xsl:call-template>;</xsl:when><xsl:otherwise>font-family: <xsl:value-of select="basic_font_custom"/>;</xsl:otherwise></xsl:choose><xsl:if test="basic_font_style='bold'">font-weight: bold;</xsl:if> font-size: <xsl:value-of select="round(0.8*number(basic_font_size))"/>px;</xsl:variable>
-    <xsl:variable name="_css_gloss_letter_idle">background-color: <xsl:value-of select="$gloss-bg-color-idle-fixed"/>; border-color: <xsl:value-of select="$gloss-border-color-idle-fixed"/>; color: <xsl:value-of select="$gloss-font-color-idle-fixed"/>;</xsl:variable>
-    <xsl:variable name="_css_gloss_letter_selected">background-color: <xsl:value-of select="$gloss-bg-color-selected-fixed"/>; border-color: <xsl:value-of select="$gloss-border-color-selected-fixed"/>; color: <xsl:value-of select="$gloss-font-color-selected-fixed"/>;</xsl:variable>
-    <xsl:variable name="_css_gloss_idle">
-        <xsl:choose>
-            <xsl:when test="gloss_fill_type='solid'">background-color: <xsl:value-of select="$gloss-bg-color-idle-fixed"/>;</xsl:when>
-            <xsl:when test="gloss_fill_type='grad_v'">
-                background-color: <xsl:value-of select="$gloss-bg-color-idle-fixed"/>;
-                background-image: linear-gradient(180deg, <xsl:value-of select="$gloss-bg-color-idle-fixed"/>, <xsl:value-of select="$gloss-gradient-color-idle-fixed"/>);
-            </xsl:when>
-            <xsl:when test="gloss_fill_type='grad_h'">
-                background-color: <xsl:value-of select="$gloss-bg-color-idle-fixed"/>;
-                background-image: linear-gradient(90deg, <xsl:value-of select="$gloss-bg-color-idle-fixed"/>, <xsl:value-of select="$gloss-gradient-color-idle-fixed"/>);
-            </xsl:when>
-            <xsl:when test="gloss_fill_type='image'">
-                background-image: url('file:///<xsl:value-of select="translate(substring-before($moduleImagesFolder,'images\'),'\','/')"/><xsl:value-of select="gloss_img_idle"/>');
-                <xsl:value-of select="$gloss_bgimg_position_css"/> background-repeat: <xsl:value-of select="gloss_img_repeat"/>;
-            </xsl:when>
-        </xsl:choose>
-        border-color: <xsl:value-of select="$gloss-border-color-idle-fixed"/>; color: <xsl:value-of select="$gloss-font-color-idle-fixed"/>;
-    </xsl:variable>
-    <xsl:variable name="_css_gloss_selected">
-        <xsl:choose>
-            <xsl:when test="gloss_fill_type='solid'">background-color: <xsl:value-of select="$gloss-bg-color-selected-fixed"/>;</xsl:when>
-            <xsl:when test="gloss_fill_type='grad_v'">
-                background-color: <xsl:value-of select="$gloss-bg-color-selected-fixed"/>;
-                background-image: linear-gradient(180deg, <xsl:value-of select="$gloss-bg-color-selected-fixed"/>, <xsl:value-of select="$gloss-gradient-color-selected-fixed"/>);
-            </xsl:when>
-            <xsl:when test="gloss_fill_type='grad_h'">
-                background-color: <xsl:value-of select="$gloss-bg-color-selected-fixed"/>;
-                background-image: linear-gradient(90deg, <xsl:value-of select="$gloss-bg-color-selected-fixed"/>, <xsl:value-of select="$gloss-gradient-color-selected-fixed"/>);
-            </xsl:when>
-            <xsl:when test="gloss_fill_type='image'">
-                background-image: url('file:///<xsl:value-of select="translate(substring-before($moduleImagesFolder,'images\'),'\','/')"/><xsl:value-of select="gloss_img_selected"/>');
-                <xsl:value-of select="$gloss_bgimg_position_css"/> background-repeat: <xsl:value-of select="gloss_img_repeat"/>;
-            </xsl:when>
-        </xsl:choose>
-        border-color: <xsl:value-of select="$gloss-border-color-selected-fixed"/>; color: <xsl:value-of select="$gloss-font-color-selected-fixed"/>;
-    </xsl:variable>
-    <xsl:variable name="_css_sett_border_top">
-        <xsl:if test="sett_border_style!='none' and number(sett_border_width)!=0">border-top-width: <xsl:value-of select="sett_border_width"/>px; border-top-style: <xsl:value-of select="sett_border_style"/>; border-top-color: <xsl:value-of select="$sett-border-color-fixed"/>;</xsl:if>
-    </xsl:variable>
-    <xsl:variable name="_css_sett_border_bottom">
-        <xsl:if test="sett_border_style!='none' and number(sett_border_width)!=0">border-bottom-width: <xsl:value-of select="sett_border_width"/>px; border-bottom-style: <xsl:value-of select="sett_border_style"/>; border-bottom-color: <xsl:value-of select="$sett-border-color-fixed"/>;</xsl:if>
-    </xsl:variable>
+
     <xsl:variable name="_close_offset">
         <xsl:choose>
             <xsl:when test="number(panel_padding) &lt; number(panel_radius)"><xsl:value-of select="panel_radius"/></xsl:when>
@@ -349,35 +172,16 @@ function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.sp
     <xsl:variable name="_css_header_margin">margin: 0 <xsl:value-of select="2*number($_close_offset) + 20"/>px 0 0;</xsl:variable>
     <xsl:variable name="_css_body_margin">
         <xsl:choose>
-            <xsl:when test="contenttype='richtext' and display_header_richtext='yes'">margin: 0;</xsl:when>
             <xsl:when test="contenttype='contents' and display_header_contents='yes'">margin: 0;</xsl:when>
-            <xsl:when test="contenttype='search' and display_header_search='yes'">margin: 0;</xsl:when>
-            <xsl:when test="contenttype='glossary' and display_header_glossary='yes'">margin: 0;</xsl:when>
-            <xsl:when test="contenttype='documents' and display_header_documents='yes'">margin: 0;</xsl:when>
-            <xsl:when test="contenttype='settings' and display_header_settings='yes'">margin: 0;</xsl:when>
-            <xsl:when test="contenttype='calculator' and display_header_calculator='yes'">margin: 0;</xsl:when>
-            <xsl:when test="contenttype='comment' and display_header_comment='yes'">margin: 0;</xsl:when>
             <xsl:otherwise>margin: <xsl:value-of select="number($_close_offset) + 20"/>px 0 0 0;</xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="_btn_gradient_color">
-        <xsl:call-template name="autogradient">
-            <xsl:with-param name="color.base" select="$search-button-bg-color-fixed"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="_search_button_gradient">
-        background-image: linear-gradient(0deg, <xsl:value-of select="$search-button-bg-color-fixed"/>, <xsl:value-of select="$_btn_gradient_color"/>);
-    </xsl:variable>
-
-    <xsl:variable name="main.arAllLetters"><xsl:if test="contenttype='glossary' and display_letters='yes'"><xsl:for-each select="glossary_item_list/item"><xsl:variable name="temp.sLetter" select="websoft:getFirstChar(string(e_item))"/><xsl:if test="$temp.sLetter!=''">|<xsl:value-of select="$temp.sLetter"/></xsl:if></xsl:for-each></xsl:if></xsl:variable>
-    <xsl:variable name="main.arLetters"><xsl:if test="contenttype='glossary' and display_letters='yes'"><xsl:value-of select="websoft:cleanUpCharArray(string($main.arAllLetters), '|')"/></xsl:if></xsl:variable>
 
     <style>
         .cl-container { <xsl:value-of select="$_css_container_sizes"/> }
         .cl-body { <xsl:value-of select="$_css_body_position"/><xsl:value-of select="$_css_body_sizes"/> padding: <xsl:value-of select="panel_padding"/>px; border: <xsl:value-of select="$panel_brd_width"/>px solid <xsl:value-of select="$panel_color_brd"/>; <xsl:value-of select="$panel_radius_css"/> <xsl:value-of select="$panel_background_css"/> <xsl:value-of select="$panel_shadow_css"/> }
         .cl-body-header { padding: 0 0 <xsl:value-of select="panel_padding"/>px 0; <xsl:value-of select="$_css_header_margin"/> }
         .cl-body-contents { position: relative; padding: 0; overflow: auto; <xsl:value-of select="$_css_body_margin"/> }
-        .cl-body-contents-richtext { padding: 0 5px; overflow: auto; height: 1px; }
 
         .slide-list { list-style: none; padding: 0; margin: 0; }
         .slide-list li { padding: <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px 0; margin: 0; border-top: solid 1px #ccc; <xsl:value-of select="$_css_contents_font"/> }
@@ -394,41 +198,6 @@ function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.sp
         .current .item-inner { <xsl:value-of select="$_css_contents_current_bg"/> }
         .unvisited .item-inner { <xsl:value-of select="$_css_contents_unvisited_bg"/> }
 
-        .cl-search-table .cl-td-param { <xsl:value-of select="$_css_search_param_font"/> }
-        .cl-search-table select { <xsl:value-of select="$_css_gloss_font"/><xsl:value-of select="$_css_search_btn_border" /> }
-        .cl-search-field { <xsl:value-of select="$_css_gloss_font"/><xsl:value-of select="$_css_search_border" /> color: <xsl:value-of select="$search-input-font-color-fixed" />; background-color: <xsl:value-of select="$search-input-bg-color-fixed" />; }
-        .cl-search-btn { <xsl:value-of select="$_css_gloss_font"/><xsl:value-of select="$_css_search_btn_border" /> color: <xsl:value-of select="$search-button-font-color-fixed" />; background-color: <xsl:value-of select="$search-button-bg-color-fixed" />; <xsl:value-of select="$_search_button_gradient" /> }
-
-        .cl-doc-list .cl-doc-item-inner { <xsl:value-of select="$_css_gloss_font"/> background-image: url('file:///<xsl:value-of select="translate($imagesFolder,'\','/')"/>navi_tab_contents_sprite.png'); background-position: 0px -800px; background-repeat: no-repeat; }
-
-        .cl-letters-box { border-bottom: solid 2px <xsl:value-of select="$gloss-border-color-selected-fixed"/>; }
-        .cl-letter-item { <xsl:value-of select="$_css_gloss_letter_font"/> }
-        .cl-letter-idle { <xsl:value-of select="$_css_gloss_letter_idle"/> }
-        .cl-letter-selected { <xsl:value-of select="$_css_gloss_letter_selected"/> }
-        .cl-terms-list-cell { width: <xsl:value-of select="glossary_items_col_width"/>%; overflow-x: hidden;   }
-        .cl-terms-desc { width: <xsl:value-of select="100-number(glossary_items_col_width)"/>%; overflow-y: auto; }
-        .cl-terms-desc-container { padding: <xsl:value-of select="panel_padding"/>px; }
-        .cl-terms-list { <xsl:value-of select="$_css_gloss_font"/> }
-        .cl-term-item { padding: <xsl:value-of select="gloss_padding"/>px; <xsl:value-of select="$_css_gloss_border"/><xsl:value-of select="$_css_gloss_border_radius"/><xsl:value-of select="$_css_gloss_font"/> }
-        .cl-term-idle { <xsl:value-of select="$_css_gloss_idle"/> }
-        .cl-term-selected { <xsl:value-of select="$_css_gloss_selected"/> }
-        .cl-term-desc-item { display: block; }
-        .cl-terms-list-container { overflow-y: auto; }
-
-        .cl-sett-tip { padding: <xsl:value-of select="sett_padding"/>px 0; }
-        .cl-sett-table td { padding: <xsl:value-of select="sett_padding"/>px; <xsl:value-of select="$_css_gloss_font"/> }
-        .cl-sett-table .cl-sett-header { padding: <xsl:value-of select="2*number(sett_padding)"/>px 0; }
-        .cl-sett-table .cl-sett-th { <xsl:value-of select="$_css_sett_border_top"/><xsl:value-of select="$_css_sett_border_bottom"/> }
-        .cl-sett-table .cl-sett-value { text-align: center; <xsl:value-of select="$_css_sett_border_bottom"/> }
-        .cl-sett-table .cl-sett-name { text-align: left; width: 100%; <xsl:value-of select="$_css_sett_border_bottom"/> }
-        <xsl:if test="settings_icons='standard'">
-            .cl-sett-status-n { position: relative; margin: 0 auto; width: 16px; height: 16px; overflow: hidden; background-image: url('file:///<xsl:value-of select="translate($imagesFolder,'\','/')"/>navi_tab_sett_sprite.png'); background-position: 0px 3px; background-repeat: no-repeat; }
-            .cl-sett-status-i { position: relative; margin: 0 auto; width: 16px; height: 16px; overflow: hidden; background-image: url('file:///<xsl:value-of select="translate($imagesFolder,'\','/')"/>navi_tab_sett_sprite.png'); background-position: 0px -397px; background-repeat: no-repeat; }
-            .cl-sett-status-c { position: relative; margin: 0 auto; width: 16px; height: 16px; overflow: hidden; background-image: url('file:///<xsl:value-of select="translate($imagesFolder,'\','/')"/>navi_tab_sett_sprite.png'); background-position: 0px -797px; background-repeat: no-repeat; }
-            .cl-sett-status-p { position: relative; margin: 0 auto; width: 16px; height: 16px; overflow: hidden; background-image: url('file:///<xsl:value-of select="translate($imagesFolder,'\','/')"/>navi_tab_sett_sprite.png'); background-position: 0px -1197px; background-repeat: no-repeat; }
-            .cl-sett-status-f { position: relative; margin: 0 auto; width: 16px; height: 16px; overflow: hidden; background-image: url('file:///<xsl:value-of select="translate($imagesFolder,'\','/')"/>navi_tab_sett_sprite.png'); background-position: 0px -1597px; background-repeat: no-repeat; }
-            .cl-sett-status-u { position: relative; margin: 0 auto; width: 16px; height: 16px; overflow: hidden;  }
-        </xsl:if>
         .cl-close-btn { <xsl:if test="hide_close='yes'">display: none;</xsl:if>padding: 0 0 <xsl:value-of select="panel_padding"/>px 0; width: 20px; height: 20px; line-height: 0.75; text-align: center; position: absolute; top: <xsl:value-of select="panel_padding"/>px; right: <xsl:value-of select="panel_padding"/>px; font-family: Arial, sans-serif; font-size: 28px; font-weight: bold; color: <xsl:value-of select="$panel-border-color-fixed"/>;  }
     </style>
 
@@ -440,52 +209,10 @@ function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.sp
             <div>
                 <xsl:attribute name="class">cl-body</xsl:attribute>
                 <xsl:choose>
-                    <xsl:when test="contenttype='richtext' and display_header_richtext='yes'">
-                        <div>
-                            <xsl:attribute name="class">cl-body-header</xsl:attribute>
-                            <xsl:value-of select="header_richtext" disable-output-escaping="yes"/>
-                        </div>
-                    </xsl:when>
                     <xsl:when test="contenttype='contents' and display_header_contents='yes'">
                         <div>
                             <xsl:attribute name="class">cl-body-header</xsl:attribute>
                             <xsl:value-of select="header_contents" disable-output-escaping="yes"/>
-                        </div>
-                    </xsl:when>
-                    <xsl:when test="contenttype='search' and display_header_search='yes'">
-                        <div>
-                            <xsl:attribute name="class">cl-body-header</xsl:attribute>
-                            <xsl:value-of select="header_search" disable-output-escaping="yes"/>
-                        </div>
-                    </xsl:when>
-                    <xsl:when test="contenttype='glossary' and display_header_glossary='yes'">
-                        <div>
-                            <xsl:attribute name="class">cl-body-header</xsl:attribute>
-                            <xsl:value-of select="header_glossary" disable-output-escaping="yes"/>
-                        </div>
-                    </xsl:when>
-                    <xsl:when test="contenttype='documents' and display_header_documents='yes'">
-                        <div>
-                            <xsl:attribute name="class">cl-body-header</xsl:attribute>
-                            <xsl:value-of select="header_documents" disable-output-escaping="yes"/>
-                        </div>
-                    </xsl:when>
-                    <xsl:when test="contenttype='settings' and display_header_settings='yes'">
-                        <div>
-                            <xsl:attribute name="class">cl-body-header</xsl:attribute>
-                            <xsl:value-of select="header_settings" disable-output-escaping="yes"/>
-                        </div>
-                    </xsl:when>
-                    <xsl:when test="contenttype='calculator' and display_header_calculator='yes'">
-                        <div>
-                            <xsl:attribute name="class">cl-body-header</xsl:attribute>
-                            <xsl:value-of select="header_calculator" disable-output-escaping="yes"/>
-                        </div>
-                    </xsl:when>
-                    <xsl:when test="contenttype='comment' and display_header_comment='yes'">
-                        <div>
-                            <xsl:attribute name="class">cl-body-header</xsl:attribute>
-                            <xsl:value-of select="header_comment" disable-output-escaping="yes"/>
                         </div>
                     </xsl:when>
                 </xsl:choose>
@@ -496,7 +223,6 @@ function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.sp
                 <div>
                     <xsl:attribute name="class">cl-body-contents cl-body-contents-<xsl:value-of select="contenttype"/></xsl:attribute>
                     <xsl:choose>
-                        <xsl:when test="contenttype='richtext'"><xsl:value-of select="panel_text_richtext" disable-output-escaping="yes"/></xsl:when>
                         <xsl:when test="contenttype='contents'">
 
                             <ul>
@@ -575,463 +301,6 @@ function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.sp
                                 </xsl:if>
                             </ul>
                         </xsl:when>
-                        <xsl:when test="contenttype='search'">
-                            <div>
-                                <xsl:attribute name="class">cl-search-form</xsl:attribute>
-                                <div>
-                                    <xsl:attribute name="class">cl-search-fields</xsl:attribute>
-                                    <table>
-                                        <xsl:attribute name="class">cl-search-table</xsl:attribute>
-                                        <tr>
-                                            <td>
-                                                <xsl:attribute name="class">cl-td-field</xsl:attribute>
-                                                <input>
-                                                    <xsl:attribute name="id"><xsl:value-of select="$objectID"/>_SEARCH_STRING</xsl:attribute>
-                                                    <xsl:attribute name="class">cl-search-field</xsl:attribute>
-                                                    <xsl:attribute name="name">search_string</xsl:attribute>
-                                                    <xsl:attribute name="type">text</xsl:attribute>
-                                                </input>
-                                            </td>
-                                            <td>
-                                                <xsl:attribute name="class">cl-td-btn</xsl:attribute>
-                                                <input type="button">
-                                                    <xsl:attribute name="id"><xsl:value-of select="$objectID"/>_SEARCH_BTN</xsl:attribute>
-                                                    <xsl:attribute name="class">cl-search-btn</xsl:attribute>
-                                                    <xsl:attribute name="value"><xsl:value-of select="search_text_button"/></xsl:attribute>
-                                                </input>
-                                            </td>
-                                        </tr>
-                                        <xsl:if test="search_case='no_user' or search_case='yes_user'">
-                                            <tr>
-                                                <td>
-                                                    <xsl:attribute name="class">cl-td-param</xsl:attribute>
-                                                    <xsl:value-of select="search_text_case"/>
-                                                </td>
-                                                <td>
-                                                    <xsl:attribute name="class">cl-td-select</xsl:attribute>
-                                                    <select>
-                                                        <xsl:choose>
-                                                            <xsl:when test="search_case='no_user'">
-                                                                <option value="no" selected="selected"><xsl:value-of select="search_text_case_no"/></option>
-                                                                <option value="yes"><xsl:value-of select="search_text_case_yes"/></option>
-                                                            </xsl:when>
-                                                            <xsl:otherwise>
-                                                                <option value="no"><xsl:value-of select="search_text_case_no"/></option>
-                                                                <option value="yes" selected="selected"><xsl:value-of select="search_text_case_yes"/></option>
-                                                            </xsl:otherwise>
-                                                        </xsl:choose>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </xsl:if>
-                                        <xsl:if test="search_logic='OR_user' or search_logic='AND_user'">
-                                            <tr>
-                                                <td>
-                                                    <xsl:attribute name="class">cl-td-param</xsl:attribute>
-                                                    <xsl:value-of select="search_text_logic"/>
-                                                </td>
-                                                <td>
-                                                    <xsl:attribute name="class">cl-td-select</xsl:attribute>
-                                                    <select>
-                                                        <xsl:choose>
-                                                            <xsl:when test="search_case='OR_user'">
-                                                                <option value="no" selected="selected"><xsl:value-of select="search_text_OR"/></option>
-                                                                <option value="yes"><xsl:value-of select="search_text_AND"/></option>
-                                                            </xsl:when>
-                                                            <xsl:otherwise>
-                                                                <option value="no"><xsl:value-of select="search_text_OR"/></option>
-                                                                <option value="yes" selected="selected"><xsl:value-of select="search_text_AND"/></option>
-                                                            </xsl:otherwise>
-                                                        </xsl:choose>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                        </xsl:if>
-                                    </table>
-                                </div>
-                                <div>
-                                    <xsl:attribute name="class">cl-search-results</xsl:attribute>
-                                    <xsl:if test="search_tip='yes'">
-                                        <div>
-                                            <xsl:attribute name="class">cl-search-tips</xsl:attribute>
-                                            <xsl:value-of select="search_tip_text" disable-output-escaping="yes"/>
-                                        </div>
-                                    </xsl:if>
-                                    &#160;
-                                </div>
-                            </div>
-                        </xsl:when>
-                        <xsl:when test="contenttype='glossary'">
-                            <xsl:if test="display_letters='yes'">
-                                <div>
-                                    <xsl:attribute name="class">cl-letters-box</xsl:attribute>
-                                    <table>
-                                        <xsl:attribute name="class">cl-letters-table</xsl:attribute>
-                                        <tr>
-                                            <td>
-                                                <xsl:attribute name="class">cl-letter-cell</xsl:attribute>
-                                                <div>
-                                                    <xsl:attribute name="class">cl-letter-item cl-letter-selected</xsl:attribute>
-                                                    <xsl:attribute name="data-letter">*</xsl:attribute>
-                                                    *
-                                                </div>
-                                            </td>
-                                            <xsl:for-each select="glossary_item_list/item">
-                                                <xsl:variable name="temp.sItemLetter" select="websoft:arrayElem(string($main.arLetters), position(), '|')"/>
-                                                <xsl:if test="$temp.sItemLetter!=''">
-                                                    <td>
-                                                        <xsl:attribute name="class">cl-letter-cell</xsl:attribute>
-                                                        <div>
-                                                            <xsl:attribute name="class">cl-letter-item cl-letter-idle</xsl:attribute>
-                                                            <xsl:attribute name="data-letter"><xsl:value-of select="$temp.sItemLetter"/></xsl:attribute>
-                                                            <xsl:value-of select="$temp.sItemLetter"/>
-                                                        </div>
-                                                    </td>
-                                                </xsl:if>
-                                            </xsl:for-each>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </xsl:if>
-                            <div>
-                                <xsl:attribute name="class">cl-terms-box</xsl:attribute>
-                                <table cellpadding="0" cellspacing="0" border="0">
-                                    <xsl:attribute name="class">cl-terms-table</xsl:attribute>
-                                    <tr>
-                                        <td>
-                                            <xsl:attribute name="class">cl-terms-td cl-terms-list-cell</xsl:attribute>
-                                            <div>
-                                                <xsl:attribute name="class">cl-terms-list-container</xsl:attribute>
-                                                <ul>
-                                                    <xsl:attribute name="class">cl-terms-list</xsl:attribute>
-                                                    <xsl:for-each select="glossary_item_list/item">
-                                                        <xsl:sort select="e_item" case-order="upper-first" data-type="text" order="ascending"/>
-                                                        <li>
-                                                            <xsl:attribute name="class">cl-term-item cl-term-idle</xsl:attribute>
-                                                            <xsl:attribute name="id"><xsl:value-of select="$objectID"/>_TERM_<xsl:value-of select="position()"/></xsl:attribute>
-                                                            <xsl:attribute name="data-code"><xsl:value-of select="e_code"/></xsl:attribute>
-                                                            <xsl:attribute name="data-number"><xsl:value-of select="position()"/></xsl:attribute>
-                                                            <xsl:value-of select="e_item"/>
-                                                        </li>
-                                                    </xsl:for-each>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-terms-td cl-terms-desc</xsl:attribute>
-                                            <div>
-                                                <xsl:attribute name="class">cl-terms-desc-container</xsl:attribute>
-                                                <div>
-                                                    <xsl:attribute name="class">cl-term-desc-item cl-term-desc-default</xsl:attribute>
-                                                    <table>
-                                                        <xsl:attribute name="class">cl-terms-desc-default-table</xsl:attribute>
-                                                        <tr>
-                                                            <td>
-                                                                <xsl:attribute name="class">cl-terms-desc-default-cell</xsl:attribute>
-                                                                <xsl:value-of select="glossary_default_text" disable-output-escaping="yes"/>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </xsl:when>
-                        <xsl:when test="contenttype='documents'">
-                            <ul>
-                                <xsl:attribute name="class">cl-doc-list</xsl:attribute>
-                                <xsl:for-each select="doc_list/item">
-                                    <li>
-                                        <xsl:attribute name="class">cl-doc-item</xsl:attribute>
-                                        <div>
-                                            <xsl:attribute name="class">cl-doc-item-inner</xsl:attribute>
-                                            <a>
-                                                <xsl:attribute name="href"><xsl:value-of select="doc_file"/></xsl:attribute>
-                                                <xsl:value-of select="doc_link_text"/>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </xsl:for-each>
-                            </ul>
-                        </xsl:when>
-                        <xsl:when test="contenttype='settings'">
-                            <xsl:if test="settings_tip='yes'">
-                                <div>
-                                    <xsl:attribute name="class">cl-sett-tip</xsl:attribute>
-                                    <xsl:value-of select="settings_tip_text" disable-output-escaping="yes"/>
-                                </div>
-                            </xsl:if>
-                            <table>
-                                <xsl:attribute name="class">cl-sett-table</xsl:attribute>
-                                <xsl:if test="settings_display='main' or settings_display='all'">
-                                    <tr>
-                                        <td colspan="4">
-                                            <xsl:attribute name="class">cl-sett-header</xsl:attribute>
-                                            <div>
-                                                <div>
-                                                    <xsl:value-of select="mainobj_text" disable-output-escaping="yes"/>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-th cl-sett-name</xsl:attribute>
-                                            <xsl:value-of select="obj_header"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-th cl-sett-score</xsl:attribute>
-                                            <xsl:value-of select="obj_score"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-th</xsl:attribute>
-                                            <xsl:value-of select="obj_cs"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-th</xsl:attribute>
-                                            <xsl:value-of select="obj_ss"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-name</xsl:attribute>
-                                            <xsl:value-of select="hidden_obj_title"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value cl-sett-score</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="score_style='raw'">50</xsl:when>
-                                                <xsl:when test="score_style='scaled'">50%</xsl:when>
-                                                <xsl:when test="score_style='rawmax'">50 (100)</xsl:when>
-                                            </xsl:choose>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="settings_icons='standard'">
-                                                    <div>
-                                                        <xsl:attribute name="class">cl-sett-status-i</xsl:attribute>
-                                                        &#160;
-                                                    </div>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <img>
-                                                        <xsl:attribute name="src"><xsl:value-of select="substring-before($moduleImagesFolder,'images\')"/><xsl:value-of select="translate(oi_img,'/','\')"/></xsl:attribute>
-                                                    </img>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="settings_icons='standard'">
-                                                    <div>
-                                                        <xsl:attribute name="class">cl-sett-status-f</xsl:attribute>
-                                                        &#160;
-                                                    </div>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <img>
-                                                        <xsl:attribute name="src"><xsl:value-of select="substring-before($moduleImagesFolder,'images\')"/><xsl:value-of select="translate(of_img,'/','\')"/></xsl:attribute>
-                                                    </img>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </td>
-                                    </tr>
-                                </xsl:if>
-                                <xsl:if test="settings_display='other' or settings_display='all'">
-                                    <tr>
-                                        <td colspan="4">
-                                            <xsl:attribute name="class">cl-sett-header</xsl:attribute>
-                                            <div>
-                                                <div>
-                                                    <xsl:value-of select="allobj_text" disable-output-escaping="yes"/>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-th cl-sett-name</xsl:attribute>
-                                            <xsl:value-of select="obj_header"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-th cl-sett-score</xsl:attribute>
-                                            <xsl:value-of select="obj_score"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-th</xsl:attribute>
-                                            <xsl:value-of select="obj_cs"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-th</xsl:attribute>
-                                            <xsl:value-of select="obj_ss"/>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-name</xsl:attribute>
-                                            <xsl:value-of select="hidden_obj_title"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value cl-sett-score</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="score_style='raw'">0</xsl:when>
-                                                <xsl:when test="score_style='scaled'">0%</xsl:when>
-                                                <xsl:when test="score_style='rawmax'">0 (100)</xsl:when>
-                                            </xsl:choose>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="settings_icons='standard'">
-                                                    <div>
-                                                        <xsl:attribute name="class">cl-sett-status-n</xsl:attribute>
-                                                        &#160;
-                                                    </div>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <img>
-                                                        <xsl:attribute name="src"><xsl:value-of select="substring-before($moduleImagesFolder,'images\')"/><xsl:value-of select="translate(on_img,'/','\')"/></xsl:attribute>
-                                                    </img>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="settings_icons='standard'">
-                                                    <div>
-                                                        <xsl:attribute name="class">cl-sett-status-u</xsl:attribute>
-                                                        &#160;
-                                                    </div>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <img>
-                                                        <xsl:attribute name="src"><xsl:value-of select="substring-before($moduleImagesFolder,'images\')"/><xsl:value-of select="translate(ou_img,'/','\')"/></xsl:attribute>
-                                                    </img>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-name</xsl:attribute>
-                                            <xsl:value-of select="hidden_obj_title"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value cl-sett-score</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="score_style='raw'">50</xsl:when>
-                                                <xsl:when test="score_style='scaled'">50%</xsl:when>
-                                                <xsl:when test="score_style='rawmax'">50 (100)</xsl:when>
-                                            </xsl:choose>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="settings_icons='standard'">
-                                                    <div>
-                                                        <xsl:attribute name="class">cl-sett-status-i</xsl:attribute>
-                                                        &#160;
-                                                    </div>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <img>
-                                                        <xsl:attribute name="src"><xsl:value-of select="substring-before($moduleImagesFolder,'images\')"/><xsl:value-of select="translate(oi_img,'/','\')"/></xsl:attribute>
-                                                    </img>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="settings_icons='standard'">
-                                                    <div>
-                                                        <xsl:attribute name="class">cl-sett-status-f</xsl:attribute>
-                                                        &#160;
-                                                    </div>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <img>
-                                                        <xsl:attribute name="src"><xsl:value-of select="substring-before($moduleImagesFolder,'images\')"/><xsl:value-of select="translate(of_img,'/','\')"/></xsl:attribute>
-                                                    </img>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-name</xsl:attribute>
-                                            <xsl:value-of select="hidden_obj_title"/>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value cl-sett-score</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="score_style='raw'">100</xsl:when>
-                                                <xsl:when test="score_style='scaled'">100%</xsl:when>
-                                                <xsl:when test="score_style='rawmax'">100 (100)</xsl:when>
-                                            </xsl:choose>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="settings_icons='standard'">
-                                                    <div>
-                                                        <xsl:attribute name="class">cl-sett-status-c</xsl:attribute>
-                                                        &#160;
-                                                    </div>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <img>
-                                                        <xsl:attribute name="src"><xsl:value-of select="substring-before($moduleImagesFolder,'images\')"/><xsl:value-of select="translate(oc_img,'/','\')"/></xsl:attribute>
-                                                    </img>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </td>
-                                        <td>
-                                            <xsl:attribute name="class">cl-sett-value</xsl:attribute>
-                                            <xsl:choose>
-                                                <xsl:when test="settings_icons='standard'">
-                                                    <div>
-                                                        <xsl:attribute name="class">cl-sett-status-p</xsl:attribute>
-                                                        &#160;
-                                                    </div>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <img>
-                                                        <xsl:attribute name="src"><xsl:value-of select="substring-before($moduleImagesFolder,'images\')"/><xsl:value-of select="translate(op_img,'/','\')"/></xsl:attribute>
-                                                    </img>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </td>
-                                    </tr>
-                                </xsl:if>
-                            </table>
-                        </xsl:when>
-                        <xsl:when test="contenttype='calculator'">
-                            <div>
-                                <xsl:attribute name="style">position: relative; padding: 10px; text-align: center;</xsl:attribute>
-                                <img>
-                                    <xsl:attribute name="style">position: relative; margin: 0 auto;</xsl:attribute>
-                                    <xsl:attribute name="src"><xsl:value-of select="$imagesFolder"/>navi_tab_calc.png</xsl:attribute>
-                                </img>
-                            </div>
-                            <xsl:if test="display_calculator_desc='yes'">
-                                <div>
-                                    <xsl:attribute name="class">calc-tip</xsl:attribute>
-                                    <xsl:value-of select="calculator_desc" disable-output-escaping="yes"/>
-                                </div>
-                            </xsl:if>
-                        </xsl:when>
-                        <xsl:when test="contenttype='comment'">
-                            <div>
-                                <xsl:attribute name="class">cl-comm-none</xsl:attribute>
-                                <xsl:value-of select="no_comments" disable-output-escaping="yes"/>
-                            </div>
-                        </xsl:when>
                     </xsl:choose>
                 </div>
             </div>
@@ -1051,39 +320,6 @@ function cleanUpCharArray(sArrayString, sDivider) { var aArray = sArrayString.sp
         }
         iH = iFullH - iHH - 2*iPadding - 2*iBorder;
         document.getElementsByClassName("cl-body-contents")[0].style.height = iH + "px";
-        if(sRole=="glossary")
-        {
-            if(document.getElementsByClassName("cl-letters-box").length!=0)
-            {
-                var iMaxW = -1;
-                var aLetters = document.getElementsByClassName("cl-letter-item");
-                var iCnt = 0;
-                var iW;
-                while(aLetters[iCnt]!=null)
-                {
-                    iW = parseInt(window.getComputedStyle(aLetters[iCnt], null).getPropertyValue("width"), 10);
-                    if(Math.abs(iMaxW-iW)!=(iMaxW-iW))
-                    {
-                        iMaxW = iW;
-                    }
-                    iCnt++;
-                }
-                iCnt = 0;
-                while(aLetters[iCnt]!=null)
-                {
-                    aLetters[iCnt].style.width = iMaxW + "px";
-                    iCnt++;
-                }
-                iHH = document.getElementsByClassName("cl-letters-box")[0].offsetHeight;
-                iH = iH - iHH;
-            }
-            document.getElementsByClassName("cl-terms-list-container")[0].style.height = iH + "px";
-            document.getElementsByClassName("cl-terms-desc")[0].style.height = iH + "px";
-            iH -= 2*iPadding;
-            document.getElementsByClassName("cl-terms-desc-container")[0].style.height = iH + "px";
-            document.getElementsByClassName("cl-terms-desc-default-table")[0].style.height = iH + "px";
-            document.getElementsByClassName("cl-terms-desc-default-cell")[0].style.height = iH + "px";
-        }
     }</script>
 </xsl:template>
 
