@@ -5,8 +5,8 @@
 <params>
     <object>
         <format>2.0</format>
-        <label>Навигационное окно</label>
-        <description>Навигационное окно настраиваемое</description>
+        <label>Содержание v0.0-1</label>
+        <description>Окно с содержанием курса</description>
         <width>720</width>
         <height>400</height>
         <state_extension>false</state_extension>
@@ -20,7 +20,7 @@
         <param type="edit" id="hidden_obj_title" text="" def="Название цели" x="-50" y="-50" w="1" h="1"/>
         <param type="line" id="line_v1" text="" def="" x="260" y="10" w="1" h="220"/>
         <param type="label" id="lab_contenttype" text="Роль" def="" x="10" y="10" w="120" h="13"/>
-        <param type="select" id="contenttype" text="" def="richtext" x="130" y="8" w="120" h="13">
+        <param type="select" id="contenttype" text="" def="contents" x="130" y="8" w="120" h="13">
             <items>
                 <item id="richtext" label="Описание">
                     <events>
@@ -919,7 +919,7 @@
     <page name="Стили" w="520" h="240">
         <param type="line" id="line_v6" text="" def="" x="260" y="26" w="1" h="204"/>
         <param type="label" id="lab_contenttype_style" text="Роль" def="" x="10" y="10" w="120" h="13"/>
-        <param type="select" id="contenttype_style" text="" def="richtext" x="130" y="8" w="120" h="13">
+        <param type="select" id="contenttype_style" text="" def="contents" x="130" y="8" w="120" h="13">
             <items>
                 <item id="richtext" label="Произвольный текст">
                     <events>
@@ -1754,7 +1754,7 @@
     <page name="Текст" w="520" h="240">
         <param type="line" id="line_v_txt" text="" def="" x="260" y="26" w="1" h="204"/>
         <param type="label" id="lab_content_const" text="Роль" def="" x="10" y="10" w="120" h="13"/>
-        <param type="select" id="content_const" text="" def="search" x="130" y="8" w="120" h="13">
+        <param type="select" id="content_const" text="" def="contents" x="130" y="8" w="120" h="13">
             <items>
                 <item id="richtext" label="Произвольный текст">
                     <events>
@@ -1963,6 +1963,9 @@
             {
                 var oCurObj = CLO[argobj.pid];
                 var jCurDiv = $(oCurObj.div);
+                // Add 'parent'(the component from which the inheritance was based) classname
+                // See also CLObject constructor
+                jCurDiv.addClass("clo-nav_0002_navi_win");
                 oCurObj.bShowInternal = true;
                 var jContainer = jCurDiv.find(".cl-container");
                 jContainer.find(".cl-btn").on("click", function () { oCurObj.CallMethod({ sMethod: "Close" }) });
