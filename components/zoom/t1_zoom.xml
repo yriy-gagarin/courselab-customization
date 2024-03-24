@@ -3,7 +3,7 @@
 --><params>
 	<object>
 		<format>2.0</format>
-		<label>Картинка с увеличением v0.0-1</label>
+		<label>Картинка с увеличением v0.1</label>
 		<description>Картинка с показом увеличенного варианта</description>
 		<width>320</width>
 		<height>250</height>
