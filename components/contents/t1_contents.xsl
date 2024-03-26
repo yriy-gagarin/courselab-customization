@@ -38,6 +38,16 @@
             <xsl:with-param name="color" select="allowed_fill_color"/>
         </xsl:call-template>
     </xsl:variable>
+    <xsl:variable name="allowed-hover-fill-color-fixed">
+      <xsl:call-template name="fix-color">
+        <xsl:with-param name="color" select="allowed_hover_fill_color"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:variable name="allowed-hover-font-color-fixed">
+      <xsl:call-template name="fix-color">
+        <xsl:with-param name="color" select="allowed_hover_font_color"/>
+      </xsl:call-template>
+    </xsl:variable>
     <xsl:variable name="allowed-font-color-fixed">
         <xsl:call-template name="fix-color">
             <xsl:with-param name="color" select="allowed_font_color"/>
@@ -220,6 +230,15 @@
                 <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .allowed</xsl:attribute>
                 <span class="rule-static">background-color: <xsl:value-of select="$allowed-fill-color-fixed"/>; color: <xsl:value-of select="$allowed-font-color-fixed"/>;</span>
             </div>
+            <div class="rule">
+              <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .allowed:hover</xsl:attribute>
+              <span class="rule-static">background-color: <xsl:value-of select="$allowed-hover-fill-color-fixed"/> !important;"</span>
+            </div>
+            <div class="rule">
+              <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .allowed:hover .item-inner</xsl:attribute>
+              <span class="rule-static">color: <xsl:value-of select="$allowed-hover-font-color-fixed"/>;</span>
+            </div>
+
             <div class="rule">
                 <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .current</xsl:attribute>
                 <span class="rule-static">background-color: <xsl:value-of select="$current-fill-color-fixed"/>; color: <xsl:value-of select="$current-font-color-fixed"/>;</span>

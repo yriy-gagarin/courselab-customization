@@ -26,6 +26,7 @@
                     <events>
                         <event name="selendok" target="fs_contents" action="show"/>
                         <event name="selendok" target="fs_contents_2" action="show"/>
+                        <event name="selendok" target="contenttype" action="disable"/>
                     </events>
                 </item>
             </items>
@@ -557,7 +558,6 @@
         </param>
     </page>
     <page name="Стили" w="520" h="240">
-        <param type="line" id="line_v6" text="" def="" x="260" y="26" w="1" h="204"/>
         <param type="label" id="lab_contenttype_style" text="Роль" def="" x="10" y="10" w="120" h="13"/>
         <param type="select" id="contenttype_style" text="" def="contents" x="130" y="8" w="120" h="13">
             <items>
@@ -565,6 +565,7 @@
                     <events>
                         <event name="selendok" target="fs_basic_font" action="show"/>
                         <event name="selendok" target="fs_style_contents" action="show"/>
+                        <event name="selendok" target="contenttype_style" action="disable"/>
                     </events>
                 </item>
             </items>
@@ -857,9 +858,14 @@
         <param type="fieldset" id="fs_style_contents" text="" def="" x="0" y="0" w="0" h="0">
             <param type="label" id="lab_item_fill_header" text="Заливка" def="" x="130" y="86" w="60" h="13"/>
             <param type="label" id="lab_item_fon_header" text="Шрифт" def="" x="190" y="86" w="60" h="13"/>
+            <param type="label" id="lab_item_fon_header" text="При наведении мыши" def="" x="260" y="86" w="90" h="13"/>
+
             <param type="label" id="lab_allowed" text="Переход разрешен" def="" x="10" y="102" w="120" h="13"/>
             <param type="color" id="allowed_fill_color" text="" def="#FFFFFF" x="130" y="100" w="40" h="13"/>
             <param type="color" id="allowed_font_color" text="" def="#004080" x="190" y="100" w="40" h="13"/>
+            <param type="color" id="allowed_hover_fill_color" text="" def="#eeeeee" x="260" y="100" w="40" h="13"/>
+            <param type="color" id="allowed_hover_font_color" text="" def="#336699" x="320" y="100" w="40" h="13"/>
+
             <param type="label" id="lab_current" text="Текущий" def="" x="10" y="118" w="120" h="13"/>
             <param type="color" id="current_fill_color" text="" def="#EEEEEE" x="130" y="116" w="40" h="13"/>
             <param type="color" id="current_font_color" text="" def="#000000" x="190" y="116" w="40" h="13"/>
@@ -879,6 +885,7 @@
                 <item id="contents" label="Содержание">
                     <events>
                         <event name="selendok" target="fs_const_contents" action="show"/>
+                      <event name="selendok" target="content_const" action="disable"/>
                     </events>
                 </item>
             </items>
