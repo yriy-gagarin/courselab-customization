@@ -61,18 +61,11 @@
             <xsl:with-param name="color" select="forbidden_font_color"/>
         </xsl:call-template>
     </xsl:variable>
-
-    <xsl:variable name="highlight-bg-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="highlight_bg_color"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="highlight-font-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="highlight_font_color"/>
-        </xsl:call-template>
-    </xsl:variable>
-
+  <xsl:variable name="border-color-fixed">
+    <xsl:call-template name="fix-color">
+      <xsl:with-param name="color" select="border_color"/>
+    </xsl:call-template>
+  </xsl:variable>
 
     <xsl:variable name="panel_width"><xsl:value-of select="$width"/></xsl:variable>
     <xsl:variable name="panel_height"><xsl:value-of select="$height"/></xsl:variable>
@@ -184,8 +177,13 @@
         .cl-body-contents { position: relative; padding: 0; overflow: auto; <xsl:value-of select="$_css_body_margin"/> }
 
         .slide-list { list-style: none; padding: 0; margin: 0; }
-        .slide-list li { padding: <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px 0; margin: 0; border-top: solid 1px #ccc; <xsl:value-of select="$_css_contents_font"/> }
-        .slide-list:last-child { border-bottom: solid 1px #ccc; }
+        .slide-list li {
+          padding: <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px 0;
+          margin: 0;
+          border-top: solid 1px <xsl:value-of select="$border-color-fixed"/> !important;
+          <xsl:value-of select="$_css_contents_font"/>
+        }
+        .slide-list:last-child { border-bottom: solid 1px <xsl:value-of select="$border-color-fixed"/>; }
         .slide-list .indent { margin: 0; padding: 0 0 0 15px; }
         .slide-list .indent-1 .indent { margin: 0 0 0 10px; }
         .slide-list .item-inner { padding: 2px 0 0 20px; min-height: 16px; }

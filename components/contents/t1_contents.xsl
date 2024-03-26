@@ -73,16 +73,10 @@
             <xsl:with-param name="color" select="forbidden_font_color"/>
         </xsl:call-template>
     </xsl:variable>
-
-    <xsl:variable name="highlight-bg-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="highlight_bg_color"/>
-        </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="highlight-font-color-fixed">
-        <xsl:call-template name="fix-color">
-            <xsl:with-param name="color" select="highlight_font_color"/>
-        </xsl:call-template>
+    <xsl:variable name="border-color-fixed">
+      <xsl:call-template name="fix-color">
+        <xsl:with-param name="color" select="border_color"/>
+      </xsl:call-template>
     </xsl:variable>
 
     <xsl:variable name="panel_width"><xsl:value-of select="$width"/></xsl:variable>
@@ -216,7 +210,11 @@
         <xsl:if test="contenttype='contents'">
             <div class="rule">
                 <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .slide-list li</xsl:attribute>
-                <span class="rule-static">padding: <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px 0; <xsl:value-of select="$_css_contents_font"/></span>
+                <span class="rule-static">
+                  padding: <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px <xsl:value-of select="item_padding"/>px 0;
+                  border-color:<xsl:value-of select="$border-color-fixed"/>;
+                  <xsl:value-of select="$_css_contents_font"/>
+                </span>
             </div>
             <div class="rule">
                 <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .open .indent</xsl:attribute>

@@ -875,6 +875,9 @@
             <param type="label" id="lab_item_padding" text="Отбивка элемента" def="" x="10" y="150" w="120" h="13"/>
             <param type="spinner" id="item_padding" text="" def="5" x="130" y="148" w="32" h="13" max="99" min="0" delta="1"/>
             <param type="label" id="lab_item_padding_px" text="пкс" def="" x="165" y="150" w="50" h="13"/>
+
+            <param type="label" id="lab_border_color" text="Цвет разделителя" def="" x="10" y="166" w="120" h="13"/>
+            <param type="color" id="border_color" text="" def="#cccccc" x="130" y="164" w="40" h="13"/>
         </param>
     </page>
     <page name="Текст" w="520" h="240">
