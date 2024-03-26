@@ -64,6 +64,10 @@ function updateBreakpoint(){
 
   const width = $window.width();
 
+  if(CLZ.sCurrentSlideId === ""){
+    return;
+  }
+
   const frameIds = CLS[CLZ.sCurrentSlideId].aFrameIds;
 
   const frameIdMap = {
