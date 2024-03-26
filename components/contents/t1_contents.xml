@@ -40,6 +40,7 @@
             </param>
             <param type="textedit" id="header_contents" text="" def="Содержание" x="130" y="24" w="103" h="13"/>
         </param>
+        <param type="label" id="info_label" text="* По умолчанию выставлен Z-ИНДЕКС 10000" def="" x="10" y="230" w="180" h="20"/>
 
         <param type="label" id="lab_tranin" text="Появление" def="" x="270" y="10" w="120" h="13"/>
         <param type="select" id="tranin" text="" def="6" x="390" y="8" w="120" h="13">
@@ -994,7 +995,9 @@
                 oCurObj.bShowInternal = true;
                 var jContainer = jCurDiv.find(".cl-container");
                 jContainer.find(".cl-btn").on("click", function () { oCurObj.CallMethod({ sMethod: "Close" }) });
-                oCurObj.initial.nZ = 5000;
+                // Add the new default z-index
+                oCurObj.initial.nZ = 10000;
+                jCurDiv.css({ "z-index": oCurObj.initial.nZ });
                 oCurObj.data =
                 {
                     aTogglers: [],
@@ -1437,7 +1440,7 @@
                         CL.Modal({ bOn: true, sSrcId: argobj.pid });
                     }
                     oCurObj.data.sPosition = "transition_open";
-                    jCurDiv.css({ "z-index": 5001 });
+                    jCurDiv.css({ "z-index": 10000 });
                     if(oCurObj.data.bTranIn)
                     {
                         oCurObj.Show({ bActionCall: true, bUseTransition: true, iTransition: oCurObj.data.iTranIn, iDuration: oCurObj.data.iDurIn, fnCallback: function () { CLO[argobj.pid].data.sPosition = "open"; } });
