@@ -5,7 +5,7 @@
 <params>
     <object>
         <format>2.0</format>
-        <label>Содержание v0.0-1</label>
+        <label>Содержание v0.1</label>
         <description>Окно с содержанием курса</description>
         <width>720</width>
         <height>400</height>
