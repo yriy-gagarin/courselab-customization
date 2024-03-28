@@ -4,7 +4,7 @@
 --><params>
 	<object>
 		<format>2.0</format>
-		<label>Блок закладок v0.1</label>
+		<label>Блок закладок v0.2</label>
 		<description>Блок закладок с описаниями с последовательным прохождением</description>
 		<width>980</width>
 		<height>540</height>
@@ -383,6 +383,17 @@
     <param type="spinner" id="lab_border_width" text="" def="1" x="130" y="196" w="32" h="13" min="0" max="99"/>
     <param type="label" id="lab_border_width_label" text="пкс" def="" x="165" y="198" w="30" h="13"/>
     <param type="color" id="lab_border_color" text="" def="#CCCCCC" x="190" y="197" w="40" h="13"/>
+
+    <param type="check" id="sync_state" text="Синхронизация состояния между кадрами на текущем слайде" def="yes" x="10" y="214" w="240" h="13">
+      <events>
+        <event name="check" target="sync_label" action="show"/>
+        <event name="check" target="sync_id" action="show"/>
+        <event name="uncheck" target="sync_label" action="hide"/>
+        <event name="uncheck" target="sync_id" action="hide"/>
+      </events>
+    </param>
+    <param type="label" id="sync_label" text="Идентификатор синхронизации" x="10" y="230" w="120" h="13"/>
+    <param type="edit" id="sync_id" text="" def="sync_id_1" x="130" y="228" w="120" h="13"/>
 
 	</page>
 	<page name="Закладки" w="320" h="270">
@@ -2024,6 +2035,7 @@
 				}
 				oCurObj.data =
 				{
+				  bSync: (oCurObj.jxParams.find("sync_state").text()=="yes"),
 					bRestore: (oCurObj.jxParams.find("restore_state").text()=="yes"),
 					bDisplayDefaultText: (oCurObj.jxParams.find("display_default_text").text()=="yes"),
 					bDisplayRibbon: (oCurObj.jxParams.find("display_ribbon").text()=="yes"),
@@ -2034,6 +2046,10 @@
 					sSoundClick: oCurObj.jxParams.children("sound_click").text(),
 					sSoundOver: oCurObj.jxParams.children("sound_over").text()
 				};
+				if(oCurObj.data.bSync)
+				{
+					oCurObj.data.syncId = oCurObj.jxParams.find("sync_id").text();
+				}
 				if(oCurObj.data.sSoundClick=="custom")
 				{
 					oCurObj.data.sSoundClickFile = oCurObj.jxParams.children("sound_click_file_custom").text();

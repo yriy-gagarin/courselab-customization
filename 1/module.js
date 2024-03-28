@@ -60,7 +60,7 @@ function makeMarkupResponsive(){
   });
 }
 
-function updateBreakpoint(){
+function updateBreakpoint(resizeEvent, bSync = true){
 
   const width = $window.width();
 
@@ -87,7 +87,9 @@ function updateBreakpoint(){
   if(currentBreakpoint!==breakpoint){
     currentBreakpoint = breakpoint;
 
-    synchronizeComponents();
+    if(bSync){
+      synchronizeComponents();
+    }
 
     // Switch view according to the new breakpoint
     $boardFrame.width(BREAKPOINT_VALUES[currentBreakpoint]);
@@ -102,13 +104,18 @@ function updateBreakpoint(){
 }
 
 /**
- * Experimental functionality for synchronizing components between breakpoints.
+ * Functionality for synchronizing components between breakpoints.
  * Try to synchronize the same components on the current slide when switching frames.
  */
 function synchronizeComponents(){
 
-  var iCurrent;
-  var oStore;
+  let componentsToSync = {
+    onTheFrame: [],
+    notOnTheFrame: [],
+    get length() {
+      return this.onTheFrame.length + this.notOnTheFrame.length;
+    },
+  };
 
   // CLZ.oStore contains all CourseLab objects(CLO) keys with their custom data if any
   Object.keys(CLZ.oStore).forEach((objKey)=>{
@@ -118,13 +125,23 @@ function synchronizeComponents(){
     // CLO contains all CourseLab objects on the current slide
     const clObj = CLO[objKey];
     // So find variable name for this courseLab object if any
-    if(clObj){
-      const sVarName = clObj.data && clObj.data.sVarName;
+    if(clObj && clObj.data){
+
+      // If some cl-objects have a bSync property, we try to synchronize their data
+      if(clObj.data.bSync){
+        if(clObj.sFrameId === CLZ.sCurrentFrameId){
+          componentsToSync.onTheFrame.push(clObj);
+        }else{
+          componentsToSync.notOnTheFrame.push(clObj);
+        }
+      }
+
+      const sVarName = clObj.data.sVarName;
       if(sVarName){
 
         // CLV.oSlide contains all CourseLab variables existing on the current slide
         // Find current variable value and set this value for all courseLab objects data that uses this variable.
-        const sVarCurrentValue = CLV.oSlide[sVarName]
+        const sVarCurrentValue = CLV.oSlide[sVarName];
 
         // Update all courseLab objects custom data that uses this variable
         CLZ.oStore[objKey][0] = sVarCurrentValue;//CLV.oSlide[CLO[objKey].data.sVarName];
@@ -139,19 +156,35 @@ function synchronizeComponents(){
         // Rerender current courseLab object to update in view with the new value
         clObj.Render();
       }
-
-      // TODO: try to sync the v_rapid_001 component
-      /*if(CLO[elem].data.iCurrent!==undefined){
-        if(iCurrent===undefined){
-          iCurrent = CLO[elem].data.iCurrent;
-          oStore = CLZ.oStore[elem];
-        }
-        console.log('iCurrent = '+ CLO[elem].data.iCurrent);
-        CLO[elem].data.iCurrent = iCurrent
-        CLZ.oStore[elem] = oStore;
-      }*/
     }
   });
+
+  if(componentsToSync.length){
+    // For the current visible objects(on the current frame)
+    // find corresponding objects on other frames and sync their data.
+    componentsToSync.onTheFrame.forEach((objOnTheFrame)=>{
+      componentsToSync.notOnTheFrame.forEach((objToSync)=>{
+        const { syncId, iCurrent } = objOnTheFrame.data;
+        const sType = objOnTheFrame.sType;
+
+        if(syncId === objToSync.data.syncId && sType === objToSync.sType){
+          // Update data in the CL store for the objToSync from the objOnTheFrame with the same syncId
+          CLZ.oStore[objToSync.sId] = [...CLZ.oStore[objOnTheFrame.sId]];
+
+          switch (sType) {
+            case 't1_accordion':
+            case 't1_tabs':
+              // Update selected element for the objToSync
+              objToSync.CallMethod({ sMethod: "Display", oMethodArgs: { elindex: iCurrent } });
+              break;
+            default:
+              // ... add custom logic to update view for the other cl-objects types
+              break;
+          }
+        }
+      })
+    })
+  }
 }
 
 function scaleToFitWindow(){
@@ -199,12 +232,24 @@ function InitModule()
 
   $(window).resize(updateBreakpoint);
 
+  // Store the original CLSlide Destroy method
+  CLSlide.prototype.CLDestroy = CLSlide.prototype.Destroy;
+
+  CLSlide.prototype.Destroy = function (oArgs){
+
+    // synchronize components before destroying.
+    // Use case: user changes a breakpoint on another slide and then returns to this slide.
+    synchronizeComponents();
+
+    // Call the original CLSlide Destroy method (something like 'super')
+    CLSlide.prototype.CLDestroy.call(this, oArgs);
+  }
+
   // Store the original CLSlide Start method
   CLSlide.prototype.CLStart = CLSlide.prototype.Start;
 
   // Override the original CLSlide Start method
   CLSlide.prototype.Start = function (oArgs){
-
     // Call the original CLSlide Start method (something like 'super')
     CLSlide.prototype.CLStart.call(this, oArgs);
 
@@ -212,7 +257,7 @@ function InitModule()
     // reset breakpoint
     currentBreakpoint = undefined;
     // update Breakpoint for the new Slide
-    updateBreakpoint();
+    updateBreakpoint(null, false);
   }
 }
 
