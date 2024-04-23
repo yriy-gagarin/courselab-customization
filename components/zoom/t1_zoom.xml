@@ -362,7 +362,7 @@
     <param type="label" id="lab_radius_px" text="пкс" x="295" y="74" w="25" h="13"/>
 
 		<param type="label" id="lab_tooltip_zoomin" text="Подсказка для увеличения" def="" x="10" y="90" w="120" h="11"/>
-		<param type="edit" id="tooltip_zoomin" text="" def="Нажите здесь, чтобы увеличить картинку" x="130" y="88" w="180" h="13"/>
+		<param type="edit" id="tooltip_zoomin" text="" def="Нажмите здесь, чтобы увеличить картинку" x="130" y="88" w="180" h="13"/>
 
 		<param type="label" id="lab_tooltip_close" text="Подсказка для закрытия" def="" x="10" y="106" w="120" h="11"/>
 		<param type="edit" id="tooltip_close" text="" def="Нажмите здесь, чтобы закрыть картинку" x="130" y="104" w="180" h="13"/>
