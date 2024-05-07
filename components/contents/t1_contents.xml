@@ -41,8 +41,8 @@
             <param type="textedit" id="header_contents" text="" def="Содержание" x="130" y="24" w="103" h="13"/>
         </param>
         <param type="check" id="initial_show" text="Скрыто по умолчанию" def="yes" x="10" y="40" w="120" h="13"/>
-
-        <param type="label" id="info_label" text="* По умолчанию выставлен Z-ИНДЕКС 10000" def="" x="10" y="230" w="180" h="20"/>
+        <param type="label" id="z_index_label" text="Z-ИНДЕКС" def="" x="10" y="58" w="120" h="20"/>
+        <param type="spinner" id="z_index" text="" def="5000" x="130" y="56" w="40" h="13" max="99999" min="0" delta="100"/>
 
         <param type="label" id="lab_tranin" text="Появление" def="" x="270" y="10" w="120" h="13"/>
         <param type="select" id="tranin" text="" def="6" x="390" y="8" w="120" h="13">
@@ -999,8 +999,10 @@
                 }
                 var jContainer = jCurDiv.find(".cl-container");
                 jContainer.find(".cl-btn").on("click", function () { oCurObj.CallMethod({ sMethod: "Close" }) });
-                // Add the new default z-index
-                oCurObj.initial.nZ = 10000;
+
+                var zIndex = +oCurObj.jxParams.find("z_index").text();
+                // Add the new z-index
+                oCurObj.initial.nZ = zIndex;
                 jCurDiv.css({ "z-index": oCurObj.initial.nZ });
                 oCurObj.data =
                 {
@@ -1437,6 +1439,8 @@
 
                 var jCurDiv = $(oCurObj.div);
 
+                var zIndex = +oCurObj.jxParams.find("z_index").text();
+
                 if(oCurObj.data.sPosition=="closed")
                 {
                     if(oCurObj.data.bModal)
@@ -1444,7 +1448,7 @@
                         CL.Modal({ bOn: true, sSrcId: argobj.pid });
                     }
                     oCurObj.data.sPosition = "transition_open";
-                    jCurDiv.css({ "z-index": 10000 });
+                    jCurDiv.css({ "z-index": zIndex });
                     if(oCurObj.data.bTranIn)
                     {
                         oCurObj.Show({ bActionCall: true, bUseTransition: true, iTransition: oCurObj.data.iTranIn, iDuration: oCurObj.data.iDurIn, fnCallback: function () { CLO[argobj.pid].data.sPosition = "open"; } });
