@@ -129,6 +129,12 @@
             <xsl:when test="slide_icons='custom'">background-image: url(<xsl:value-of select="i2_img"/>); background-position: 0 0; background-repeat: no-repeat;</xsl:when>
         </xsl:choose>
     </xsl:variable>
+    <xsl:variable name="_css_contents_available_bg">
+      <xsl:choose>
+        <xsl:when test="slide_icons='standard'">background-image: url(<xsl:value-of select="$imagesFolder"/>navi_tab_contents_sprite.png); background-position: 0px -773px; background-repeat: no-repeat;</xsl:when>
+        <xsl:when test="slide_icons='custom'">background-image: url(<xsl:value-of select="i4_img"/>); background-position: 0 0; background-repeat: no-repeat;</xsl:when>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:variable name="_css_contents_unvisited_bg">
         <xsl:choose>
             <xsl:when test="slide_icons='standard'">background-image: url(<xsl:value-of select="$imagesFolder"/>navi_tab_contents_sprite.png); background-position: 0px -800px; background-repeat: no-repeat;</xsl:when>
@@ -256,6 +262,10 @@
             <div class="rule">
                 <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .unvisited .item-inner</xsl:attribute>
                 <span class="rule-static"><xsl:value-of select="$_css_contents_unvisited_bg"/></span>
+            </div>
+            <div class="rule">
+              <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .allowed.unvisited .item-inner</xsl:attribute>
+              <span class="rule-static"><xsl:value-of select="$_css_contents_available_bg"/></span>
             </div>
         </xsl:if>
         <div class="rule">

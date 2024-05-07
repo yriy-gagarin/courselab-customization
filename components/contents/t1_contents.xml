@@ -5,7 +5,7 @@
 <params>
     <object>
         <format>2.0</format>
-        <label>Содержание v0.1-1</label>
+        <label>Содержание v0.1-2</label>
         <description>Окно с содержанием курса</description>
         <width>720</width>
         <height>400</height>
@@ -15,6 +15,7 @@
         <param type="edit" id="hidden_slide_visited" text="" def="Посещенный слайд" x="-50" y="-50" w="1" h="1"/>
         <param type="edit" id="hidden_slide_current" text="" def="Текущий слайд" x="-50" y="-50" w="1" h="1"/>
         <param type="edit" id="hidden_slide_unvisited" text="" def="Непосещенный слайд" x="-50" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_slide_available_unvisited" text="" def="Доступный, непосещенный слайд" x="-50" y="-50" w="1" h="1"/>
         <param type="edit" id="hidden_slide_closed" text="" def="Слайд - узел иерархии закрытый" x="-50" y="-50" w="1" h="1"/>
         <param type="edit" id="hidden_slide_open" text="" def="Слайд - узел иерархии открытый" x="-50" y="-50" w="1" h="1"/>
         <param type="edit" id="hidden_obj_title" text="" def="Название цели" x="-50" y="-50" w="1" h="1"/>
@@ -370,12 +371,12 @@
         </param>
         <param type="time" id="durout" text="" def="800" x="390" y="56" w="32" h="13" max="9999" min="0" delta="1"/>
         <param type="label" id="lab_durout_2" text="сек" def="" x="425" y="58" w="50" h="13"/>
-        <param type="check" id="nav_lock" text="Режим строгой навигации" def="yes" x="270" y="72" w="240" h="13"/>
-        <param type="check" id="modal" text="Открывать в модальном режиме" def="no" x="270" y="88" w="300" h="13"/>
-        <param type="check" id="hide_close" text="Не показывать кнопку закрытия" def="no" x="270" y="104" w="300" h="13"/>
+        <param type="check" id="nav_lock" text="Режим строгой навигации" def="yes" x="270" y="68" w="120" h="13"/>
+        <param type="check" id="modal" text="Открывать в модальном режиме" def="no" x="270" y="82" w="300" h="13"/>
+        <param type="check" id="hide_close" text="Не показывать кнопку закрытия" def="no" x="270" y="96" w="300" h="13"/>
         <param type="fieldset" id="fs_contents_2" text="" def="" x="0" y="0" w="0" h="0">
-            <param type="label" id="lab_slide_icons" text="Иконки слайдов" def="" x="270" y="122" w="120" h="13"/>
-            <param type="select" id="slide_icons" text="" def="standard" x="390" y="120" w="120" h="13">
+            <param type="label" id="lab_slide_icons" text="Иконки слайдов" def="" x="270" y="114" w="120" h="13"/>
+            <param type="select" id="slide_icons" text="" def="standard" x="390" y="112" w="120" h="13">
                 <items>
                     <item id="none" label="Не показывать">
                         <events>
@@ -395,15 +396,17 @@
                 </items>
             </param>
             <param type="fieldset" id="fs_slide_icons" text="" def="" x="0" y="0" w="0" h="0">
-                <param type="label" id="lab_i1_img" text="Непосещенный слайд" def="" x="270" y="138" w="120" h="13"/>
-                <param type="file" id="i1_img" text="" def="" x="390" y="136" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
-                <param type="label" id="lab_i2_img" text="Текущий слайд" def="" x="270" y="154" w="120" h="13"/>
-                <param type="file" id="i2_img" text="" def="" x="390" y="152" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
-                <param type="label" id="lab_i3_img" text="Посещенный слайд" def="" x="270" y="170" w="120" h="13"/>
-                <param type="file" id="i3_img" text="" def="" x="390" y="168" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+                <param type="label" id="lab_i1_img" text="Непосещенный слайд" def="" x="270" y="130" w="120" h="13"/>
+                <param type="file" id="i1_img" text="" def="" x="390" y="128" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif;*.svg)|*.png;*.jpg;*.jpeg;*.gif;*.svg|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+                <param type="label" id="lab_i2_img" text="Текущий слайд" def="" x="270" y="144" w="120" h="13"/>
+                <param type="file" id="i2_img" text="" def="" x="390" y="142" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif;*.svg)|*.png;*.jpg;*.jpeg;*.gif;*.svg|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+                <param type="label" id="lab_i3_img" text="Посещенный слайд" def="" x="270" y="158" w="120" h="13"/>
+                <param type="file" id="i3_img" text="" def="" x="390" y="156" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif;*.svg)|*.png;*.jpg;*.jpeg;*.gif;*.svg|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+                <param type="label" id="lab_i4_img" text="Доступный, непосещенный слайд" def="" x="270" y="173" w="120" h="13"/>
+                <param type="file" id="i4_img" text="" def="" x="390" y="171" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif;*.svg)|*.png;*.jpg;*.jpeg;*.gif;*.svg|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
             </param>
-            <param type="label" id="lab_hier_type" text="Иерархия" def="" x="270" y="186" w="120" h="13"/>
-            <param type="select" id="hier_type" text="" def="none" x="390" y="184" w="120" h="13">
+            <param type="label" id="lab_hier_type" text="Иерархия" def="" x="270" y="190" w="120" h="13"/>
+            <param type="select" id="hier_type" text="" def="none" x="390" y="188" w="120" h="13">
                 <items>
                     <item id="none" label="Не показывать">
                         <events>
@@ -423,10 +426,10 @@
                 </items>
             </param>
             <param type="fieldset" id="fs_contents_hier_icons" text="" def="" x="0" y="0" w="0" h="0">
-                <param type="label" id="lab_h1_img" text="Закрытый узел" def="" x="270" y="202" w="120" h="13"/>
-                <param type="file" id="h1_img" text="" def="" x="390" y="200" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
-                <param type="label" id="lab_h2_img" text="Открытый узел" def="" x="270" y="218" w="120" h="13"/>
-                <param type="file" id="h2_img" text="" def="" x="390" y="216" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+                <param type="label" id="lab_h1_img" text="Закрытый узел" def="" x="270" y="206" w="120" h="13"/>
+                <param type="file" id="h1_img" text="" def="" x="390" y="204" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif;*.svg)|*.png;*.jpg;*.jpeg;*.gif;*.svg|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+                <param type="label" id="lab_h2_img" text="Открытый узел" def="" x="270" y="222" w="120" h="13"/>
+                <param type="file" id="h2_img" text="" def="" x="390" y="220" w="103" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif;*.svg)|*.png;*.jpg;*.jpeg;*.gif;*.svg|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
             </param>
         </param>
     </page>

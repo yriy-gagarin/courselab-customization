@@ -127,6 +127,12 @@
             <xsl:when test="slide_icons='custom'">background-image: url('file:///<xsl:value-of select="translate(substring-before($moduleImagesFolder,'images\'),'\','/')"/><xsl:value-of select="i2_img"/>'); background-position: 0 0; background-repeat: no-repeat;</xsl:when>
         </xsl:choose>
     </xsl:variable>
+    <xsl:variable name="_css_contents_available_bg">
+      <xsl:choose>
+        <xsl:when test="slide_icons='standard'">background-image: url('file:///<xsl:value-of select="translate($imagesFolder,'\','/')"/>navi_tab_contents_sprite.png'); background-position: 0px -773px; background-repeat: no-repeat;</xsl:when>
+        <xsl:when test="slide_icons='custom'">background-image: url('file:///<xsl:value-of select="translate(substring-before($moduleImagesFolder,'images\'),'\','/')"/><xsl:value-of select="i4_img"/>'); background-position: 0 0; background-repeat: no-repeat;</xsl:when>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:variable name="_css_contents_unvisited_bg">
         <xsl:choose>
             <xsl:when test="slide_icons='standard'">background-image: url('file:///<xsl:value-of select="translate($imagesFolder,'\','/')"/>navi_tab_contents_sprite.png'); background-position: 0px -800px; background-repeat: no-repeat;</xsl:when>
@@ -189,11 +195,12 @@
         .slide-list .item-inner { padding: 2px 0 0 20px; min-height: 16px; }
         .open .indent { <xsl:value-of select="$_css_contents_open"/> }
         .closed .indent { <xsl:value-of select="$_css_contents_closed"/> }
-        .visited { background-color: <xsl:value-of select="$allowed-fill-color-fixed"/>; color: <xsl:value-of select="$allowed-font-color-fixed"/>; }
+        .visited, .available { background-color: <xsl:value-of select="$allowed-fill-color-fixed"/>; color: <xsl:value-of select="$allowed-font-color-fixed"/>; }
         .current { background-color: <xsl:value-of select="$current-fill-color-fixed"/>; color: <xsl:value-of select="$current-font-color-fixed"/>; }
         .unvisited { background-color: <xsl:value-of select="$forbidden-fill-color-fixed"/>; color: <xsl:value-of select="$forbidden-font-color-fixed"/>; }
         .visited .item-inner { <xsl:value-of select="$_css_contents_visited_bg"/> }
         .current .item-inner { <xsl:value-of select="$_css_contents_current_bg"/> }
+        .available .item-inner { <xsl:value-of select="$_css_contents_available_bg"/> }
         .unvisited .item-inner { <xsl:value-of select="$_css_contents_unvisited_bg"/> }
 
         .cl-close-btn { <xsl:if test="hide_close='yes'">display: none;</xsl:if>padding: 0 0 <xsl:value-of select="panel_padding"/>px 0; width: 20px; height: 20px; line-height: 0.75; text-align: center; position: absolute; top: <xsl:value-of select="panel_padding"/>px; right: <xsl:value-of select="panel_padding"/>px; font-family: Arial, sans-serif; font-size: 28px; font-weight: bold; color: <xsl:value-of select="$panel-border-color-fixed"/>;  }
@@ -245,6 +252,16 @@
                                         </div>
                                     </div>
                                 </li>
+                                <li>
+                                      <xsl:attribute name="class">slide-item available</xsl:attribute>
+                                      <div>
+                                          <xsl:attribute name="class">indent</xsl:attribute>
+                                          <div>
+                                              <xsl:attribute name="class">item-inner</xsl:attribute>
+                                              <xsl:value-of select="hidden_slide_available_unvisited"/>
+                                          </div>
+                                      </div>
+                                  </li>
                                 <li>
                                     <xsl:attribute name="class">slide-item unvisited</xsl:attribute>
                                     <div>
