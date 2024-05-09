@@ -242,6 +242,19 @@
                                         </div>
                                     </div>
                                 </li>
+                                <xsl:choose>
+                                    <xsl:when test="display_slides_headers='yes'">
+                                        <li>
+                                            <xsl:attribute name="class">slide-header available</xsl:attribute>
+                                            <div>
+                                                <xsl:attribute name="class">indent</xsl:attribute>
+                                                <div>
+                                                  <xsl:value-of select="hidden_slide_header"/>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </xsl:when>
+                                </xsl:choose>
                                 <li>
                                     <xsl:attribute name="class">slide-item current</xsl:attribute>
                                     <div>

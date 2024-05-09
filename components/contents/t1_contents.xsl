@@ -267,6 +267,10 @@
               <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .allowed.unvisited .item-inner</xsl:attribute>
               <span class="rule-static"><xsl:value-of select="$_css_contents_available_bg"/></span>
             </div>
+            <div class="rule">
+                <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .slide-header</xsl:attribute>
+                <span class="rule-static">pointer-events: none; cursor: default;</span>
+            </div>
         </xsl:if>
         <div class="rule">
             <xsl:attribute name="data-name">#<xsl:value-of select="$objectID"/> .cl-close-btn</xsl:attribute>

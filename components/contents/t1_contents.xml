@@ -5,7 +5,7 @@
 <params>
     <object>
         <format>2.0</format>
-        <label>Содержание v0.1-2</label>
+        <label>Содержание v0.1-3</label>
         <description>Окно с содержанием курса</description>
         <width>720</width>
         <height>400</height>
@@ -13,6 +13,7 @@
     </object>
     <page name="Основные" w="520" h="240">
         <param type="edit" id="hidden_slide_visited" text="" def="Посещенный слайд" x="-50" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_slide_header" text="" def="Заголовок слайда" x="-50" y="-50" w="1" h="1"/>
         <param type="edit" id="hidden_slide_current" text="" def="Текущий слайд" x="-50" y="-50" w="1" h="1"/>
         <param type="edit" id="hidden_slide_unvisited" text="" def="Непосещенный слайд" x="-50" y="-50" w="1" h="1"/>
         <param type="edit" id="hidden_slide_available_unvisited" text="" def="Доступный, непосещенный слайд" x="-50" y="-50" w="1" h="1"/>
@@ -44,6 +45,28 @@
         <param type="check" id="initial_show" text="Скрыто по умолчанию" def="yes" x="10" y="40" w="120" h="13"/>
         <param type="label" id="z_index_label" text="Z-ИНДЕКС" def="" x="10" y="58" w="120" h="20"/>
         <param type="spinner" id="z_index" text="" def="5000" x="130" y="56" w="40" h="13" max="99999" min="0" delta="100"/>
+
+        <param type="fieldset" id="fs_contents" text="" def="" x="0" y="0" w="0" h="0">
+          <param type="check" id="display_slides_headers" text="Заголовоки слайдов" def="yes" x="10" y="72" w="120" h="13">
+            <events>
+              <event name="check" target="slides_headers_list" action="enable"/>
+              <event name="uncheck" target="slides_headers_list" action="disable"/>
+            </events>
+          </param>
+        </param>
+
+        <param type="label" id="" text="Список заголовков слайдов" def="" x="10" y="89" w="110" h="13"/>
+        <param type="list" id="slides_headers_list" text="" def="no" x="10" y="88" w="240" h="120">
+          <params w="240" h="60">
+            <param type="label" id="" text="Заголовок" def="" x="10" y="10" w="90" h="13"/>
+            <param type="textedit" id="slide_header" text="Заголовок слайда" def="" x="100" y="9" w="110" h="13"/>
+            <param type="label" id="" text="Слайд" def="" x="10" y="26" w="90" h="13"/>
+            <param type="slideid" id="slide_id" text="Слайд" def="" x="100" y="25" w="110" h="13"/>
+
+            <param type="button" id="OK" text="OK" def="" x="125" y="40" w="50" h="14"/>
+            <param type="button" id="CANCEL" text="Отмена" def="" x="180" y="40" w="50" h="14"/>
+          </params>
+        </param>
 
         <param type="label" id="lab_tranin" text="Появление" def="" x="270" y="10" w="120" h="13"/>
         <param type="select" id="tranin" text="" def="6" x="390" y="8" w="120" h="13">
@@ -1196,10 +1219,30 @@
                         var iIndent;
                         var iPrevIndent = 0;
                         var aPath = CL.oPath._GetSlideList();
+
+                        var slideHeadersMap = {};
+                        if(oCurObj.jxParams.find("display_slides_headers").text() === 'yes'){
+                          var jxSlideHeaders = oCurObj.jxParams.find("slides_headers_list > item");
+                          for(var j=0; j<jxSlideHeaders.length; j++)
+                          {
+                            var jxSlideHeader = $(jxSlideHeaders[j]);
+                            var headerSlideId = jxSlideHeader.find("slide_id").text();
+                            slideHeadersMap[headerSlideId] = jxSlideHeader.find("slide_header").text();
+                          }
+                        }
+
                         for(var i=0; i<aPath.length; i++)
                         {
                             sSlideId = aPath[i];
                             jxSlide = CL.jxModule.find("slide[id='" + sSlideId + "']");
+
+                            var jLIHeader;
+                            if(slideHeadersMap[sSlideId]!==undefined ){
+                              var slideHeader = slideHeadersMap[sSlideId];
+                              jLIHeader = jTemplate.clone(true).removeClass("slide-item-template").addClass("slide-header").attr({ "header-slide-id": sSlideId }).appendTo(jUL);
+                              jLIHeader.find(".item-inner").removeClass("item-inner").html(slideHeader);
+                            }
+
                             jLI = jTemplate.clone(true).removeClass("slide-item-template").addClass("slide-item").attr({ "data-slide-id": sSlideId }).appendTo(jUL);
                             jLI.on("click", function () { CLO[argobj.pid].CallMethod({ sMethod: "Navigate", oMethodArgs: { elem: this } }) });
                             jLI.find(".item-inner").html(jxSlide.attr("name"));
@@ -1248,6 +1291,15 @@
                                 else
                                 {
                                     jLI.addClass("forbidden unvisited");
+                                }
+                            }
+
+                            if(jLIHeader){
+                                var jLiClasses = [...jLI[0].classList];
+                                if(jLiClasses.includes('forbidden')){
+                                 jLIHeader.removeClass("allowed").addClass('forbidden');
+                                }else{
+                                  jLIHeader.removeClass("forbidden").addClass('allowed');
                                 }
                             }
                         }
@@ -1320,6 +1372,16 @@
                                     {
                                         jLI.removeClass("allowed current").addClass("forbidden unvisited");
                                     }
+                                }
+                            }
+
+                            var jLIHeader = jContainer.find("ul.slide-list > li.slide-header[header-slide-id='"+sSlideId+"']");
+                            if(jLIHeader.length!==0){
+                                var jLiClasses = [...jLI[0].classList];
+                                if(jLiClasses.includes('forbidden')){
+                                 jLIHeader.removeClass("allowed").addClass('forbidden');
+                                }else{
+                                  jLIHeader.removeClass("forbidden").addClass('allowed');
                                 }
                             }
                         }
