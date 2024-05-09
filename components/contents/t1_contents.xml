@@ -5,7 +5,7 @@
 <params>
     <object>
         <format>2.0</format>
-        <label>Содержание v0.1-3</label>
+        <label>Содержание v0.2</label>
         <description>Окно с содержанием курса</description>
         <width>720</width>
         <height>400</height>
@@ -47,7 +47,7 @@
         <param type="spinner" id="z_index" text="" def="5000" x="130" y="56" w="40" h="13" max="99999" min="0" delta="100"/>
 
         <param type="fieldset" id="fs_contents" text="" def="" x="0" y="0" w="0" h="0">
-          <param type="check" id="display_slides_headers" text="Заголовоки слайдов" def="yes" x="10" y="72" w="120" h="13">
+          <param type="check" id="display_slides_headers" text="Заголовоки слайдов" def="no" x="10" y="72" w="120" h="13">
             <events>
               <event name="check" target="slides_headers_list" action="enable"/>
               <event name="uncheck" target="slides_headers_list" action="disable"/>
