@@ -880,7 +880,14 @@ function trim(sString) { if(typeof sString != "string") return sString; var bSta
 					<xsl:attribute name="class">cl-tab-table-cell</xsl:attribute>
 					<div>
 						<xsl:attribute name="class">cl-tab-text cl-tab-text-<xsl:value-of select="../../tab_type"/></xsl:attribute>
-						<xsl:value-of select="tab_text" disable-output-escaping="yes"/>
+            <xsl:choose>
+              <xsl:when test="display_tab_text_selected='yes' and number($param.iLevelToPreview)=number($param.iLevelNumber)">
+                <xsl:value-of select="tab_text_selected" disable-output-escaping="yes"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="tab_text" disable-output-escaping="yes"/>
+              </xsl:otherwise>
+            </xsl:choose>
 					</div>
 				</td>
 			</tr>

@@ -3,7 +3,7 @@
 --><params>
     <object>
         <format>2.0</format>
-        <label>Блок раздвижной v0.2</label>
+        <label>Блок раздвижной v0.3</label>
         <description>Блок раздвижной</description>
         <width>980</width>
         <height>540</height>
@@ -20,299 +20,308 @@
 		</param>
 		<param type="label" id="lab_elements" text="Элементы" def="" x="10" y="26" w="120" h="13"/>
         <param type="list" id="elements" text="yes" def="yes" x="10" y="24" w="300" h="120">
-            <page name="Элемент" w="320" h="140">
-                <param type="check" id="display_first" listcolumn="0" text="Показывать при старте" def="no" x="10" y="8" w="240" h="13"/>
-				<param type="label" id="" text="Текст на закладке" def="" x="10" y="26" w="120" h="13"/>
-				<param type="textedit" id="tab_text" text="Закладка" def="Закладка" x="130" y="24" w="163" h="13"/>
-        <param type="label" id="lab_desc_text" text="Текст описания" def="" x="10" y="42" w="120" h="13"/>
-        <param type="textedit" id="desc_text" text="Описание" def="Текст по умолчанию" x="130" y="40" w="163" h="13" listcolumn="0"/>
+            <page name="Элемент" w="320" h="156">
+                <param type="check" id="display_first" listcolumn="0" text="Показывать при старте" def="no" x="10" y="6" w="240" h="13"/>
+                <param type="label" id="" text="Текст на закладке" def="" x="10" y="26" w="120" h="13"/>
+                <param type="textedit" id="tab_text" text="Закладка" def="Закладка" x="130" y="24" w="163" h="13"/>
 
-				<param type="label" id="lab_narration" text="Звуковой файл" def="" x="10" y="58" w="120" h="13"/>
-				<param type="file" id="narration" text="Звук" def="" listcolumn="0" x="130" y="56" w="163" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+                <param type="check" id="display_tab_text_selected" listcolumn="0" text="Текст на закладке выбр." def="no" x="10" y="38" w="120" h="13" >
+                  <events>
+                    <event name="check" target="tab_text_selected" action="enable"/>
+                    <event name="uncheck" target="tab_text_selected" action="disable"/>
+                  </events>
+                </param>
+                <param type="textedit" id="tab_text_selected" listcolumn="0" text="" def="Закладка открыта" x="130" y="40" w="163" h="13"/>
 
-				<param type="label" id="lab_spec_tabcolor_scheme" text="Цветовая схема" def="" x="10" y="74" w="120" h="11"/>
-				<param type="select" id="spec_tabcolor_scheme" def="steelblue" text="Обыч." x="130" y="72" w="180" h="13">
-					<items>
-						<item id="turquoise" label="Бирюзовый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="lightblue" label="Голубой">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="yellow" label="Желтый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="green" label="Зеленый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="brown" label="Коричневый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="red" label="Красный">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="deeppink" label="Малиновый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="olive" label="Оливковый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="orange" label="Оранжевый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="pink" label="Розовый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="grey" label="Серый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="bluegreen" label="Сине-зеленый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="blue" label="Синий">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="steelblue" label="Стальной синий">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="violet" label="Фиолетовый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="white" label="Белый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="black" label="Черный">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="auto" label="Автоградиент">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="enable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color" action="disable"/>
-							</events>
-						</item>
-						<item id="custom" label="По выбору">
-							<events>
-								<event name="selendok" target="spec_tabbg_color" action="enable"/>
-								<event name="selendok" target="spec_tabgradient_color" action="enable"/>
-								<event name="selendok" target="spec_tabborder_color" action="enable"/>
-							</events>
-						</item>
-					</items>
-				</param>
-				<param type="color" id="spec_tabbg_color" text="" def="#E8EEFF" x="130" y="88" w="40" h="13" listcolumn="0"/>
-				<param type="color" id="spec_tabgradient_color" text="" def="#FFFFFF" x="190" y="88" w="40" h="13" listcolumn="0"/>
-				<param type="color" id="spec_tabborder_color" text="" def="#336699" x="250" y="88" w="40" h="13" listcolumn="0"/>
+                <param type="label" id="lab_desc_text" text="Текст описания" def="" x="10" y="58" w="120" h="13"/>
+                <param type="textedit" id="desc_text" text="Описание" def="Текст по умолчанию" x="130" y="56" w="163" h="13" listcolumn="0"/>
 
-				<param type="label" id="lab_spec_tabcolor_scheme_selected" text="Цветовая схема выбр." def="" x="10" y="106" w="120" h="11"/>
-				<param type="select" id="spec_tabcolor_scheme_selected" def="olive" text="Выбр." x="130" y="104" w="180" h="13">
-					<items>
-						<item id="turquoise" label="Бирюзовый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="lightblue" label="Голубой">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="yellow" label="Желтый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="green" label="Зеленый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="brown" label="Коричневый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="red" label="Красный">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="deeppink" label="Малиновый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="olive" label="Оливковый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="orange" label="Оранжевый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="pink" label="Розовый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="grey" label="Серый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="bluegreen" label="Сине-зеленый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="blue" label="Синий">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="steelblue" label="Стальной синий">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="violet" label="Фиолетовый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="white" label="Белый">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="black" label="Черный">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="auto" label="Автоградиент">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="enable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
-							</events>
-						</item>
-						<item id="custom" label="По выбору">
-							<events>
-								<event name="selendok" target="spec_tabbg_color_selected" action="enable"/>
-								<event name="selendok" target="spec_tabgradient_color_selected" action="enable"/>
-								<event name="selendok" target="spec_tabborder_color_selected" action="enable"/>
-							</events>
-						</item>
-					</items>
-				</param>
-				<param type="color" id="spec_tabbg_color_selected" text="" def="#E8EEFF" x="130" y="120" w="40" h="13" listcolumn="0"/>
-				<param type="color" id="spec_tabgradient_color_selected" text="" def="#FFFFFF" x="190" y="120" w="40" h="13" listcolumn="0"/>
-				<param type="color" id="spec_tabborder_color_selected" text="" def="#336699" x="250" y="120" w="40" h="13" listcolumn="0"/>
+                <param type="label" id="lab_narration" text="Звуковой файл" def="" x="10" y="74" w="120" h="13"/>
+                <param type="file" id="narration" text="Звук" def="" listcolumn="0" x="130" y="72" w="163" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+
+                <param type="label" id="lab_spec_tabcolor_scheme" text="Цветовая схема" def="" x="10" y="90" w="120" h="11"/>
+                <param type="select" id="spec_tabcolor_scheme" def="steelblue" text="Обыч." x="130" y="88" w="180" h="13">
+                  <items>
+                    <item id="turquoise" label="Бирюзовый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="lightblue" label="Голубой">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="yellow" label="Желтый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="green" label="Зеленый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="brown" label="Коричневый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="red" label="Красный">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="deeppink" label="Малиновый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="olive" label="Оливковый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="orange" label="Оранжевый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="pink" label="Розовый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="grey" label="Серый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="bluegreen" label="Сине-зеленый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="blue" label="Синий">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="steelblue" label="Стальной синий">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="violet" label="Фиолетовый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="white" label="Белый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="black" label="Черный">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="auto" label="Автоградиент">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="enable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="custom" label="По выбору">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color" action="enable"/>
+                        <event name="selendok" target="spec_tabgradient_color" action="enable"/>
+                        <event name="selendok" target="spec_tabborder_color" action="enable"/>
+                      </events>
+                    </item>
+                  </items>
+                </param>
+                <param type="color" id="spec_tabbg_color" text="" def="#E8EEFF" x="130" y="104" w="40" h="13" listcolumn="0"/>
+                <param type="color" id="spec_tabgradient_color" text="" def="#FFFFFF" x="190" y="104" w="40" h="13" listcolumn="0"/>
+                <param type="color" id="spec_tabborder_color" text="" def="#336699" x="250" y="104" w="40" h="13" listcolumn="0"/>
+
+                <param type="label" id="lab_spec_tabcolor_scheme_selected" text="Цветовая схема выбр." def="" x="10" y="122" w="120" h="11"/>
+                <param type="select" id="spec_tabcolor_scheme_selected" def="olive" text="Выбр." x="130" y="120" w="180" h="13">
+                  <items>
+                    <item id="turquoise" label="Бирюзовый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="lightblue" label="Голубой">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="yellow" label="Желтый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="green" label="Зеленый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="brown" label="Коричневый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="red" label="Красный">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="deeppink" label="Малиновый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="olive" label="Оливковый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="orange" label="Оранжевый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="pink" label="Розовый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="grey" label="Серый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="bluegreen" label="Сине-зеленый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="blue" label="Синий">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="steelblue" label="Стальной синий">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="violet" label="Фиолетовый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="white" label="Белый">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="black" label="Черный">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="auto" label="Автоградиент">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="enable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="disable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="disable"/>
+                      </events>
+                    </item>
+                    <item id="custom" label="По выбору">
+                      <events>
+                        <event name="selendok" target="spec_tabbg_color_selected" action="enable"/>
+                        <event name="selendok" target="spec_tabgradient_color_selected" action="enable"/>
+                        <event name="selendok" target="spec_tabborder_color_selected" action="enable"/>
+                      </events>
+                    </item>
+                  </items>
+                </param>
+                <param type="color" id="spec_tabbg_color_selected" text="" def="#E8EEFF" x="130" y="136" w="40" h="13" listcolumn="0"/>
+                <param type="color" id="spec_tabgradient_color_selected" text="" def="#FFFFFF" x="190" y="136" w="40" h="13" listcolumn="0"/>
+                <param type="color" id="spec_tabborder_color_selected" text="" def="#336699" x="250" y="136" w="40" h="13" listcolumn="0"/>
             </page>
         </param>
 
@@ -2288,6 +2297,9 @@
 				var oCurObj = CLO[argobj.pid];
 				if(oCurObj.div==null) return false;
 				var jCurObjDiv = $(oCurObj.div);
+
+				var displaySelectedTexts = oCurObj.jxParams.find("elements > item > display_tab_text_selected");
+
 				var iIndex = 1;
 				if(argobj.elindex!=null)
 				{
@@ -2321,15 +2333,25 @@
 				if(iIndex<1 || iIndex>oCurObj.data.iTotalElems) return false;
 
 				var iTabIdx = 1;
-				jCurObjDiv.find(".cl-tab").each(function ()
+				jCurObjDiv.find(".cl-tab").each(function (index)
 				{
+				  var bShowSelectedText	=	$(displaySelectedTexts[index]).text()=="yes";
+
 					if(oCurObj.data.bSpecColorsSelected)
 					{
 						$(this).removeClass("cl-tab-selected cl-tab-selected-" + iTabIdx);
+						if(bShowSelectedText){
+              $(this).find(".tab_text_value_selected").hide();
+              $(this).find(".tab_text_value").show();
+						}
 					}
 					else
 					{
 						$(this).removeClass("cl-tab-selected");
+						if(bShowSelectedText){
+              $(this).find(".tab_text_value_selected").hide();
+              $(this).find(".tab_text_value").show();
+						}
 					}
 					if(oCurObj.data.bSpecColorsIdle)
 					{
@@ -2380,13 +2402,24 @@
 				{
 					jTab.removeClass("cl-tab-idle");
 				}
+
+				var bShowSelectedText	=	$(displaySelectedTexts[iIndex-1]).text()=="yes";
+
 				if(oCurObj.data.bSpecColorsSelected)
 				{
 					jTab.addClass("cl-tab-selected cl-tab-selected-" + iIndex);
+					if(bShowSelectedText){
+            jTab.find(".tab_text_value_selected").show();
+            jTab.find(".tab_text_value").hide();
+          }
 				}
 				else
 				{
 					jTab.addClass("cl-tab-selected");
+				  if(bShowSelectedText){
+            jTab.find(".tab_text_value_selected").show();
+            jTab.find(".tab_text_value").hide();
+          }
 				}
 				oCurObj.FireEvent({ sName: "onDisplayItem" });
 				if(iIndex==1 && oCurObj.data.iTotalElems>1)
