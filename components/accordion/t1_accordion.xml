@@ -3,7 +3,7 @@
 --><params>
     <object>
         <format>2.0</format>
-        <label>Блок раздвижной v0.3</label>
+        <label>Блок раздвижной v0.3.1</label>
         <description>Блок раздвижной</description>
         <width>980</width>
         <height>540</height>
@@ -2040,6 +2040,10 @@
 					aLefts: jContainer.attr("data-lefts").split("|"),
 					nDescStep: +jContainer.attr("data-desc-step")
 				};
+
+        // hide a text for the selected tab by default if any
+        jContainer.find(".tab_text_value_selected").hide();
+
 				if(oCurObj.data.bSync)
 				{
 					oCurObj.data.syncId = oCurObj.jxParams.find("sync_id").text();
