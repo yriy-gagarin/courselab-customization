@@ -3,7 +3,7 @@
 --><params>
     <object>
         <format>2.0</format>
-        <label>Блок раздвижной v0.3.1</label>
+        <label>Блок раздвижной v0.4</label>
         <description>Блок раздвижной</description>
         <width>980</width>
         <height>540</height>
@@ -2312,7 +2312,22 @@
 					if(iIndex==0 && oCurObj.data.bDisplayDefaultText)
 					{
 						oCurObj.CallMethod({ sMethod: "UpdateButtons" });
-						oCurObj.data.bDisplayDefaultText =  false;
+						oCurObj.data.bDisplayDefaultText = false;
+
+						// hide the text container for default description if it is empty
+						if($.trim(oCurObj.jxParams.find("default_text").text())===''){
+              jCurObjDiv.find(".cl-desc").hide();
+              // move tabs to the default 'closed' position
+              for(var i=1; i<=oCurObj.data.iTotalElems; i++)
+              {
+                if(oCurObj.data.sTabType=="v")
+                {
+                  jCurObjDiv.find("#" + argobj.pid + "_TAB_" + i).css({ "top": oCurObj.data.aTops[i-1] + "px" });
+                }else{
+                  jCurObjDiv.find("#" + argobj.pid + "_TAB_" + i).css({ "left": oCurObj.data.aLefts[i-1] + "px" });
+                }
+              }
+						}
 						return true;
 					}
 				}
