@@ -3,7 +3,7 @@
 --><params>
     <object>
         <format>2.0</format>
-        <label>Блок раздвижной v0.4</label>
+        <label>Блок раздвижной v0.4.1</label>
         <description>Блок раздвижной</description>
         <width>980</width>
         <height>540</height>
@@ -691,7 +691,7 @@
 
     <param type="label" id="tab_size_label" text="Размер закладки" def="" x="15" y="130" w="115" h="13"/>
     <param type="spinner" id="tab_size" text="" def="14" x="130" y="128" w="32" h="13" min="0" max="99"/>
-    <param type="select" id="tab_size_unit" text="" def="percent" x="165" y="128" w="35" h="13">
+    <param type="select" id="tab_size_unit" text="" def="auto_size" x="165" y="128" w="35" h="13">
       <items>
         <item id="auto_size" label="авто">
           <events>
