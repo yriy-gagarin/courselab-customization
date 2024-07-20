@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><events>
+	<event>
+		<name>onAttempt</name>
+		<label>Попытка ответа</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onSuccess</name>
+		<label>Попытка - правильно</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onFailure</name>
+		<label>Попытка - неправильно</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onLastAttemptStart</name>
+		<label>Начало последней попытки</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onAttemptsLimit</name>
+		<label>Исчерпание попыток</label>
+		<group>Объект - собственные</group>
+	</event>
+	<event>
+		<name>onQuestionEnd</name>
+		<label>Вопрос завершен</label>
+		<group>Объект - собственные</group>
+	</event>
+</events>

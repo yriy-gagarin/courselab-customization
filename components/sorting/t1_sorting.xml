@@ -1,0 +1,3432 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+'*    v_q_0002.xml
+'*     CourseLab 3.0
+'*    Copyright (c) Websoft Ltd., Russia.  All rights reserved.
+--><params>
+    <object>
+        <format>3.0</format>
+        <label>Распределение</label>
+        <description>Многообъектное взаимодействие с распределением объектов по группам</description>
+        <width>120</width>
+        <height>60</height>
+        <state_extension>false</state_extension>
+    </object>
+    <page name="Основные" w="320" h="304">
+        <param type="edit" id="hidden.object" text="" def="Распределение (скрытый объект)" x="10" y="-50" w="1" h="1"/>
+
+        <param type="check" id="display_question_text" text="Текст вопроса" def="yes" x="10" y="8" w="120" h="13">
+            <events>
+                <event name="check" target="q_text_obj" action="enable"/>
+                <event name="uncheck" target="q_text_obj" action="disable"/>
+            </events>
+        </param>
+        <param type="objectid" id="q_text_obj" text="" def="" x="130" y="8" w="163" h="13"/>
+
+        <param type="check" id="display_instruction" text="Инструкция" def="yes" x="10" y="24" w="120" h="13">
+            <events>
+                <event name="check" target="q_instruction_obj" action="enable"/>
+                <event name="uncheck" target="q_instruction_obj" action="disable"/>
+            </events>
+        </param>
+        <param type="objectid" id="q_instruction_obj" text="" def="" x="130" y="24" w="163" h="13"/>
+
+        <param type="label" id="lab_q_variants" text="Группы" def="" x="10" y="42" w="120" h="11"/>
+        <param type="list" id="q_variants" text="" def="no" x="10" y="40" w="300" h="78">
+            <page name="Группа" w="320" h="150">
+                <param type="label" id="lab_q_var_target" text="База" def="" x="10" y="10" w="120" h="11"/>
+                <param type="objectid" id="q_var_target" text="База" def="" x="130" y="8" w="163" h="13"/>
+                <param type="label" id="lab_q_variants" text="Элементы" def="" x="10" y="26" w="120" h="11"/>
+                <param type="list" id="bullets" text="" def="no" x="10" y="24" w="300" h="78">
+                    <params name="Элемент" w="320" h="160">
+                        <param type="label" id="lab_q_var_bullet" text="Основной" def="" x="10" y="10" w="120" h="11"/>
+                        <param type="objectid" id="q_var_bullet" text="Осн." def="" x="130" y="8" w="163" h="13"/>
+                        <param type="check" id="var_object_based" text="Использовать объекты вместо состояний" def="no" x="10" y="24" w="240" h="13" listcolumn="0">
+                            <events>
+                                <event name="check" target="q_var_disabled" action="show"/>
+                                <event name="check" target="q_var_correct" action="show"/>
+                                <event name="check" target="q_var_error" action="show"/>
+                                <event name="check" target="state_disabled" action="hide"/>
+                                <event name="check" target="state_correct" action="hide"/>
+                                <event name="check" target="state_error" action="hide"/>
+                                <event name="uncheck" target="q_var_disabled" action="hide"/>
+                                <event name="uncheck" target="q_var_correct" action="hide"/>
+                                <event name="uncheck" target="q_var_error" action="hide"/>
+                                <event name="uncheck" target="state_disabled" action="show"/>
+                                <event name="uncheck" target="state_correct" action="show"/>
+                                <event name="uncheck" target="state_error" action="show"/>
+                            </events>
+                        </param>
+                        <param type="line" id="line_vars" text="" def="" x="4" y="42" w="312" h="88"/>
+                        <param type="label" id="lab_additional" text="Дополнительные" def="" x="15" y="48" w="115" h="11"/>
+                        <param type="label" id="lab_q_var_disabled" text="Неактивный" def="" x="15" y="64" w="115" h="11"/>
+                        <param type="objectid" id="q_var_disabled" text="Неакт." def="" x="130" y="62" w="158" h="13" listcolumn="0"/>
+                        <param type="label" id="state_disabled" text="disabled" def="disabled" x="130" y="64" w="175" h="13" listcolumn="0"/>
+
+                        <param type="label" id="lab_q_var_correct" text="Правильный" def="" x="15" y="80" w="115" h="11"/>
+                        <param type="objectid" id="q_var_correct" text="Прав." def="" x="130" y="78" w="158" h="13" listcolumn="0"/>
+                        <param type="label" id="state_correct" text="correct" def="correct" x="130" y="80" w="175" h="13" listcolumn="0"/>
+
+                        <param type="label" id="lab_q_var_error" text="Ошибочный" def="" x="15" y="96" w="115" h="11"/>
+                        <param type="objectid" id="q_var_error" text="Ошиб." def="" x="130" y="94" w="158" h="13" listcolumn="0"/>
+                        <param type="label" id="state_error" text="incorrect" def="incorrect" x="130" y="96" w="175" h="13" listcolumn="0"/>
+
+                        <param type="label" id="lab_q_weight_by_var" text="Вес" def="" x="15" y="112" w="115" h="11"/>
+                        <param type="dec_spinner" id="q_weight_by_var" text="Вес" def="1.0" x="130" y="110" w="32" h="13" min="0" max="99"/>
+                        <param type="button" id="OK" text="OK" def="" x="205" y="134" w="50" h="14"/>
+                        <param type="button" id="CANCEL" text="Отмена" def="" x="260" y="134" w="50" h="14"/>
+                    </params>
+                </param>
+                <param type="label" id="lab_interelem" text="Между элементами" def="" x="10" y="110" w="120" h="11"/>
+                <param type="spinner" id="interelem" text="" def="10" x="130" y="108" w="32" h="13" min="0" max="100" listcolumn="0"/>
+                <param type="label" id="lab_interelem_px" text="пкс" def="" x="165" y="110" w="20" h="11"/>
+                <param type="label" id="lab_max_qty" text="Не принимать более" def="" x="10" y="126" w="120" h="11"/>
+                <param type="spinner" id="max_qty" text="Макс." def="0" x="130" y="124" w="32" h="13" min="0" max="100"/>
+            </page>
+        </param>
+
+        <param type="label" id="lab_snap" text="Привязка на базе" def="" x="10" y="126" w="120" h="11"/>
+        <param type="select" id="snap" text="" def="ct" x="130" y="124" w="180" h="13">
+            <items>
+                <item id="none" label="Без привязки"/>
+                <item id="ct" label="По центру, сверху вниз"/>
+                <item id="cm" label="По центру, от полувысоты"/>
+                <item id="cb" label="По центру, снизу вверх"/>
+                <item id="ml" label="По полувысоте, слева направо"/>
+                <item id="mc" label="По полувысоте, от центра"/>
+                <item id="mr" label="По полувысоте, справа налево"/>
+            </items>
+        </param>
+
+        <param type="label" id="lab_on_finish" text="По завершению вопроса" def="" x="10" y="142" w="120" h="11"/>
+        <param type="select" id="q_on_finish" text="" def="asis" x="130" y="140" w="180" h="13">
+            <items>
+                <item id="asis" label="Текущее состояние"/>
+                <item id="disabled" label="Показать неактивные варианты"/>
+            </items>
+        </param>
+        <param type="label" id="lab_display_order" text="Показывать элементы" def="" x="10" y="158" w="120" h="11"/>
+        <param type="select" id="display_order" text="" def="all" x="130" y="156" w="180" h="13">
+            <items>
+                <item id="all" label="Все сразу"/>
+                <item id="seq" label="Показывать по одному случайно"/>
+            </items>
+        </param>
+        <param type="label" id="lab_if_busy" text="Если позиция занята" def="" x="10" y="174" w="120" h="11"/>
+        <param type="select" id="if_busy" text="" def="replace_last" x="130" y="172" w="180" h="13">
+            <items>
+                <item id="replace_first" label="Вытеснить первый"/>
+                <item id="replace_last" label="Вытеснить последний"/>
+                <item id="leave" label="Вернуться в начальное положение"/>
+            </items>
+        </param>
+
+        <param type="label" id="lab_q_attempts" text="Количество попыток" def="" x="10" y="190" w="120" h="11"/>
+        <param type="select" id="q_attempts_type" text="" def="fixed" x="130" y="188" w="120" h="13">
+            <items>
+                <item id="fixed" label="По выбору">
+                    <events>
+                        <event name="selendok" target="q_attempts" action="show"/>
+                    </events>
+                </item>
+                <item id="auto" label="Автоматически">
+                    <events>
+                        <event name="selendok" target="q_attempts" action="hide"/>
+                    </events>
+                </item>
+            </items>
+        </param>
+        <param type="spinner" id="q_attempts" text="" def="1" x="252" y="188" w="32" h="13" min="1" max="100"/>
+
+        <param type="label" id="lab_q_submit_type" text="Принимать ответ" def="" x="10" y="206" w="120" h="11"/>
+        <param type="select" id="q_submit_type" text="" def="fixed" x="130" y="204" w="180" h="13">
+            <items>
+                <item id="done" label="По окончанию распределения">
+                    <events>
+                        <event name="selendok" target="fs_accept" action="hide"/>
+                    </events>
+                </item>
+                <item id="button" label="По нажатию на кнопку">
+                    <events>
+                        <event name="selendok" target="fs_accept" action="show"/>
+                    </events>
+                </item>
+            </items>
+        </param>
+
+        <param type="fieldset" id="fs_accept">
+            <param type="line" id="line_add" x="10" y="224" w="300" h="72"/>
+            <param type="label" id="lab_q_submit_idle" text="Кнопка приема ответа" def="" x="15" y="232" w="115" h="11"/>
+            <param type="objectid" id="q_submit_idle" text="" def="" x="130" y="230" w="153" h="13"/>
+            <param type="check" id="accept_object_based" text="Использовать объекты вместо состояний" def="no" x="15" y="246" w="280" h="13">
+                <events>
+                    <event name="check" target="lab_q_submit_over" action="enable"/>
+                    <event name="check" target="q_submit_over" action="enable"/>
+                    <event name="check" target="lab_q_submit_disabled" action="enable"/>
+                    <event name="check" target="q_submit_disabled" action="enable"/>
+                    <event name="uncheck" target="lab_q_submit_over" action="disable"/>
+                    <event name="uncheck" target="q_submit_over" action="disable"/>
+                    <event name="uncheck" target="lab_q_submit_disabled" action="disable"/>
+                    <event name="uncheck" target="q_submit_disabled" action="disable"/>
+                </events>
+            </param>
+            <param type="label" id="lab_q_submit_over" text="При наведении мыши" def="" x="15" y="264" w="120" h="11"/>
+            <param type="objectid" id="q_submit_over" text="" def="" x="130" y="262" w="153" h="13"/>
+            <param type="label" id="lab_q_submit_disabled" text="Неактивная кнопка" def="" x="15" y="280" w="120" h="11"/>
+            <param type="objectid" id="q_submit_disabled" text="" def="" x="130" y="278" w="153" h="13"/>
+        </param>
+    </page>
+    <page name="Оценка" w="320" h="304">
+        <param type="line" id="line_scoring" text="" def="" x="4" y="4" w="312" h="152"/>
+        <param type="check" id="q_scored" text="Оценка вопроса" def="yes" x="10" y="10" w="120" h="13">
+            <events>
+                <event name="check" target="fs_scoring" action="enable"/>
+                <event name="uncheck" target="fs_scoring" action="disable"/>
+            </events>
+        </param>
+        <param type="fieldset" id="fs_scoring">
+            <param type="select" id="q_scoring_type" text="" def="plain" x="130" y="10" w="180" h="13">
+                <items>
+                    <item id="plain" label="Базовый балл"/>
+                    <item id="regressive" label="Базовый балл регрессивно по попыткам"/>
+                    <item id="byobj" label="Баллы по списку целей"/>
+                    <item id="sum" label="Сумма весов выбранных вариантов"/>
+                </items>
+            </param>
+            <param type="label" id="lab_q_weight" text="Базовый балл" def="" x="10" y="28" w="120" h="11"/>
+            <param type="dec_spinner" id="q_weight" text="" def="1.0" x="130" y="26" w="32" h="13" min="0" max="100"/>
+            <param type="label" id="lab_q_scoreboards" text="Цели" def="" x="10" y="42" w="120" h="11"/>
+            <param type="list" id="q_scoreboards" text="" def="yes" x="10" y="40" w="300" h="110">
+                <page name="Цель" w="260" h="80">
+                    <param type="label" id="lab_q_board" text="Цель" def="" x="10" y="10" w="120" h="11"/>
+                    <param type="objectiveid" id="q_board" text="Цель" def="total" x="130" y="8" w="103" h="13"/>
+                    <param type="label" id="lab_q_weight_byobj" text="Балл цели" def="" x="10" y="26" w="100" h="13"/>
+                    <param type="dec_spinner" id="q_weight_byobj" text="Балл цели" def="1.0" x="130" y="25" w="32" h="13" min="0"/>
+                </page>
+            </param>
+        </param>
+    </page>
+    <page name="Ограничения" w="320" h="304">
+
+        <param type="line" id="line_continue" text="" def="" x="4" y="6" w="312" h="72"/>
+        <param type="label" id="lab_q_continue" text="Незаконченный вопрос" def="" x="10" y="14" w="120" h="11"/>
+        <param type="select" id="q_continue" text="" def="restore_silent" x="130" y="12" w="180" h="13">
+            <items>
+                <item id="restart_silent" label="Начать сначала, без предупреждения">
+                    <events>
+                        <event name="selendok" target="lab_q_restart_alert" action="disable"/>
+                        <event name="selendok" target="q_restart_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_restore_alert" action="disable"/>
+                        <event name="selendok" target="q_restore_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_restore_confirm" action="disable"/>
+                        <event name="selendok" target="q_restore_confirm" action="disable"/>
+                    </events>
+                </item>
+                <item id="restart_alert" label="Начать сначала, с предупреждением">
+                    <events>
+                        <event name="selendok" target="lab_q_restart_alert" action="enable"/>
+                        <event name="selendok" target="q_restart_alert" action="enable"/>
+                        <event name="selendok" target="lab_q_restore_alert" action="disable"/>
+                        <event name="selendok" target="q_restore_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_restore_confirm" action="disable"/>
+                        <event name="selendok" target="q_restore_confirm" action="disable"/>
+                    </events>
+                </item>
+                <item id="restore_silent" label="Восстановить состояние, без предупреждения">
+                    <events>
+                        <event name="selendok" target="lab_q_restart_alert" action="disable"/>
+                        <event name="selendok" target="q_restart_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_restore_alert" action="disable"/>
+                        <event name="selendok" target="q_restore_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_restore_confirm" action="disable"/>
+                        <event name="selendok" target="q_restore_confirm" action="disable"/>
+                    </events>
+                </item>
+                <item id="restore_alert" label="Восстановить состояние, с предупреждением">
+                    <events>
+                        <event name="selendok" target="lab_q_restart_alert" action="disable"/>
+                        <event name="selendok" target="q_restart_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_restore_alert" action="enable"/>
+                        <event name="selendok" target="q_restore_alert" action="enable"/>
+                        <event name="selendok" target="lab_q_restore_confirm" action="disable"/>
+                        <event name="selendok" target="q_restore_confirm" action="disable"/>
+                    </events>
+                </item>
+                <item id="restore_confirm" label="Предложить выбор">
+                    <events>
+                        <event name="selendok" target="lab_q_restart_alert" action="disable"/>
+                        <event name="selendok" target="q_restart_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_restore_alert" action="disable"/>
+                        <event name="selendok" target="q_restore_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_restore_confirm" action="enable"/>
+                        <event name="selendok" target="q_restore_confirm" action="enable"/>
+                    </events>
+                </item>
+            </items>
+        </param>
+        <param type="label" id="lab_q_restart_alert" text="Текст - сброс" def="" x="10" y="30" w="120" h="11"/>
+        <param type="edit" id="q_restart_alert" text="" def="Вопрос будет начат сначала, сохраненное состояние вопроса будет сброшено." x="130" y="28" w="180" h="13"/>
+        <param type="label" id="lab_q_restore_alert" text="Текст - восстановление" def="" x="10" y="46" w="120" h="11"/>
+        <param type="edit" id="q_restore_alert" text="" def="Вопрос уже был начат, его состояние будет восстановлено." x="130" y="44" w="180" h="13"/>
+        <param type="label" id="lab_q_restore_confirm" text="Текст диалога выбора" def="" x="10" y="62" w="120" h="11"/>
+        <param type="edit" id="q_restore_confirm" text="" def="Вопрос уже был начат. Восстановить его состояние?" x="130" y="60" w="180" h="13"/>
+
+        <param type="line" id="line_replay" text="" def="" x="4" y="84" w="312" h="72"/>
+        <param type="label" id="lab_q_replay" text="Повторный проход" def="" x="10" y="92" w="120" h="11"/>
+        <param type="select" id="q_replay" text="" def="none_silent" x="130" y="90" w="180" h="13">
+            <items>
+                <item id="none_silent" label="Запрещен, без предупреждения">
+                    <events>
+                        <event name="selendok" target="lab_q_browse_alert" action="disable"/>
+                        <event name="selendok" target="q_browse_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_secondrun_alert" action="disable"/>
+                        <event name="selendok" target="q_secondrun_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_secondrun_confirm" action="disable"/>
+                        <event name="selendok" target="q_secondrun_confirm" action="disable"/>
+                    </events>
+                </item>
+                <item id="none_alert" label="Запрещен, предупреждение">
+                    <events>
+                        <event name="selendok" target="lab_q_browse_alert" action="enable"/>
+                        <event name="selendok" target="q_browse_alert" action="enable"/>
+                        <event name="selendok" target="lab_q_secondrun_alert" action="disable"/>
+                        <event name="selendok" target="q_secondrun_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_secondrun_confirm" action="disable"/>
+                        <event name="selendok" target="q_secondrun_confirm" action="disable"/>
+                    </events>
+                </item>
+                <item id="allow_silent" label="Начать автоматически, без предупреждения">
+                    <events>
+                        <event name="selendok" target="lab_q_browse_alert" action="disable"/>
+                        <event name="selendok" target="q_browse_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_secondrun_alert" action="disable"/>
+                        <event name="selendok" target="q_secondrun_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_secondrun_confirm" action="disable"/>
+                        <event name="selendok" target="q_secondrun_confirm" action="disable"/>
+                    </events>
+                </item>
+                <item id="allow_alert" label="Начать автоматически, предупреждение">
+                    <events>
+                        <event name="selendok" target="lab_q_browse_alert" action="disable"/>
+                        <event name="selendok" target="q_browse_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_secondrun_alert" action="enable"/>
+                        <event name="selendok" target="q_secondrun_alert" action="enable"/>
+                        <event name="selendok" target="lab_q_secondrun_confirm" action="disable"/>
+                        <event name="selendok" target="q_secondrun_confirm" action="disable"/>
+                    </events>
+                </item>
+                <item id="allow_confirm" label="Предложить выбор">
+                    <events>
+                        <event name="selendok" target="lab_q_browse_alert" action="disable"/>
+                        <event name="selendok" target="q_browse_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_secondrun_alert" action="disable"/>
+                        <event name="selendok" target="q_secondrun_alert" action="disable"/>
+                        <event name="selendok" target="lab_q_secondrun_confirm" action="enable"/>
+                        <event name="selendok" target="q_secondrun_confirm" action="enable"/>
+                    </events>
+                </item>
+            </items>
+        </param>
+        <param type="label" id="lab_q_browse_alert" text="Текст - запрет" def="" x="10" y="108" w="120" h="11"/>
+        <param type="edit" id="q_browse_alert" text="" def="Вопрос уже отвечен. Повторный подход запрещен." x="130" y="106" w="180" h="13"/>
+        <param type="label" id="lab_q_secondrun_alert" text="Текст - разрешение" def="" x="10" y="124" w="120" h="11"/>
+        <param type="edit" id="q_secondrun_alert" text="" def="Продолжение подхода." x="130" y="122" w="180" h="13"/>
+        <param type="label" id="lab_q_secondrun_confirm" text="Текст диалога выбора" def="" x="10" y="140" w="120" h="11"/>
+        <param type="edit" id="q_secondrun_confirm" text="" def="Вопрос уже отвечен. Нажмите OK, если хотите пройти его заново или Cancel, чтобы оставить старый результат. " x="130" y="138" w="180" h="13"/>
+
+    </page>
+    <page name="Обратная связь" w="320" h="304">
+        <param type="label" id="lab_final_action" text="Действие по окончанию" def="" x="10" y="10" w="120" h="11"/>
+        <param type="select" id="final_action" text="" def="none" x="130" y="8" w="180" h="13">
+            <items>
+                <item id="none" label="Ничего не менять">
+                    <events>
+                        <event name="selendok" target="lab_final_obj" action="disable"/>
+                        <event name="selendok" target="final_obj" action="disable"/>
+                    </events>
+                </item>
+                <item id="correct" label="Расположить элементы правильно">
+                    <events>
+                        <event name="selendok" target="lab_final_obj" action="enable"/>
+                        <event name="selendok" target="final_obj" action="enable"/>
+                    </events>
+                </item>
+                <item id="mark" label="Показать правильные/неправильные">
+                    <events>
+                        <event name="selendok" target="lab_final_obj" action="enable"/>
+                        <event name="selendok" target="final_obj" action="enable"/>
+                    </events>
+                </item>
+                <item id="replace" label="Заменить на правильные/неправильные">
+                    <events>
+                        <event name="selendok" target="lab_final_obj" action="enable"/>
+                        <event name="selendok" target="final_obj" action="enable"/>
+                    </events>
+                </item>
+            </items>
+        </param>
+        <param type="label" id="lab_final_obj" text="Пояснение" def="" x="10" y="26" w="120" h="11"/>
+        <param type="objectid" id="final_obj" text="" def="" x="130" y="24" w="163" h="13"/>
+
+        <param type="check" id="q_fb_switch" text="Показывать сообщения обратной связи" def="no" x="10" y="40" w="200" h="13">
+            <events>
+                <event name="check" target="fs_fb" action="show"/>
+                <event name="uncheck" target="fs_fb" action="hide"/>
+            </events>
+        </param>
+        <param type="line" id="" text="" def="" x="10" y="56" w="300" h="1"/>
+        <param type="fieldset" id="fs_fb">
+
+            <param type="check" id="q_fb_timerswitch" text="Прятать автоматически через" def="no" x="10" y="64" w="120" h="13">
+                <events>
+                    <event name="check" target="q_fb_timer" action="enable"/>
+                    <event name="check" target="lab_q_fbtimer2" action="enable"/>
+                    <event name="uncheck" target="q_fb_timer" action="disable"/>
+                    <event name="uncheck" target="lab_q_fbtimer2" action="disable"/>
+                </events>
+            </param>
+            <param type="time" id="q_fb_timer" text="" def="3000" x="130" y="64" w="32" h="13" min="100" max="99999"/>
+            <param type="label" id="lab_q_fbtimer2" text="сек" def="" x="165" y="66" w="30" h="11"/>
+
+            <param type="check" id="q_display_fb_correct" text="Правильный ответ" def="yes" x="10" y="80" w="120" h="13">
+                <events>
+                    <event name="check" target="q_fb_correct" action="enable"/>
+                    <event name="uncheck" target="q_fb_correct" action="disable"/>
+                </events>
+            </param>
+            <param type="objectid" id="q_fb_correct" text="" def="" x="130" y="80" w="163" h="13"/>
+
+            <param type="label" id="lab_q_fb_incorrect_type" text="Неправильный ответ" def="" x="10" y="98" w="120" h="11"/>
+            <param type="select" id="q_fb_incorrect_type" text="" def="common" x="130" y="96" w="180" h="13">
+                <items>
+                    <item id="none" label="Не показывать">
+                        <events>
+                            <event name="selendok" target="lab_q_fb_incorrect_common" action="disable"/>
+                            <event name="selendok" target="q_fb_incorrect_common" action="disable"/>
+                            <event name="selendok" target="lab_q_fb_incorrect_by_attempt" action="disable"/>
+                            <event name="selendok" target="q_fb_incorrect_by_attempt" action="disable"/>
+                        </events>
+                    </item>
+                    <item id="common" label="Для всех попыток">
+                        <events>
+                            <event name="selendok" target="lab_q_fb_incorrect_common" action="enable"/>
+                            <event name="selendok" target="q_fb_incorrect_common" action="enable"/>
+                            <event name="selendok" target="lab_q_fb_incorrect_by_attempt" action="disable"/>
+                            <event name="selendok" target="q_fb_incorrect_by_attempt" action="disable"/>
+                        </events>
+                    </item>
+                    <item id="byatt" label="По попыткам">
+                        <events>
+                            <event name="selendok" target="lab_q_fb_incorrect_common" action="disable"/>
+                            <event name="selendok" target="q_fb_incorrect_common" action="disable"/>
+                            <event name="selendok" target="lab_q_fb_incorrect_by_attempt" action="enable"/>
+                            <event name="selendok" target="q_fb_incorrect_by_attempt" action="enable"/>
+                        </events>
+                    </item>
+                </items>
+            </param>
+
+            <param type="label" id="lab_q_fb_incorrect_common" text="Объект" def="" x="10" y="114" w="120" h="11"/>
+            <param type="objectid" id="q_fb_incorrect_common" text="" def="" x="130" y="112" w="163" h="13"/>
+
+            <param type="label" id="lab_q_fb_incorrect_by_attempt" text="По попыткам" def="" x="10" y="130" w="120" h="11"/>
+            <param type="list" id="q_fb_incorrect_by_attempt" text="" def="no" x="10" y="128" w="300" h="78">
+                <params w="320" h="140">
+                    <param type="label" id="lab_q_fb_incorrect_by_att" text="Объект" def="" x="10" y="10" w="120" h="11"/>
+                    <param type="objectid" id="q_fb_incorrect_by_att" text="Объект" def="" x="130" y="8" w="163" h="13"/>
+                </params>
+            </param>
+        </param>
+    </page>
+    <page name="Звук" w="320" h="304">
+        <param type="line" id="LINE_snd_1" text="" def="" x="5" y="8" w="310" h="48"/>
+        <param type="line" id="LINE_snd_2" text="" def="" x="5" y="24" w="310" h="32"/>
+        <param type="label" id="lab_snd_click" text="Нажатие мыши" def="" x="15" y="12" w="120" h="11"/>
+        <param type="select" id="sound_click" text="" def="none" x="15" y="34" w="113" h="13">
+            <items>
+                <item id="none" label="Без звука">
+                    <events>
+                        <event name="selendok" target="sound_click_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="click1" label="Стандартный 1">
+                    <events>
+                        <event name="selendok" target="sound_click_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="click2" label="Стандартный 2">
+                    <events>
+                        <event name="selendok" target="sound_click_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="click3" label="Стандартный 3">
+                    <events>
+                        <event name="selendok" target="sound_click_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="click4" label="Стандартный 4">
+                    <events>
+                        <event name="selendok" target="sound_click_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="custom" label="По выбору">
+                    <events>
+                        <event name="selendok" target="sound_click_file_custom" action="enable"/>
+                    </events>
+                </item>
+            </items>
+        </param>
+        <param type="file" id="sound_click_file_custom" text="" def="" x="130" y="34" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+
+        <param type="line" id="LINE_snd_3" text="" def="" x="5" y="62" w="310" h="48"/>
+        <param type="line" id="LINE_snd_4" text="" def="" x="5" y="78" w="310" h="32"/>
+        <param type="label" id="lab_snd_over" text="Наведение мыши" def="" x="15" y="66" w="120" h="11"/>
+        <param type="select" id="sound_over" text="" def="none" x="15" y="88" w="113" h="13">
+            <items>
+                <item id="none" label="Без звука">
+                    <events>
+                        <event name="selendok" target="sound_over_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="over1" label="Стандартный 1">
+                    <events>
+                        <event name="selendok" target="sound_over_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="over2" label="Стандартный 2">
+                    <events>
+                        <event name="selendok" target="sound_over_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="over3" label="Стандартный 3">
+                    <events>
+                        <event name="selendok" target="sound_over_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="over4" label="Стандартный 4">
+                    <events>
+                        <event name="selendok" target="sound_over_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="custom" label="По выбору">
+                    <events>
+                        <event name="selendok" target="sound_over_file_custom" action="enable"/>
+                    </events>
+                </item>
+            </items>
+        </param>
+        <param type="file" id="sound_over_file_custom" text="" def="" x="130" y="88" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+
+        <param type="line" id="LINE_snd_5" text="" def="" x="5" y="116" w="310" h="48"/>
+        <param type="line" id="LINE_snd_6" text="" def="" x="5" y="132" w="310" h="32"/>
+        <param type="label" id="lab_snd_success" text="Правильный ответ" def="" x="15" y="120" w="120" h="11"/>
+        <param type="select" id="sound_success" text="" def="none" x="15" y="140" w="113" h="13">
+            <items>
+                <item id="none" label="Без звука">
+                    <events>
+                        <event name="selendok" target="sound_success_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="success1" label="Стандартный 1">
+                    <events>
+                        <event name="selendok" target="sound_success_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="success2" label="Стандартный 2">
+                    <events>
+                        <event name="selendok" target="sound_success_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="success3" label="Стандартный 3">
+                    <events>
+                        <event name="selendok" target="sound_success_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="success4" label="Стандартный 4">
+                    <events>
+                        <event name="selendok" target="sound_success_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="custom" label="По выбору">
+                    <events>
+                        <event name="selendok" target="sound_success_file_custom" action="enable"/>
+                    </events>
+                </item>
+            </items>
+        </param>
+        <param type="file" id="sound_success_file_custom" text="" def="" x="130" y="140" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+
+        <param type="line" id="LINE_snd_7" text="" def="" x="5" y="168" w="310" h="48"/>
+        <param type="line" id="LINE_snd_8" text="" def="" x="5" y="184" w="310" h="32"/>
+        <param type="label" id="lab_snd_failure" text="Неправильный ответ" def="" x="15" y="172" w="120" h="11"/>
+        <param type="select" id="sound_failure" text="" def="none" x="15" y="192" w="113" h="13">
+            <items>
+                <item id="none" label="Без звука">
+                    <events>
+                        <event name="selendok" target="sound_failure_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="failure1" label="Стандартный 1">
+                    <events>
+                        <event name="selendok" target="sound_failure_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="failure2" label="Стандартный 2">
+                    <events>
+                        <event name="selendok" target="sound_failure_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="failure3" label="Стандартный 3">
+                    <events>
+                        <event name="selendok" target="sound_failure_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="failure4" label="Стандартный 4">
+                    <events>
+                        <event name="selendok" target="sound_failure_file_custom" action="disable"/>
+                    </events>
+                </item>
+                <item id="custom" label="По выбору">
+                    <events>
+                        <event name="selendok" target="sound_failure_file_custom" action="enable"/>
+                    </events>
+                </item>
+            </items>
+        </param>
+        <param type="file" id="sound_failure_file_custom" text="" def="" x="130" y="192" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+    </page>
+    <page name="Отладка" w="320" h="304">
+        <param type="edit" id="hidden_msg_header" text="" def="Отладочное сообщение от объекта" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_errors" text="" def="Ошибки (могут привести к некорректной работе)" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_no_targets" text="" def="[Основные] Ни одной базы не задано" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_target_is_empty" text="" def="[Основные] Пустой ID объекта базы {{0}}" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_target_not_exists" text="" def="[Основные] Объект базы {{0}} не существует (ID {{1}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_target_not_found" text="" def="[Основные] Объект базы {{0}} не найден (ID {{1}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_is_empty_0" text="" def="[Основные] Пустой ID элемента (база {{0}}, элемент {{1}}, основной)" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_is_empty_1" text="" def="[Основные] Пустой ID элемента (база {{0}}, элемент {{1}}, неактивный)" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_not_exists" text="" def="[Основные] Объект элемента не существует (база {{0}}, элемент {{1}}, ID {{2}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_state_disabled_not_defined" text="" def="[Основные] Не задано состояние Неактивный (disabled) для элемента (база {{0}}, элемент {{1}}, ID {{2}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_btn_empty" text="" def="[Основные] Выбран способ принятия ответа по кнопке, но ID объекта кнопки пуст" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_btn_not_exists" text="" def="[Основные] Выбран способ принятия ответа по кнопке, но объект кнопки не существует (ID {{0}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_btn_hover_not_exists" text="" def="[Основные] Объект кнопки для вида При наведении не существует (ID {{0}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_btn_disabled_not_exists" text="" def="[Основные] Объект кнопки для вида Неактивный не существует (ID {{0}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_correct_empty" text="" def="[Основные][Обратная связь] Для действия по окончанию не назначен объект для вида Правильный для элемента (база {{0}}, элемент {{1}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_incorrect_empty" text="" def="[Основные][Обратная связь] Для действия по окончанию не назначен объект для вида Ошибочный для элемента (база {{0}}, элемент {{1}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_correct_not_exists" text="" def="[Основные][Обратная связь] Для действия по окончанию назначен несуществующий объект для вида Правильный для элемента (база {{0}}, элемент {{1}}, ID {{2}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_incorrect_not_exists" text="" def="[Основные][Обратная связь] Для действия по окончанию назначен несуществующий объект для вида Неправильный для элемента (база {{0}}, элемент {{1}}, ID {{2}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_no_correct_state" text="" def="[Основные][Обратная связь] У объекта элемента (база {{0}}, элемент {{1}}, ID {{2}}) отсутствует состояние Правильный для действия по окончанию" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_bullet_no_incorrrect_state" text="" def="[Основные][Обратная связь] У объекта элемента (база {{0}}, элемент {{1}}, ID {{2}}) отсутствует состояние Ошибочный для действия по окончанию" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_fb_correct_empty" text="" def="[Обратная связь] Не назначен объект обратной связи по правильному ответу" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_fb_correct_not_exists" text="" def="[Обратная связь] Объект обратной связи по правильному ответу не существует (ID: {{0}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_fb_incorrect_empty" text="" def="[Обратная связь] Не назначен объект обратной связи по неправильному ответу" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_fb_incorrect_not_exists" text="" def="[Обратная связь] Объект обратной связи по неправильному ответу не существует (ID: {{0}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_fb_incorrect_list_empty" text="" def="[Обратная связь] Список объектов обратной связи по неправильному ответу пуст" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_fb_incorrect_by_att_empty" text="" def="[Обратная связь] Не назначен объект обратной связи по неправильному ответу для попытки {{0}}" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_error_fb_incorrect_by_att_not_exists" text="" def="[Обратная связь] Объект обратной связи по неправильному ответу для попытки {{0}} не существует (ID {{1}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warnings" text="" def="Предупреждения (некритические)" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_qtext_empty" text="" def="[Основные] Включен показ текста вопроса, но ID объекта с текстом пуст" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_qtext_not_exists" text="" def="[Основные] Включен показ текста вопроса, но объект с текстом не существует (ID {{0}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_instr_empty" text="" def="[Основные] Включен показ инструкции, но ID объекта с инструкцией пуст" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_instr_not_exists" text="" def="[Основные] Включен показ инструкции, но объект с текстом инструкции не существует (ID {{0}})" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_no_bullets" text="" def="[Основные] Не задано ни одного элемента для базы {{0}}" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_no_btn_hover" text="" def="[Основные] Для кнопки принятия ответа не задан объект для вида При наведении" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_no_btn_disabled" text="" def="[Основные] Для кнопки принятия ответа не задан объект для вида Неактивная, в неактивном состоянии кнопка будет спрятана" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_no_btn_state_highlighted" text="" def="[Основные] Для кнопки принятия ответа не задано состояние При наведении (highlighted)" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_no_btn_state_disabled" text="" def="[Основные] Для кнопки принятия ответа не задано состояние Неактивная (disabled), в неактивном состоянии кнопка будет спрятана" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_no_objectives" text="" def="[Оценка] Не назначено ни одной цели для сохранения баллов" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_no_final_obj" text="" def="[Обратная связь] Не определен объект для пояснения действия по окончанию" x="10" y="-50" w="1" h="1"/>
+        <param type="edit" id="hidden_msg_warning_final_obj_not_exists" text="" def="[Обратная связь] Объект для пояснения действия по окончанию не существует (ID {{0}})" x="10" y="-50" w="1" h="1"/>
+
+        <param type="check" id="display_debug_msg" text="Показывать отладочные сообщения во встроенном браузере" def="yes" x="10" y="8" w="300" h="13"/>
+    </page>
+    <methods>
+        <method name="Constructor" label="_Constructor" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Constructor(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                var jCurObjDiv = $(oCurObj.div);
+                var sQuestionId = argobj.pid;
+                oCurObj.data =
+                {
+                    aTargets: [],
+                    bAcceptBtnHasState: (oCurObj.jxParams.children("accept_object_based").text()!="yes"),
+                    bCreated: false,
+                    bCredit: (oCurObj.jxParams.children("q_scored").text()=="yes"),
+                    bDisplayQText: (oCurObj.jxParams.find("display_question_text").text()=="yes"),
+                    bDisplayInstruction: (oCurObj.jxParams.find("display_instruction").text()=="yes"),
+                    bNoMoreAttempts: false,
+                    bShowCorrect: (oCurObj.jxParams.children("final_action").text()!="none"),
+                    bFeedback: (oCurObj.jxParams.children("q_fb_switch").text()=="yes"),
+                    bFeedbackTimer: (oCurObj.jxParams.children("q_fb_timerswitch").text()=="yes"),
+                    bFeedbackCorrect: (oCurObj.jxParams.children("q_display_fb_correct").text()=="yes"),
+                    bFeedbackIncorrect: (oCurObj.jxParams.children("q_fb_incorrect_type").text()!="none"),
+                    bReplace: (oCurObj.jxParams.children("if_busy").text()!="leave"),
+                    bUseBtnState: (oCurObj.jxParams.children("accept_object_based").text()!="yes"),
+
+                    iHideFBIn: +oCurObj.jxParams.children("q_fb_timer").text(),
+                    iFBTimer: 0,
+                    iDisplayTimer: 0,
+                    iTotalElems: oCurObj.jxParams.find("q_variants > item > bullets > item").length,
+
+                    jxObjectives: oCurObj.jxParams.find("q_scoreboards > item"),
+                    jxVars: oCurObj.jxParams.find("q_variants > item"),
+
+                    nBaseScore: +oCurObj.jxParams.children("q_weight").text(),
+
+                    oBullets: {},
+
+                    sFeedbackIncorrect: oCurObj.jxParams.children("q_fb_incorrect_type").text(),
+                    sMode: "init",
+                    sType: "otm",
+                    sDisplayOrder: oCurObj.jxParams.children("display_order").text(),
+                    sScoringType: oCurObj.jxParams.children("q_scoring_type").text(),
+                    sSoundSuccess: oCurObj.jxParams.children("sound_success").text(),
+                    sSoundFailure: oCurObj.jxParams.children("sound_failure").text(),
+                    sSoundClick: oCurObj.jxParams.children("sound_click").text(),
+                    sSoundOver: oCurObj.jxParams.children("sound_over").text(),
+                    sQTextId: oCurObj.jxParams.children("q_text_obj").text(),
+                    sInstrId: oCurObj.jxParams.children("q_instruction_obj").text(),
+                    sSnap: oCurObj.jxParams.children("snap").text(),
+                    sOnFinish: oCurObj.jxParams.children("q_on_finish").text(),
+                    sSubmitType: oCurObj.jxParams.children("q_submit_type").text()
+                };
+                if(oCurObj.data.sSoundClick!="none")
+                {
+                    oCurObj.data.jAudioClick = CL.Sound.Append({ oContainer: jAudioContainer, sId: argobj.pid + "_AUDIO1", sType: oCurObj.data.sSoundClick, sFile: oCurObj.jxParams.children("sound_click_file_custom").text() });
+                }
+                if(oCurObj.data.sSoundOver!="none")
+                {
+                    oCurObj.data.jAudioOver = CL.Sound.Append({ oContainer: jAudioContainer, sId: argobj.pid + "_AUDIO2", sType: oCurObj.data.sSoundOver, sFile: oCurObj.jxParams.children("sound_over_file_custom").text() });
+                }
+                if(oCurObj.data.sSoundSuccess!="none")
+                {
+                    oCurObj.data.jAudioSuccess = CL.Sound.Append({ oContainer: jAudioContainer, sId: argobj.pid + "_AUDIO3", sType: oCurObj.data.sSoundSuccess, sFile: oCurObj.jxParams.children("sound_success_file_custom").text() });
+                }
+                if(oCurObj.data.sSoundFailure!="none")
+                {
+                    oCurObj.data.jAudioFailure = CL.Sound.Append({ oContainer: jAudioContainer, sId: argobj.pid + "_AUDIO4", sType: oCurObj.data.sSoundFailure, sFile: oCurObj.jxParams.children("sound_failure_file_custom").text() });
+                }
+                var jxVar;
+                var jxBullets;
+                var jxBullet;
+                var sTargetId;
+                var sBulletId;
+                var jxObjectNode;
+                var jxGroup;
+                var aTargetIds = [];
+                var iCnt;
+                var aStraightOrder = [];
+                var sBulletCode;
+                for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+                {
+                    jxVar = $(oCurObj.data.jxVars[i-1]);
+                    sTargetId = jxVar.children("q_var_target").text();
+                    if(sTargetId=="")
+                    {
+                        oCurObj.data.aTargets.push("");
+                    }
+                    else
+                    {
+                        jxObjectNode = CL.jxModule.find("object[id='" + sTargetId + "']");
+                        if(jxObjectNode.length!=0)
+                        {
+                            oCurObj.data.aTargets.push(sTargetId);
+                        }
+                        else
+                        {
+                            jxGroup = CL.jxGroups.find("group[id='" + sTargetId + "']");
+                            if(jxGroup.length!=0)
+                            {
+                                aTargetIds = [];
+                                jxGroup.children("ref").each(function ()
+                                {
+                                    aTargetIds.push($(this).attr("id"))
+                                });
+                                oCurObj.data.aTargets.push(aTargetIds.slice(0));
+                            }
+                            else
+                            {
+                                oCurObj.data.aTargets.push("");
+                            }
+                        }
+                    }
+                    jxBullets = jxVar.find("bullets > item");
+                    iCnt = 1;
+                    for(var j=1; j<=jxBullets.length; j++)
+                    {
+                        jxBullet = $(jxBullets[j-1]);
+                        sBulletId = jxBullet.children("q_var_bullet").text();
+                        if(sBulletId=="")
+                        {
+                            continue;
+                        }
+                        jxObjectNode = CL.jxModule.find("object[id='" + sBulletId + "']");
+                        if(jxObjectNode.length!=0)
+                        {
+                            sBulletCode = "t" + i + "b" + iCnt;
+                            oCurObj.data.oBullets[sBulletCode] = { sId: sBulletId, iT: i, iB: j };
+                            aStraightOrder.push(sBulletCode);
+                            iCnt++;
+                        }
+                        else
+                        {
+                            jxGroup = CL.jxGroups.find("group[id='" + sBulletId + "']");
+                            if(jxGroup.length!=0)
+                            {
+                                aTargetIds = [];
+                                jxGroup.children("ref").each(function ()
+                                {
+                                    aTargetIds.push($(this).attr("id"))
+                                });
+                                for(var k=0; k<aTargetIds.length; k++)
+                                {
+                                    sBulletCode = "t" + i + "b" + iCnt;
+                                    oCurObj.data.oBullets[sBulletCode] = { sId: aTargetIds[k], iT: i, iB: j };
+                                    aStraightOrder.push(sBulletCode);
+                                    iCnt++;
+                                }
+                            }
+                        }
+                    }
+                }
+                if(CLZ.oStore[sQuestionId]!=null)
+                {
+                    switch(CLZ.oStore[sQuestionId].u)
+                    {
+                        case "c":
+                        {
+                            switch(oCurObj.jxParams.children("q_replay").text())
+                            {
+                                case "none_alert":
+                                {
+                                    alert(oCurObj.jxParams.children("q_browse_alert").text());
+                                    // no break
+                                }
+                                case "none_silent":
+                                {
+                                    oCurObj.data.sMode = "browse";
+                                    oCurObj.data.bNoMoreAttempts = true;
+                                    break;
+                                }
+                                case "allow_alert":
+                                {
+                                    alert(oCurObj.jxParams.children("q_secondrun_alert").text());
+                                    // no break
+                                }
+                                case "allow_silent":
+                                {
+                                    CLZ.oStore[sQuestionId] = {};
+                                    CLZ.oStore[sQuestionId] = null;
+                                    if(oCurObj.data.bCredit)
+                                    {
+                                        for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+                                        {
+                                            CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+                                        }
+                                    }
+                                    break;
+                                }
+                                case "allow_confirm":
+                                {
+                                    if(confirm(oCurObj.jxParams.children("q_secondrun_confirm").text()))
+                                    {
+                                        CLZ.oStore[sQuestionId] = {};
+                                        CLZ.oStore[sQuestionId] = null;
+                                        if(oCurObj.data.bCredit)
+                                        {
+                                            for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+                                            {
+                                                CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        oCurObj.data.sMode = "browse";
+                                        oCurObj.data.bNoMoreAttempts = true;
+                                    }
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                        case "i":
+                        {
+                            switch(oCurObj.jxParams.children("q_continue").text())
+                            {
+                                case "restart_alert":
+                                {
+                                    alert(oCurObj.jxParams.children("q_restart_alert").text());
+                                    // no break
+                                }
+                                case "restart_silent":
+                                {
+                                    CLZ.oStore[sQuestionId] = {};
+                                    CLZ.oStore[sQuestionId] = null;
+                                    if(oCurObj.data.bCredit)
+                                    {
+                                        for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+                                        {
+                                            CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+                                        }
+                                    }
+                                    break;
+                                }
+                                case "restore_alert":
+                                {
+                                    alert(oCurObj.jxParams.children("q_restore_alert").text());
+                                    // no break
+                                }
+                                case "restore_silent":
+                                {
+                                    oCurObj.data.sMode = "continue";
+                                    break;
+                                }
+                                case "restore_confirm":
+                                {
+                                    if(confirm(oCurObj.jxParams.children("q_restore_confirm").text()))
+                                    {
+                                        oCurObj.data.sMode = "continue";
+                                    }
+                                    else
+                                    {
+                                        CLZ.oStore[sQuestionId] = {};
+                                        CLZ.oStore[sQuestionId] = null;
+                                        if(oCurObj.data.bCredit)
+                                        {
+                                            for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+                                            {
+                                                CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+                                            }
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                        default:
+                        {
+                            CLZ.oStore[sQuestionId] = {};
+                            CLZ.oStore[sQuestionId] = null;
+                            if(oCurObj.data.bCredit)
+                            {
+                                for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+                                {
+                                    CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+                switch(oCurObj.data.sMode)
+                {
+                    case "init":
+                    {
+                        // create storage
+                        CLZ.oStore[sQuestionId] =
+                        {
+                            A:
+                            [
+                                {
+                                    s: 0,
+                                    d: 0,
+                                    u: "i"
+                                }
+                            ],
+                            O: [],
+                            P: [],
+                            R: [],
+                            s: (new Date()).valueOf(),
+                            y: CLD.CLTypeToAbbr[oCurObj.data.sType],
+                            u: "i"
+                        };
+                        if(oCurObj.data.bCredit)
+                        {
+                            CLZ.oStore[sQuestionId].J = [];
+                            oCurObj.data.jxObjectives.each(function () { CLZ.oStore[sQuestionId].J.push( $(this).children("q_board").text() ); });
+                        }
+                        for(var i=0; i<oCurObj.data.jxVars.length; i++)
+                        {
+                            CLZ.oStore[sQuestionId].P.push([]);
+                        }
+                        for(var sKey in oCurObj.data.oBullets)
+                        {
+                            CLZ.oStore[sQuestionId].P[ oCurObj.data.oBullets[sKey].iT - 1 ].push(sKey);
+                        }
+                        var aShuffled = [];
+                        for(var i=0; i<aStraightOrder.length; i++) aShuffled.push( CLTOOLS.Dice({ iMax: aStraightOrder.length, bIncludeMax: false, aUsed: aShuffled, iMaxTries: 1000 }) );
+                        for(var i=0; i<aShuffled.length; i++)
+                        {
+                            CLZ.oStore[sQuestionId].O.push( aStraightOrder[aShuffled[i]] );
+                        }
+                        for(var i=0; i<oCurObj.data.aTargets.length; i++)
+                        {
+                            if(typeof oCurObj.data.aTargets[i] == "string")
+                            {
+                                CLZ.oStore[sQuestionId].R.push([]);
+                            }
+                            else
+                            {
+                                var aDrops = [];
+                                for(var j=0; j<oCurObj.data.aTargets[i].length;j++)
+                                {
+                                    aDrops.push("");
+                                }
+                                CLZ.oStore[sQuestionId].R.push(aDrops.slice(0));
+                            }
+                        }
+                        var iMaxAttepmts = 1;
+                        if(oCurObj.data.sScoringType!="byvar")
+                        {
+                            if(oCurObj.jxParams.children("q_attempts_type").text()=="auto")
+                            {
+                                iMaxAttepmts = oCurObj.data.jxVars.length - 1;
+                            }
+                            else
+                            {
+                                iMaxAttepmts = +oCurObj.jxParams.children("q_attempts").text();
+                            }
+                        }
+                        for(var i=1; i<iMaxAttepmts; i++)
+                        {
+                            CLZ.oStore[sQuestionId].A.push({ u: "n" });
+                        }
+                        break;
+                    }
+                    case "browse":
+                    case "continue":
+                    {
+                        break;
+                    }
+                }
+                oCurObj.data.bCreated = true;
+                CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="Validate" label="_Validate" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Validate(argobj)
+            {
+                if(navigator.userAgent.toLowerCase().indexOf("courselab")==-1) return false;
+                var oCurObj = CLO[argobj.pid];
+                if(oCurObj==null) return false;
+                var aWarnings = [];
+                var aErrors = [];
+                if(oCurObj.data.bDisplayQText)
+                {
+                    if(oCurObj.data.sQTextId=="")
+                    {
+                        aWarnings.push({ sId: "qtext_empty" });
+                    }
+                    else if(CLO[oCurObj.data.sQTextId]==null && CL.jxGroups.find("group[id='" + oCurObj.data.sQTextId + "']").length==0)
+                    {
+                        aWarnings.push({ sId: "qtext_not_exist", aSub: [ oCurObj.data.sQTextId ] });
+                    }
+                }
+                if(oCurObj.data.bDisplayInstruction)
+                {
+                    if(oCurObj.data.sInstrId=="")
+                    {
+                        aWarnings.push({ sId: "instr_empty" });
+                    }
+                    else if(CLO[oCurObj.data.sInstrId]==null && CL.jxGroups.find("group[id='" + oCurObj.data.sInstrId + "']").length==0)
+                    {
+                        aWarnings.push({ sId: "instr_not_exist", aSub: [ oCurObj.data.sInstrId ] });
+                    }
+                }
+                var jxVar;
+                var sId;
+                var aParams = [ "q_var_bullet" ];
+                var jxBullet;
+                var jxBullets;
+                if(oCurObj.data.sOnFinish=="disabled") aParams.push("q_var_disabled");
+                if(oCurObj.data.jxVars.length==0)
+                {
+                    aErrors.push({ sId: "no_targets" });
+                }
+                else
+                {
+                    for(var i=0; i<oCurObj.data.jxVars.length; i++)
+                    {
+                        if(oCurObj.data.aTargets[i]!="")
+                        {
+                            if(typeof oCurObj.data.aTargets[i] == "string")
+                            {
+                                if(CLO[oCurObj.data.aTargets[i]]==null && CL.jxGroups.find("group[id='" + oCurObj.data.aTargets[i] + "']").length==0)
+                                {
+                                    aErrors.push({ sId: "target_not_exists", aSub: [ i+1, oCurObj.data.aTargets[i] ] });
+                                }
+                            }
+                            else if(typeof oCurObj.data.aTargets[i] == "object")
+                            {
+                                for(var j=0; j<oCurObj.data.aTargets[i].length; j++)
+                                {
+                                    if(CLO[oCurObj.data.aTargets[i][j]]==null)
+                                    {
+                                        aErrors.push({ sId: "target_not_found", aSub: [ i+1, oCurObj.data.aTargets[i][j] ] });
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            aErrors.push({ sId: "target_is_empty", aSub: [ i+1 ] });
+                        }
+                        jxBullets = $(oCurObj.data.jxVars[i]).find("bullets > item");
+                        if(jxBullets.length==0)
+                        {
+                            aWarnings.push({ sId: "no_bullets", aSub: [ i+1 ] });
+                        }
+                        else
+                        {
+                            for(var j=0; j<jxBullets.length; j++)
+                            {
+                                jxBullet = $(jxBullets[j]);
+                                for(var k=0; k<aParams.length; k++)
+                                {
+                                    if(jxBullet.children("var_object_based").text()=="yes")
+                                    {
+                                        sId = jxBullet.children(aParams[k]).text();
+                                        if(sId=="")
+                                        {
+                                            aErrors.push({ sId: "bullet_is_empty_" + k, aSub: [ i+1, j+1 ] });
+                                        }
+                                        else if(CLO[sId]==null)
+                                        {
+                                            aErrors.push({ sId: "bullet_not_exists", aSub: [ i+1, j+1, sId ] });
+                                        }
+                                    }
+                                    else
+                                    {
+                                        sId = jxBullet.children(aParams[0]).text();
+                                        if(k==0)
+                                        {
+                                            if(sId=="")
+                                            {
+                                                aErrors.push({ sId: "bullet_is_empty_" + k, aSub: [ i+1, j+1 ] });
+                                                break;
+                                            }
+                                            if(CLO[sId]==null)
+                                            {
+                                                aErrors.push({ sId: "bullet_not_exists", aSub: [ i+1, j+1, sId ] });
+                                                break;
+                                            }
+                                        }
+                                        else if(k==1)
+                                        {
+                                            if(CLO[sId].oStates["disabled"]==null)
+                                            {
+                                                aErrors.push({ sId: "bullet_state_disabled_not_defined", aSub: [ i+1, j+1, sId ] });
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                if(oCurObj.data.sSubmitType=="button")
+                {
+                    var sBtnIdle = oCurObj.jxParams.children("q_submit_idle").text();
+                    if(sBtnIdle!="")
+                    {
+                        if(CLO[sBtnIdle]==null)
+                        {
+                            aErrors.push({ sId: "btn_not_exists", aSub: [ sBtnIdle ] });
+                        }
+                        else
+                        {
+                            if(!oCurObj.data.bAcceptBtnHasState)
+                            {
+                                var sBtnOver = oCurObj.jxParams.children("q_submit_over").text();
+                                var sBtnDisabled = oCurObj.jxParams.children("q_submit_disabled").text();
+                                if(sBtnOver!="")
+                                {
+                                    if(CLO[sBtnOver]==null)
+                                    {
+                                        aErrors.push({ sId: "btn_hover_not_exists", aSub: [ sBtnOver ] });
+                                    }
+                                }
+                                else
+                                {
+                                    aWarnings.push({ sId: "no_btn_hover" });
+                                }
+                                if(sBtnDisabled!="")
+                                {
+                                    if(CLO[sBtnDisabled]==null)
+                                    {
+                                        aErrors.push({ sId: "btn_disabled_not_exists", aSub: [ sBtnDisabled ] });
+                                    }
+                                }
+                                else
+                                {
+                                    aWarnings.push({ sId: "no_btn_disabled" });
+                                }
+                            }
+                            else
+                            {
+                                if(CLO[sBtnIdle].oStates["highlighted"]==null)
+                                {
+                                    aWarnings.push({ sId: "no_btn_state_highlighted" });
+                                }
+                                if(CLO[sBtnIdle].oStates["disabled"]==null)
+                                {
+                                    aWarnings.push({ sId: "no_btn_state_disabled" });
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        aErrors.push({ sId: "btn_empty" });
+                    }
+                }
+                if(oCurObj.jxParams.children("q_scored").text()=="yes")
+                {
+                    if(oCurObj.jxParams.find("q_scoreboards:first > item > q_board").length==0)
+                    {
+                        aWarnings.push({ sId: "no_objectives" });
+                    }
+                }
+                switch(oCurObj.jxParams.children("final_action").text())
+                {
+                    case "mark":
+                    case "replace":
+                    {
+                        if(oCurObj.data.jxVars.length!=0)
+                        {
+                            var sIncId;
+                            var sCorId;
+                            for(var i=0; i<oCurObj.data.jxVars.length; i++)
+                            {
+                                jxVar = $(oCurObj.data.jxVars[i]);
+                                jxBullets = jxVar.find("bullets > item");
+                                for(var j=0; j<jxBullets.length; j++)
+                                {
+                                    jxBullet = $(jxBullets[j]);
+                                    sId = jxBullet.children("q_var_bullet").text();
+                                    if(sId!="")
+                                    {
+                                        if(jxBullet.children("var_object_based").text()=="yes")
+                                        {
+                                            sCorId = jxBullet.children("q_var_correct").text();
+                                            if(sCorId=="")
+                                            {
+                                                aErrors.push({ sId: "bullet_correct_empty", aSub: [ i+1, j+1 ] });
+                                            }
+                                            else if(CLO[sCorId]==null && CL.jxGroups.find("group[id='" + sCorId + "']").length==0)
+                                            {
+                                                aErrors.push({ sId: "bullet_correct_not_exists", aSub: [ i+1, j+1, sCorId ] });
+                                            }
+                                            sIncId = jxBullet.children("q_var_error").text();
+                                            if(sIncId=="")
+                                            {
+                                                aErrors.push({ sId: "bullet_incorrect_empty", aSub: [ i+1, j+1 ] });
+                                            }
+                                            else if(CLO[sIncId]==null && CL.jxGroups.find("group[id='" + sIncId + "']").length==0)
+                                            {
+                                                aErrors.push({ sId: "bullet_incorrect_not_exists", aSub: [ i+1, j+1, sIncId ] });
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if(CLO[sId].oStates["correct"]==null)
+                                            {
+                                                aErrors.push({ sId: "bullet_no_correct_state", aSub: [ i+1, j+1, sId ] });
+                                            }
+                                            if(CLO[sId].oStates["incorrect"]==null)
+                                            {
+                                                aErrors.push({ sId: "bullet_no_incorrect_state", aSub: [ i+1, j+1, sId ] });
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } // break omitted intentionally
+                    case "correct":
+                    {
+                        var sFinalObjId = oCurObj.jxParams.children("final_obj").text();
+                        if(sFinalObjId=="")
+                        {
+                            aWarnings.push({ sId: "no_final_obj" });
+                        }
+                        else if(CLO[sFinalObjId]==null && CL.jxGroups.find("group[id='" + sFinalObjId + "']").length==0)
+                        {
+                            aWarnings.push({ sId: "final_obj_not_exists", aSub: [ sFinalObjId ] });
+                        }
+                        break;
+                    }
+                }
+                if(oCurObj.jxParams.children("q_fb_switch").text()=="yes")
+                {
+                    if(oCurObj.jxParams.children("q_display_fb_correct").text()=="yes")
+                    {
+                        sId = oCurObj.jxParams.children("q_fb_correct").text();
+                        if(sId=="")
+                        {
+                            aErrors.push({ sId: "fb_correct_empty", aSub: [ i+1, j+1 ] });
+                        }
+                        else if(CLO[sId]==null && CL.jxGroups.find("group[id='" + sId + "']").length==0)
+                        {
+                            aErrors.push({ sId: "fb_correct_not_exists", aSub: [ sId ] });
+                        }
+                    }
+                    switch(oCurObj.jxParams.children("q_fb_incorrect_type").text())
+                    {
+                        case "common":
+                        {
+                            sId = oCurObj.jxParams.children("q_fb_incorrect_common").text();
+                            if(sId=="")
+                            {
+                                aErrors.push({ sId: "fb_incorrect_empty", aSub: [ i+1, j+1 ] });
+                            }
+                            else if(CLO[sId]==null && CL.jxGroups.find("group[id='" + sId + "']").length==0)
+                            {
+                                aErrors.push({ sId: "fb_incorrect_not_exists", aSub: [ sId ] });
+                            }
+                            break;
+                        }
+                        case "byatt":
+                        {
+                            var jxFBItems = jxVar.find("q_fb_incorrect_by_attempt:first > item");
+                            if(jxFBItems.length==0)
+                            {
+                                aErrors.push({ sId: "fb_incorrect_list_empty", aSub: [ sId ] });
+                            }
+                            else
+                            {
+                                for(var j=0; j<jxFBItems.length; j++)
+                                {
+                                    sId = $(jxFBItems[j]).children("q_fb_incorrect_by_att").text();
+                                    if(sId=="")
+                                    {
+                                        aErrors.push({ sId: "fb_incorrect_by_att_empty", aSub: [ j+1 ] });
+                                    }
+                                    else if(CLO[sId]==null && CL.jxGroups.find("group[id='" + sId + "']").length==0)
+                                    {
+                                        aErrors.push({ sId: "fb_incorrect_by_att_not_exists", aSub: [ j+1, sId ] });
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+                if(aErrors.length!=0 || aWarnings.length!=0)
+                {
+                    var jMsg = $(document.createElement("div")).addClass("cl-object-debug-msg").appendTo(CL.oBoard);
+                    var sTxt = "<h3>" + oCurObj.jxParams.children("hidden_msg_header").text() + " " + oCurObj.jxParams.children("hidden.object").text() + " " + argobj.pid + "</h3>";
+                    var sTmp;
+                    var aParts;
+                    if(aErrors.length!=0)
+                    {
+                        sTxt += "<h4>" + oCurObj.jxParams.children("hidden_msg_errors").text() + "</h4><ul>";
+                        for(var i=0; i<aErrors.length; i++)
+                        {
+                            sTmp = oCurObj.jxParams.children("hidden_msg_error_" + aErrors[i].sId).text();
+                            if(sTmp!="")
+                            {
+                                if(aErrors[i].aSub!=null)
+                                {
+                                    for(var j=0; j<aErrors[i].aSub.length; j++)
+                                    {
+                                        aParts = sTmp.split("{{" + j + "}}");
+                                        sTmp = aParts.join(aErrors[i].aSub[j]);
+                                    }
+                                }
+                                sTxt += "<li>" + sTmp + "</li>";
+                            }
+                        }
+                        sTxt += "</ul>";
+                    }
+                    if(aWarnings.length!=0)
+                    {
+                        sTxt += "<h4>" + oCurObj.jxParams.children("hidden_msg_warnings").text() + "</h4><ul>";
+                        for(var i=0; i<aWarnings.length; i++)
+                        {
+                            sTmp = oCurObj.jxParams.children("hidden_msg_warning_" + aWarnings[i].sId).text();
+                            if(sTmp!="")
+                            {
+                                if(aWarnings[i].aSub!=null)
+                                {
+                                    for(var j=0; j<aWarnings[i].aSub.length; j++)
+                                    {
+                                        aParts = sTmp.split("{{" + j + "}}");
+                                        sTmp = aParts.join(aWarnings[i].aSub[j]);
+                                    }
+                                }
+                                sTxt += "<li>" + sTmp + "</li>";
+                            }
+                        }
+                        sTxt += "</ul>";
+                    }
+                    jMsg.html(sTxt);
+                    $(document.createElement("div")).addClass("cl-object-debug-msg-close").html("&#215;").on("click", function () { jMsg.hide(); }).appendTo(jMsg);
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="Cleanup" label="_Cleanup" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Cleanup(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                if(oCurObj==null) return false;
+                if(oCurObj.data.sSubmitType=="button")
+                {
+                    var sBtnIdle = oCurObj.jxParams.children("q_submit_idle").text();
+                    if(sBtnIdle!="")
+                    {
+                        if(CLO[sBtnIdle]!=null)
+                        {
+                            if(oCurObj.data.bAcceptBtnHasState)
+                            {
+                                if(CLO[sBtnIdle].oStates["selected"]!=null)
+                                {
+                                    CLO[sBtnIdle].oStates["selected"].div.remove();
+                                    delete CLO[sBtnIdle].oStates["selected"];
+                                }
+                            }
+                        }
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="HandleEvt" label="_HandleEvt" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function HandleEvt(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                if(oCurObj==null) return false;
+                switch(argobj.evt)
+                {
+                    case "EVENT_OBJECT_SHOW":
+                    {
+                        if(!oCurObj.data.bCreated) return false;
+                        oCurObj.CallMethod({ sMethod: "Cleanup" });
+                        if(oCurObj.jxParams.children("display_debug_msg").text()=="yes")
+                        {
+                            oCurObj.CallMethod({ sMethod: "Validate" });
+                        }
+                        oCurObj.CallMethod({ sMethod: "Display" });
+                        break;
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="CheckInit" label="_CheckInit" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function CheckInit(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                var sQuestionId = argobj.pid;
+                var sTargetId;
+                var nCenterX = 0;
+                var nCenterY = 0;
+                for(var sKey in oCurObj.data.oBullets)
+                {
+                    nCenterX = CLO[ oCurObj.data.oBullets[sKey].sId ].current.x + 0.5*CLO[ oCurObj.data.oBullets[sKey].sId ].current.w;
+                    nCenterY = CLO[ oCurObj.data.oBullets[sKey].sId ].current.y + 0.5*CLO[ oCurObj.data.oBullets[sKey].sId ].current.h;
+                    for(var i=0; i<oCurObj.data.aTargets.length; i++)
+                    {
+                        if(typeof oCurObj.data.aTargets[i] == "string")
+                        {
+                            if( (nCenterX > CLO[ oCurObj.data.aTargets[i] ].current.x) && (nCenterX < (CLO[ oCurObj.data.aTargets[i] ].current.x + CLO[ oCurObj.data.aTargets[i] ].current.w)) && (nCenterY > CLO[ oCurObj.data.aTargets[i] ].current.y) && (nCenterY < (CLO[ oCurObj.data.aTargets[i] ].current.y + CLO[ oCurObj.data.aTargets[i] ].current.h)) )
+                            {
+                                oCurObj.CallMethod({ sMethod: "Snap", oMethodArgs: { sDropId: oCurObj.data.aTargets[i], sDragId: oCurObj.data.oBullets[sKey].sId } });
+                            }
+                        }
+                        else if(typeof oCurObj.data.aTargets[i] == "object")
+                        {
+                            for(var j=0; j<oCurObj.data.aTargets[i].length; j++)
+                            {
+                                if( (nCenterX > CLO[ oCurObj.data.aTargets[i][j] ].current.x) && (nCenterX < (CLO[ oCurObj.data.aTargets[i][j] ].current.x + CLO[ oCurObj.data.aTargets[i][j] ].current.w)) && (nCenterY > CLO[ oCurObj.data.aTargets[i][j] ].current.y) && (nCenterY < (CLO[ oCurObj.data.aTargets[i][j] ].current.y + CLO[ oCurObj.data.aTargets[i][j] ].current.h)) )
+                                {
+                                    if(CLZ.oStore[sQuestionId].R[i][j]!=null && CLZ.oStore[sQuestionId].R[i][j]!="")
+                                    {
+                                        for(var k=0; k<oCurObj.data.aTargets[i].length; k++)
+                                        {
+                                            if(CLZ.oStore[sQuestionId].R[i][k]==null || CLZ.oStore[sQuestionId].R[i][k]=="")
+                                            {
+                                                sTargetId = oCurObj.data.aTargets[i][k];
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        sTargetId = oCurObj.data.aTargets[i][j];
+                                    }
+                                    oCurObj.CallMethod({ sMethod: "Snap", oMethodArgs: { sDropId: sTargetId, sDragId: oCurObj.data.oBullets[sKey].sId } });
+                                }
+                            }
+                        }
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="Place" label="_Place" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Place(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                var sQuestionId = argobj.pid;
+                var jTarget;
+                if(argobj.sTargetId!=null && argobj.sTargetId!="")
+                {
+                    jTarget = $("#" + argobj.sTargetId);
+                }
+                else if(argobj.sTargetCode!=null && argobj.sTargetCode!="")
+                {
+                    var oTarget = oCurObj.data.aTargets[+argobj.sTargetCode-1];
+                    if(typeof oTarget == "string")
+                    {
+                        jTarget = $("#" + oTarget);
+                    }
+                    else if(typeof oTarget == "object")
+                    {
+                        for(var i=0; i<oTarget.length; i++)
+                        {
+                            jTarget = $("#" + oTarget[i]);
+                            if(jTarget.attr("data-vq-placed")==null || jTarget.attr("data-vq-placed")=="")
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+                if(jTarget.length==0) return false;
+                var iDropId = +jTarget.attr("data-vq-drop") - 1; // to address array
+                var jxVar = $(oCurObj.data.jxVars[iDropId]);
+                var iInterElem = +jxVar.children("interelem").text();
+                var sPlaced = jTarget.attr("data-vq-placed");
+                var aPlaced = (sPlaced==null || sPlaced=="") ? [] : sPlaced.split("|");
+                if($.inArray(argobj.sBulletId, aPlaced)!=-1) return false;
+                aPlaced.push(argobj.sBulletId);
+                jTarget.attr({ "data-vq-placed": aPlaced.join("|") });
+                if(oCurObj.data.sSnap=="none")
+                {
+                    oCurObj.data.sSnap = "cm";
+                }
+                var oTarget =
+                {
+                    iH: jTarget.height(),
+                    iL: jTarget.position().left,
+                    iT: jTarget.position().top,
+                    iW: jTarget.width()
+                };
+                var iLeft = oTarget.iL;
+                var iTop = oTarget.iT;
+                var iQty = aPlaced.length;
+                var iTotalW = 0;
+                var iTotalH = 0;
+                var oElems = {};
+                var jElem;
+                for(var i=0; i<aPlaced.length; i++)
+                {
+                    jElem = $("#" + aPlaced[i]);
+                    iTotalW += jElem.width();
+                    iTotalH += jElem.height();
+                }
+                iTotalW += (aPlaced.length-1)*iInterElem;
+                iTotalH += (aPlaced.length-1)*iInterElem;
+                var iNewL = (oCurObj.data.sSnap=="mc") ? (0.5*(oTarget.iW - iTotalW)) : ((oCurObj.data.sSnap=="mr") ? oTarget.iW : 0);
+                var iFinalL = 0;
+                for(var i=0; i<aPlaced.length; i++)
+                {
+                    jElem = $("#" + aPlaced[i]);
+                    switch(oCurObj.data.sSnap)
+                    {
+                        case "ct":
+                        case "cm":
+                        case "cb":
+                        {
+                            iFinalL = 0.5*(oTarget.iW - jElem.width());
+                            break;
+                        }
+                        case "mc":
+                        case "ml":
+                        {
+                            iFinalL = iNewL;
+                            iNewL += jElem.width() + iInterElem;
+                            break;
+                        }
+                        case "mr":
+                        {
+                            iFinalL = iNewL - jElem.width();
+                            iNewL = iFinalL - iInterElem;
+                            break;
+                        }
+                    }
+                    jElem.css({ "left": ((iLeft + iFinalL)/CLZ.nZoom) + "px" });
+                }
+                var iNewT = (oCurObj.data.sSnap=="cm") ? (0.5*(oTarget.iH - iTotalH)) : ((oCurObj.data.sSnap=="cb") ? oTarget.iH : 0);
+                var iFinalT = 0;
+                for(var i=0; i<aPlaced.length; i++)
+                {
+                    jElem = $("#" + aPlaced[i]);
+                    switch(oCurObj.data.sSnap)
+                    {
+                        case "ml":
+                        case "mc":
+                        case "mr":
+                        {
+                            iFinalT = 0.5*(oTarget.iH - jElem.height());
+                            break;
+                        }
+                        case "ct":
+                        case "cm":
+                        {
+                            iFinalT = iNewT;
+                            iNewT += jElem.height() + iInterElem;
+                            break;
+                        }
+                        case "cb":
+                        {
+                            iFinalT = iNewT - jElem.height();
+                            iNewT = iFinalT - iInterElem;
+                            break;
+                        }
+                    }
+                    jElem.css({ "top": ((iTop + iFinalT)/CLZ.nZoom) + "px" });
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="Ready" label="_Ready" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Ready(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                if(oCurObj.data.bDisplayQText && oCurObj.data.sQTextId!="")
+                {
+                    if(CLO[oCurObj.data.sQTextId]==null)
+                    {
+                        return false;
+                    }
+                }
+                if(oCurObj.data.bDisplayInstruction && oCurObj.data.sInstrId!="")
+                {
+                    if(CLO[oCurObj.data.sInstrId]==null)
+                    {
+                        return false;
+                    }
+                }
+                var jxVar;
+                var sId;
+                var aParams = [ "q_var_bullet" ];
+                var jxBullet;
+                var jxBullets;
+                if(oCurObj.data.sOnFinish=="disabled") aParams.push("q_var_disabled");
+                for(var i=0; i<oCurObj.data.jxVars.length; i++)
+                {
+                    if(oCurObj.data.aTargets[i]!="")
+                    {
+                        if(typeof oCurObj.data.aTargets[i] == "string")
+                        {
+                            if(CLO[oCurObj.data.aTargets[i]]==null)
+                            {
+                                return false;
+                            }
+                        }
+                        else if(typeof oCurObj.data.aTargets[i] == "object")
+                        {
+                            for(var j=0; j<oCurObj.data.aTargets[i].length; j++)
+                            {
+                                if(CLO[oCurObj.data.aTargets[i][j]]==null)
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                    jxBullets = $(oCurObj.data.jxVars[i]).find("bullets > item");
+                    for(var j=0; j<jxBullets.length; j++)
+                    {
+                        jxBullet = $(jxBullets[j]);
+                        for(var k=0; k<aParams.length; k++)
+                        {
+                            sId = jxBullet.children(aParams[k]).text();
+                            if(sId!="")
+                            {
+                                if(CLO[sId]==null) return false;
+                            }
+                        }
+                    }
+                }
+                // no need to check feedback
+                if(oCurObj.data.sSubmitType=="button")
+                {
+                    var sBtnIdle = oCurObj.jxParams.children("q_submit_idle").text();
+                    if(sBtnIdle!="")
+                    {
+                        if(CLO[sBtnIdle]==null)
+                        {
+                            return false;
+                        }
+                    }
+                    if(!oCurObj.data.bAcceptBtnHasState)
+                    {
+                        var sBtnOver = oCurObj.jxParams.children("q_submit_over").text();
+                        var sBtnDisabled = oCurObj.jxParams.children("q_submit_disabled").text();
+                        if(sBtnOver!="")
+                        {
+                            if(CLO[sBtnOver]==null)
+                            {
+                                return false;
+                            }
+                        }
+                        if(sBtnDisabled!="")
+                        {
+                            if(CLO[sBtnDisabled]==null)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="Display" label="_Display" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Display(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                if(oCurObj==null) return false;
+                var sQuestionId = argobj.pid;
+                if(!oCurObj.CallMethod({ sMethod: "Ready" }))
+                { // wait for all acting objects to be ready
+                    oCurObj.data.iDisplayTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Display" }); }, 50);
+                    return false;
+                }
+                oCurObj.FireEvent({ sName: "onReady" });
+                var sBulletId;
+                var iDur;
+                switch(oCurObj.data.sMode)
+                {
+                    case "init":
+                    {
+                        if(oCurObj.data.bDisplayQText)
+                        {
+                            if(oCurObj.data.sQTextId!=null && oCurObj.data.sQTextId!="")
+                            {
+                                if(CLO[oCurObj.data.sQTextId]!=null)
+                                {
+                                    if(!$(CLO[oCurObj.data.sQTextId].div).is(":visible"))
+                                    {
+                                        CLO[oCurObj.data.sQTextId].Show();
+                                        if(CLO[oCurObj.data.sQTextId].tranin!=null)
+                                        {
+                                            var iDur = +CLO[oCurObj.data.sQTextId].tranin.duration;
+                                            if(iDur>0)
+                                            {
+                                                oCurObj.data.iDisplayTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Display" }); }, iDur*1000);
+                                                return false;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if(oCurObj.data.bDisplayInstruction)
+                        {
+                            if(oCurObj.data.sInstrId!=null && oCurObj.data.sInstrId!="")
+                            {
+                                if(CLO[oCurObj.data.sInstrId]!=null)
+                                {
+                                    if(!$(CLO[oCurObj.data.sInstrId].div).is(":visible"))
+                                    {
+                                        CLO[oCurObj.data.sInstrId].Show();
+                                        if(CLO[oCurObj.data.sInstrId].tranin!=null)
+                                        {
+                                            var iDur = +CLO[oCurObj.data.sInstrId].tranin.duration;
+                                            if(iDur>0)
+                                            {
+                                                oCurObj.data.iDisplayTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Display" }); }, iDur*1000);
+                                                return false;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        var iDur;
+                        for(var i=0; i<oCurObj.data.aTargets.length; i++)
+                        {
+                            if(oCurObj.data.aTargets[i]=="")
+                            {
+                                continue;
+                            }
+                            if(typeof oCurObj.data.aTargets[i] == "string")
+                            {
+                                if($(CLO[ oCurObj.data.aTargets[i] ].div).is(":visible"))
+                                {
+                                    continue;
+                                }
+                                CLO[ oCurObj.data.aTargets[i] ].Show();
+                                if(CLO[ oCurObj.data.aTargets[i] ].tranin!=null)
+                                {
+                                    iDur = +CLO[ oCurObj.data.aTargets[i] ].tranin.duration;
+                                    if(iDur>0)
+                                    {
+                                        oCurObj.data.iDisplayTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Display" }); }, iDur*1000);
+                                        return false;
+                                    }
+                                }
+                            }
+                            else if(typeof oCurObj.data.aTargets[i] == "object")
+                            {
+                                for(var j=0; j<oCurObj.data.aTargets[i].length; j++)
+                                {
+                                    CLO[ oCurObj.data.aTargets[i][j] ].Show();
+                                    if(CLO[ oCurObj.data.aTargets[i][j] ].tranin!=null)
+                                    {
+                                        iDur = +CLO[ oCurObj.data.aTargets[i][j] ].tranin.duration;
+                                        if(iDur>0)
+                                        {
+                                            oCurObj.data.iDisplayTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Display" }); }, iDur*1000);
+                                            return false;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if(CLZ.oStore[sQuestionId].O.length!=0)
+                        {
+                            if(oCurObj.data.sDisplayOrder=="seq")
+                            {
+                                sBulletId = oCurObj.data.oBullets[ CLZ.oStore[sQuestionId].O[0] ].sId;
+                                if(!$(CLO[sBulletId].div).is(":visible"))
+                                {
+                                    CLO[sBulletId].Show();
+                                    if(CLO[sBulletId].tranin!=null)
+                                    {
+                                        iDur = 1000*CLO[sBulletId].tranin.duration;
+                                        if(isNaN(iDur))
+                                        {
+                                            iDur = 100;
+                                        }
+                                        oCurObj.data.iDisplayTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Display" }); }, iDur);
+                                    }
+                                }
+                                if(CLZ.oStore[sQuestionId].O.length!=1)
+                                {
+                                    for(var i=1; i<CLZ.oStore[sQuestionId].O.length; i++)
+                                    {
+                                        sBulletId = oCurObj.data.oBullets[ CLZ.oStore[sQuestionId].O[i] ].sId;
+                                        if($(CLO[sBulletId].div).is(":visible"))
+                                        {
+                                            CLO[sBulletId].Hide({ bActionCall: true, bUseTransition: false });
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                for(var i=0; i<CLZ.oStore[sQuestionId].O.length; i++)
+                                {
+                                    sBulletId = oCurObj.data.oBullets[ CLZ.oStore[sQuestionId].O[i] ].sId;
+                                    if($(CLO[sBulletId].div).is(":visible"))
+                                    {
+                                        continue;
+                                    }
+                                    CLO[sBulletId].Show();
+                                    if(CLO[sBulletId].tranin!=null)
+                                    {
+                                        iDur = 1000*CLO[sBulletId].tranin.duration;
+                                        if(isNaN(iDur))
+                                        {
+                                            iDur = 100;
+                                        }
+                                        oCurObj.data.iDisplayTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Display" }); }, iDur);
+                                    }
+                                    return false;
+                                }
+                            }
+                        }
+                        oCurObj.CallMethod({ sMethod: "Manage", oMethodArgs: { aActions: [ "activate" ] } } );
+                        oCurObj.CallMethod({ sMethod: "CheckInit" } );
+                        if(oCurObj.jxParams.children("q_submit_type").text()=="button")
+                        {
+                            oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { sAction: "disable" } });
+                        }
+                        break;
+                    }
+                    case "continue":
+                    case "browse":
+                    {
+                        if(oCurObj.data.bDisplayQText)
+                        {
+                            if(oCurObj.data.sQTextId!=null && oCurObj.data.sQTextId!="")
+                            {
+                                if(CLO[oCurObj.data.sQTextId]!=null)
+                                {
+                                    if(!$(CLO[oCurObj.data.sQTextId].div).is(":visible"))
+                                    {
+                                        CLO[oCurObj.data.sQTextId].Show({ bActionCall: true, bUseTransition: false });
+                                    }
+                                }
+                            }
+                        }
+                        if(oCurObj.data.bDisplayInstruction)
+                        {
+                            if(oCurObj.data.sInstrId!=null && oCurObj.data.sInstrId!="")
+                            {
+                                if(CLO[oCurObj.data.sInstrId]!=null)
+                                {
+                                    if(!$(CLO[oCurObj.data.sInstrId].div).is(":visible"))
+                                    {
+                                        CLO[oCurObj.data.sInstrId].Show({ bActionCall: true, bUseTransition: false });
+                                    }
+                                }
+                            }
+                        }
+                        for(var i=0; i<oCurObj.data.aTargets.length; i++)
+                        {
+                            if(oCurObj.data.aTargets[i]=="")
+                            {
+                                continue;
+                            }
+                            if(typeof oCurObj.data.aTargets[i] == "string")
+                            {
+                                if($(CLO[ oCurObj.data.aTargets[i] ].div).is(":visible"))
+                                {
+                                    continue;
+                                }
+                                CLO[ oCurObj.data.aTargets[i] ].Show({ bActionCall: true, bUseTransition: false });
+                            }
+                            else if(typeof oCurObj.data.aTargets[i] == "object")
+                            {
+                                for(var j=0; j<oCurObj.data.aTargets[i].length; j++)
+                                {
+                                    if($(CLO[ oCurObj.data.aTargets[i][j] ].div).is(":visible"))
+                                    {
+                                        continue;
+                                    }
+                                    CLO[ oCurObj.data.aTargets[i][j] ].Show({ bActionCall: true, bUseTransition: false });
+                                }
+                            }
+                        }
+                        var aAllResponses = [];
+                        for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+                        {
+                            for(var j=0; j<CLZ.oStore[sQuestionId].R[i].length; j++)
+                            {
+                                if(CLZ.oStore[sQuestionId].R[i][j]!=null && CLZ.oStore[sQuestionId].R[i][j]!="") aAllResponses.push(CLZ.oStore[sQuestionId].R[i][j]);
+                            }
+                        }
+                        var bStop = false;
+                        var sBulletCode;
+                        for(var i=0; i<CLZ.oStore[sQuestionId].O.length; i++)
+                        {
+                            sBulletCode = CLZ.oStore[sQuestionId].O[i];
+                            if(oCurObj.data.sDisplayOrder=="seq")
+                            {
+                                if($.inArray(sBulletCode, aAllResponses)==-1)
+                                {
+                                    bStop = true;
+                                }
+                            }
+                            sBulletId = oCurObj.data.oBullets[sBulletCode].sId;
+                            if(sBulletId=="") continue;
+                            if($(CLO[sBulletId].div).is(":visible")) continue;
+                            CLO[sBulletId].Show({ bActionCall: true, bUseTransition: false });
+                            if(bStop) break;
+                        }
+                        oCurObj.CallMethod({ sMethod: "Manage", oMethodArgs: { aActions: [ "activate" ] } } );
+                        for(var i=0; i<oCurObj.data.aTargets.length; i++)
+                        {
+                            if(typeof oCurObj.data.aTargets[i] == "string")
+                            {
+                                for(var j=0; j<CLZ.oStore[sQuestionId].R[i].length; j++)
+                                {
+                                    if(CLZ.oStore[sQuestionId].R[i][j]!=null)
+                                    {
+                                        oCurObj.CallMethod({ sMethod: "Place", oMethodArgs: { sTargetId: oCurObj.data.aTargets[i], sBulletId: oCurObj.data.oBullets[ CLZ.oStore[sQuestionId].R[i][j] ].sId } });
+                                    }
+                                }
+                            }
+                            else if(typeof oCurObj.data.aTargets[i] == "object")
+                            {
+                                for(var j=0; j<oCurObj.data.aTargets[i].length; j++)
+                                {
+                                    if(CLZ.oStore[sQuestionId].R[i][j]!=null && CLZ.oStore[sQuestionId].R[i][j]!="")
+                                    {
+                                        oCurObj.CallMethod({ sMethod: "Place", oMethodArgs: { sTargetId: oCurObj.data.aTargets[i][j], sBulletId: oCurObj.data.oBullets[ CLZ.oStore[sQuestionId].R[i][j] ].sId } });
+                                    }
+                                }
+                            }
+                        }
+                        if(oCurObj.data.sMode=="browse")
+                        {
+                            oCurObj.CallMethod({ sMethod: "Manage", oMethodArgs: { aActions: [ "deactivate" ] } } );
+                            if(oCurObj.jxParams.children("q_submit_type").text()=="button")
+                            {
+                                oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { sAction: "hide" } });
+                            }
+                        }
+                        else
+                        {
+                            if(oCurObj.jxParams.children("q_submit_type").text()=="button" && aAllResponses.length==oCurObj.data.iTotalElems)
+                            {
+                                oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { sAction: "show" } });
+                            }
+                        }
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="Snap" label="_Snap" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Snap(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                var sQuestionId = argobj.pid;
+                var jTarget = $("#" + argobj.sDropId);
+                var jBullet = $("#" + argobj.sDragId);
+                var sBulletCode = jBullet.attr("data-vq-drag");
+                var iDropCode = +jTarget.attr("data-vq-drop") - 1; // to address array
+                var oReplaced = {};
+                var oBullet =
+                {
+                    iH: jBullet.outerHeight(),
+                    iL: jBullet.position().left,
+                    iT: jBullet.position().top,
+                    iW: jBullet.outerWidth()
+                };
+                var oTarget =
+                {
+                    iH: jTarget.height(),
+                    iL: jTarget.position().left,
+                    iT: jTarget.position().top,
+                    iW: jTarget.width()
+                };
+                var iLeft = oTarget.iL;
+                var iTop = oTarget.iT;
+                if(typeof oCurObj.data.aTargets[iDropCode] == "string")
+                {
+                    var jxVar = $(oCurObj.data.jxVars[iDropCode]);
+                    var iInterElem = +jxVar.children("interelem").text();
+                    var iMax = +jxVar.children("max_qty").text();
+                    if(iMax>0 && CLZ.oStore[sQuestionId].R[iDropCode].length>=iMax)
+                    {
+                        if(oCurObj.data.bReplace)
+                        {
+                            // dude, get lost!
+                            var sInnerId = (oCurObj.jxParams.children("if_busy").text()=="replace_first") ? CLZ.oStore[sQuestionId].R[iDropCode].shift() : CLZ.oStore[sQuestionId].R[iDropCode].pop();
+                            var sFreeId = oCurObj.data.oBullets[sInnerId].sId;
+                            $("#" + sFreeId).css({ "left": CLO[sFreeId].initial.x + "px", "top": CLO[sFreeId].initial.y + "px" });
+                            CLO[sFreeId].current.x = CLO[sFreeId].initial.x;
+                            CLO[sFreeId].current.y = CLO[sFreeId].initial.y;
+                            oReplaced = { sInner: sInnerId, sId: sFreeId };
+                        }
+                        else
+                        {
+                            // busy, go back
+                            jBullet.css({ "left": CLO[argobj.sDragId].current.x + "px", "top": CLO[argobj.sDragId].current.y + "px" });
+                            return false;
+                        }
+                    }
+                    if($.inArray(sBulletCode, CLZ.oStore[sQuestionId].R[iDropCode])==-1)
+                    {
+                        CLZ.oStore[sQuestionId].R[iDropCode].push(sBulletCode);
+                        if(oCurObj.data.sSnap=="none")
+                        {
+                            CLO[argobj.sDragId].current.x = oBullet.iL;
+                            CLO[argobj.sDragId].current.y = oBullet.iT;
+                            CLO[argobj.sDragId].oStates["default"].current.x = CLO[argobj.sDragId].current.x;
+                            CLO[argobj.sDragId].oStates["default"].current.y = CLO[argobj.sDragId].current.y;
+                            if(CLO[argobj.sDragId].oStates["highlighted"]!=null)
+                            {
+                                CLO[argobj.sDragId].oStates["highlighted"].current.x = CLO[argobj.sDragId].current.x;
+                                CLO[argobj.sDragId].oStates["highlighted"].current.y = CLO[argobj.sDragId].current.y;
+                            }
+                        }
+                        else
+                        {
+                            var iQty = CLZ.oStore[sQuestionId].R[iDropCode].length;
+                            var iTotalW = 0;
+                            var iTotalH = 0;
+                            var oElems = {};
+                            var jElem;
+                            for(var i=0; i<CLZ.oStore[sQuestionId].R[iDropCode].length; i++)
+                            {
+                                oElems[CLZ.oStore[sQuestionId].R[iDropCode][i]] = $(".cl-object[data-frame-id='" + CLZ.sCurrentFrameId + "'][data-vq-drag='" + CLZ.oStore[sQuestionId].R[iDropCode][i] + "']");
+                                jElem = oElems[CLZ.oStore[sQuestionId].R[iDropCode][i]];
+                                iTotalW += jElem.width();
+                                iTotalH += jElem.height();
+                            }
+                            iTotalW += (CLZ.oStore[sQuestionId].R[iDropCode].length-1)*iInterElem;
+                            iTotalH += (CLZ.oStore[sQuestionId].R[iDropCode].length-1)*iInterElem;
+                            var iNewL = (oCurObj.data.sSnap=="mc") ? (0.5*(oTarget.iW - iTotalW)) : ((oCurObj.data.sSnap=="mr") ? oTarget.iW : 0);
+                            var iFinalL = 0;
+                            for(var i=0; i<CLZ.oStore[sQuestionId].R[iDropCode].length; i++)
+                            {
+                                jElem = oElems[CLZ.oStore[sQuestionId].R[iDropCode][i]];
+                                switch(oCurObj.data.sSnap)
+                                {
+                                    case "ct":
+                                    case "cm":
+                                    case "cb":
+                                    {
+                                        iFinalL = 0.5*(oTarget.iW - jElem.outerWidth())*CLZ.nZoom;
+                                        break;
+                                    }
+                                    case "mc":
+                                    case "ml":
+                                    {
+                                        iFinalL = iNewL;
+                                        iNewL += jElem.outerWidth()*CLZ.nZoom + iInterElem;
+                                        break;
+                                    }
+                                    case "mr":
+                                    {
+                                        iFinalL = iNewL - jElem.outerWidth()*CLZ.nZoom;
+                                        iNewL = iFinalL - iInterElem;
+                                        break;
+                                    }
+                                }
+                                CLO[jElem.attr("id")].current.x = (iLeft + iFinalL)/CLZ.nZoom;
+                                CLO[jElem.attr("id")].oStates["default"].current.x = CLO[jElem.attr("id")].current.x;
+                                if(CLO[jElem.attr("id")].oStates["highlighted"]!=null)
+                                {
+                                    CLO[jElem.attr("id")].oStates["highlighted"].current.x = CLO[jElem.attr("id")].current.x;
+                                }
+                                jElem.css({ "left": CLO[jElem.attr("id")].current.x + "px" });
+                            }
+                            var iNewT = (oCurObj.data.sSnap=="cm") ? (0.5*(oTarget.iH - iTotalH)) : ((oCurObj.data.sSnap=="cb") ? oTarget.iH : 0);
+                            var iFinalT = 0;
+                            for(var i=0; i<CLZ.oStore[sQuestionId].R[iDropCode].length; i++)
+                            {
+                                jElem = oElems[CLZ.oStore[sQuestionId].R[iDropCode][i]];
+                                switch(oCurObj.data.sSnap)
+                                {
+                                    case "ml":
+                                    case "mc":
+                                    case "mr":
+                                    {
+                                        iFinalT = 0.5*(oTarget.iH - jElem.outerHeight())*CLZ.nZoom;
+                                        break;
+                                    }
+                                    case "ct":
+                                    case "cm":
+                                    {
+                                        iFinalT = iNewT;
+                                        iNewT += jElem.outerHeight()*CLZ.nZoom + iInterElem;
+                                        break;
+                                    }
+                                    case "cb":
+                                    {
+                                        iFinalT = iNewT - jElem.outerHeight()*CLZ.nZoom;
+                                        iNewT = iFinalT - iInterElem;
+                                        break;
+                                    }
+                                }
+                                CLO[jElem.attr("id")].current.y = (iTop + iFinalT)/CLZ.nZoom;
+                                CLO[jElem.attr("id")].oStates["default"].current.y = CLO[jElem.attr("id")].current.y;
+                                if(CLO[jElem.attr("id")].oStates["highlighted"]!=null)
+                                {
+                                    CLO[jElem.attr("id")].oStates["highlighted"].current.y = CLO[jElem.attr("id")].current.y;
+                                }
+                                jElem.css({ "top": CLO[jElem.attr("id")].current.y + "px" });
+                            }
+                        }
+                    }
+                }
+                else if(typeof oCurObj.data.aTargets[iDropCode] == "object")
+                {
+                    var iTargetNum = $.inArray(argobj.sDropId, oCurObj.data.aTargets[iDropCode]);
+                    if(iTargetNum==-1 || CLZ.oStore[sQuestionId].R[iDropCode][iTargetNum]!="")
+                    {
+                        if(oCurObj.data.bReplace)
+                        {
+                            // dude, get lost!
+                            var sIdToReplace = oCurObj.data.oBullets[ CLZ.oStore[sQuestionId].R[iDropCode][iTargetNum] ].sId;
+                            $("#" + sIdToReplace).css({ "left": CLO[sIdToReplace].initial.x + "px", "top": CLO[sIdToReplace].initial.y + "px" });
+                            CLO[sIdToReplace].current.x = CLO[sIdToReplace].initial.x;
+                            CLO[sIdToReplace].current.y = CLO[sIdToReplace].initial.y;
+                            oReplaced = { sInner: CLZ.oStore[sQuestionId].R[iDropCode][iTargetNum], sId: sIdToReplace };
+                            CLZ.oStore[sQuestionId].R[iDropCode][iTargetNum] = "";
+                        }
+                        else
+                        {
+                            // busy, go back
+                            jBullet.css({ "left": CLO[argobj.sDragId].current.x + "px", "top": CLO[argobj.sDragId].current.y + "px" });
+                            return false;
+                        }
+                    }
+                    CLZ.oStore[sQuestionId].R[iDropCode][iTargetNum] = sBulletCode;
+                    if(oCurObj.data.sSnap=="none")
+                    {
+                        CLO[argobj.sDragId].current.x = oBullet.iL;
+                        CLO[argobj.sDragId].current.y = oBullet.iT;
+                    }
+                    else
+                    {
+                        switch(oCurObj.data.sSnap)
+                        {
+                            case "ct":
+                            case "cm":
+                            case "cb":
+                            case "mc":
+                            {
+                                iLeft += (0.5*(oTarget.iW - oBullet.iW));
+                                break;
+                            }
+                            case "mr":
+                            {
+                                iLeft += (oTarget.iW - oBullet.iW);
+                                break;
+                            }
+                        }
+                        switch(oCurObj.data.sSnap)
+                        {
+                            case "ml":
+                            case "mc":
+                            case "mr":
+                            case "cm":
+                            {
+                                iTop += 0.5*(oTarget.iH - oBullet.iH);
+                                break;
+                            }
+                            case "cb":
+                            {
+                                iTop += oTarget.iH - oBullet.iH;
+                                break;
+                            }
+                        }
+                        CLO[argobj.sDragId].current.x = iLeft;
+                        CLO[argobj.sDragId].current.y = iTop;
+                        jBullet.css({ "left": iLeft + "px", "top": iTop + "px" });
+                    }
+                }
+                var iSet = 0;
+                for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+                {
+                    if(CLZ.oStore[sQuestionId].R[i].length==0)
+                    {
+                        continue;
+                    }
+                    for(var j=0; j<CLZ.oStore[sQuestionId].R[i].length; j++)
+                    {
+                        if(CLZ.oStore[sQuestionId].R[i][j]!="")
+                        {
+                            iSet++;
+                        }
+                    }
+                }
+                if(iSet==oCurObj.data.iTotalElems)
+                {
+                    oCurObj.FireEvent({ sName: "onAllInPlace" });
+                    if(oCurObj.data.sSubmitType=="button")
+                    {
+                        oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { sAction: "show" } });
+                    }
+                    else if(oCurObj.data.sSubmitType=="done")
+                    {
+                        oCurObj.CallMethod({ sMethod: "Submit" });
+                    }
+                }
+                else if(oCurObj.data.sDisplayOrder=="seq")
+                {
+                    if(oReplaced.sId==null)
+                    {
+                        for(var i=0; i<CLZ.oStore[sQuestionId].O.length; i++)
+                        {
+                            if($("#" + oCurObj.data.oBullets[CLZ.oStore[sQuestionId].O[i]].sId).is(":visible")) continue;
+                            CLO[oCurObj.data.oBullets[CLZ.oStore[sQuestionId].O[i]].sId].Show();
+                            break;
+                        }
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="UIEvent" label="_UIEvent" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function UIEvent(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                var sQuestionId = argobj.pid;
+                var jElem = $(argobj.elem);
+                if(jElem.attr("data-vq-type")=="btn")
+                {
+                    var sBtnIdle = oCurObj.jxParams.children("q_submit_idle").text();
+                    var sBtnOver = oCurObj.jxParams.children("q_submit_over").text();
+                    var sBtnDisabled = oCurObj.jxParams.children("q_submit_disabled").text();
+                    switch(argobj.evt.type)
+                    {
+                        case "mouseover":
+                        {
+                            if(sBtnOver!=sBtnIdle && CLO[sBtnOver]!=null && CLO[sBtnIdle]!=null)
+                            {
+                                CLO[sBtnIdle].Hide({ bActionCall: true, bUseTransition: false });
+                                CLO[sBtnOver].Show({ bActionCall: true, bUseTransition: false });
+                            }
+                            break;
+                        }
+                        case "mouseout":
+                        {
+                            if(sBtnOver!=sBtnIdle && CLO[sBtnOver]!=null && CLO[sBtnIdle]!=null)
+                            {
+                                if(CLZ.bSoundOn && oCurObj.data.sSoundOver!="none")
+                                {
+                                    CL.Sound.CLStop({ jPlayer: oCurObj.data.jAudioOver });
+                                }
+                                if($(CLO[sBtnOver].div).is(":visible"))
+                                {
+                                    CLO[sBtnOver].Hide({ bActionCall: true, bUseTransition: false });
+                                    CLO[sBtnIdle].Show({ bActionCall: true, bUseTransition: false });
+                                }
+                            }
+                            break;
+                        }
+                        case "click":
+                        {
+                            if(CLZ.bSoundOn && oCurObj.data.sSoundClick!="none")
+                            {
+                                CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioClick });
+                            }
+                            oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { sAction: "hide" } });
+                            oCurObj.CallMethod({ sMethod: "Submit" });
+                            break;
+                        }
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="Feedback" label="_Feedback" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Feedback(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                if(oCurObj==null) return false;
+                if(!oCurObj.data.bFeedback) return false;
+                clearTimeout(oCurObj.data.iFBTimer);
+
+                var sCorId = oCurObj.jxParams.children("q_fb_correct").text();
+                var sIncId = oCurObj.jxParams.children("q_fb_incorrect_common").text();
+                if(oCurObj.data.bFeedbackCorrect)
+                {
+                    if(sCorId!=null && sCorId!="")
+                    {
+                        var jxGroup = CL.jxGroups.find("group[id='" + sCorId + "']");
+                        var aTargets = [];
+                        if(jxGroup.length!=0)
+                        {
+                            jxGroup.children("ref").each(function () { aTargets.push($(this).attr("id")) });
+                        }
+                        else
+                        {
+                            aTargets.push(sCorId);
+                        }
+                        for(var i=0; i<aTargets.length; i++)
+                        {
+                            if(CLO[aTargets[i]]!=null)
+                            {
+                                if($(CLO[aTargets[i]].div).is(":visible"))
+                                {
+                                    CLO[aTargets[i]].Hide({ bActionCall: true, bUseTransition: false });
+                                }
+                            }
+                        }
+                    }
+                }
+                if(oCurObj.data.bFeedbackIncorrect)
+                {
+                    switch(oCurObj.data.sFeedbackIncorrect)
+                    {
+                        case "byatt":
+                        {
+                            oCurObj.jxParams.find("q_fb_incorrect_by_attempt > item").each(function ()
+                            {
+                                var sId = $(this).children("q_fb_incorrect_by_att").text();
+                                if(sId!=null && sId!="")
+                                {
+                                    var jxGroup = CL.jxGroups.find("group[id='" + sId + "']");
+                                    var aTargets = [];
+                                    if(jxGroup.length!=0)
+                                    {
+                                        jxGroup.children("ref").each(function () { aTargets.push($(this).attr("id")) });
+                                    }
+                                    else
+                                    {
+                                        aTargets.push(sId);
+                                    }
+                                    for(var i=0; i<aTargets.length; i++)
+                                    {
+                                        if(CLO[aTargets[i]]!=null)
+                                        {
+                                            if($(CLO[aTargets[i]].div).is(":visible"))
+                                            {
+                                                CLO[aTargets[i]].Hide({ bActionCall: true, bUseTransition: false });
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                            break;
+                        }
+                        case "common":
+                        {
+                            if(sIncId!=null && sIncId!="")
+                            {
+                                var jxGroup = CL.jxGroups.find("group[id='" + sIncId + "']");
+                                var aTargets = [];
+                                if(jxGroup.length!=0)
+                                {
+                                    jxGroup.children("ref").each(function () { aTargets.push($(this).attr("id")) });
+                                }
+                                else
+                                {
+                                    aTargets.push(sIncId);
+                                }
+                                for(var i=0; i<aTargets.length; i++)
+                                {
+                                    if(CLO[aTargets[i]]!=null)
+                                    {
+                                        if($(CLO[aTargets[i]].div).is(":visible"))
+                                        {
+                                            CLO[aTargets[i]].Hide({ bActionCall: true, bUseTransition: false });
+                                        }
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+                if(argobj.sReason==null)
+                {
+                    return true;
+                }
+                switch(argobj.sReason)
+                {
+                    case "correct":
+                    {
+                        if(oCurObj.data.bFeedbackCorrect)
+                        {
+                            if(sCorId!=null && sCorId!="")
+                            {
+                                var jxGroup = CL.jxGroups.find("group[id='" + sCorId + "']");
+                                var aTargets = [];
+                                if(jxGroup.length!=0)
+                                {
+                                    jxGroup.children("ref").each(function () { aTargets.push($(this).attr("id")) });
+                                }
+                                else
+                                {
+                                    aTargets.push(sCorId);
+                                }
+                                for(var i=0; i<aTargets.length; i++)
+                                {
+                                    if(CLO[aTargets[i]]!=null)
+                                    {
+                                        if(!$(CLO[aTargets[i]].div).is(":visible"))
+                                        {
+                                            CLO[aTargets[i]].Show();
+                                        }
+                                    }
+                                }
+                            }
+                            if(oCurObj.data.bFeedbackTimer)
+                            {
+                                oCurObj.data.iFBTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Feedback" }); }, oCurObj.data.iHideFBIn);
+                            }
+                        }
+                        break;
+                    }
+                    case "incorrect":
+                    {
+                        if(oCurObj.data.bFeedbackIncorrect)
+                        {
+                            switch(oCurObj.data.sFeedbackIncorrect)
+                            {
+                                case "common":
+                                {
+                                    if(sIncId!=null && sIncId!="")
+                                    {
+                                        var jxGroup = CL.jxGroups.find("group[id='" + sIncId + "']");
+                                        var aTargets = [];
+                                        if(jxGroup.length!=0)
+                                        {
+                                            jxGroup.children("ref").each(function () { aTargets.push($(this).attr("id")) });
+                                        }
+                                        else
+                                        {
+                                            aTargets.push(sIncId);
+                                        }
+                                        for(var i=0; i<aTargets.length; i++)
+                                        {
+                                            if(CLO[aTargets[i]]!=null)
+                                            {
+                                                if(!$(CLO[aTargets[i]].div).is(":visible"))
+                                                {
+                                                    CLO[aTargets[i]].Show();
+                                                }
+                                            }
+                                        }
+                                    }
+                                    break;
+                                }
+                                case "byatt":
+                                {
+                                    var iAtt = -1;
+                                    for(var j=0; j<CLZ.oStore[argobj.pid].A.length; j++)
+                                    {
+                                        if(CLZ.oStore[argobj.pid].A[j].u!="c")
+                                        {
+                                            iAtt = j - 1;
+                                            break;
+                                        }
+                                    }
+                                    if(iAtt==-1) iAtt = CLZ.oStore[argobj.pid].A.length - 1;
+                                    if(iAtt==-1) return false;
+                                    var jxFB = oCurObj.jxParams.find("q_fb_incorrect_by_attempt > item");
+                                    if(jxFB.length<iAtt+1) return false;
+                                    sIncId = $(jxFB[iAtt]).children("q_fb_incorrect_by_att").text();
+                                    if(sIncId!=null && sIncId!="")
+                                    {
+                                        var jxGroup = CL.jxGroups.find("group[id='" + sIncId + "']");
+                                        var aTargets = [];
+                                        if(jxGroup.length!=0)
+                                        {
+                                            jxGroup.children("ref").each(function () { aTargets.push($(this).attr("id")) });
+                                        }
+                                        else
+                                        {
+                                            aTargets.push(sIncId);
+                                        }
+                                        for(var i=0; i<aTargets.length; i++)
+                                        {
+                                            if(CLO[aTargets[i]]!=null)
+                                            {
+                                                if(!$(CLO[aTargets[i]].div).is(":visible"))
+                                                {
+                                                    CLO[aTargets[i]].Show();
+                                                }
+                                            }
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                            if(oCurObj.data.bFeedbackTimer)
+                            {
+                                oCurObj.data.iFBTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Feedback" }); }, oCurObj.data.iHideFBIn);
+                            }
+                        }
+                        break;
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+         <method name="Submit" label="_Submit" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Submit(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                var sQuestionId = argobj.pid;
+                oCurObj.FireEvent({ sName: "onAttempt" });
+                var bCorrect = false;
+                var iCurrentTime = (new Date()).valueOf();
+                var iAttemptIdx = -1;
+                for(var i=0; i<CLZ.oStore[sQuestionId].A.length; i++)
+                {
+                    if(CLZ.oStore[sQuestionId].A[i].u=="c") continue;
+                    iAttemptIdx = i;
+                    break;
+                }
+                if(iAttemptIdx==-1) return false; // extra fuse
+                var nScore = 0;
+                switch(oCurObj.data.sType)
+                {
+                    case "otm":
+                    {
+                        switch(oCurObj.data.sScoringType)
+                        {
+                            case "plain":
+                            case "regressive":
+                            case "byobj":
+                            {
+                                if(CLZ.oStore[sQuestionId].R.length==CLZ.oStore[sQuestionId].P.length)
+                                {
+                                    bCorrect = true;
+                                    _main_loop:
+                                    for(var i=0; i<CLZ.oStore[sQuestionId].P.length; i++)
+                                    {
+                                        if(typeof oCurObj.data.aTargets[i] == "string")
+                                        {
+                                            if(CLZ.oStore[sQuestionId].P[i].length!=CLZ.oStore[sQuestionId].R[i].length)
+                                            {
+                                                bCorrect = false;
+                                                break _main_loop;
+                                            }
+                                            for(var j=0; j<CLZ.oStore[sQuestionId].P[i].length; j++)
+                                            {
+                                                if($.inArray( CLZ.oStore[sQuestionId].R[i][j], CLZ.oStore[sQuestionId].P[i])==-1)
+                                                {
+                                                    bCorrect = false;
+                                                    break _main_loop;
+                                                }
+                                            }
+                                        }
+                                        else if(typeof oCurObj.data.aTargets[i] == "object")
+                                        {
+                                            var iCnt = 0;
+                                            for(var j=0; j<CLZ.oStore[sQuestionId].R[i].length; j++)
+                                            {
+                                                if(CLZ.oStore[sQuestionId].R[i][j]=="")
+                                                {
+                                                    continue;
+                                                }
+                                                iCnt++;
+                                                if($.inArray( CLZ.oStore[sQuestionId].R[i][j], CLZ.oStore[sQuestionId].P[i])==-1)
+                                                {
+                                                    bCorrect = false;
+                                                    break _main_loop;
+                                                }
+                                            }
+                                            if(CLZ.oStore[sQuestionId].P[i].length!=iCnt)
+                                            {
+                                                bCorrect = false;
+                                                break _main_loop;
+                                            }
+                                        }
+                                    }
+                                }
+                                oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: !bCorrect } });
+                                if(oCurObj.data.bFeedback)
+                                {
+                                    oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { sReason: (bCorrect ? "correct" : "incorrect") } });
+                                }
+                                if(bCorrect)
+                                {
+                                    if(CLZ.bSoundOn && oCurObj.data.sSoundSuccess!="none")
+                                    {
+                                        CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioSuccess });
+                                    }
+                                    oCurObj.FireEvent({ sName: "onSuccess" });
+                                    if(oCurObj.data.bShowCorrect)
+                                    {
+                                        oCurObj.CallMethod({ sMethod: "Manage", oMethodArgs: { aActions: [ "correct" ] } } );
+                                    }
+                                    if(oCurObj.data.bCredit)
+                                    {
+                                        switch(oCurObj.data.sScoringType)
+                                        {
+                                            case "plain":
+                                            {
+                                                nScore = oCurObj.data.nBaseScore;
+                                                for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+                                                {
+                                                    CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+                                                }
+                                                break;
+                                            }
+                                            case "regressive":
+                                            {
+                                                nScore = oCurObj.data.nBaseScore*(CLZ.oStore[sQuestionId].A.length - iAttemptIdx);
+                                                for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+                                                {
+                                                    CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+                                                }
+                                                break;
+                                            }
+                                            case "byobj":
+                                            {
+                                                for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+                                                {
+                                                    nScore = +$(oCurObj.data.jxObjectives[i]).children("q_weight_byobj").text();
+                                                    CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+                                }
+                                else
+                                {
+                                    if(CLZ.bSoundOn && oCurObj.data.sSoundFailure!="none")
+                                    {
+                                        CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioFailure });
+                                    }
+                                    oCurObj.FireEvent({ sName: "onFailure" });
+                                    if(oCurObj.data.bNoMoreAttempts)
+                                    {
+                                        if(oCurObj.data.bShowCorrect)
+                                        {
+                                            oCurObj.CallMethod({ sMethod: "Manage", oMethodArgs: { aActions: [ "correct" ] } } );
+                                        }
+                                        if(oCurObj.data.bCredit)
+                                        {
+                                            nScore = 0;
+                                            for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+                                            {
+                                                CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+                                            }
+                                        }
+                                        oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+                                    }
+                                }
+                                break;
+                            }
+                            case "sum":
+                            case "avg":
+                            case "max":
+                            case "min":
+                            {
+                                oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: false } });
+                                if(oCurObj.data.bCredit)
+                                {
+                                    var nSum = 0;
+                                    var nMax = -99999;
+                                    var nMin = 99999;
+                                    for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+                                    {
+                                        for(var j=0; j<CLZ.oStore[sQuestionId].R[i].length; j++)
+                                        {
+                                            var iIdx = $.inArray( CLZ.oStore[sQuestionId].R[i][j], CLZ.oStore[sQuestionId].P[i]);
+                                            if(iIdx!=-1)
+                                            {
+                                                var aParts = CLZ.oStore[sQuestionId].R[i][j].split("b");
+                                                var jxBullet = $(oCurObj.data.jxVars[+CLZ.oStore[sQuestionId].R[i]-1]).find("bullets > item")[+aParts[1]-1];
+                                                nScore = +jxBullet.children("q_weight_by_var").text();
+                                                nSum += nScore;
+                                                if(nMax<nScore) nMax = nScore;
+                                                if(nMin>nScore) nMin = nScore;
+                                            }
+                                        }
+                                    }
+                                    switch(oCurObj.data.sScoringType)
+                                    {
+                                        case "sum":
+                                        {
+                                            nScore = nSum;
+                                            break;
+                                        }
+                                        case "avg":
+                                        {
+                                            nScore = nSum/CLZ.oStore[sQuestionId].R.length;
+                                            break;
+                                        }
+                                        case "max":
+                                        {
+                                            nScore = nMax;
+                                            break;
+                                        }
+                                        case "min":
+                                        {
+                                            nScore = nMin;
+                                            break;
+                                        }
+                                    }
+                                    for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+                                    {
+                                        CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+                                    }
+                                }
+                                oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="Button" label="_Button" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Button(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                var sBtnIdle = oCurObj.jxParams.children("q_submit_idle").text();
+                var sBtnOver = oCurObj.jxParams.children("q_submit_over").text();
+                var sBtnDisabled = oCurObj.jxParams.children("q_submit_disabled").text();
+                if(!oCurObj.data.bBtnReady)
+                {
+                    if(oCurObj.data.bUseBtnState)
+                    {
+                        if(sBtnIdle!=null && sBtnIdle!="")
+                        {
+                            if(CLO[sBtnIdle]!=null)
+                            {
+                                for(var sState in CLO[sBtnIdle].oStates)
+                                {
+                                    if(sState=="default" || sState=="highlighted" || sState=="active")
+                                {
+                                        $(CLO[sBtnIdle].oStates[sState].div).attr({ "data-vq-id": argobj.pid, "data-vq-type": "btn", "data-vq-role": "idle", "data-vq-idle-id": sBtnIdle }).addClass("cl-clickable unselectable").on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { elem: this, evt: e }} ) });
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if(sBtnIdle!=null && sBtnIdle!="")
+                        {
+                            if(CLO[sBtnIdle]!=null)
+                            {
+                                $(CLO[sBtnIdle].div).attr({ "data-vq-id": argobj.pid, "data-vq-type": "btn", "data-vq-role": "idle", "data-vq-idle-id": sBtnIdle }).addClass("cl-clickable unselectable").on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { elem: this, evt: e }} ) });
+                            }
+                        }
+                        if(!CL.bTouch && sBtnOver!="")
+                        {
+                            if(sBtnOver!=null && sBtnOver!="")
+                            {
+                                if(CLO[sBtnOver]!=null)
+                                {
+                                    $(CLO[sBtnIdle].div).attr({ "data-vq-over-id": sBtnOver }).on("mouseover", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { elem: this, evt: e }} ) }).on("mouseout", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { elem: this, evt: e }} ) });
+                                    $(CLO[sBtnOver].div).attr({ "data-vq-id": argobj.pid, "data-vq-type": "btn", "data-vq-role": "over", "data-vq-idle-id": sBtnIdle, "data-vq-over-id": sBtnOver }).addClass("cl-clickable unselectable").on("mouseover", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { elem: this, evt: e }} ) }).on("mouseout", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { elem: this, evt: e }} ) }).on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { elem: this, evt: e }} ) });
+                                }
+                            }
+                        }
+                    }
+                    oCurObj.data.bBtnReady = true;
+                }
+                switch(argobj.sAction)
+                {
+                    case "show":
+                    {
+                        if(oCurObj.data.bUseBtnState)
+                        {
+                            if(sBtnIdle!=null && sBtnIdle!="")
+                            {
+                                if(CLO[sBtnIdle]!=null)
+                                {
+                                    if(!$(CLO[sBtnIdle].div).is(":visible"))
+                                    {
+                                        CLO[sBtnIdle].Show();
+                                    }
+                                    CLO[sBtnIdle].SetState({ sState: "default" });
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(sBtnIdle!=null && sBtnIdle!="")
+                            {
+                                if(CLO[sBtnIdle]!=null)
+                                {
+                                    if(!$(CLO[sBtnIdle].div).is(":visible"))
+                                    {
+                                        CLO[sBtnIdle].Show();
+                                    }
+                                }
+                            }
+                            if(sBtnOver!=null && sBtnOver!="")
+                            {
+                                if(CLO[sBtnOver]!=null)
+                                {
+                                    if($(CLO[sBtnOver].div).is(":visible"))
+                                    {
+                                        CLO[sBtnOver].Hide();
+                                    }
+                                }
+                            }
+                            if(sBtnDisabled!=null && sBtnDisabled!="")
+                            {
+                                if(CLO[sBtnDisabled]!=null)
+                                {
+                                    if($(CLO[sBtnDisabled].div).is(":visible"))
+                                    {
+                                        CLO[sBtnDisabled].Hide();
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case "hide":
+                    {
+                        if(oCurObj.data.bUseBtnState)
+                        {
+                            if(sBtnIdle!=null && sBtnIdle!="")
+                            {
+                                if(CLO[sBtnIdle]!=null)
+                                {
+                                    if($(CLO[sBtnIdle].div).is(":visible"))
+                                    {
+                                        CLO[sBtnIdle].Hide();
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(sBtnIdle!=null && sBtnIdle!="")
+                            {
+                                if(CLO[sBtnIdle]!=null)
+                                {
+                                    if($(CLO[sBtnIdle].div).is(":visible"))
+                                    {
+                                        CLO[sBtnIdle].Hide();
+                                    }
+                                }
+                            }
+                            if(sBtnOver!=null && sBtnOver!="")
+                            {
+                                if(CLO[sBtnOver]!=null)
+                                {
+                                    if($(CLO[sBtnOver].div).is(":visible"))
+                                    {
+                                        CLO[sBtnOver].Hide();
+                                    }
+                                }
+                            }
+                            if(sBtnDisabled!=null && sBtnDisabled!="")
+                            {
+                                if(CLO[sBtnDisabled]!=null)
+                                {
+                                    if(!$(CLO[sBtnDisabled].div).is(":visible"))
+                                    {
+                                        CLO[sBtnDisabled].Show();
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case "disable":
+                    {
+                        if(oCurObj.data.bUseBtnState)
+                        {
+                            if(sBtnIdle!=null && sBtnIdle!="")
+                            {
+                                if(CLO[sBtnIdle]!=null)
+                                {
+                                    if(CLO[sBtnIdle].oStates["disabled"]!=null)
+                                    {
+                                    CLO[sBtnIdle].SetState({ sState: "disabled" });
+                                }
+                                    else
+                                    {
+                                        CLO[sBtnIdle].Hide();
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(sBtnIdle!=null && sBtnIdle!="")
+                            {
+                                if(CLO[sBtnIdle]!=null)
+                                {
+                                    if($(CLO[sBtnIdle].div).is(":visible"))
+                                    {
+                                        CLO[sBtnIdle].Hide();
+                                    }
+                                }
+                            }
+                            if(sBtnOver!=null && sBtnOver!="")
+                            {
+                                if(CLO[sBtnOver]!=null)
+                                {
+                                    if($(CLO[sBtnOver].div).is(":visible"))
+                                    {
+                                        CLO[sBtnOver].Hide();
+                                    }
+                                }
+                            }
+                            if(sBtnDisabled!=null && sBtnDisabled!="")
+                            {
+                                if(CLO[sBtnDisabled]!=null)
+                                {
+                                    if(!$(CLO[sBtnDisabled].div).is(":visible"))
+                                    {
+                                        CLO[sBtnDisabled].Show();
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="Manage" label="_Manage" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function Manage(argobj)
+            {
+                if(argobj.aActions==null) return false;
+                var oCurObj = CLO[argobj.pid];
+                var sQuestionId = argobj.pid;
+                var jxVar;
+                var sTargetId;
+                var sBulletId;
+                var sCorId;
+                var sIncId;
+                var sDisId;
+                var iTargetCnt;
+                var jxBullet;
+                for(var i=0; i<argobj.aActions.length; i++)
+                {
+                    switch(argobj.aActions[i])
+                    {
+                        case "activate":
+                        {
+                            for(var j=0; j<oCurObj.data.aTargets.length; j++)
+                            {
+                                iTargetCnt = j + 1;
+                                if(oCurObj.data.aTargets[j]=="")
+                                {
+                                    continue;
+                                }
+                                if(typeof oCurObj.data.aTargets[j] == "string")
+                                {
+                                    $(CLO[ oCurObj.data.aTargets[j] ].div).addClass("cl-drop").attr({ "data-vq-drop": iTargetCnt }).droppable(
+                                    {
+                                        tolerance: "pointer",
+                                        scope: sQuestionId,
+                                        drop: function (event, ui)
+                                        {
+                                            if(ui.draggable.length!=0)
+                                            {
+                                                CLO[sQuestionId].CallMethod({ sMethod: "Snap", oMethodArgs: { sDropId: $(this).attr("id"), sDragId: ui.draggable.attr("id") } });
+                                            }
+                                            return false;
+                                        }
+                                    });
+                                }
+                                else if(typeof oCurObj.data.aTargets[j] == "object")
+                                {
+                                    for(var k=0; k<oCurObj.data.aTargets[j].length; k++)
+                                    {
+                                        $(CLO[ oCurObj.data.aTargets[j][k] ].div).addClass("cl-drop").attr({ "data-vq-drop": iTargetCnt }).droppable(
+                                        {
+                                            tolerance: "pointer",
+                                            scope: sQuestionId,
+                                            drop: function (event, ui)
+                                            {
+                                                if(ui.draggable.length!=0)
+                                                {
+                                                    CLO[sQuestionId].CallMethod({ sMethod: "Snap", oMethodArgs: { sDropId: $(this).attr("id"), sDragId: ui.draggable.attr("id") } });
+                                                }
+                                                return false;
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                            var jBoard = $(CL.oBoard);
+                            for(var sKey in oCurObj.data.oBullets)
+                            {
+                                jBulletDiv = $(CLO[ oCurObj.data.oBullets[sKey].sId ].div);
+                                if(jBulletDiv.hasClass("ui-draggable"))
+                                {
+                                    jBulletDiv.draggable("destroy");
+                                }
+                                jBulletDiv.attr({ "data-vq-drag": sKey }).addClass("cl-drag").draggable(
+                                {
+                                    containment: jBoard,
+                                    scope: sQuestionId,
+                                    zIndex: 4999,
+                                    start: function (event, ui)
+                                    {
+                                        var sDragCode = $(this).attr("data-vq-drag");
+                                        var iIdx = -1;
+                                        for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+                                        {
+                                            iIdx = $.inArray(sDragCode, CLZ.oStore[sQuestionId].R[i]);
+                                            if(iIdx!=-1)
+                                            {
+                                                if(typeof oCurObj.data.aTargets[i] == "string")
+                                                {
+                                                    CLZ.oStore[sQuestionId].R[i].splice(iIdx,1);
+                                                }
+                                                else
+                                                {
+                                                    CLZ.oStore[sQuestionId].R[i][iIdx] = "";
+                                                }
+                                                break;
+                                            }
+                                        }
+                                        oCurObj.CallMethod({ sMethod: "Feedback" });
+                                    },
+                                    stop: function (event, ui)
+                                    {
+                                        var sDragId = $(this).attr("data-vq-drag");
+                                        var iIdx = -1;
+                                        for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+                                        {
+                                            iIdx = $.inArray(sDragId, CLZ.oStore[sQuestionId].R[i]);
+                                            if(iIdx!=-1)
+                                            {
+                                                var sId = $(this).attr("id");
+                                                CLO[sId].current.x = $(this).position().left/CLZ.nZoom;
+                                                CLO[sId].current.y = $(this).position().top/CLZ.nZoom;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                });
+                                CLO[ oCurObj.data.oBullets[sKey].sId ].current.bDraggable = true;
+                            }
+                            break;
+                        }
+                        case "deactivate":
+                        {
+                            for(var j=0; j<oCurObj.data.aTargets.length; j++)
+                            {
+                                iTargetCnt = j + 1;
+                                if(oCurObj.data.aTargets[j]=="")
+                                {
+                                    continue;
+                                }
+                                if(typeof oCurObj.data.aTargets[j] == "string")
+                                {
+                                    if(CLO[ oCurObj.data.aTargets[j] ]!=null)
+                                    {
+                                        if($(CLO[ oCurObj.data.aTargets[j] ].div).hasClass("cl-drop"))
+                                        {
+                                            $(CLO[ oCurObj.data.aTargets[j] ].div).removeClass("cl-drop").droppable("destroy");
+                                        }
+                                    }
+                                }
+                                else if(typeof oCurObj.data.aTargets[j] == "object")
+                                {
+                                    for(var k=0; k<oCurObj.data.aTargets[j].length; k++)
+                                    {
+                                        if(CLO[ oCurObj.data.aTargets[j][k] ]!=null)
+                                        {
+                                            if($(CLO[ oCurObj.data.aTargets[j][k] ].div).hasClass("cl-drop"))
+                                            {
+                                                $(CLO[ oCurObj.data.aTargets[j][k] ].div).removeClass("cl-drop").droppable("destroy");
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            for(var sKey in oCurObj.data.oBullets)
+                            {
+                                if(CLO[ oCurObj.data.oBullets[sKey].sId ]!=null)
+                                {
+                                    if($(CLO[ oCurObj.data.oBullets[sKey].sId ].div).hasClass("ui-draggable"))
+                                    {
+                                        $(CLO[ oCurObj.data.oBullets[sKey].sId ].div).removeClass("cl-drag").draggable("destroy");
+                                    }
+                                    CLO[ oCurObj.data.oBullets[sKey].sId ].current.bDraggable = false;
+                                }
+                            }
+                            break;
+                        }
+                        case "disable":
+                        {
+                            for(var sKey in oCurObj.data.oBullets)
+                            {
+                                if(oCurObj.data.sOnFinish=="disabled")
+                                {
+                                    jxVar = $(oCurObj.data.jxVars[ oCurObj.data.oBullets[sKey].iT-1 ]);
+                                    jxBullet = $(jxVar.find("bullets > item")[ oCurObj.data.oBullets[sKey].iB-1 ]);
+                                    if(jxBullet.children("var_object_based").text()=="yes")
+                                    {
+                                        sDisId = jxBullet.children("q_var_disabled").text();
+                                        if(sDisId!="")
+                                        {
+                                            if(CLO[sDisId]!=null && CLO[ oCurObj.data.oBullets[sKey].sId ]!=null)
+                                            {
+                                                $(CLO[sDisId].div).css({ "left": CLO[ oCurObj.data.oBullets[sKey].sId ].current.x + "px", "top": CLO[ oCurObj.data.oBullets[sKey].sId ].current.y + "px" });
+                                                CLO[sDisId].current.x = CLO[ oCurObj.data.oBullets[sKey].sId ].current.x;
+                                                CLO[sDisId].current.y = CLO[ oCurObj.data.oBullets[sKey].sId ].current.y;
+                                                CLO[sDisId].Show({ bActionCall: true, bUseTransition: false });
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if(CLO[oBullet.sId].oStates["disabled"]!=null)
+                                        {
+                                            CLO[oBullet.sId].SetState({ sState: "disabled" });
+                                            $(CLO[oBullet.sId].div).css({ "left": CLO[oBullet.sId].oStates["default"].current.x + "px", "top": CLO[oBullet.sId].oStates["default"].current.y + "px" })
+                                            CLO[oBullet.sId].oStates["disabled"].current.x = CLO[oBullet.sId].oStates["default"].current.x;
+                                            CLO[oBullet.sId].oStates["disabled"].current.y = CLO[oBullet.sId].oStates["default"].current.y;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    $(CLO[ oCurObj.data.oBullets[sKey].sId ].div).css({ "opacity": 0.90 });
+                                    CLO[ oCurObj.data.oBullets[sKey].sId ].current.nOpacity = 0.90;
+                                }
+                            }
+                            break;
+                        }
+                        case "correct":
+                        {
+                            switch(oCurObj.jxParams.children("final_action").text())
+                            {
+                                case "none":
+                                {
+                                    return false;
+                                }
+                                case "correct":
+                                {
+                                    for(var j=0; j<CLZ.oStore[sQuestionId].P.length; j++)
+                                    {
+                                        for(var k=0; k<CLZ.oStore[sQuestionId].P[j].length; k++)
+                                        {
+                                            oCurObj.CallMethod({ sMethod: "Place", oMethodArgs: { sTargetCode: oCurObj.data.oBullets[ CLZ.oStore[sQuestionId].P[j][k] ].iT, sBulletId: oCurObj.data.oBullets[ CLZ.oStore[sQuestionId].P[j][k] ].sId } });
+                                        }
+                                    }
+                                    break;
+                                }
+                                case "mark":
+                                case "replace":
+                                {
+                                    var oBullet;
+                                    for(var j=0; j<CLZ.oStore[sQuestionId].R.length; j++)
+                                    {
+                                        for(var k=0; k<CLZ.oStore[sQuestionId].R[j].length; k++)
+                                        {
+                                            oBullet = oCurObj.data.oBullets[ CLZ.oStore[sQuestionId].R[j][k] ];
+                                            jxVar = $(oCurObj.data.jxVars[ oBullet.iT - 1 ]);
+                                            jxBullet = $(jxVar.find("bullets > item")[ oBullet.iB - 1 ]);
+                                            if($.inArray(CLZ.oStore[sQuestionId].R[j][k], CLZ.oStore[sQuestionId].P[j])==-1)
+                                            {
+                                                if(jxBullet.children("var_object_based").text()=="yes")
+                                                {
+                                                    sIncId = jxBullet.children("q_var_error").text();
+                                                    if(sIncId=="")
+                                                    {
+                                                        continue;
+                                                    }
+                                                    if(CLO[sIncId]!=null)
+                                                    {
+                                                        $(CLO[sIncId].div).css({ "left": CLO[ oBullet.sId ].current.x + "px", "top": CLO[ oBullet.sId ].current.y + "px" });
+                                                        CLO[sIncId].Show();
+                                                        CLO[sIncId].current.x = CLO[ oBullet.sId ].current.x;
+                                                        CLO[sIncId].current.y = CLO[ oBullet.sId ].current.y;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if(CLO[oBullet.sId].oStates["incorrect"]!=null)
+                                                    {
+                                                        CLO[oBullet.sId].SetState({ sState: "incorrect" });
+                                                        $(CLO[oBullet.sId].div).css({ "left": CLO[oBullet.sId].oStates["default"].current.x + "px", "top": CLO[oBullet.sId].oStates["default"].current.y + "px" })
+                                                        CLO[oBullet.sId].oStates["incorrect"].current.x = CLO[oBullet.sId].oStates["default"].current.x;
+                                                        CLO[oBullet.sId].oStates["incorrect"].current.y = CLO[oBullet.sId].oStates["default"].current.y;
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if(jxBullet.children("var_object_based").text()=="yes")
+                                                {
+                                                    sCorId = jxBullet.children("q_var_correct").text();
+                                                    if(sCorId=="")
+                                                    {
+                                                        continue;
+                                                    }
+                                                    if(CLO[sCorId]!=null)
+                                                    {
+                                                        $(CLO[sCorId].div).css({ "left": CLO[ oBullet.sId ].current.x + "px", "top": CLO[ oBullet.sId ].current.y + "px" });
+                                                        CLO[sCorId].Show();
+                                                        CLO[sCorId].current.x = CLO[ oBullet.sId ].current.x;
+                                                        CLO[sCorId].current.y = CLO[ oBullet.sId ].current.y;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if(CLO[oBullet.sId].oStates["correct"]!=null)
+                                                    {
+                                                        CLO[oBullet.sId].SetState({ sState: "correct" });
+                                                        $(CLO[oBullet.sId].div).css({ "left": CLO[oBullet.sId].oStates["default"].current.x + "px", "top": CLO[oBullet.sId].oStates["default"].current.y + "px" });
+                                                        CLO[oBullet.sId].oStates["correct"].current.x = CLO[ oBullet.sId ].oStates["default"].current.x;
+                                                        CLO[oBullet.sId].oStates["correct"].current.y = CLO[ oBullet.sId ].oStates["default"].current.y;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                            var sFinalId = oCurObj.jxParams.children("final_obj").text();
+                            if(sFinalId!="")
+                            {
+                                if(CLO[sFinalId]!=null)
+                                {
+                                    CLO[sFinalId].Show();
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="CloseAttempt" label="_CloseAttempt" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function CloseAttempt(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                var sQuestionId = argobj.pid;
+                var iAttemptIdx = -1;
+                for(var i=0; i<CLZ.oStore[sQuestionId].A.length; i++)
+                {
+                    if(CLZ.oStore[sQuestionId].A[i].u=="c") continue;
+                    iAttemptIdx = i;
+                    break;
+                }
+                var iNow = (new Date()).valueOf();
+                var iStart = CLZ.oStore[sQuestionId].A[iAttemptIdx].s;
+                CLZ.oStore[sQuestionId].A[iAttemptIdx] =
+                {
+                    R: CLZ.oStore[sQuestionId].R.slice(0),
+                    s: iStart,
+                    d: iNow - iStart - CLZ.oStore[sQuestionId].s,
+                    u: "c"
+                }; // current attempt closed
+                iAttemptIdx++;
+                var iAttemptsLeft = CLZ.oStore[sQuestionId].A.length - iAttemptIdx;
+                if(iAttemptsLeft<0) iAttemptsLeft = 0;
+                if(iAttemptsLeft==0 || CLZ.oStore[sQuestionId].A[iAttemptIdx]==null)
+                {
+                    oCurObj.data.bNoMoreAttempts = true;
+                    CLO[argobj.pid].FireEvent({ sName: "onAttemptsLimit" });
+                }
+                else
+                {
+                    if(argobj.bInitNext)
+                    {
+                        CLZ.oStore[sQuestionId].A[iAttemptIdx] =
+                        {
+                            s: iNow - CLZ.oStore[sQuestionId].s,
+                            d: 0,
+                            u: "i"
+                        }
+                        if((CLZ.oStore[sQuestionId].A.length>1) && (iAttemptIdx==CLZ.oStore[sQuestionId].A.length-1))
+                        {
+                            oCurObj.data.bLastAttempt = true;
+                            oCurObj.FireEvent({ sName: "onLastAttemptStart" });
+                        }
+                    }
+                }
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="CloseQuestion" label="_CloseQuestion" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function CloseQuestion(argobj)
+            {
+                var oCurObj = CLO[argobj.pid];
+                var sQuestionId = argobj.pid;
+                oCurObj.CallMethod({ sMethod: "Manage", oMethodArgs: { aActions: [ "deactivate", "disable" ] } } );
+                CLZ.oStore[sQuestionId].d = (new Date()).valueOf() - CLZ.oStore[sQuestionId].s;
+                CLZ.oStore[sQuestionId].u = "c";
+                oCurObj.FireEvent({ sName: "onQuestionEnd" })
+                return true;
+            }]]>
+            </body>
+        </method>
+        <method name="GetProperty" label="_GetProperty" access="private">
+            <params>
+            </params>
+            <body>
+            <![CDATA[function GetProperty(argobj)
+            {
+                if(argobj.pid==null || argobj.property==null) return "";
+                if(CLO[argobj.pid]==null) return "";
+                switch(argobj.property.toLowerCase())
+                {
+                    case "questionmode":
+                    {
+                        return ((CLO[argobj.pid].data.sMode=="browse") ? "review" : "normal");
+                    }
+                    case "questiontype":
+                    {
+                        return CLO[argobj.pid].data.sType;
+                    }
+                    case "itemquantity":
+                    {
+                        return CLO[argobj.pid].data.jxVars.length;
+                    }
+                    case "questionvalue":
+                    {
+                        return CLZ.oStore[argobj.pid].R.join(",");
+                    }
+                    case "attemptslast":
+                    {
+                        var iAttemptsLeft = 0;
+                        for(var i=0; i<CLZ.oStore[argobj.pid].A.length; i++)
+                        {
+                            if(CLZ.oStore[sQuestionId].A[i].u=="c") continue;
+                            iAttemptsLeft = CLZ.oStore[argobj.pid].A.length - i;
+                            break;
+                        }
+                        return iAttemptsLeft;
+                    }
+                    case "attemptstotal":
+                    {
+                        return CLZ.oStore[argobj.pid].A.length;
+                    }
+                }
+                return "";
+            }]]>
+            </body>
+        </method>
+    </methods>
+</params>
