@@ -1,4 +1,6 @@
-/*! jQuery UI - v1.13.1 - 2022-07-14  // + CourseLab CLZ.nZoom fix
+/*! jQuery UI - v1.13.1 - 2022-07-14
+// + CourseLab CLZ.nZoom fix
+// + CourseLab CLZ.nZoom fix for drop aria
 * http://jqueryui.com
 * Includes: widget.js, position.js, data.js, disable-selection.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js, focusable.js, form-reset-mixin.js, jquery-patch.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/draggable.js, widgets/droppable.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/resizable.js, widgets/selectable.js, widgets/selectmenu.js, widgets/slider.js, widgets/sortable.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js
 * Copyright jQuery Foundation and other contributors; Licensed MIT */
@@ -13407,6 +13409,13 @@ $.ui.intersect = ( function() {
 			return false;
 		}
 
+    var droppableWidth = droppable.proportions().width;
+    var droppableHeight = droppable.proportions().height;
+    if(CLZ && CLZ.nZoom !== undefined) {
+      droppableWidth = droppableWidth*CLZ.nZoom;
+      droppableHeight = droppableHeight*CLZ.nZoom;
+    }
+
 		var x1 = ( draggable.positionAbs ||
 				draggable.position.absolute ).left + draggable.margins.left,
 			y1 = ( draggable.positionAbs ||
@@ -13415,8 +13424,8 @@ $.ui.intersect = ( function() {
 			y2 = y1 + draggable.helperProportions.height,
 			l = droppable.offset.left,
 			t = droppable.offset.top,
-			r = l + droppable.proportions().width,
-			b = t + droppable.proportions().height;
+			r = l + droppableWidth,
+			b = t + droppableHeight;
 
 		switch ( toleranceMode ) {
 		case "fit":
@@ -13427,8 +13436,8 @@ $.ui.intersect = ( function() {
 				t < y1 + ( draggable.helperProportions.height / 2 ) && // Bottom Half
 				y2 - ( draggable.helperProportions.height / 2 ) < b ); // Top Half
 		case "pointer":
-			return isOverAxis( event.pageY, t, droppable.proportions().height ) &&
-				isOverAxis( event.pageX, l, droppable.proportions().width );
+			return isOverAxis( event.pageY, t, droppableHeight) &&
+				isOverAxis( event.pageX, l, droppableWidth );
 		case "touch":
 			return (
 				( y1 >= t && y1 <= b ) || // Top edge touching

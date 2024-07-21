@@ -6,7 +6,7 @@
     <object>
         <format>3.0</format>
         <label>Сортировка v0.0-2</label>
-        <description>Многообъектное взаимодействие с распределением объектов по группам</description>
+        <description>Сортировка объектов по группам</description>
         <width>120</width>
         <height>60</height>
         <state_extension>false</state_extension>
@@ -1538,8 +1538,8 @@
                 var oTarget =
                 {
                     iH: jTarget.height(),
-                    iL: jTarget.position().left,
-                    iT: jTarget.position().top,
+                    iL: jTarget.position().left/CLZ.nZoom,
+                    iT: jTarget.position().top/CLZ.nZoom,
                     iW: jTarget.width()
                 };
                 var iLeft = oTarget.iL;
@@ -1585,7 +1585,7 @@
                             break;
                         }
                     }
-                    jElem.css({ "left": ((iLeft + iFinalL)/CLZ.nZoom) + "px" });
+                    jElem.css({ "left": ((iLeft + iFinalL)) + "px" });
                 }
                 var iNewT = (oCurObj.data.sSnap=="cm") ? (0.5*(oTarget.iH - iTotalH)) : ((oCurObj.data.sSnap=="cb") ? oTarget.iH : 0);
                 var iFinalT = 0;
@@ -1615,7 +1615,7 @@
                             break;
                         }
                     }
-                    jElem.css({ "top": ((iTop + iFinalT)/CLZ.nZoom) + "px" });
+                    jElem.css({ "top": ((iTop + iFinalT)) + "px" });
                 }
                 return true;
             }]]>
@@ -2035,8 +2035,8 @@
                 var oTarget =
                 {
                     iH: jTarget.height(),
-                    iL: jTarget.position().left,
-                    iT: jTarget.position().top,
+                    iL: jTarget.position().left/CLZ.nZoom,
+                    iT: jTarget.position().top/CLZ.nZoom,
                     iW: jTarget.width()
                 };
                 var iLeft = oTarget.iL;
@@ -2107,24 +2107,24 @@
                                     case "cm":
                                     case "cb":
                                     {
-                                        iFinalL = 0.5*(oTarget.iW - jElem.outerWidth())*CLZ.nZoom;
+                                        iFinalL = 0.5*(oTarget.iW - jElem.outerWidth());
                                         break;
                                     }
                                     case "mc":
                                     case "ml":
                                     {
                                         iFinalL = iNewL;
-                                        iNewL += jElem.outerWidth()*CLZ.nZoom + iInterElem;
+                                        iNewL += jElem.outerWidth() + iInterElem;
                                         break;
                                     }
                                     case "mr":
                                     {
-                                        iFinalL = iNewL - jElem.outerWidth()*CLZ.nZoom;
+                                        iFinalL = iNewL - jElem.outerWidth();
                                         iNewL = iFinalL - iInterElem;
                                         break;
                                     }
                                 }
-                                CLO[jElem.attr("id")].current.x = (iLeft + iFinalL)/CLZ.nZoom;
+                                CLO[jElem.attr("id")].current.x = (iLeft + iFinalL);
                                 CLO[jElem.attr("id")].oStates["default"].current.x = CLO[jElem.attr("id")].current.x;
                                 if(CLO[jElem.attr("id")].oStates["highlighted"]!=null)
                                 {
@@ -2143,24 +2143,24 @@
                                     case "mc":
                                     case "mr":
                                     {
-                                        iFinalT = 0.5*(oTarget.iH - jElem.outerHeight())*CLZ.nZoom;
+                                        iFinalT = 0.5*(oTarget.iH - jElem.outerHeight());
                                         break;
                                     }
                                     case "ct":
                                     case "cm":
                                     {
                                         iFinalT = iNewT;
-                                        iNewT += jElem.outerHeight()*CLZ.nZoom + iInterElem;
+                                        iNewT += jElem.outerHeight() + iInterElem;
                                         break;
                                     }
                                     case "cb":
                                     {
-                                        iFinalT = iNewT - jElem.outerHeight()*CLZ.nZoom;
+                                        iFinalT = iNewT - jElem.outerHeight();
                                         iNewT = iFinalT - iInterElem;
                                         break;
                                     }
                                 }
-                                CLO[jElem.attr("id")].current.y = (iTop + iFinalT)/CLZ.nZoom;
+                                CLO[jElem.attr("id")].current.y = (iTop + iFinalT);
                                 CLO[jElem.attr("id")].oStates["default"].current.y = CLO[jElem.attr("id")].current.y;
                                 if(CLO[jElem.attr("id")].oStates["highlighted"]!=null)
                                 {
@@ -3120,8 +3120,8 @@
                                             if(iIdx!=-1)
                                             {
                                                 var sId = $(this).attr("id");
-                                                CLO[sId].current.x = $(this).position().left/CLZ.nZoom;
-                                                CLO[sId].current.y = $(this).position().top/CLZ.nZoom;
+                                                CLO[sId].current.x = $(this).position().left;
+                                                CLO[sId].current.y = $(this).position().top;
                                                 break;
                                             }
                                         }
