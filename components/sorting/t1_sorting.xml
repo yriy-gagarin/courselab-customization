@@ -5,7 +5,7 @@
 --><params>
     <object>
         <format>3.0</format>
-        <label>Распределение</label>
+        <label>Сортировка v0.0-1</label>
         <description>Многообъектное взаимодействие с распределением объектов по группам</description>
         <width>120</width>
         <height>60</height>
@@ -647,6 +647,9 @@
             {
                 var oCurObj = CLO[argobj.pid];
                 var jCurObjDiv = $(oCurObj.div);
+                // Add 'parent'(the component from which the inheritance was based) classname
+                // See also CLObject constructor
+                jCurObjDiv.addClass("clo-v_q_0002");
                 var sQuestionId = argobj.pid;
                 oCurObj.data =
                 {
