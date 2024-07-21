@@ -5,7 +5,7 @@
 --><params>
     <object>
         <format>3.0</format>
-        <label>Сортировка v0.0-1</label>
+        <label>Сортировка v0.0-2</label>
         <description>Многообъектное взаимодействие с распределением объектов по группам</description>
         <width>120</width>
         <height>60</height>
@@ -3067,6 +3067,9 @@
                                 }
                             }
                             var jBoard = $(CL.oBoard);
+                            var containmentWidth = 0;
+                            var containmentHeight = 0;
+
                             for(var sKey in oCurObj.data.oBullets)
                             {
                                 jBulletDiv = $(CLO[ oCurObj.data.oBullets[sKey].sId ].div);
@@ -3076,11 +3079,12 @@
                                 }
                                 jBulletDiv.attr({ "data-vq-drag": sKey }).addClass("cl-drag").draggable(
                                 {
-                                    containment: jBoard,
                                     scope: sQuestionId,
                                     zIndex: 4999,
                                     start: function (event, ui)
                                     {
+                                        containmentWidth = (jBoard.width() - ui.helper.width())*CLZ.nZoom;
+                                        containmentHeight = (jBoard.height() - ui.helper.height())*CLZ.nZoom;
                                         var sDragCode = $(this).attr("data-vq-drag");
                                         var iIdx = -1;
                                         for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
@@ -3100,6 +3104,11 @@
                                             }
                                         }
                                         oCurObj.CallMethod({ sMethod: "Feedback" });
+                                    },
+                                    drag: function (event, ui)
+                                    {
+                                         ui.position.left = Math.max(0, Math.min(ui.position.left, containmentWidth));
+                                         ui.position.top = Math.max(0, Math.min(ui.position.top, containmentHeight));
                                     },
                                     stop: function (event, ui)
                                     {
