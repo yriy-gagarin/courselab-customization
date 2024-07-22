@@ -5,8 +5,8 @@
 --><params>
 	<object>
 		<format>3.0</format>
-		<label>Вопрос универсальный</label>
-		<description>Вопрос универсальный</description>
+		<label>Универсальный вопрос v0.0-1</label>
+		<description>Универсальный вопрос</description>
 		<width>720</width>
 		<height>400</height>
 		<default_text>text_main</default_text>
@@ -2065,6 +2065,9 @@
 			{
 				var oCurObj = CLO[argobj.pid];
 				var jCurObjDiv = $(oCurObj.div);
+				// Add 'parent'(the component from which the inheritance was based) classname
+        // See also CLObject constructor
+        jCurObjDiv.addClass("clo-q_0000");
 				var sQuestionId = argobj.pid;
 				var bDefer = false;
 				switch(oCurObj.display)
