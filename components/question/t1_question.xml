@@ -2790,14 +2790,6 @@
 									axis: "y",
 									stack: ".cl-var",
 									revert: "invalid",
-									drag: function (event, ui)
-									{
-										if(CLZ.nZoom!=1) // zoom fix
-										{
-											ui.position.top = ui.position.top / CLZ.nZoom;
-											ui.position.left = ui.position.left / CLZ.nZoom;
-										}
-									},
 									stop: function (event, ui)
 									{
 										$(this).siblings(".cl-var").css({ "box-shadow": "none" });  // order needs no adjusting
@@ -2873,14 +2865,6 @@
 									axis: "y",
 									stack: ".cl-var-bullet",
 									revert: "invalid",
-									drag: function (event, ui)
-									{
-										if(CLZ.nZoom!=1) // zoom fix
-										{
-											ui.position.top = ui.position.top / CLZ.nZoom;
-											ui.position.left = ui.position.left / CLZ.nZoom;
-										}
-									},
 									stop: function (event, ui)
 									{
 										jVarDivs.css({ "box-shadow": "none" });
