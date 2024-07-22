@@ -1,0 +1,4539 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+'*	q_0000.xml
+'* 	CourseLab 3.0
+'*	Copyright (c) Websoft Ltd., Russia.  All rights reserved.
+--><params>
+	<object>
+		<format>3.0</format>
+		<label>Вопрос универсальный</label>
+		<description>Вопрос универсальный</description>
+		<width>720</width>
+		<height>400</height>
+		<default_text>text_main</default_text>
+		<default_color_bg>bg_color</default_color_bg>
+		<default_color_border>border_color</default_color_border>
+		<theme>theme</theme>
+		<state_extension>false</state_extension>
+	</object>
+	<page name="Основные" w="320" h="320">
+		<param type="edit" id="hidden.label.header" text="" def="Подсчет максимальных баллов" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.question" text="" def="Вопрос:" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.credit" text="" def="оцениваемый" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.nocredit" text="" def="неоцениваемый" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.scoring" text="" def="Расчет оценки:" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.plain" text="" def="Общий вес во все цели" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.regressive" text="" def="Вес, умноженный на число попыток, регрессивно по попыткам во все цели" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.byobj" text="" def="Разный вес в разные цели" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.var" text="" def="Вес выбранного варианта" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.maxscore" text="" def="Максимальная оценка по целям:" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.noobj" text="" def="В вопросе не определены цели - результаты не сохраняются!" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.toomany" text="" def="Число правильных ответов не равно 1! Вопрос будет работать некорректно!" x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.useit" text="" def="Вы можете использовать эти значения при расчете максимальных баллов модуля по целям." x="10" y="-50" w="1" h="1"/>
+		<param type="edit" id="hidden.label.hide" text="" def="Чтобы скрыть/показать этот служебный элемент используйте маркер на закладке Оценка." x="10" y="-50" w="1" h="1"/>
+
+		<param type="line" id="line_theme" text="" def="" x="4" y="4" w="312" h="34"/>
+		<param type="label" id="lab_theme" text="Тема" def="" x="10" y="10" w="120" h="11"/>
+		<param type="label" id="lab_border_color" text="Граница" def="" x="130" y="10" w="60" h="11"/>
+		<param type="label" id="lab_bg_color" text="Заливка" def="" x="190" y="10" w="60" h="11"/>
+		<param type="label" id="lab_base_color" text="Подложка" def="" x="250" y="10" w="60" h="11"/>
+		<param type="select" id="theme" text="" def="light" x="10" y="20" w="115" h="13">
+			<items>
+				<item id="simple" label="Простая"/>
+				<item id="light" label="Легкая"/>
+				<item id="standard" label="Стандартная"/>
+			</items>
+		</param>
+		<param type="color" id="border_color" text="" def="#0080C0" x="130" y="20" w="40" h="13"/>
+		<param type="color" id="bg_color" text="" def="#D5EAFF" x="190" y="20" w="40" h="13"/>
+		<param type="color" id="base_color" text="" def="#FFFFFF" x="250" y="20" w="40" h="13"/>
+
+		<param type="line" id="line_vars" text="" def="" x="4" y="44" w="312" h="154"/>
+
+		<param type="label" id="lab_question_type" text="Тип вопроса" def="" x="10" y="52" w="120" h="13"/>
+		<param type="select" id="question_type" text="" def="choice" x="130" y="50" w="180" h="13">
+			<items>
+				<item id="true-false" label="Да-Нет">
+					<events>
+						<event name="selendok" target="fs_true-false" action="show"/>
+						<event name="selendok" target="fs_attempts" action="disable"/>
+						<event name="selendok" target="q_scoring_type_tf" action="show"/>
+						<event name="selendok" target="q_scoring_type_choice" action="hide"/>
+						<event name="selendok" target="q_scoring_type_select" action="hide"/>
+						<event name="selendok" target="q_scoring_type_inputs" action="hide"/>
+						<event name="selendok" target="q_scoring_type_match" action="hide"/>
+						<event name="selendok" target="fs_choice" action="hide"/>
+						<event name="selendok" target="fs_select" action="hide"/>
+						<event name="selendok" target="fs_order" action="hide"/>
+						<event name="selendok" target="fs_numeric" action="hide"/>
+						<event name="selendok" target="fs_fib" action="hide"/>
+						<event name="selendok" target="fs_oto" action="hide"/>
+						<event name="selendok" target="fs_otm" action="hide"/>
+						<event name="selendok" target="fs_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="choice" label="Единственный выбор">
+					<events>
+						<event name="selendok" target="fs_true-false" action="hide"/>
+						<event name="selendok" target="fs_choice" action="show"/>
+						<event name="selendok" target="fs_attempts" action="enable"/>
+						<event name="selendok" target="q_scoring_type_tf" action="hide"/>
+						<event name="selendok" target="q_scoring_type_choice" action="show"/>
+						<event name="selendok" target="q_scoring_type_select" action="hide"/>
+						<event name="selendok" target="q_scoring_type_inputs" action="hide"/>
+						<event name="selendok" target="q_scoring_type_match" action="hide"/>
+						<event name="selendok" target="fs_select" action="hide"/>
+						<event name="selendok" target="fs_order" action="hide"/>
+						<event name="selendok" target="fs_numeric" action="hide"/>
+						<event name="selendok" target="fs_fib" action="hide"/>
+						<event name="selendok" target="fs_oto" action="hide"/>
+						<event name="selendok" target="fs_otm" action="hide"/>
+						<event name="selendok" target="fs_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="select" label="Множественный выбор">
+					<events>
+						<event name="selendok" target="fs_true-false" action="hide"/>
+						<event name="selendok" target="fs_choice" action="hide"/>
+						<event name="selendok" target="fs_select" action="show"/>
+						<event name="selendok" target="fs_attempts" action="enable"/>
+						<event name="selendok" target="q_scoring_type_tf" action="hide"/>
+						<event name="selendok" target="q_scoring_type_choice" action="hide"/>
+						<event name="selendok" target="q_scoring_type_select" action="show"/>
+						<event name="selendok" target="q_scoring_type_inputs" action="hide"/>
+						<event name="selendok" target="q_scoring_type_match" action="hide"/>
+						<event name="selendok" target="fs_order" action="hide"/>
+						<event name="selendok" target="fs_numeric" action="hide"/>
+						<event name="selendok" target="fs_fib" action="hide"/>
+						<event name="selendok" target="fs_oto" action="hide"/>
+						<event name="selendok" target="fs_otm" action="hide"/>
+						<event name="selendok" target="fs_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="order" label="Упорядочивание">
+					<events>
+						<event name="selendok" target="fs_true-false" action="hide"/>
+						<event name="selendok" target="fs_choice" action="hide"/>
+						<event name="selendok" target="fs_select" action="hide"/>
+						<event name="selendok" target="fs_order" action="show"/>
+						<event name="selendok" target="fs_attempts" action="enable"/>
+						<event name="selendok" target="q_scoring_type_tf" action="hide"/>
+						<event name="selendok" target="q_scoring_type_choice" action="hide"/>
+						<event name="selendok" target="q_scoring_type_select" action="hide"/>
+						<event name="selendok" target="q_scoring_type_inputs" action="hide"/>
+						<event name="selendok" target="q_scoring_type_match" action="show"/>
+						<event name="selendok" target="fs_numeric" action="hide"/>
+						<event name="selendok" target="fs_fib" action="hide"/>
+						<event name="selendok" target="fs_oto" action="hide"/>
+						<event name="selendok" target="fs_otm" action="hide"/>
+						<event name="selendok" target="fs_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="numeric" label="Числовой ввод">
+					<events>
+						<event name="selendok" target="fs_true-false" action="hide"/>
+						<event name="selendok" target="fs_choice" action="hide"/>
+						<event name="selendok" target="fs_select" action="hide"/>
+						<event name="selendok" target="fs_order" action="hide"/>
+						<event name="selendok" target="fs_numeric" action="show"/>
+						<event name="selendok" target="fs_attempts" action="enable"/>
+						<event name="selendok" target="q_scoring_type_tf" action="hide"/>
+						<event name="selendok" target="q_scoring_type_choice" action="hide"/>
+						<event name="selendok" target="q_scoring_type_select" action="hide"/>
+						<event name="selendok" target="q_scoring_type_inputs" action="show"/>
+						<event name="selendok" target="q_scoring_type_match" action="hide"/>
+						<event name="selendok" target="fs_fib" action="hide"/>
+						<event name="selendok" target="fs_oto" action="hide"/>
+						<event name="selendok" target="fs_otm" action="hide"/>
+						<event name="selendok" target="fs_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="fib" label="Текстовый ввод">
+					<events>
+						<event name="selendok" target="fs_true-false" action="hide"/>
+						<event name="selendok" target="fs_choice" action="hide"/>
+						<event name="selendok" target="fs_select" action="hide"/>
+						<event name="selendok" target="fs_order" action="hide"/>
+						<event name="selendok" target="fs_numeric" action="hide"/>
+						<event name="selendok" target="fs_fib" action="show"/>
+						<event name="selendok" target="fs_attempts" action="enable"/>
+						<event name="selendok" target="q_scoring_type_tf" action="hide"/>
+						<event name="selendok" target="q_scoring_type_choice" action="hide"/>
+						<event name="selendok" target="q_scoring_type_select" action="hide"/>
+						<event name="selendok" target="q_scoring_type_inputs" action="show"/>
+						<event name="selendok" target="q_scoring_type_match" action="hide"/>
+						<event name="selendok" target="fs_oto" action="hide"/>
+						<event name="selendok" target="fs_otm" action="hide"/>
+						<event name="selendok" target="fs_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="oto" label="Парное соответствие">
+					<events>
+						<event name="selendok" target="fs_true-false" action="hide"/>
+						<event name="selendok" target="fs_choice" action="hide"/>
+						<event name="selendok" target="fs_select" action="hide"/>
+						<event name="selendok" target="fs_order" action="hide"/>
+						<event name="selendok" target="fs_numeric" action="hide"/>
+						<event name="selendok" target="fs_fib" action="hide"/>
+						<event name="selendok" target="fs_oto" action="show"/>
+						<event name="selendok" target="fs_attempts" action="enable"/>
+						<event name="selendok" target="q_scoring_type_tf" action="hide"/>
+						<event name="selendok" target="q_scoring_type_choice" action="hide"/>
+						<event name="selendok" target="q_scoring_type_select" action="hide"/>
+						<event name="selendok" target="q_scoring_type_inputs" action="hide"/>
+						<event name="selendok" target="q_scoring_type_match" action="show"/>
+						<event name="selendok" target="fs_otm" action="hide"/>
+						<event name="selendok" target="fs_mtm" action="hide"/>
+					</events>
+				</item>
+<!--				<item id="otm" label="Распределение по группам">
+					<events>
+						<event name="selendok" target="fs_true-false" action="hide"/>
+						<event name="selendok" target="fs_choice" action="hide"/>
+						<event name="selendok" target="fs_select" action="hide"/>
+						<event name="selendok" target="fs_order" action="hide"/>
+						<event name="selendok" target="fs_numeric" action="hide"/>
+						<event name="selendok" target="fs_fib" action="hide"/>
+						<event name="selendok" target="fs_oto" action="hide"/>
+						<event name="selendok" target="fs_otm" action="show"/>
+						<event name="selendok" target="fs_attempts" action="enable"/>
+						<event name="selendok" target="q_scoring_type_tf" action="hide"/>
+						<event name="selendok" target="q_scoring_type_choice" action="hide"/>
+						<event name="selendok" target="q_scoring_type_select" action="hide"/>
+						<event name="selendok" target="q_scoring_type_inputs" action="hide"/>
+						<event name="selendok" target="q_scoring_type_match" action="show"/>
+						<event name="selendok" target="fs_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="mtm" label="Открытое соответствие">
+					<events>
+						<event name="selendok" target="fs_true-false" action="hide"/>
+						<event name="selendok" target="fs_choice" action="hide"/>
+						<event name="selendok" target="fs_select" action="hide"/>
+						<event name="selendok" target="fs_order" action="hide"/>
+						<event name="selendok" target="fs_numeric" action="hide"/>
+						<event name="selendok" target="fs_fib" action="hide"/>
+						<event name="selendok" target="fs_oto" action="hide"/>
+						<event name="selendok" target="fs_otm" action="hide"/>
+						<event name="selendok" target="fs_mtm" action="show"/>
+						<event name="selendok" target="fs_attempts" action="enable"/>
+						<event name="selendok" target="q_scoring_type_tf" action="hide"/>
+						<event name="selendok" target="q_scoring_type_choice" action="hide"/>
+						<event name="selendok" target="q_scoring_type_select" action="hide"/>
+						<event name="selendok" target="q_scoring_type_inputs" action="hide"/>
+						<event name="selendok" target="q_scoring_type_match" action="show"/>
+					</events>
+				</item>
+			--></items>
+		</param>
+
+		<param type="check" id="display_question_text" text="Текст вопроса" def="yes" x="10" y="66" w="120" h="13">
+			<events>
+				<event name="check" target="q_question" action="enable"/>
+				<event name="uncheck" target="q_question" action="disable"/>
+			</events>
+		</param>
+		<param type="textedit" id="text_main" text="" def="Текст по умолчанию" x="130" y="66" w="163" h="13"/>
+
+		<param type="fieldset" id="fs_true-false">
+			<param type="label" id="lab_q_text_true" text="Текст Правда" def="" x="10" y="84" w="120" h="11"/>
+			<param type="textedit" id="q_text_true" text="" def="Да" x="130" y="82" w="163" h="13"/>
+			<param type="label" id="lab_q_text_false" text="Текст Ложь" def="" x="10" y="100" w="120" h="11"/>
+			<param type="textedit" id="q_text_false" text="" def="Нет" x="130" y="98" w="163" h="13"/>
+			<param type="label" id="lab_q_order" text="Порядок вариантов" def="" x="10" y="116" w="120" h="11"/>
+			<param type="select" id="q_elements_order" text="" def="tf" x="130" y="114" w="90" h="13">
+				<items>
+					<item id="tf" label="Правда-Ложь"/>
+					<item id="ft" label="Ложь-Правда"/>
+					<item id="random" label="Случайный"/>
+				</items>
+			</param>
+			<param type="select" id="q_elements_layout" text="" def="v" x="222" y="114" w="88" h="13">
+				<items>
+					<item id="v" label="Вертикально"/>
+					<item id="h" label="Горизонтально"/>
+				</items>
+			</param>
+			<param type="label" id="lab_q_eval" text="Правильный ответ" def="" x="10" y="132" w="120" h="11"/>
+			<param type="select" id="q_eval" text="" def="true" x="130" y="130" w="180" h="13">
+				<items>
+					<item id="true" label="Правда">
+						<events>
+							<event name="selendok" target="fs_tf_weights" action="disable"/>
+						</events>
+					</item>
+					<item id="false" label="Ложь">
+						<events>
+							<event name="selendok" target="fs_tf_weights" action="disable"/>
+						</events>
+					</item>
+					<item id="byvar" label="Без правильного ответа">
+						<events>
+							<event name="selendok" target="fs_tf_weights" action="enable"/>
+						</events>
+					</item>
+				</items>
+			</param>
+			<param type="fieldset" id="fs_tf_weights">
+				<param type="label" id="lab_q_weight_true" text="Вес Правда" def="" x="10" y="148" w="120" h="11"/>
+				<param type="dec_spinner" id="q_weight_true" text="" def="1.0" x="130" y="146" w="32" h="13" min="-99" max="99"/>
+				<param type="label" id="lab_q_weight_false" text="Вес Ложь" def="" x="10" y="164" w="120" h="11"/>
+				<param type="dec_spinner" id="q_weight_false" text="" def="0.0" x="130" y="162" w="32" h="13" min="-99" max="99"/>
+			</param>
+		</param>
+
+		<param type="fieldset" id="fs_choice">
+			<param type="label" id="lab_q_variants_choice" text="Варианты" def="" x="10" y="84" w="120" h="11"/>
+			<param type="list" id="q_variants_choice" text="" def="yes" x="10" y="82" w="300" h="78" importable="yes">
+				<params w="260" h="110">
+					<param type="check" id="q_right" text="Правильный ответ" def="no" x="10" y="8" w="240" h="13"/>
+					<param type="label" id="lab_q_variant" text="Текст варианта" def="" x="10" y="26" w="120" h="11"/>
+					<param type="textedit" id="q_variant" text="Текст варианта" def="Текст по умолчанию" x="130" y="24" w="103" h="13"/>
+					<param type="line" id="line_choice_weight" text="" def="" x="10" y="40" w="240" h="44"/>
+					<param type="label" id="lab_q_weight_by_connection" text="Вес варианта" def="" x="15" y="46" w="110" h="11"/>
+					<param type="dec_spinner" id="q_weight_by_connection" text="Вес варианта" def="1.0" x="130" y="44" w="32" h="13" min="-99" max="99"/>
+					<param type="label" id="lab_weight1" text="Вес учитывается только при некоторых типах расчета оценки" def="" x="15" y="60" w="228" h="22"/>
+					<param type="button" id="OK" text="OK" def="" x="145" y="88" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" def="" x="200" y="88" w="50" h="14"/>
+				</params>
+			</param>
+			<param type="check" id="q_shuffle_choice" text="Показывать варианты в случайном порядке" def="no" x="10" y="164" w="300" h="13"/>
+		</param>
+
+		<param type="fieldset" id="fs_select">
+			<param type="label" id="lab_q_variants_select" text="Варианты" def="" x="10" y="84" w="120" h="11"/>
+			<param type="list" id="q_variants_select" text="" def="yes" x="10" y="82" w="300" h="78" importable="yes">
+				<params w="260" h="110">
+					<param type="check" id="q_right" text="Правильный ответ" def="no" x="10" y="8" w="240" h="13"/>
+					<param type="label" id="lab_q_variant" text="Текст варианта" def="" x="10" y="26" w="120" h="11"/>
+					<param type="textedit" id="q_variant" text="Текст варианта" def="Текст по умолчанию" x="130" y="24" w="103" h="13"/>
+					<param type="line" id="line_select_weight" text="" def="" x="10" y="40" w="240" h="44"/>
+					<param type="label" id="lab_q_weight_by_connection" text="Вес варианта" def="" x="15" y="46" w="110" h="11"/>
+					<param type="dec_spinner" id="q_weight_by_connection" text="Вес варианта" def="1.0" x="130" y="44" w="32" h="13" min="-99" max="99"/>
+					<param type="label" id="lab_weight1" text="Вес учитывается только при некоторых типах расчета оценки" def="" x="15" y="60" w="228" h="22"/>
+					<param type="button" id="OK" text="OK" def="" x="145" y="88" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" def="" x="200" y="88" w="50" h="14"/>
+				</params>
+			</param>
+			<param type="check" id="q_shuffle_select" text="Показывать варианты в случайном порядке" def="no" x="10" y="164" w="300" h="13"/>
+		</param>
+
+		<param type="fieldset" id="fs_order">
+			<param type="label" id="lab_q_variants_order" text="Варианты" def="" x="10" y="84" w="120" h="13"/>
+			<param type="list" id="q_variants_order" text="" def="yes" x="10" y="82" w="300" h="94" importable="yes">
+				<params w="260" h="92">
+					<param type="label" id="lab_q_variant" text="Текст варианта" def="" x="10" y="10" w="120" h="13"/>
+					<param type="textedit" id="q_variant" text="Текст варианта" def="Текст по умолчанию" x="130" y="8" w="103" h="13"/>
+					<param type="line" id="" text="" def="" x="10" y="24" w="240" h="44"/>
+					<param type="label" id="lab_q_weight_by_connection" text="Вес варианта" def="" x="15" y="30" w="110" h="13"/>
+					<param type="dec_spinner" id="q_weight_by_connection" text="Вес варианта" def="1.0" x="130" y="28" w="32" h="13" min="-99" max="99"/>
+					<param type="label" id="lab_weight1" text="Вес учитывается только при некоторых типах расчета оценки" def="" x="15" y="44" w="228" h="22"/>
+					<param type="button" id="OK" text="OK" def="" x="145" y="72" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" def="" x="200" y="72" w="50" h="14"/>
+				</params>
+			</param>
+		</param>
+
+		<param type="fieldset" id="fs_numeric">
+			<param type="label" id="lab_q_variants_numeric" text="Варианты" x="10" y="84" w="120" h="13"/>
+			<param type="list" id="q_variants_numeric" text="" def="yes" x="10" y="82" w="300" h="78" importable="yes">
+				<params w="260" h="170">
+					<param type="label" id="lab_q_explanation" text="Инструкция" x="10" y="10" w="120" h="11"/>
+					<param type="textedit" id="q_explanation" text="Инструкция" def="Инструкция" x="130" y="9" w="103" h="13"/>
+					<param type="label" id="lab_q_exp_position" text="Расположение" x="10" y="26" w="120" h="11"/>
+					<param type="select" id="q_exp_position" text="Расположение" def="right" x="130" y="24" w="120" h="13" listcolumn="0">
+						<items>
+							<item id="left" label="Слева"/>
+							<item id="right" label="Справа"/>
+						</items>
+					</param>
+					<param type="label" text="Условия" x="10" y="42" w="120" h="11"/>
+					<param type="list" id="q_conditions" text="" def="no" x="10" y="40" w="240" h="64">
+						<params w="260" h="74">
+							<param type="label" id="lab_q_condition" text="Условие" x="10" y="10" w="120" h="11"/>
+							<param type="select" id="q_condition" text="Условие" def="eq" x="130" y="8" w="120" h="13">
+								<items>
+									<item id="eq" label="Равно"/>
+									<item id="ne" label="Не равно"/>
+									<item id="gt" label="Больше"/>
+									<item id="gte" label="Больше или равно"/>
+									<item id="lt" label="Меньше"/>
+									<item id="lte" label="Меньше или равно"/>
+								</items>
+							</param>
+							<param type="label" id="lab_q_variant" text="Значение" x="10" y="26" w="120" h="11"/>
+							<param type="edit" id="q_variant" text="Значение" def="" x="130" y="24" w="44" h="13"/>
+							<param type="line" x="8" y="44" w="244" h="1"/>
+							<param type="button" id="OK" text="OK" x="145" y="50" w="50" h="14"/>
+							<param type="button" id="CANCEL" text="Отмена" x="200" y="50" w="50" h="14"/>
+						</params>
+					</param>
+					<param type="label" id="lab_q_cond_logic" text="Правильно если" x="10" y="112" w="120" h="11"/>
+					<param type="select" id="q_cond_logic" text="Оператор" def="AND" x="130" y="110" w="120" h="13">
+						<items>
+							<item id="AND" label="Все верны (И)"/>
+							<item id="OR" label="Хотя бы одно верно (ИЛИ)"/>
+						</items>
+					</param>
+					<param type="label" id="lab_q_width_numeric" text="Ограничение по длине" x="10" y="128" w="120" h="11"/>
+					<param type="spinner" id="q_width_numeric" text="Макс." def="0" x="130" y="126" w="32" h="13" min="0" max="99"/>
+					<param type="label" id="lab_q_width_numeric_sym" text="символов" x="165" y="128" w="60" h="11"/>
+					<param type="line" x="8" y="146" w="244" h="1"/>
+					<param type="button" id="OK" text="OK" x="145" y="150" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" x="200" y="150" w="50" h="14"/>
+				</params>
+			</param>
+			<param type="label" id="lab_q_var_logic_numeric" text="Правильно если" x="10" y="166" w="120" h="11"/>
+			<param type="select" id="q_var_logic_numeric" text="" def="AND" x="130" y="164" w="180" h="13">
+				<items>
+					<item id="AND" label="Все верны (И)"/>
+					<item id="OR" label="Хотя бы одно верно (ИЛИ)"/>
+				</items>
+			</param>
+		</param>
+
+		<param type="fieldset" id="fs_fib">
+			<param type="label" id="lab_q_variants_fib" text="Варианты" x="10" y="84" w="120" h="13"/>
+			<param type="list" id="q_variants_fib" text="" def="yes" x="10" y="82" w="300" h="78" importable="yes">
+				<params w="260" h="170">
+					<param type="label" id="lab_q_explanation" text="Инструкция" def="" x="10" y="10" w="120" h="11"/>
+					<param type="textedit" id="q_explanation" text="Инструкция" def="Инструкция" x="130" y="8" w="103" h="13"/>
+					<param type="label" id="lab_q_exp_position" text="Расположение" x="10" y="26" w="120" h="11"/>
+					<param type="select" id="q_exp_position" text="Расположение" def="right" x="130" y="24" w="120" h="13" listcolumn="0">
+						<items>
+							<item id="left" label="Слева"/>
+							<item id="right" label="Справа"/>
+						</items>
+					</param>
+					<param type="label" id="lab_q_conditions" text="Условия" def="" x="10" y="42" w="120" h="11"/>
+					<param type="list" id="q_conditions" text="" def="no" x="10" y="40" w="240" h="64">
+						<params w="260" h="90">
+							<param type="label" id="lab_q_condition" text="Условие" def="" x="10" y="10" w="120" h="11"/>
+							<param type="select" id="q_condition" text="Условие" def="eq" x="130" y="8" w="120" h="13">
+								<items>
+									<item id="eq" label="Равно"/>
+									<item id="bw" label="Начинается"/>
+									<item id="ew" label="Заканчивается"/>
+									<item id="cn" label="Содержит"/>
+								</items>
+							</param>
+							<param type="label" id="lab_q_variant" text="Значение" def="" x="10" y="26" w="120" h="11"/>
+							<param type="edit" id="q_variant" text="Значение" def="" x="130" y="24" w="120" h="13"/>
+							<param type="check" id="q_case" text="Соблюдать регистр" def="no" x="10" y="40" w="240" h="13"/>
+							<param type="line" text="" def="" x="8" y="60" w="244" h="1"/>
+							<param type="button" id="OK" text="OK" def="" x="145" y="66" w="50" h="14"/>
+							<param type="button" id="CANCEL" text="Отмена" def="" x="200" y="66" w="50" h="14"/>
+						</params>
+					</param>
+					<param type="label" id="lab_q_cond_logic" text="Правильно если" x="10" y="112" w="120" h="11"/>
+					<param type="select" id="q_cond_logic" text="Оператор" def="AND" x="130" y="110" w="120" h="13">
+						<items>
+							<item id="AND" label="Все верны (И)"/>
+							<item id="OR" label="Хотя бы одно верно (ИЛИ)"/>
+						</items>
+					</param>
+					<param type="label" id="lab_q_width" text="Ограничение по длине" x="10" y="128" w="120" h="11"/>
+					<param type="spinner" id="q_width" text="Макс." def="0" x="130" y="126" w="32" h="13" min="0" max="999"/>
+					<param type="label" id="lab_q_width_sym" text="символов" x="165" y="128" w="60" h="11"/>
+					<param type="line" x="8" y="146" w="244" h="1"/>
+					<param type="button" id="OK" text="OK" x="145" y="150" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" x="200" y="150" w="50" h="14"/>
+				</params>
+			</param>
+			<param type="label" id="lab_q_var_logic_fib" text="Правильно если" x="10" y="166" w="120" h="11"/>
+			<param type="select" id="q_var_logic_fib" text="" def="AND" x="130" y="164" w="180" h="13">
+				<items>
+					<item id="AND" label="Все верны (И)"/>
+					<item id="OR" label="Хотя бы одно верно (ИЛИ)"/>
+				</items>
+			</param>
+		</param>
+
+		<param type="fieldset" id="fs_oto">
+			<param type="label" id="lab_q_variants_oto" text="Пары" def="" x="10" y="84" w="120" h="11"/>
+			<param type="list" id="q_variants_oto" text="" def="yes" x="10" y="82" w="300" h="94" importable="yes">
+				<params w="260" h="110">
+					<param type="label" id="" text="База" def="" x="10" y="10" w="120" h="11"/>
+					<param type="textedit" id="q_target" text="База" def="Текст по умолчанию" x="130" y="9" w="103" h="13"/>
+					<param type="label" id="" text="Соответствие" def="" x="10" y="26" w="120" h="11"/>
+					<param type="textedit" id="q_bullet" text="Соответствие" def="Текст по умолчанию" x="130" y="24" w="103" h="13"/>
+					<param type="line" text="" def="" x="10" y="40" w="240" h="44"/>
+					<param type="label" id="lab_q_weight_by_connection" text="Вес варианта" def="" x="15" y="46" w="110" h="13"/>
+					<param type="dec_spinner" id="q_weight_by_connection" text="Вес варианта" def="1.0" x="130" y="44" w="32" h="13" min="-99" max="99"/>
+					<param type="label" id="lab_weight1" text="Вес учитывается только при некоторых типах расчета оценки" def="" x="15" y="60" w="228" h="22"/>
+					<param type="button" id="OK" text="OK" def="" x="145" y="88" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" def="" x="200" y="88" w="50" h="14"/>
+				</params>
+			</param>
+		</param>
+
+<!--		<param type="fieldset" id="fs_otm">
+			<param type="label" id="lab_q_variants_otm" text="Группы" def="" x="10" y="84" w="120" h="11"/>
+			<param type="list" id="q_variants_otm" text="" def="" x="10" y="82" w="300" h="78">
+				<params w="260" h="152">
+					<param type="label" id="" text="Группа" def="" x="10" y="10" w="120" h="11"/>
+					<param type="textedit" id="q_target" text="Группа" def="Текст по умолчанию" x="130" y="8" w="103" h="13"/>
+					<param type="label" id="" text="Элементы" def="" x="10" y="26" w="120" h="11"/>
+					<param type="list" id="q_bullets" text="" def="" x="10" y="24" w="240" h="98">
+						<params w="260" h="92">
+							<param type="label" id="lab_q_bullet" text="Элемент" def="" x="10" y="10" w="120" h="11"/>
+							<param type="textedit" id="q_bullet" text="Элемент" def="Текст по умолчанию" x="130" y="8" w="103" h="13"/>
+							<param type="line" id="" text="" def="" x="10" y="24" w="240" h="44"/>
+							<param type="label" id="lab_q_weight_by_connection" text="Вес варианта" def="" x="15" y="30" w="110" h="13"/>
+							<param type="dec_spinner" id="q_weight_by_connection" text="Вес варианта" def="1.0" x="130" y="28" w="32" h="13" min="-99" max="99"/>
+							<param type="label" id="lab_weight1" text="Вес учитывается только при некоторых типах расчета оценки" def="" x="15" y="44" w="228" h="22"/>
+							<param type="button" id="OK" text="OK" def="" x="145" y="72" w="50" h="14"/>
+							<param type="button" id="CANCEL" text="Отмена" def="" x="200" y="72" w="50" h="14"/>
+						</params>
+					</param>
+					<param type="line" id="" text="" def="" x="10" y="126" w="240" h="1"/>
+					<param type="button" id="OK" text="OK" def="" x="145" y="132" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" def="" x="200" y="132" w="50" h="14"/>
+				</params>
+			</param>
+			<param type="label" id="lab_q_contacts_otm" text="Число элементов в группе" def="yes" x="10" y="166" w="120" h="11"/>
+			<param type="select" id="q_contacts_otm" text="" def="auto" x="130" y="164" w="120" h="13">
+				<items>
+					<item id="none" label="Не показывать">
+						<events>
+							<event name="selendok" target="q_contacts_manual_otm" action="disable"/>
+						</events>
+					</item>
+					<item id="byvar" label="Точное число по группам">
+						<events>
+							<event name="selendok" target="q_contacts_manual_otm" action="disable"/>
+						</events>
+					</item>
+					<item id="auto" label="Максимальное число">
+						<events>
+							<event name="selendok" target="q_contacts_manual_otm" action="disable"/>
+						</events>
+					</item>
+					<item id="total" label="Сумма элементов">
+						<events>
+							<event name="selendok" target="q_contacts_manual_otm" action="disable"/>
+						</events>
+					</item>
+					<item id="manual" label="По выбору">
+						<events>
+							<event name="selendok" target="q_contacts_manual_otm" action="enable"/>
+						</events>
+					</item>
+				</items>
+			</param>
+			<param type="spinner" id="q_contacts_manual_otm" text="" def="4" x="252" y="164" w="32" h="13" min="0" max="99"/>
+		</param>
+
+		<param type="fieldset" id="fs_mtm">
+			<param type="label" id="lab_q_variants_mtm" text="Группы" x="10" y="84" w="120" h="11"/>
+			<param type="list" id="q_variants_mtm" text="" def="" x="10" y="82" w="148" h="78">
+				<params w="260" h="152">
+					<param type="label" text="Название" x="10" y="10" w="120" h="11"/>
+					<param type="textedit" id="q_target" text="Название" def="Текст по умолчанию" x="130" y="8" w="103" h="13"/>
+					<param type="label" text="Элементы" x="10" y="26" w="120" h="11"/>
+					<param type="list" id="q_connections" text="" def="" x="10" y="24" w="240" h="98">
+						<params w="260" h="92">
+							<param type="label" id="lab_q_bullet_number_att" text="Номер элемента" x="10" y="10" w="120" h="13"/>
+							<param type="edit" id="q_bullet_number_att" text="Номер элемента" def="1" x="130" y="8" w="32" h="13" min="1" max="999"/>
+							<param type="line" id="" text="" def="" x="10" y="24" w="240" h="44"/>
+							<param type="label" id="lab_q_weight_by_connection" text="Вес варианта" def="" x="15" y="30" w="110" h="13"/>
+							<param type="dec_spinner" id="q_weight_by_connection" text="" def="1.0" x="130" y="28" w="32" h="13" min="-99" max="99"/>
+							<param type="label" id="lab_weight1" text="Вес учитывается только при некоторых типах расчета оценки" def="" x="15" y="44" w="228" h="22"/>
+							<param type="button" id="OK" text="OK" def="" x="145" y="72" w="50" h="14"/>
+							<param type="button" id="CANCEL" text="Отмена" def="" x="200" y="72" w="50" h="14"/>
+						</params>
+					</param>
+					<param type="line" x="10" y="126" w="240" h="1"/>
+					<param type="button" id="OK" text="OK" x="145" y="132" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" x="200" y="132" w="50" h="14"/>
+				</params>
+			</param>
+			<param type="label" text="Элементы" x="162" y="84" w="120" h="13"/>
+			<param type="list" id="q_bullets_mtm" text="" def="" x="162" y="82" w="148" h="78">
+				<params w="260" h="68">
+					<param type="label" id="lab_q_bullet_number" text="Номер элемента" x="10" y="10" w="120" h="13"/>
+					<param type="edit" id="q_bullet_number" text="Номер" def="1" x="130" y="8" w="32" h="13" min="1" max="999"/>
+					<param type="label" id="lab_q_bullet" text="Текст элемента" x="10" y="26" w="120" h="11"/>
+					<param type="textedit" id="q_bullet" text="Текст" def="Текст по умолчанию" x="130" y="24" w="103" h="13"/>
+					<param type="line" x="10" y="42" w="240" h="1"/>
+					<param type="button" id="OK" text="OK" x="145" y="48" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" x="200" y="48" w="50" h="14"/>
+				</params>
+			</param>
+			<param type="label" id="lab_q_contacts_mtm" text="Число элементов в группе" def="yes" x="10" y="166" w="120" h="11"/>
+			<param type="select" id="q_contacts_mtm" text="" def="auto" x="130" y="164" w="120" h="13">
+				<items>
+					<item id="none" label="Не показывать">
+						<events>
+							<event name="selendok" target="q_contacts_manual_mtm" action="disable"/>
+						</events>
+					</item>
+					<item id="byvar" label="Точное число по группам">
+						<events>
+							<event name="selendok" target="q_contacts_manual_mtm" action="disable"/>
+						</events>
+					</item>
+					<item id="auto" label="Максимальное число">
+						<events>
+							<event name="selendok" target="q_contacts_manual_mtm" action="disable"/>
+						</events>
+					</item>
+					<item id="total" label="Сумма элементов">
+						<events>
+							<event name="selendok" target="q_contacts_manual_mtm" action="disable"/>
+						</events>
+					</item>
+					<item id="manual" label="По выбору">
+						<events>
+							<event name="selendok" target="q_contacts_manual_mtm" action="enable"/>
+						</events>
+					</item>
+				</items>
+			</param>
+			<param type="spinner" id="q_contacts_manual_mtm" text="" def="4" x="252" y="164" w="32" h="13" min="0" max="99"/>
+		</param>
+		-->
+		<param type="fieldset" id="fs_attempts">
+			<param type="label" id="lab_q_attempts" text="Количество попыток" def="" x="10" y="182" w="120" h="11"/>
+			<param type="select" id="q_attempts_type" text="" def="fixed" x="130" y="180" w="120" h="13">
+				<items>
+					<item id="fixed" label="По выбору">
+						<events>
+							<event name="selendok" target="q_attempts" action="show"/>
+						</events>
+					</item>
+					<item id="auto" label="Автоматически">
+						<events>
+							<event name="selendok" target="q_attempts" action="hide"/>
+						</events>
+					</item>
+				</items>
+			</param>
+			<param type="spinner" id="q_attempts" text="" def="1" x="252" y="180" w="32" h="13" min="1" max="100"/>
+		</param>
+
+		<param type="line" id="line_scoring" text="" def="" x="4" y="204" w="312" h="106"/>
+		<param type="check" id="q_scored" text="Оценка вопроса" def="yes" x="10" y="210" w="120" h="13">
+			<events>
+				<event name="check" target="fs_scoring" action="enable"/>
+				<event name="uncheck" target="fs_scoring" action="disable"/>
+			</events>
+		</param>
+		<param type="fieldset" id="fs_scoring">
+			<param type="select" id="q_scoring_type_tf" text="" def="plain" x="130" y="210" w="180" h="13">
+				<items>
+					<item id="plain" label="Базовый балл"/>
+					<item id="byobj" label="Баллы по списку целей"/>
+					<item id="byvar" label="Вес выбранного варианта"/>
+				</items>
+			</param>
+			<param type="select" id="q_scoring_type_choice" text="" def="plain" x="130" y="210" w="180" h="13">
+				<items>
+					<item id="plain" label="Базовый балл"/>
+					<item id="regressive" label="Базовый балл регрессивно по попыткам"/>
+					<item id="byobj" label="Баллы по списку целей"/>
+					<item id="byvar" label="Вес выбранного варианта"/>
+				</items>
+			</param>
+			<param type="select" id="q_scoring_type_select" text="" def="plain" x="130" y="210" w="180" h="13">
+				<items>
+					<item id="plain" label="Базовый балл"/>
+					<item id="regressive" label="Базовый балл регрессивно по попыткам"/>
+					<item id="byobj" label="Баллы по списку целей"/>
+					<item id="sum" label="Сумма весов выбранных вариантов"/>
+					<item id="max" label="Макс. вес из выбранных вариантов"/>
+					<item id="min" label="Мин. вес из выбранных вариантов"/>
+					<item id="avg" label="Среднее по выбранным вариантам"/>
+				</items>
+			</param>
+			<param type="select" id="q_scoring_type_match" text="" def="plain" x="130" y="210" w="180" h="13">
+				<items>
+					<item id="plain" label="Базовый балл"/>
+					<item id="regressive" label="Базовый балл регрессивно по попыткам"/>
+					<item id="byobj" label="Баллы по списку целей"/>
+					<item id="sum" label="Сумма весов корректных вариантов"/>
+					<item id="max" label="Макс. вес из корректных вариантов"/>
+					<item id="min" label="Мин. вес из корректных вариантов"/>
+					<item id="avg" label="Среднее по корректным вариантам"/>
+				</items>
+			</param>
+			<param type="select" id="q_scoring_type_inputs" text="" def="plain" x="130" y="210" w="180" h="13">
+				<items>
+					<item id="plain" label="Базовый балл"/>
+					<item id="regressive" label="Базовый балл регрессивно по попыткам"/>
+					<item id="byobj" label="Баллы по списку целей"/>
+				</items>
+			</param>
+			<param type="label" id="lab_q_weight_1" text="Базовый балл" def="" x="10" y="228" w="120" h="11"/>
+			<param type="dec_spinner" id="q_weight" text="" def="1.0" x="130" y="226" w="32" h="13" min="-99" max="99"/>
+			<param type="label" id="lab_q_scoreboards" text="Цели" def="" x="10" y="244" w="120" h="11"/>
+			<param type="list" id="q_scoreboards" text="" def="yes" x="10" y="242" w="300" h="64">
+				<params w="260" h="80">
+					<param type="label" id="" text="Цель" def="" x="10" y="10" w="120" h="11"/>
+					<param type="objectiveid" id="q_board" text="Цель" def="total" x="130" y="8" w="103" h="13"/>
+					<param type="label" id="lab_q_weight_byobj" text="Балл цели" def="" x="10" y="26" w="100" h="13"/>
+					<param type="dec_spinner" id="q_weight_byobj" text="Балл цели" def="1.0" x="130" y="25" w="32" h="13" min="-99" max="99"/>
+					<param type="line" id="" text="" def="" x="10" y="46" w="220" h="2"/>
+					<param type="button" id="OK" text="OK" def="" x="125" y="52" w="50" h="14"/>
+					<param type="button" id="CANCEL" text="Отмена" def="" x="180" y="52" w="50" h="14"/>
+				</params>
+			</param>
+		</param>
+	</page>
+	<page name="Ограничения" w="320" h="320">
+		<param type="line" id="line_timer" text="" def="" x="4" y="4" w="312" h="50"/>
+		<param type="check" id="q_timer_switch" text="Ограничение времени" def="no" x="10" y="8" w="120" h="13">
+			<events>
+				<event name="check" target="fs_timer" action="enable"/>
+				<event name="uncheck" target="fs_timer" action="disable"/>
+			</events>
+		</param>
+		<param type="fieldset" id="fs_timer">
+			<param type="spinner" id="q_timer" text="" def="10" x="130" y="8" w="32" h="13" min="1" max="9999"/>
+			<param type="label" id="lab_q_timer2" text="сек" def="" x="165" y="10" w="30" h="11"/>
+
+			<param type="label" id="lab_timer_color_1" text="Отсчет" def="" x="130" y="26" w="60" h="11"/>
+			<param type="label" id="lab_timer_color_2" text="Внимание" def="" x="190" y="26" w="60" h="11"/>
+			<param type="label" id="lab_timer_color_3" text="Финиш" def="" x="250" y="26" w="60" h="11"/>
+
+			<param type="label" id="lab_timer_color_1" text="Цвета таймера" def="" x="10" y="38" w="120" h="11"/>
+			<param type="color" id="timer_color_1" text="" def="#0080C0" x="130" y="36" w="40" h="13"/>
+			<param type="color" id="timer_color_2" text="" def="#800080" x="190" y="36" w="40" h="13"/>
+			<param type="color" id="timer_color_3" text="" def="#FF0000" x="250" y="36" w="40" h="13"/>
+		</param>
+
+		<param type="line" id="line_skip" text="" def="" x="4" y="60" w="312" h="40"/>
+		<param type="label" id="lab_q_skip" text="Пропуск вопроса" def="" x="10" y="68" w="120" h="11"/>
+		<param type="select" id="q_skip" text="" def="none" x="130" y="66" w="180" h="13">
+			<items>
+				<item id="none" label="Запрещен">
+					<events>
+						<event name="selendok" target="lab_q_fail_confirm" action="disable"/>
+						<event name="selendok" target="q_fail_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="skip" label="Пропустить без оценки">
+					<events>
+						<event name="selendok" target="lab_q_fail_confirm" action="disable"/>
+						<event name="selendok" target="q_fail_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="fail_silent" label="Пометить проваленным, без подтверждения">
+					<events>
+						<event name="selendok" target="lab_q_fail_confirm" action="disable"/>
+						<event name="selendok" target="q_fail_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="fail_confirm" label="Пометить проваленным, после подтверждения">
+					<events>
+						<event name="selendok" target="lab_q_fail_confirm" action="enable"/>
+						<event name="selendok" target="q_fail_confirm" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="label" id="lab_q_fail_confirm" text="Текст диалога пропуска" def="" x="10" y="84" w="120" h="11"/>
+		<param type="edit" id="q_fail_confirm" text="" def="Пропущенный вопрос будет засчитан как проваленный. Вы уверены?" x="130" y="82" w="180" h="13"/>
+
+		<param type="line" id="line_continue" text="" def="" x="4" y="106" w="312" h="72"/>
+		<param type="label" id="lab_q_continue" text="Незаконченный вопрос" def="" x="10" y="114" w="120" h="11"/>
+		<param type="select" id="q_continue" text="" def="restore_silent" x="130" y="112" w="180" h="13">
+			<items>
+				<item id="restart_silent" label="Начать вопрос сначала, без предупреждения">
+					<events>
+						<event name="selendok" target="lab_q_restart_alert" action="disable"/>
+						<event name="selendok" target="q_restart_alert" action="disable"/>
+						<event name="selendok" target="lab_q_restore_alert" action="disable"/>
+						<event name="selendok" target="q_restore_alert" action="disable"/>
+						<event name="selendok" target="lab_q_restore_confirm" action="disable"/>
+						<event name="selendok" target="q_restore_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="restart_alert" label="Начать вопрос сначала, с предупреждением">
+					<events>
+						<event name="selendok" target="lab_q_restart_alert" action="enable"/>
+						<event name="selendok" target="q_restart_alert" action="enable"/>
+						<event name="selendok" target="lab_q_restore_alert" action="disable"/>
+						<event name="selendok" target="q_restore_alert" action="disable"/>
+						<event name="selendok" target="lab_q_restore_confirm" action="disable"/>
+						<event name="selendok" target="q_restore_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="restore_silent" label="Восстановить состояние, без предупреждения">
+					<events>
+						<event name="selendok" target="lab_q_restart_alert" action="disable"/>
+						<event name="selendok" target="q_restart_alert" action="disable"/>
+						<event name="selendok" target="lab_q_restore_alert" action="disable"/>
+						<event name="selendok" target="q_restore_alert" action="disable"/>
+						<event name="selendok" target="lab_q_restore_confirm" action="disable"/>
+						<event name="selendok" target="q_restore_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="restore_alert" label="Восстановить состояние, с предупреждением">
+					<events>
+						<event name="selendok" target="lab_q_restart_alert" action="disable"/>
+						<event name="selendok" target="q_restart_alert" action="disable"/>
+						<event name="selendok" target="lab_q_restore_alert" action="enable"/>
+						<event name="selendok" target="q_restore_alert" action="enable"/>
+						<event name="selendok" target="lab_q_restore_confirm" action="disable"/>
+						<event name="selendok" target="q_restore_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="restore_confirm" label="Предложить выбор">
+					<events>
+						<event name="selendok" target="lab_q_restart_alert" action="disable"/>
+						<event name="selendok" target="q_restart_alert" action="disable"/>
+						<event name="selendok" target="lab_q_restore_alert" action="disable"/>
+						<event name="selendok" target="q_restore_alert" action="disable"/>
+						<event name="selendok" target="lab_q_restore_confirm" action="enable"/>
+						<event name="selendok" target="q_restore_confirm" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="label" id="lab_q_restart_alert" text="Текст - сброс" def="" x="10" y="130" w="120" h="11"/>
+		<param type="edit" id="q_restart_alert" text="" def="Вопрос будет начат сначала, сохраненное состояние вопроса будет сброшено." x="130" y="128" w="180" h="13"/>
+		<param type="label" id="lab_q_restore_alert" text="Текст - восстановление" def="" x="10" y="146" w="120" h="11"/>
+		<param type="edit" id="q_restore_alert" text="" def="Вопрос уже был начат, его состояние будет восстановлено." x="130" y="144" w="180" h="13"/>
+		<param type="label" id="lab_q_restore_confirm" text="Текст диалога выбора" def="" x="10" y="162" w="120" h="11"/>
+		<param type="edit" id="q_restore_confirm" text="" def="Вопрос уже был начат. Восстановить его состояние?" x="130" y="160" w="180" h="13"/>
+
+		<param type="line" id="line_replay" text="" def="" x="4" y="184" w="312" h="72"/>
+		<param type="label" id="lab_q_replay" text="Повторный проход" def="" x="10" y="192" w="120" h="11"/>
+		<param type="select" id="q_replay" text="" def="none_silent" x="130" y="190" w="180" h="13">
+			<items>
+				<item id="none_silent" label="Запрещен, без предупреждения">
+					<events>
+						<event name="selendok" target="lab_q_browse_alert" action="disable"/>
+						<event name="selendok" target="q_browse_alert" action="disable"/>
+						<event name="selendok" target="lab_q_secondrun_alert" action="disable"/>
+						<event name="selendok" target="q_secondrun_alert" action="disable"/>
+						<event name="selendok" target="lab_q_secondrun_confirm" action="disable"/>
+						<event name="selendok" target="q_secondrun_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="none_alert" label="Запрещен, предупреждение">
+					<events>
+						<event name="selendok" target="lab_q_browse_alert" action="enable"/>
+						<event name="selendok" target="q_browse_alert" action="enable"/>
+						<event name="selendok" target="lab_q_secondrun_alert" action="disable"/>
+						<event name="selendok" target="q_secondrun_alert" action="disable"/>
+						<event name="selendok" target="lab_q_secondrun_confirm" action="disable"/>
+						<event name="selendok" target="q_secondrun_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="allow_silent" label="Начать автоматически, без предупреждения">
+					<events>
+						<event name="selendok" target="lab_q_browse_alert" action="disable"/>
+						<event name="selendok" target="q_browse_alert" action="disable"/>
+						<event name="selendok" target="lab_q_secondrun_alert" action="disable"/>
+						<event name="selendok" target="q_secondrun_alert" action="disable"/>
+						<event name="selendok" target="lab_q_secondrun_confirm" action="disable"/>
+						<event name="selendok" target="q_secondrun_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="allow_alert" label="Начать автоматически, предупреждение">
+					<events>
+						<event name="selendok" target="lab_q_browse_alert" action="disable"/>
+						<event name="selendok" target="q_browse_alert" action="disable"/>
+						<event name="selendok" target="lab_q_secondrun_alert" action="enable"/>
+						<event name="selendok" target="q_secondrun_alert" action="enable"/>
+						<event name="selendok" target="lab_q_secondrun_confirm" action="disable"/>
+						<event name="selendok" target="q_secondrun_confirm" action="disable"/>
+					</events>
+				</item>
+				<item id="allow_confirm" label="Предложить выбор">
+					<events>
+						<event name="selendok" target="lab_q_browse_alert" action="disable"/>
+						<event name="selendok" target="q_browse_alert" action="disable"/>
+						<event name="selendok" target="lab_q_secondrun_alert" action="disable"/>
+						<event name="selendok" target="q_secondrun_alert" action="disable"/>
+						<event name="selendok" target="lab_q_secondrun_confirm" action="enable"/>
+						<event name="selendok" target="q_secondrun_confirm" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="label" id="lab_q_browse_alert" text="Текст - запрет" def="" x="10" y="208" w="120" h="11"/>
+		<param type="edit" id="q_browse_alert" text="" def="Вопрос уже отвечен. Повторный подход запрещен." x="130" y="206" w="180" h="13"/>
+		<param type="label" id="lab_q_secondrun_alert" text="Текст - разрешение" def="" x="10" y="224" w="120" h="11"/>
+		<param type="edit" id="q_secondrun_alert" text="" def="Продолжение подхода." x="130" y="222" w="180" h="13"/>
+		<param type="label" id="lab_q_secondrun_confirm" text="Текст диалога выбора" def="" x="10" y="240" w="120" h="11"/>
+		<param type="edit" id="q_secondrun_confirm" text="" def="Вопрос уже отвечен. Нажмите OK, если хотите пройти его заново или Cancel, чтобы оставить старый результат. " x="130" y="238" w="180" h="13"/>
+
+	</page>
+	<page name="Дополнительные" w="320" h="320">
+		<param type="label" id="lab_modal" text="Модальный режим" def="" x="10" y="10" w="120" h="11"/>
+		<param type="select" id="modal" text="" def="none" x="130" y="8" w="180" h="13">
+			<items>
+				<item id="no" label="Нет"/>
+				<item id="yes" label="Да"/>
+			</items>
+		</param>
+		<param type="label" id="lab_q_img" text="Картинка" def="" x="10" y="26" w="120" h="11"/>
+		<param type="select" id="q_img" text="" def="none" x="130" y="24" w="180" h="13">
+			<items>
+				<item id="none" label="Нет">
+					<events>
+						<event name="selendok" target="fs_picture" action="disable"/>
+					</events>
+				</item>
+				<item id="left" label="Слева">
+					<events>
+						<event name="selendok" target="fs_picture" action="enable"/>
+					</events>
+				</item>
+				<item id="right" label="Справа">
+					<events>
+						<event name="selendok" target="fs_picture" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="fieldset" id="fs_picture">
+			<param type="label" id="lab_q_img_file" text="Файл картинки" def="" x="10" y="42" w="120" h="11"/>
+			<param type="file" id="q_img_file" text="" def="" x="130" y="40" w="163" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+			<param type="label" id="lab_q_img_file" text="Ширина картинки" def="" x="10" y="58" w="120" h="11"/>
+			<param type="spinner" id="q_img_width" text="" def="33" x="130" y="56" w="32" h="13" min="1" max="50"/>
+			<param type="label" id="lab_q_img_width" text="%" def="" x="165" y="58" w="30" h="11"/>
+		</param>
+		<param type="check" id="spot_color_switch" text="Спец. цвет области" def="no" x="10" y="72" w="120" h="13">
+			<events>
+				<event name="check" target="spot_color" action="enable"/>
+				<event name="uncheck" target="spot_color" action="disable"/>
+			</events>
+		</param>
+		<param type="color" id="spot_color" text="" def="#0080C0" x="130" y="72" w="40" h="13"/>
+		<param type="check" id="font_color_switch" text="Спец. цвет шрифта" def="no" x="10" y="88" w="120" h="13">
+			<events>
+				<event name="check" target="font_color" action="enable"/>
+				<event name="uncheck" target="font_color" action="disable"/>
+			</events>
+		</param>
+		<param type="color" id="font_color" text="" def="#0080C0" x="130" y="88" w="40" h="13"/>
+	</page>
+	<page name="Обратная связь" w="320" h="320">
+		<param type="check" id="q_showright" text="Показывать правильный ответ" def="no" x="10" y="8" w="200" h="13"/>
+		<param type="check" id="q_fb_switch" text="Показывать сообщения обратной связи" def="no" x="10" y="24" w="200" h="13">
+			<events>
+				<event name="check" target="fs_fb" action="show"/>
+				<event name="uncheck" target="fs_fb" action="hide"/>
+			</events>
+		</param>
+		<param type="line" id="" text="" def="" x="10" y="40" w="300" h="1"/>
+		<param type="fieldset" id="fs_fb">
+			<param type="label" id="lab_preview" text="Просмотр" def="" x="270" y="28" w="40" h="11"/>
+
+			<param type="check" id="q_display_fb_correct" text="Правильный ответ" def="yes" x="10" y="46" w="120" h="13">
+				<events>
+					<event name="check" target="q_fb_correct" action="enable"/>
+					<event name="check" target="q_fb_correct_preview" action="enable"/>
+					<event name="check" target="lab_q_fb_correct_color" action="enable"/>
+					<event name="check" target="q_fb_correct_color_bg" action="enable"/>
+					<event name="check" target="q_fb_correct_color_border" action="enable"/>
+					<event name="check" target="q_fb_correct_color_close" action="enable"/>
+					<event name="uncheck" target="q_fb_correct" action="disable"/>
+					<event name="uncheck" target="q_fb_correct_preview" action="disable"/>
+					<event name="uncheck" target="lab_q_fb_correct_color" action="disable"/>
+					<event name="uncheck" target="q_fb_correct_color_bg" action="disable"/>
+					<event name="uncheck" target="q_fb_correct_color_border" action="disable"/>
+					<event name="uncheck" target="q_fb_correct_color_close" action="disable"/>
+				</events>
+			</param>
+			<param type="textedit" id="q_fb_correct" text="" def="Правильно" x="130" y="46" w="123" h="13"/>
+			<param type="check" id="q_fb_correct_preview" text="" def="no" x="280" y="46" w="16" h="13"/>
+
+			<param type="check" id="q_display_fb_incorrect" text="Неправильный ответ" def="yes" x="10" y="62" w="120" h="13">
+				<events>
+					<event name="check" target="q_fb_incorrect" action="enable"/>
+					<event name="check" target="q_fb_incorrect_preview" action="enable"/>
+					<event name="check" target="lab_q_fb_incorrect_color" action="enable"/>
+					<event name="check" target="q_fb_incorrect_color_bg" action="enable"/>
+					<event name="check" target="q_fb_incorrect_color_border" action="enable"/>
+					<event name="check" target="q_fb_incorrect_color_close" action="enable"/>
+					<event name="uncheck" target="q_fb_incorrect" action="disable"/>
+					<event name="uncheck" target="q_fb_incorrect_preview" action="disable"/>
+					<event name="uncheck" target="lab_q_fb_incorrect_color" action="disable"/>
+					<event name="uncheck" target="q_fb_incorrect_color_bg" action="disable"/>
+					<event name="uncheck" target="q_fb_incorrect_color_border" action="disable"/>
+					<event name="uncheck" target="q_fb_incorrect_color_close" action="disable"/>
+				</events>
+			</param>
+			<param type="textedit" id="q_fb_incorrect" text="" def="К сожалению, Вы ошиблись" x="130" y="62" w="123" h="13"/>
+			<param type="check" id="q_fb_incorrect_preview" text="" def="no" x="280" y="62" w="16" h="13"/>
+
+			<param type="check" id="q_display_fb_lastattempt" text="Последняя попытка" def="no" x="10" y="78" w="120" h="13">
+				<events>
+					<event name="check" target="q_fb_lastattempt" action="enable"/>
+					<event name="check" target="q_fb_lastattempt_preview" action="enable"/>
+					<event name="check" target="lab_q_fb_lastattempt_color" action="enable"/>
+					<event name="check" target="q_fb_lastattempt_color_bg" action="enable"/>
+					<event name="check" target="q_fb_lastattempt_color_border" action="enable"/>
+					<event name="check" target="q_fb_lastattempt_color_close" action="enable"/>
+					<event name="uncheck" target="q_fb_lastattempt" action="disable"/>
+					<event name="uncheck" target="q_fb_lastattempt_preview" action="disable"/>
+					<event name="uncheck" target="lab_q_fb_lastattempt_color" action="disable"/>
+					<event name="uncheck" target="q_fb_lastattempt_color_bg" action="disable"/>
+					<event name="uncheck" target="q_fb_lastattempt_color_border" action="disable"/>
+					<event name="uncheck" target="q_fb_lastattempt_color_close" action="disable"/>
+				</events>
+			</param>
+			<param type="textedit" id="q_fb_lastattempt" text="" def="К сожалению, Вы ошиблись. Осталась всего одна попытка." x="130" y="78" w="123" h="13"/>
+			<param type="check" id="q_fb_lastattempt_preview" text="" def="no" x="280" y="78" w="16" h="13"/>
+
+			<param type="check" id="q_display_fb_exceed" text="Попытки исчерпаны" def="no" x="10" y="94" w="120" h="13">
+				<events>
+					<event name="check" target="q_fb_exceed" action="enable"/>
+					<event name="check" target="q_fb_exceed_preview" action="enable"/>
+					<event name="check" target="lab_q_fb_exceed_color" action="enable"/>
+					<event name="check" target="q_fb_exceed_color_bg" action="enable"/>
+					<event name="check" target="q_fb_exceed_color_border" action="enable"/>
+					<event name="check" target="q_fb_exceed_color_close" action="enable"/>
+					<event name="uncheck" target="q_fb_exceed" action="disable"/>
+					<event name="uncheck" target="q_fb_exceed_preview" action="disable"/>
+					<event name="uncheck" target="lab_q_fb_exceed_color" action="disable"/>
+					<event name="uncheck" target="q_fb_exceed_color_bg" action="disable"/>
+					<event name="uncheck" target="q_fb_exceed_color_border" action="disable"/>
+					<event name="uncheck" target="q_fb_exceed_color_close" action="disable"/>
+				</events>
+			</param>
+			<param type="textedit" id="q_fb_exceed" text="" def="К сожалению Вы исчерпали все попытки, но не ввели правильный ответ" x="130" y="94" w="123" h="13"/>
+			<param type="check" id="q_fb_exceed_preview" text="" def="no" x="280" y="94" w="16" h="13"/>
+
+			<param type="check" id="q_display_fb_timeout" text="Истечение времени" def="no" x="10" y="110" w="120" h="13">
+				<events>
+					<event name="check" target="q_fb_timeout" action="enable"/>
+					<event name="check" target="q_fb_timeout_preview" action="enable"/>
+					<event name="check" target="lab_q_fb_timeout_color" action="enable"/>
+					<event name="check" target="q_fb_timeout_color_bg" action="enable"/>
+					<event name="check" target="q_fb_timeout_color_border" action="enable"/>
+					<event name="check" target="q_fb_timeout_color_close" action="enable"/>
+					<event name="uncheck" target="q_fb_timeout" action="disable"/>
+					<event name="uncheck" target="q_fb_timeout_preview" action="disable"/>
+					<event name="uncheck" target="lab_q_fb_timeout_color" action="disable"/>
+					<event name="uncheck" target="q_fb_timeout_color_bg" action="disable"/>
+					<event name="uncheck" target="q_fb_timeout_color_border" action="disable"/>
+					<event name="uncheck" target="q_fb_timeout_color_close" action="disable"/>
+				</events>
+			</param>
+			<param type="textedit" id="q_fb_timeout" text="" def="К сожалению время, отведенное на ответ, закончилось" x="130" y="110" w="123" h="13"/>
+			<param type="check" id="q_fb_timeout_preview" text="" def="no" x="280" y="110" w="16" h="13"/>
+
+			<param type="check" id="q_fb_timerswitch" text="Прятать автоматически через" def="no" x="10" y="126" w="120" h="13">
+				<events>
+					<event name="check" target="q_fb_timer" action="enable"/>
+					<event name="check" target="lab_q_fbtimer2" action="enable"/>
+					<event name="uncheck" target="q_fb_timer" action="disable"/>
+					<event name="uncheck" target="lab_q_fbtimer2" action="disable"/>
+				</events>
+			</param>
+			<param type="time" id="q_fb_timer" text="" def="3000" x="130" y="126" w="32" h="13" min="100" max="99999"/>
+			<param type="label" id="lab_q_fbtimer2" text="сек" def="" x="165" y="128" w="30" h="11"/>
+
+			<param type="label" id="lab_q_fb_box_width" text="Ширина бокса" def="" x="10" y="144" w="120" h="11"/>
+			<param type="spinner" id="q_fb_box_width" text="" def="30" x="130" y="142" w="32" h="13" min="1" max="99"/>
+			<param type="label" id="lab_q_fb_box_width_pc" text="%" def="" x="165" y="144" w="60" h="11"/>
+
+			<param type="check" id="q_fb_position" text="Расположение по выбору" def="no" x="10" y="158" w="120" h="13">
+				<events>
+					<event name="check" target="q_fb_left" action="enable"/>
+					<event name="check" target="lab_q_fb_left_pc" action="enable"/>
+					<event name="check" target="q_fb_top" action="enable"/>
+					<event name="check" target="lab_q_fb_top_pc" action="enable"/>
+					<event name="uncheck" target="q_fb_left" action="disable"/>
+					<event name="uncheck" target="lab_q_fb_left_pc" action="disable"/>
+					<event name="uncheck" target="q_fb_top" action="disable"/>
+					<event name="uncheck" target="lab_q_fb_top_pc" action="disable"/>
+				</events>
+			</param>
+			<param type="spinner" id="q_fb_left" text="" def="40" x="130" y="158" w="32" h="13" min="-100" max="200"/>
+			<param type="label" id="lab_q_fb_left_pc" text="% X" def="" x="165" y="160" w="20" h="11"/>
+			<param type="spinner" id="q_fb_top" text="" def="10" x="190" y="158" w="32" h="13" min="-100" max="200"/>
+			<param type="label" id="lab_q_fb_top_pc" text="% Y" def="" x="225" y="160" w="20" h="11"/>
+
+			<param type="label" id="lab_q_fb_bg" text="Подложка" def="" x="130" y="176" w="55" h="11"/>
+			<param type="label" id="lab_q_fb_border" text="Граница" def="" x="190" y="176" w="65" h="11"/>
+			<param type="label" id="lab_q_fb_close" text="Кнопка" def="" x="250" y="176" w="65" h="11"/>
+
+			<param type="label" id="lab_q_fb_correct_color" text="Правильный ответ" def="" x="10" y="192" w="120" h="11"/>
+			<param type="color" id="q_fb_correct_color_bg" text="" def="#E0FFE0" x="130" y="190" w="40" h="13"/>
+			<param type="color" id="q_fb_correct_color_border" text="" def="#006600" x="190" y="190" w="40" h="13"/>
+			<param type="color" id="q_fb_correct_color_close" text="" def="#006600" x="250" y="190" w="40" h="13"/>
+
+			<param type="label" id="lab_q_fb_incorrect_color" text="Неправильный ответ" def="" x="10" y="208" w="120" h="11"/>
+			<param type="color" id="q_fb_incorrect_color_bg" text="" def="#FFE0D0" x="130" y="206" w="40" h="13"/>
+			<param type="color" id="q_fb_incorrect_color_border" text="" def="#CC0000" x="190" y="206" w="40" h="13"/>
+			<param type="color" id="q_fb_incorrect_color_close" text="" def="#CC0000" x="250" y="206" w="40" h="13"/>
+
+			<param type="label" id="lab_q_fb_lastattempt_color" text="Последняя попытка" def="" x="10" y="224" w="120" h="11"/>
+			<param type="color" id="q_fb_lastattempt_color_bg" text="" def="#FFE0D0" x="130" y="222" w="40" h="13"/>
+			<param type="color" id="q_fb_lastattempt_color_border" text="" def="#CC0000" x="190" y="222" w="40" h="13"/>
+			<param type="color" id="q_fb_lastattempt_color_close" text="" def="#CC0000" x="250" y="222" w="40" h="13"/>
+
+			<param type="label" id="lab_q_fb_exceed_color" text="Попытки исчерпаны" def="" x="10" y="240" w="120" h="11"/>
+			<param type="color" id="q_fb_exceed_color_bg" text="" def="#FFE0D0" x="130" y="238" w="40" h="13"/>
+			<param type="color" id="q_fb_exceed_color_border" text="" def="#CC0000" x="190" y="238" w="40" h="13"/>
+			<param type="color" id="q_fb_exceed_color_close" text="" def="#CC0000" x="250" y="238" w="40" h="13"/>
+
+			<param type="label" id="lab_q_fb_timeout_color" text="Истечение времени" def="" x="10" y="256" w="120" h="11"/>
+			<param type="color" id="q_fb_timeout_color_bg" text="" def="#FFE0D0" x="130" y="254" w="40" h="13"/>
+			<param type="color" id="q_fb_timeout_color_border" text="" def="#CC0000" x="190" y="254" w="40" h="13"/>
+			<param type="color" id="q_fb_timeout_color_close" text="" def="#CC0000" x="250" y="254" w="40" h="13"/>
+		</param>
+	</page>
+	<page name="Вид" w="320" h="320">
+		<param type="line" id="line_spot" text="" def="" x="4" y="4" w="312" h="56"/>
+		<param type="check" id="q_customspot" text="Нестандартные области нажатий" def="no" x="10" y="8" w="300" h="13">
+			<events>
+				<event name="check" target="fs_spots" action="enable"/>
+				<event name="uncheck" target="fs_spots" action="disable"/>
+			</events>
+		</param>
+		<param type="fieldset" id="fs_spots">
+			<param type="label" id="q_spot_0_lbl" text="Неотмеченная" def="" x="10" y="26" w="120" h="11"/>
+			<param type="file" id="q_spot_0" text="" def="" x="130" y="24" w="153" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+			<param type="label" id="q_spot_1_lbl" text="Отмеченная" def="" x="10" y="42" w="120" h="11"/>
+			<param type="file" id="q_spot_1" text="" def="" x="130" y="40" w="153" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+		</param>
+
+		<param type="line" id="line_button" text="" def="" x="4" y="66" w="312" h="202"/>
+		<param type="check" id="q_custombutton" text="Нестандартные кнопки" def="no" x="10" y="72" w="260" h="13">
+			<events>
+				<event name="check" target="fs_button" action="enable"/>
+				<event name="uncheck" target="fs_button" action="disable"/>
+			</events>
+		</param>
+
+		<param type="fieldset" id="fs_button">
+			<param type="label" id="lab_q_button_type" text="Тип кнопок" def="" x="10" y="90" w="120" h="11"/>
+			<param type="select" id="q_button_type" text="" def="HTML" x="130" y="88" w="180" h="13">
+				<items>
+					<item id="picture" label="Картинка">
+						<events>
+							<event name="selendok" target="fs_btn_img" action="show"/>
+							<event name="selendok" target="fs_btn_html" action="hide"/>
+						</events>
+					</item>
+					<item id="HTML" label="HTML-кнопка">
+						<events>
+							<event name="selendok" target="fs_btn_img" action="hide"/>
+							<event name="selendok" target="fs_btn_html" action="show"/>
+						</events>
+					  </item>
+				</items>
+			</param>
+			<param type="fieldset" id="fs_btn_img">
+				<param type="label" id="lab_q_abtn_0" text="Принять ответ" def="" x="10" y="106" w="120" h="11"/>
+				<param type="file" id="q_abtn_0" text="" def="" x="130" y="104" w="153" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+				<param type="label" id="lab_q_abtn_1" text="Принять ответ (over)" def="" x="10" y="122" w="120" h="11"/>
+				<param type="file" id="q_abtn_1" text="" def="" x="130" y="120" w="153" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+				<param type="label" id="lab_q_sbtn_0" text="Пропустить" def="" x="10" y="138" w="120" h="11"/>
+				<param type="file" id="q_sbtn_0" text="" def="" x="130" y="136" w="153" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+				<param type="label" id="lab_q_sbtn_1" text="Пропустить (over)" def="" x="10" y="154" w="120" h="11"/>
+				<param type="file" id="q_sbtn_1" text="" def="" x="130" y="152" w="153" h="13" ext="Картинки (*.png;*.jpg;*.jpeg;*.gif)|*.png;*.jpg;*.jpeg;*.gif|PNG (*.png)|*.png|JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|GIF (*.gif)|*.gif|Все файлы (*.*)|*.*|||"/>
+			</param>
+			<param type="fieldset" id="fs_btn_html">
+				<param type="label" id="lab_q_button_size" text="Размер" def="" x="10" y="106" w="120" h="11"/>
+				<param type="spinner" id="q_button_width" text="" def="150" x="130" y="104" w="32" h="13" min="50" max="9999"/>
+				<param type="label" id="lab_q_button_width" text="x" def="" x="165" y="106" w="10" h="11"/>
+				<param type="spinner" id="q_button_height" text="" def="25" x="175" y="104" w="32" h="13" min="10"/>
+				<param type="label" id="lab_q_button_height" text="пкс" def="" x="212" y="106" w="30" h="13"/>
+
+				<param type="label" id="lab_button_border_style" text="Граница" def="" x="10" y="122" w="120" h="13"/>
+				<param type="select" id="button_border_style" text="" def="solid" x="130" y="120" w="88" h="13">
+					<items>
+						<item id="none" label="Без границы"/>
+						<item id="solid" label="Сплошная"/>
+						<item id="double" label="Двойная"/>
+						<item id="ridge" label="Гребень"/>
+						<item id="groove" label="Канавка"/>
+						<item id="inset" label="Поднимающаяся"/>
+						<item id="outset" label="Опускающаяся"/>
+						<item id="dashed" label="Пунктирная"/>
+						<item id="dotted" label="Точечная"/>
+					</items>
+				</param>
+				<param type="spinner" id="button_border_width" text="" def="2" x="220" y="120" w="32" h="13" min="0" max="99"/>
+				<param type="label" id="lab_button_border_width2" text="пкс" def="" x="255" y="122" w="30" h="11"/>
+				<param type="label" id="lab_button_radius" text="Радиус" def="" x="10" y="138" w="120" h="11"/>
+				<param type="spinner" id="button_radius" text="" def="5" x="130" y="136" w="32" h="13" min="0" max="99"/>
+				<param type="label" id="lab_button_radius_px" text="пкс" def="" x="165" y="138" w="30" h="11"/>
+				<param type="label" id="lab_button_font" text="Шрифт" def="" x="10" y="154" w="120" h="13"/>
+				<param type="select" id="button_font" text="" def="robotomedium" x="130" y="152" w="88" h="13">
+					<items>
+						<item id="Arial" label="Arial">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="ArialBlack" label="Arial Black">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="ArialNarrow" label="Arial Narrow">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="ComicSansMS" label="Comic Sans MS">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="CourierNew" label="Courier New">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="Georgia" label="Georgia">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="Impact" label="Impact">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="LucidaConsole" label="Lucida Console">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="LucidaSansUnicode" label="Lucida Sans Unicode">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="Palatino" label="Palatino">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="Tahoma" label="Tahoma">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="Times" label="Times New Roman">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="TrebuchetMS" label="Trebuchet MS">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="Verdana" label="Verdana">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="clear_sans_lightregular" label="WF Clear Sans Light">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="clear_sans_mediumregular" label="WF Clear Sans Medium">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="clear_sansregular" label="WF Clear Sans Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="clear_sans_thinregular" label="WF Clear Sans Thin">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="droid_sans_monoregular" label="WF Droid Sans Mono">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="droid_sansregular" label="WF Droid Sans Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="droid_serifregular" label="WF Droid Serif Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="Fira_Mono" label="WF Fira Mono">
+							<events>
+								<event name="selendok" target="font_custom" action="disable"/>
+							</events>
+						</item>
+						<item id="Fira_Sans" label="WF Fira Sans">
+							<events>
+								<event name="selendok" target="font_custom" action="disable"/>
+							</events>
+						</item>
+						<item id="FiraSansLight" label="WF Fira Sans Light">
+							<events>
+								<event name="selendok" target="font_custom" action="disable"/>
+							</events>
+						</item>
+						<item id="FiraSansMedium" label="WF Fira Sans Medium">
+							<events>
+								<event name="selendok" target="font_custom" action="disable"/>
+							</events>
+						</item>
+						<item id="Fregat_Sans" label="WF Fregat Sans">
+							<events>
+								<event name="selendok" target="font_custom" action="disable"/>
+							</events>
+						</item>
+						<item id="Lato_Sans" label="WF Lato Sans">
+							<events>
+								<event name="selendok" target="font_custom" action="disable"/>
+							</events>
+						</item>
+						<item id="LatoSansLight" label="WF Lato Sans Light">
+							<events>
+								<event name="selendok" target="font_custom" action="disable"/>
+							</events>
+						</item>
+						<item id="nerisblack" label="WF Neris Black">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="nerislight" label="WF Neris Light">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="nerissemibold" label="WF Neris SemiBold">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="neristhin" label="WF Neris Thin">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="noto_sansregular" label="WF Noto Sans Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="noto_serifregular" label="WF Noto Serif Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="open_sanscondensed_light" label="WF Open Sans Condensed Light">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="open_sansextrabold" label="WF Open Sans Extra Bold">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="open_sanslight" label="WF Open Sans Light">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="open_sansregular" label="WF Open Sans Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="open_sanssemibold" label="WF Open Sans SemiBold">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="permiansanstypefaceregular" label="WF Permian Sans Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="permianseriftypefaceregular" label="WF Permian Serif Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="permianslabseriftypefaceRg" label="WF Permian Slab Serif Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="robotoblack" label="WF Roboto Black">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="roboto_condensedregular" label="WF Roboto Condensed">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="roboto_condensedlight" label="WF Roboto Condensed Light">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="robotolight" label="WF Roboto Light">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="robotomedium" label="WF Roboto Medium">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="robotoregular" label="WF Roboto Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="robotothin" label="WF Roboto Thin">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="roboto_slablight" label="WF Roboto Slab Light">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="roboto_slabregular" label="WF Roboto Slab Regular">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="roboto_slabthin" label="WF Roboto Slab Thin">
+							<events>
+								<event name="selendok" target="button_font_custom" action="hide"/>
+							</events>
+						</item>
+						<item id="custom" label="По выбору">
+							<events>
+								<event name="selendok" target="button_font_custom" action="show"/>
+							</events>
+						</item>
+					</items>
+				</param>
+				<param type="edit" id="button_font_custom" text="" def="" x="220" y="152" w="90" h="13"/>
+				<param type="select" id="button_font_style" text="" def="normal" x="130" y="168" w="88" h="13">
+					<items>
+						<item id="normal" label="Обычный"/>
+						<item id="bold" label="Жирный"/>
+						<item id="italic" label="Курсив"/>
+						<item id="bolditalic" label="Жирный курсив"/>
+					</items>
+				</param>
+				<param type="spinner" id="button_font_size" text="" def="12" x="220" y="168" w="32" h="13" min="1" max="99"/>
+				<param type="label" id="lab_button_font_size2" text="пкс" def="" x="255" y="170" w="30" h="11"/>
+				<param type="label" id="lab_button_text_align" text="Выравнивание текста" def="" x="10" y="186" w="120" h="11"/>
+				<param type="select" id="button_text_align" text="" def="center" x="130" y="184" w="88" h="13">
+					<items>
+						<item id="center" label="По центру"/>
+						<item id="left" label="Влево"/>
+						<item id="right" label="Вправо"/>
+					</items>
+				</param>
+
+				<param type="label" id="lab_regular" text="Обычная" def="" x="130" y="202" w="60" h="13"/>
+				<param type="label" id="lab_over" text="Наведение" def="" x="190" y="202" w="60" h="13"/>
+				<param type="label" id="lab_button_border_color" text="Цвет границы" def="" x="10" y="218" w="120" h="11"/>
+				<param type="color" id="button_border_color" text="" def="#0080C0" x="130" y="216" w="40" h="13"/>
+				<param type="color" id="button_border_color_over" text="" def="#6666CC" x="190" y="216" w="40" h="13"/>
+				<param type="label" id="lab_button_bg_color" text="Цвет заливки" def="" x="10" y="234" w="120" h="11"/>
+				<param type="color" id="button_bg_color" text="" def="#0080C0" x="130" y="232" w="40" h="13"/>
+				<param type="color" id="button_bg_color_over" text="" def="#F0F0F0" x="190" y="232" w="40" h="13"/>
+				<param type="label" id="lab_button_font_color" text="Цвет шрифта" def="" x="10" y="250" w="120" h="11"/>
+				<param type="color" id="button_font_color" text="" def="#FFFFFF" x="130" y="248" w="40" h="13"/>
+				<param type="color" id="button_font_color_over" text="" def="#000000" x="190" y="248" w="40" h="13"/>
+
+			</param>
+		</param>
+		<param type="label" id="lab_basic_font" text="Базовый шрифт" def="" x="10" y="276" w="120" h="13"/>
+		<param type="select" id="basic_font" text="" def="robotoregular" x="130" y="274" w="88" h="13">
+			<items>
+				<item id="Arial" label="Arial">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="ArialBlack" label="Arial Black">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="ArialNarrow" label="Arial Narrow">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="ComicSansMS" label="Comic Sans MS">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="CourierNew" label="Courier New">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="Georgia" label="Georgia">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="Impact" label="Impact">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="LucidaConsole" label="Lucida Console">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="LucidaSansUnicode" label="Lucida Sans Unicode">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="Palatino" label="Palatino">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="Tahoma" label="Tahoma">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="Times" label="Times New Roman">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="TrebuchetMS" label="Trebuchet MS">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="Verdana" label="Verdana">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="clear_sans_lightregular" label="WF Clear Sans Light">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="clear_sans_mediumregular" label="WF Clear Sans Medium">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="clear_sansregular" label="WF Clear Sans Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="clear_sans_thinregular" label="WF Clear Sans Thin">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="droid_sans_monoregular" label="WF Droid Sans Mono">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="droid_sansregular" label="WF Droid Sans Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="droid_serifregular" label="WF Droid Serif Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="Fira_Mono" label="WF Fira Mono">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Fira_Sans" label="WF Fira Sans">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="FiraSansLight" label="WF Fira Sans Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="FiraSansMedium" label="WF Fira Sans Medium">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Fregat_Sans" label="WF Fregat Sans">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="Lato_Sans" label="WF Lato Sans">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="LatoSansLight" label="WF Lato Sans Light">
+					<events>
+						<event name="selendok" target="font_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="nerisblack" label="WF Neris Black">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="nerislight" label="WF Neris Light">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="nerissemibold" label="WF Neris SemiBold">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="neristhin" label="WF Neris Thin">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="noto_sansregular" label="WF Noto Sans Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="noto_serifregular" label="WF Noto Serif Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="open_sanscondensed_light" label="WF Open Sans Condensed Light">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="open_sansextrabold" label="WF Open Sans Extra Bold">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="open_sanslight" label="WF Open Sans Light">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="open_sansregular" label="WF Open Sans Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="open_sanssemibold" label="WF Open Sans SemiBold">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="permiansanstypefaceregular" label="WF Permian Sans Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="permianseriftypefaceregular" label="WF Permian Serif Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="permianslabseriftypefaceRg" label="WF Permian Slab Serif Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="robotoblack" label="WF Roboto Black">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="roboto_condensedregular" label="WF Roboto Condensed">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="roboto_condensedlight" label="WF Roboto Condensed Light">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="robotolight" label="WF Roboto Light">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="robotomedium" label="WF Roboto Medium">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="robotoregular" label="WF Roboto Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="robotothin" label="WF Roboto Thin">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="roboto_slablight" label="WF Roboto Slab Light">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="roboto_slabregular" label="WF Roboto Slab Regular">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="roboto_slabthin" label="WF Roboto Slab Thin">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="hide"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="basic_font_custom" action="show"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="edit" id="basic_font_custom" text="" def="" x="220" y="274" w="90" h="13"/>
+		<param type="label" id="lab_button_layout" text="Расположение кнопки" def="" x="10" y="292" w="120" h="11"/>
+		<param type="select" id="button_layout" text="" def="left" x="130" y="290" w="88" h="13">
+			<items>
+				<item id="left" label="Слева"/>
+				<item id="right" label="Справа"/>
+			</items>
+		</param>
+		<param type="label" id="lab_q_base_width" text="База - ширина и отбивка" def="" x="10" y="308" w="120" h="11"/>
+		<param type="spinner" id="q_base_width" text="" def="50" x="130" y="306" w="32" h="13" min="1" max="99"/>
+		<param type="label" id="lab_q_base_width_pc" text="%" def="" x="165" y="308" w="20" h="11"/>
+		<param type="spinner" id="q_base_padding" text="" def="10" x="220" y="306" w="32" h="13" min="1" max="99"/>
+		<param type="label" id="lab_q_base_padding_px" text="пкс" def="" x="255" y="308" w="30" h="11"/>
+	</page>
+	<page name="Тексты" w="320" h="320">
+		<param type="label" id="lab_q_credit_msg" text="Оцениваемый" def="" x="10" y="10" w="120" h="11"/>
+		<param type="edit" id="q_credit_msg" text="" def="Вопрос оцениваемый" x="130" y="8" w="170" h="13"/>
+		<param type="label" id="lab_q_nocredit_msg" text="Неоцениваемый" def="" x="10" y="26" w="120" h="11"/>
+		<param type="edit" id="q_nocredit_msg" text="" def="Вопрос неоцениваемый" x="130" y="24" w="170" h="13"/>
+		<param type="label" id="lab_q_attempts_msg" text="Попытки" def="" x="10" y="42" w="120" h="11"/>
+		<param type="edit" id="q_attempts_msg" text="" def="Осталось попыток" x="130" y="40" w="170" h="13"/>
+		<param type="label" id="lab_q_timer_msg" text="Время на вопрос" def="" x="10" y="58" w="120" h="11"/>
+		<param type="edit" id="q_timer_msg" text="" def="Время на вопрос" x="130" y="56" w="170" h="13"/>
+		<param type="label" id="lab_q_timer_sec" text="Секунд" def="" x="10" y="74" w="120" h="11"/>
+		<param type="edit" id="q_timer_sec" text="" def="сек" x="130" y="72" w="170" h="13"/>
+		<param type="label" id="lab_q_goal_right" text="Правильный ответ" def="" x="10" y="90" w="120" h="11"/>
+		<param type="edit" id="q_goal_right" text="" def="ПРАВИЛЬНЫЙ ОТВЕТ" x="130" y="88" w="170" h="13"/>
+		<param type="label" id="lab_q_goal_last" text="Последнее состояние" def="" x="10" y="106" w="120" h="11"/>
+		<param type="edit" id="q_goal_last" text="" def="ПОСЛЕДНЕЕ СОСТОЯНИЕ ВОПРОСА" x="130" y="104" w="170" h="13"/>
+		<param type="label" id="lab_q_goal_skip" text="Пропущен" def="" x="10" y="122" w="120" h="11"/>
+		<param type="edit" id="q_goal_skip" text="" def="ВОПРОС ПРОПУЩЕН" x="130" y="120" w="170" h="13"/>
+		<param type="label" id="lab_q_goal_failed" text="Пропущен и провален" def="" x="10" y="138" w="120" h="11"/>
+		<param type="edit" id="q_goal_failed" text="" def="ВОПРОС ПРОПУЩЕН И ПРОВАЛЕН" x="130" y="136" w="170" h="13"/>
+		<param type="label" id="lab_q_a_tooltip" text="Текст Принять ответ" def="" x="10" y="154" w="120" h="11"/>
+		<param type="edit" id="q_a_tooltip" text="" def="ПРИНЯТЬ ОТВЕТ" x="130" y="152" w="170" h="13"/>
+		<param type="label" id="lab_q_s_tooltip" text="Текст Пропустить" def="" x="10" y="170" w="120" h="11"/>
+		<param type="edit" id="q_s_tooltip" text="" def="ПРОПУСТИТЬ" x="130" y="168" w="170" h="13"/>
+		<param type="select" id="lab_q_goal" text="" def="choice" x="10" y="184" w="118" h="13">
+			<items>
+				<item id="tf" label="Инструкция Правда-Ложь">
+					<events>
+						<event name="selendok" target="q_goal_tf" action="show"/>
+						<event name="selendok" target="q_goal_choice" action="hide"/>
+						<event name="selendok" target="q_goal_select" action="hide"/>
+						<event name="selendok" target="q_goal_order" action="hide"/>
+						<event name="selendok" target="q_goal_numeric" action="hide"/>
+						<event name="selendok" target="q_goal_fib" action="hide"/>
+						<event name="selendok" target="q_goal_oto" action="hide"/>
+						<event name="selendok" target="q_goal_otm" action="hide"/>
+						<event name="selendok" target="q_goal_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="choice" label="Инструкция Ед.выбор">
+					<events>
+						<event name="selendok" target="q_goal_tf" action="hide"/>
+						<event name="selendok" target="q_goal_choice" action="show"/>
+						<event name="selendok" target="q_goal_select" action="hide"/>
+						<event name="selendok" target="q_goal_order" action="hide"/>
+						<event name="selendok" target="q_goal_numeric" action="hide"/>
+						<event name="selendok" target="q_goal_fib" action="hide"/>
+						<event name="selendok" target="q_goal_oto" action="hide"/>
+						<event name="selendok" target="q_goal_otm" action="hide"/>
+						<event name="selendok" target="q_goal_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="select" label="Инструкция Мн.выбор">
+					<events>
+						<event name="selendok" target="q_goal_tf" action="hide"/>
+						<event name="selendok" target="q_goal_choice" action="hide"/>
+						<event name="selendok" target="q_goal_select" action="show"/>
+						<event name="selendok" target="q_goal_order" action="hide"/>
+						<event name="selendok" target="q_goal_numeric" action="hide"/>
+						<event name="selendok" target="q_goal_fib" action="hide"/>
+						<event name="selendok" target="q_goal_oto" action="hide"/>
+						<event name="selendok" target="q_goal_otm" action="hide"/>
+						<event name="selendok" target="q_goal_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="order" label="Инструкция Упорядочивание">
+					<events>
+						<event name="selendok" target="q_goal_tf" action="hide"/>
+						<event name="selendok" target="q_goal_choice" action="hide"/>
+						<event name="selendok" target="q_goal_select" action="hide"/>
+						<event name="selendok" target="q_goal_order" action="show"/>
+						<event name="selendok" target="q_goal_numeric" action="hide"/>
+						<event name="selendok" target="q_goal_fib" action="hide"/>
+						<event name="selendok" target="q_goal_oto" action="hide"/>
+						<event name="selendok" target="q_goal_otm" action="hide"/>
+						<event name="selendok" target="q_goal_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="numeric" label="Инструкция Числовой ввод">
+					<events>
+						<event name="selendok" target="q_goal_tf" action="hide"/>
+						<event name="selendok" target="q_goal_choice" action="hide"/>
+						<event name="selendok" target="q_goal_select" action="hide"/>
+						<event name="selendok" target="q_goal_order" action="hide"/>
+						<event name="selendok" target="q_goal_numeric" action="show"/>
+						<event name="selendok" target="q_goal_fib" action="hide"/>
+						<event name="selendok" target="q_goal_oto" action="hide"/>
+						<event name="selendok" target="q_goal_otm" action="hide"/>
+						<event name="selendok" target="q_goal_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="fib" label="Инструкция Текстовый ввод">
+					<events>
+						<event name="selendok" target="q_goal_tf" action="hide"/>
+						<event name="selendok" target="q_goal_choice" action="hide"/>
+						<event name="selendok" target="q_goal_select" action="hide"/>
+						<event name="selendok" target="q_goal_order" action="hide"/>
+						<event name="selendok" target="q_goal_numeric" action="hide"/>
+						<event name="selendok" target="q_goal_fib" action="show"/>
+						<event name="selendok" target="q_goal_oto" action="hide"/>
+						<event name="selendok" target="q_goal_otm" action="hide"/>
+						<event name="selendok" target="q_goal_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="oto" label="Инструкция Парное соотв.">
+					<events>
+						<event name="selendok" target="q_goal_tf" action="hide"/>
+						<event name="selendok" target="q_goal_choice" action="hide"/>
+						<event name="selendok" target="q_goal_select" action="hide"/>
+						<event name="selendok" target="q_goal_order" action="hide"/>
+						<event name="selendok" target="q_goal_numeric" action="hide"/>
+						<event name="selendok" target="q_goal_fib" action="hide"/>
+						<event name="selendok" target="q_goal_oto" action="show"/>
+						<event name="selendok" target="q_goal_otm" action="hide"/>
+						<event name="selendok" target="q_goal_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="otm" label="Инструкция Распр. группы">
+					<events>
+						<event name="selendok" target="q_goal_tf" action="hide"/>
+						<event name="selendok" target="q_goal_choice" action="hide"/>
+						<event name="selendok" target="q_goal_select" action="hide"/>
+						<event name="selendok" target="q_goal_order" action="hide"/>
+						<event name="selendok" target="q_goal_numeric" action="hide"/>
+						<event name="selendok" target="q_goal_fib" action="hide"/>
+						<event name="selendok" target="q_goal_oto" action="hide"/>
+						<event name="selendok" target="q_goal_otm" action="show"/>
+						<event name="selendok" target="q_goal_mtm" action="hide"/>
+					</events>
+				</item>
+				<item id="mtm" label="Инструкция Откр. соотв.">
+					<events>
+						<event name="selendok" target="q_goal_tf" action="hide"/>
+						<event name="selendok" target="q_goal_choice" action="hide"/>
+						<event name="selendok" target="q_goal_select" action="hide"/>
+						<event name="selendok" target="q_goal_order" action="hide"/>
+						<event name="selendok" target="q_goal_numeric" action="hide"/>
+						<event name="selendok" target="q_goal_fib" action="hide"/>
+						<event name="selendok" target="q_goal_oto" action="hide"/>
+						<event name="selendok" target="q_goal_otm" action="hide"/>
+						<event name="selendok" target="q_goal_mtm" action="show"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="edit" id="q_goal_tf" text="" def="Выберите правильный вариант" x="130" y="184" w="170" h="13"/>
+		<param type="edit" id="q_goal_choice" text="" def="Выберите правильный вариант" x="130" y="184" w="170" h="13"/>
+		<param type="edit" id="q_goal_select" text="" def="Выберите все правильные варианты" x="130" y="184" w="170" h="13"/>
+		<param type="edit" id="q_goal_order" text="" def="Разместите элементы в правильном порядке" x="130" y="184" w="170" h="13"/>
+		<param type="edit" id="q_goal_numeric" text="" def="Введите правильный ответ" x="130" y="184" w="170" h="13"/>
+		<param type="edit" id="q_goal_fib" text="" def="Введите правильный ответ" x="130" y="184" w="170" h="13"/>
+		<param type="edit" id="q_goal_oto" text="" def="Распределите элементы справа по правильным парам" x="130" y="184" w="170" h="13"/>
+		<param type="edit" id="q_goal_otm" text="" def="Распределите элементы справа по правильным группам" x="130" y="184" w="170" h="13"/>
+		<param type="edit" id="q_goal_mtm" text="" def="Свяжите элементы справа с элементами слева" x="130" y="184" w="170" h="13"/>
+	</page>
+	<page name="Звук" w="320" h="320">
+		<param type="line" id="LINE_snd_1" text="" def="" x="5" y="8" w="310" h="48"/>
+		<param type="line" id="LINE_snd_2" text="" def="" x="5" y="24" w="310" h="32"/>
+		<param type="label" id="lab_snd_click" text="Нажатие мыши" def="" x="15" y="12" w="120" h="11"/>
+		<param type="select" id="sound_click" text="" def="none" x="15" y="34" w="113" h="13">
+			<items>
+				<item id="none" label="Без звука">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click1" label="Стандартный 1">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click2" label="Стандартный 2">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click3" label="Стандартный 3">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="click4" label="Стандартный 4">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="sound_click_file_custom" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="file" id="sound_click_file_custom" text="" def="" x="130" y="34" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+
+		<param type="line" id="LINE_snd_3" text="" def="" x="5" y="62" w="310" h="48"/>
+		<param type="line" id="LINE_snd_4" text="" def="" x="5" y="78" w="310" h="32"/>
+		<param type="label" id="lab_snd_over" text="Наведение мыши" def="" x="15" y="66" w="120" h="11"/>
+		<param type="select" id="sound_over" text="" def="none" x="15" y="88" w="113" h="13">
+			<items>
+				<item id="none" label="Без звука">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="over1" label="Стандартный 1">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="over2" label="Стандартный 2">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="over3" label="Стандартный 3">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="over4" label="Стандартный 4">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="sound_over_file_custom" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="file" id="sound_over_file_custom" text="" def="" x="130" y="88" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+
+		<param type="line" id="LINE_snd_5" text="" def="" x="5" y="116" w="310" h="48"/>
+		<param type="line" id="LINE_snd_6" text="" def="" x="5" y="132" w="310" h="32"/>
+		<param type="label" id="lab_snd_success" text="Правильный ответ" def="" x="15" y="120" w="120" h="11"/>
+		<param type="select" id="sound_success" text="" def="none" x="15" y="140" w="113" h="13">
+			<items>
+				<item id="none" label="Без звука">
+					<events>
+						<event name="selendok" target="sound_success_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="success1" label="Стандартный 1">
+					<events>
+						<event name="selendok" target="sound_success_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="success2" label="Стандартный 2">
+					<events>
+						<event name="selendok" target="sound_success_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="success3" label="Стандартный 3">
+					<events>
+						<event name="selendok" target="sound_success_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="success4" label="Стандартный 4">
+					<events>
+						<event name="selendok" target="sound_success_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="sound_success_file_custom" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="file" id="sound_success_file_custom" text="" def="" x="130" y="140" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+
+		<param type="line" id="LINE_snd_7" text="" def="" x="5" y="168" w="310" h="48"/>
+		<param type="line" id="LINE_snd_8" text="" def="" x="5" y="184" w="310" h="32"/>
+		<param type="label" id="lab_snd_failure" text="Неправильный ответ" def="" x="15" y="172" w="120" h="11"/>
+		<param type="select" id="sound_failure" text="" def="none" x="15" y="192" w="113" h="13">
+			<items>
+				<item id="none" label="Без звука">
+					<events>
+						<event name="selendok" target="sound_failure_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="failure1" label="Стандартный 1">
+					<events>
+						<event name="selendok" target="sound_failure_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="failure2" label="Стандартный 2">
+					<events>
+						<event name="selendok" target="sound_failure_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="failure3" label="Стандартный 3">
+					<events>
+						<event name="selendok" target="sound_failure_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="failure4" label="Стандартный 4">
+					<events>
+						<event name="selendok" target="sound_failure_file_custom" action="disable"/>
+					</events>
+				</item>
+				<item id="custom" label="По выбору">
+					<events>
+						<event name="selendok" target="sound_failure_file_custom" action="enable"/>
+					</events>
+				</item>
+			</items>
+		</param>
+		<param type="file" id="sound_failure_file_custom" text="" def="" x="130" y="192" w="158" h="13" ext="Звуковые файлы (*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf)|*.mp3;*.ogg;*.oga;*.webm;*.wav;*.swf|MP3 (*.mp3)|*.mp3|OGG (*.oga;*.ogg)|*.ogg;*.oga;|WebM (*.webm)|*.webm|WAV (*.wav)|*.wav|Все файлы (*.*)|*.*|||"/>
+	</page>
+    <methods>
+		<method name="Constructor" label="_Constructor" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Constructor(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var sQuestionId = argobj.pid;
+				var bDefer = false;
+				switch(oCurObj.display)
+				{
+					case "none":
+					{
+						bDefer = true;
+						CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						break;
+					}
+					case "time":
+					case "frame":
+					case "slide":
+					{
+						if(oCurObj.iBegin!=null && +oCurObj.iBegin!=0)
+						{
+							bDefer = true;
+							CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						}
+						else if(!oCurObj.oParentFrame.bIsFirst)
+						{
+                            bDefer = true;
+                            CL.Event.Subscribe({ aList: [ { sId: argobj.pid, sEvtName: "EVENT_OBJECT_SHOW" } ] });
+						}
+						break;
+					}
+				}
+				var jBtn = jCurObjDiv.find("#" + argobj.pid + "_BUTTON_submit");
+				jBtn.parent().height(jBtn.height());
+				oCurObj.data =
+				{
+					bCreated: false,
+					bCredit: (oCurObj.jxParams.children("q_scored").text()=="yes"),
+					bNoMoreAttempts: false,
+					bShowCorrect: (oCurObj.jxParams.children("q_showright").text()=="yes"),
+					bFeedback: (oCurObj.jxParams.children("q_fb_switch").text()=="yes"),
+					bModal: (oCurObj.jxParams.find("modal").text()=="yes"),
+					bSkip: (oCurObj.jxParams.find("q_skip").text()!="none"),
+					bTimer: (oCurObj.jxParams.children("q_timer_switch").text()=="yes"),
+					bTimeout: false,
+					jxObjectives: oCurObj.jxParams.find("q_scoreboards > item"),
+					nBaseScore: +oCurObj.jxParams.children("q_weight").text(),
+					sMode: "init",
+					sType: oCurObj.jxParams.children("question_type").text(),
+					sSoundSuccess: oCurObj.jxParams.children("sound_success").text(),
+					sSoundFailure: oCurObj.jxParams.children("sound_failure").text(),
+					sSoundClick: oCurObj.jxParams.children("sound_click").text(),
+					sSoundOver: oCurObj.jxParams.children("sound_over").text()
+				};
+				var jAudioContainer = jCurObjDiv.find(".cl-audio-files-list");
+				if(oCurObj.data.sSoundClick!="none")
+				{
+					oCurObj.data.jAudioClick = CL.Sound.Append({ oContainer: jAudioContainer, sId: argobj.pid + "_AUDIO1", sType: oCurObj.data.sSoundClick, sFile: oCurObj.jxParams.children("sound_click_file_custom").text() });
+				}
+				if(oCurObj.data.sSoundOver!="none")
+				{
+					oCurObj.data.jAudioOver = CL.Sound.Append({ oContainer: jAudioContainer, sId: argobj.pid + "_AUDIO2", sType: oCurObj.data.sSoundOver, sFile: oCurObj.jxParams.children("sound_over_file_custom").text() });
+				}
+				if(oCurObj.data.sSoundSuccess!="none")
+				{
+					oCurObj.data.jAudioSuccess = CL.Sound.Append({ oContainer: jAudioContainer, sId: argobj.pid + "_AUDIO3", sType: oCurObj.data.sSoundSuccess, sFile: oCurObj.jxParams.children("sound_success_file_custom").text() });
+				}
+				if(oCurObj.data.sSoundFailure!="none")
+				{
+					oCurObj.data.jAudioFailure = CL.Sound.Append({ oContainer: jAudioContainer, sId: argobj.pid + "_AUDIO4", sType: oCurObj.data.sSoundFailure, sFile: oCurObj.jxParams.children("sound_failure_file_custom").text() });
+				}
+				switch(oCurObj.data.sType)
+				{
+					case "true-false":
+					{
+						oCurObj.data.sScoringType = oCurObj.jxParams.children("q_scoring_type_tf").text();
+						oCurObj.data.bShuffle = (oCurObj.jxParams.children("q_elements_order").text()=="random");
+						break;
+					}
+					case "choice":
+					{
+						oCurObj.data.sScoringType = oCurObj.jxParams.children("q_scoring_type_choice").text();
+						oCurObj.data.jxVars = oCurObj.jxParams.find("q_variants_choice > item");
+						oCurObj.data.bShuffle = (oCurObj.jxParams.children("q_shuffle_choice").text()=="yes");
+						break;
+					}
+					case "select":
+					{
+						oCurObj.data.sScoringType = oCurObj.jxParams.children("q_scoring_type_select").text();
+						oCurObj.data.jxVars = oCurObj.jxParams.find("q_variants_select > item");
+						oCurObj.data.bShuffle = (oCurObj.jxParams.children("q_shuffle_select").text()=="yes");
+						break;
+					}
+					case "order":
+					{
+						oCurObj.data.sScoringType = oCurObj.jxParams.children("q_scoring_type_match").text();
+						oCurObj.data.jxVars = oCurObj.jxParams.find("q_variants_order > item");
+						oCurObj.data.bShuffle = true;
+						break;
+					}
+					case "numeric":
+					{
+						oCurObj.data.sScoringType = oCurObj.jxParams.children("q_scoring_type_inputs").text();
+						oCurObj.data.jxVars = oCurObj.jxParams.find("q_variants_numeric > item");
+						oCurObj.data.sOp = oCurObj.jxParams.children("q_var_logic_numeric").text();
+						break;
+					}
+					case "fib":
+					{
+						oCurObj.data.sScoringType = oCurObj.jxParams.children("q_scoring_type_inputs").text();
+						oCurObj.data.jxVars = oCurObj.jxParams.find("q_variants_fib > item");
+						oCurObj.data.sOp = oCurObj.jxParams.children("q_var_logic_fib").text();
+						break;
+					}
+					case "oto":
+					{
+						oCurObj.data.sScoringType = oCurObj.jxParams.children("q_scoring_type_match").text();
+						oCurObj.data.jxVars = oCurObj.jxParams.find("q_variants_oto > item");
+						break;
+					}
+				}
+				if(CLZ.oStore[sQuestionId]!=null)
+				{
+					switch(CLZ.oStore[sQuestionId].u)
+					{
+						case "c":
+						{
+							switch(oCurObj.jxParams.children("q_replay").text())
+							{
+								case "none_alert":
+								{
+									alert(oCurObj.jxParams.children("q_browse_alert").text());
+									// no break
+								}
+								case "none_silent":
+								{
+									oCurObj.data.sMode = "browse";
+									oCurObj.data.bNoMoreAttempts = true;
+									break;
+								}
+								case "allow_alert":
+								{
+									alert(oCurObj.jxParams.children("q_secondrun_alert").text());
+									// no break
+								}
+								case "allow_silent":
+								{
+									CLZ.oStore[sQuestionId] = {};
+									CLZ.oStore[sQuestionId] = null;
+									if(oCurObj.data.bCredit)
+									{
+										for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+										{
+											CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+										}
+									}
+									break;
+								}
+								case "allow_confirm":
+								{
+									if(confirm(oCurObj.jxParams.children("q_secondrun_confirm").text()))
+									{
+										CLZ.oStore[sQuestionId] = {};
+										CLZ.oStore[sQuestionId] = null;
+										if(oCurObj.data.bCredit)
+										{
+											for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+											{
+												CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+											}
+										}
+									}
+									else
+									{
+										oCurObj.data.sMode = "browse";
+										oCurObj.data.bNoMoreAttempts = true;
+									}
+									break;
+								}
+							}
+							break;
+						}
+						case "i":
+						{
+							switch(oCurObj.jxParams.children("q_continue").text())
+							{
+								case "restart_alert":
+								{
+									alert(oCurObj.jxParams.children("q_restart_alert").text());
+									// no break
+								}
+								case "restart_silent":
+								{
+									CLZ.oStore[sQuestionId] = {};
+									CLZ.oStore[sQuestionId] = null;
+									if(oCurObj.data.bCredit)
+									{
+										for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+										{
+											CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+										}
+									}
+									break;
+								}
+								case "restore_alert":
+								{
+									alert(oCurObj.jxParams.children("q_restore_alert").text());
+									// no break
+								}
+								case "restore_silent":
+								{
+									oCurObj.data.sMode = "continue";
+									break;
+								}
+								case "restore_confirm":
+								{
+									if(confirm(oCurObj.jxParams.children("q_restore_confirm").text()))
+									{
+										oCurObj.data.sMode = "continue";
+									}
+									else
+									{
+										CLZ.oStore[sQuestionId] = {};
+										CLZ.oStore[sQuestionId] = null;
+										if(oCurObj.data.bCredit)
+										{
+											for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+											{
+												CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+											}
+										}
+									}
+									break;
+								}
+							}
+							break;
+						}
+						default:
+						{
+							CLZ.oStore[sQuestionId] = {};
+							CLZ.oStore[sQuestionId] = null;
+							if(oCurObj.data.bCredit)
+							{
+								for(var j=0; j<oCurObj.data.jxObjectives.length; j++)
+								{
+									CL.SCO.RemoveScoreFromObjective({ sId: $(oCurObj.data.jxObjectives[j]).children("q_board").text(), sSrcId: argobj.pid });
+								}
+							}
+							break;
+						}
+					}
+				}
+				switch(oCurObj.data.sMode)
+				{
+					case "init":
+					{
+						// create storage
+						CLZ.oStore[sQuestionId] =
+						{
+							A:
+							[
+								{
+									s: 0,
+									d: 0,
+									u: "i"
+								}
+							],
+							O: [],
+							P: [],
+							R: [],
+							s: (new Date()).valueOf(),
+							y: CLD.CLTypeToAbbr[oCurObj.data.sType],
+							u: "i"
+						};
+						if(oCurObj.data.bCredit)
+						{
+							CLZ.oStore[sQuestionId].J = [];
+							oCurObj.data.jxObjectives.each(function () { CLZ.oStore[sQuestionId].J.push( $(this).children("q_board").text() ); });
+						}
+						if(oCurObj.data.bTimer)
+						{
+							var iTimer = +oCurObj.jxParams.children("q_timer").text();
+							if(isNaN(iTimer))
+							{
+								oCurObj.data.bTimer = false;
+							}
+							else
+							{
+								CLZ.oStore[sQuestionId].t = iTimer;
+								CLZ.oStore[sQuestionId].e = 0;
+							}
+						}
+						switch(oCurObj.data.sType)
+						{
+							case "true-false":
+							{
+								if(oCurObj.data.sScoringType=="plain" || oCurObj.data.sScoringType=="byobj" && oCurObj.jxParams.children("q_eval").text()!="byvar")
+								{
+									CLZ.oStore[sQuestionId].P.push( (oCurObj.jxParams.children("q_eval").text()=="true") ? 1 : 0 );
+								}
+								if(oCurObj.data.bShuffle)
+								{
+									var aShuffled = [];
+									for(var i=0; i<2; i++) aShuffled[i] = CLTOOLS.Dice({ iMax: 2, bIncludeMax: false, aUsed: aShuffled, iMaxTries: 1000 });
+									for(var i=0; i<2; i++) CLZ.oStore[sQuestionId].O.push(aShuffled[i]);
+								}
+								else
+								{
+									CLZ.oStore[sQuestionId].O = [ 0, 1 ];
+								}
+								// alwaus 1 attempt
+								break;
+							}
+							case "choice":
+							{
+								if(oCurObj.data.sScoringType=="fixed" || oCurObj.data.sScoringType=="plain" || oCurObj.data.sScoringType=="regressive" || oCurObj.data.sScoringType=="byobj") // fixed - 2.7 legacy
+								{
+									// 3.1.2.1
+									for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+									{
+										if($(oCurObj.data.jxVars[i-1]).children("q_right").text()=="yes")
+										{
+											CLZ.oStore[sQuestionId].P.push(i);
+											break;
+										}
+									}
+								}
+								if(oCurObj.data.bShuffle)
+								{
+									var aShuffled = [];
+									for(var i=0; i<oCurObj.data.jxVars.length; i++) aShuffled.push( CLTOOLS.Dice({ iMax: oCurObj.data.jxVars.length, bIncludeMax: false, aUsed: aShuffled, iMaxTries: 1000 }) );
+									for(var i=0; i<oCurObj.data.jxVars.length; i++) CLZ.oStore[sQuestionId].O.push(aShuffled[i]+1);
+								}
+								else
+								{
+									for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+									{
+										CLZ.oStore[sQuestionId].O.push(i);
+									}
+								}
+								var iMaxAttepmts = 1;
+								if(oCurObj.data.sScoringType!="byvar")
+								{
+									if(oCurObj.jxParams.children("q_attempts_type").text()=="auto")
+									{
+										iMaxAttepmts = oCurObj.data.jxVars.length - 1;
+									}
+									else
+									{
+										iMaxAttepmts = +oCurObj.jxParams.children("q_attempts").text();
+									}
+								}
+								for(var i=1; i<iMaxAttepmts; i++)
+								{
+									CLZ.oStore[sQuestionId].A.push({ u: "n" });
+								}
+								break;
+							}
+							case "select":
+							{
+								if(oCurObj.data.sScoringType=="fixed" || oCurObj.data.sScoringType=="plain" || oCurObj.data.sScoringType=="regressive" || oCurObj.data.sScoringType=="byobj") // fixed - 2.7 legacy
+								{
+									for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+									{
+										if($(oCurObj.data.jxVars[i-1]).children("q_right").text()=="yes")
+										{
+											CLZ.oStore[sQuestionId].P.push(i);
+										}
+									}
+								}
+								if(oCurObj.data.bShuffle)
+								{
+									var aShuffled = [];
+									for(var i=0; i<oCurObj.data.jxVars.length; i++) aShuffled.push( CLTOOLS.Dice({ iMax: oCurObj.data.jxVars.length, bIncludeMax: false, aUsed: aShuffled, iMaxTries: 1000 }) );
+									for(var i=0; i<oCurObj.data.jxVars.length; i++) CLZ.oStore[sQuestionId].O.push(aShuffled[i]+1);
+								}
+								else
+								{
+									for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+									{
+										CLZ.oStore[sQuestionId].O.push(i);
+									}
+								}
+								var iMaxAttepmts = 1;
+								if(oCurObj.data.sScoringType=="fixed" || oCurObj.data.sScoringType=="plain" || oCurObj.data.sScoringType=="regressive" || oCurObj.data.sScoringType=="byobj") // fixed - 2.7 legacy
+								{
+									if(oCurObj.jxParams.children("q_attempts_type").text()=="auto")
+									{
+										iMaxAttepmts = oCurObj.data.jxVars.length - 1;
+									}
+									else
+									{
+										iMaxAttepmts = +oCurObj.jxParams.children("q_attempts").text();
+									}
+								}
+								for(var i=1; i<iMaxAttepmts; i++)
+								{
+									CLZ.oStore[sQuestionId].A.push({ u: "n" });
+								}
+								break;
+							}
+							case "order":
+							{
+								for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+								{
+									CLZ.oStore[sQuestionId].P.push(i);
+								}
+								var aShuffled = [];
+								for(var i=0; i<oCurObj.data.jxVars.length; i++) aShuffled.push( CLTOOLS.Dice({ iMax: oCurObj.data.jxVars.length, bIncludeMax: false, aUsed: aShuffled, iMaxTries: 1000 }) );
+								for(var i=0; i<oCurObj.data.jxVars.length; i++)
+								{
+									CLZ.oStore[sQuestionId].O.push(aShuffled[i]+1);
+									CLZ.oStore[sQuestionId].R.push(aShuffled[i]+1);
+								}
+								var iMaxAttepmts = 1;
+								if(oCurObj.data.sScoringType=="fixed" || oCurObj.data.sScoringType=="plain" || oCurObj.data.sScoringType=="regressive" || oCurObj.data.sScoringType=="byobj") // fixed - 2.7 legacy
+								{
+									if(oCurObj.jxParams.children("q_attempts_type").text()=="auto")
+									{
+										iMaxAttepmts = oCurObj.data.jxVars.length - 1;
+									}
+									else
+									{
+										iMaxAttepmts = +oCurObj.jxParams.children("q_attempts").text();
+									}
+								}
+								for(var i=1; i<iMaxAttepmts; i++)
+								{
+									CLZ.oStore[sQuestionId].A.push({ u: "n" });
+								}
+								break;
+							}
+
+							case "numeric":
+							case "fib":
+							{
+								var oPattern;
+								var aConds;
+								var jVar;
+								var jConds;
+								for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+								{
+									jVar = $(oCurObj.data.jxVars[i-1]);
+									oPattern = { sOp: jVar.children("q_cond_logic").text() };
+									jConds = jVar.find("q_conditions > item");
+									aConds = [];
+									if(oCurObj.data.sType=="fib")
+									{
+										for(var j=0; j<jConds.length; j++)
+										{
+											aConds.push({ op: $(jConds[j]).children("q_condition").text(), val: $(jConds[j]).children("q_variant").text(), cs: ($(jConds[j]).children("q_case").text()=="yes") })
+										}
+									}
+									else
+									{
+										for(var j=0; j<jConds.length; j++)
+										{
+											aConds.push({ op: $(jConds[j]).children("q_condition").text(), val: +$(jConds[j]).children("q_variant").text() })
+										}
+									}
+									oPattern.aConds = aConds.slice(0);
+									CLZ.oStore[sQuestionId].P.push(oPattern);
+									CLZ.oStore[sQuestionId].R.push("");
+								}
+								for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+								{
+									CLZ.oStore[sQuestionId].O.push(i);
+								}
+								var iMaxAttepmts = 1;
+								if(oCurObj.jxParams.children("q_attempts_type").text()=="auto")
+								{
+									iMaxAttepmts = oCurObj.data.jxVars.length - 1;
+								}
+								else
+								{
+									iMaxAttepmts = +oCurObj.jxParams.children("q_attempts").text();
+								}
+								for(var i=1; i<iMaxAttepmts; i++)
+								{
+									CLZ.oStore[sQuestionId].A.push({ u: "n" });
+								}
+								break;
+							}
+							case "oto":
+							{
+								for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+								{
+									CLZ.oStore[sQuestionId].P.push(i);
+								}
+								var aShuffled = [];
+								for(var i=0; i<oCurObj.data.jxVars.length; i++) aShuffled.push( CLTOOLS.Dice({ iMax: oCurObj.data.jxVars.length, bIncludeMax: false, aUsed: aShuffled, iMaxTries: 1000 }) );
+								for(var i=0; i<oCurObj.data.jxVars.length; i++)
+								{
+									CLZ.oStore[sQuestionId].O.push(aShuffled[i]+1);
+									CLZ.oStore[sQuestionId].R.push(aShuffled[i]+1);
+								}
+								var iMaxAttepmts = 1;
+								if(oCurObj.data.sScoringType=="fixed" || oCurObj.data.sScoringType=="plain" || oCurObj.data.sScoringType=="regressive" || oCurObj.data.sScoringType=="byobj") // fixed - 2.7 legacy
+								{
+									if(oCurObj.jxParams.children("q_attempts_type").text()=="auto")
+									{
+										iMaxAttepmts = oCurObj.data.jxVars.length - 1;
+									}
+									else
+									{
+										iMaxAttepmts = +oCurObj.jxParams.children("q_attempts").text();
+									}
+								}
+								for(var i=1; i<iMaxAttepmts; i++)
+								{
+									CLZ.oStore[sQuestionId].A.push({ u: "n" });
+								}
+								break;
+							}
+
+						}
+						break;
+					}
+					case "browse":
+					case "continue":
+					{
+						break;
+					}
+				}
+				switch(oCurObj.data.sType)
+				{
+					case "true-false":
+					{
+						var jVarContainer = jCurObjDiv.find(".cl-q-vars");
+						var jVarDiv;
+						if(oCurObj.jxParams.children("q_elements_layout").text()=="v")
+						{
+							for(var i=0; i<CLZ.oStore[sQuestionId].O.length; i++)
+							{
+								iIdx = +CLZ.oStore[sQuestionId].O[i];
+								jVarDiv = $("#" + argobj.pid + "_Q_VAR_" + iIdx);
+								if(oCurObj.data.bShuffle)
+								{
+									jVarContainer.append( jVarDiv );
+								}
+								if(CLZ.oStore[sQuestionId].R.length!=0)
+								{
+									if(+CLZ.oStore[sQuestionId].R[0]==iIdx)
+									{
+										jVarDiv.removeClass("cl-var-idle").addClass("cl-var-selected");
+									}
+								}
+								if(oCurObj.data.sMode=="browse")
+								{
+									jVarDiv.addClass("cl-var-disabled");
+								}
+								else
+								{ 	// bind events
+									if(!jVarDiv.hasClass("cl-var-clickable"))
+									{
+									if(CL.bTouch)
+									{
+										jVarDiv.addClass("cl-var-clickable unselectable").on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+									}
+									else
+									{
+										jVarDiv.addClass("cl-var-clickable unselectable").on("mouseover", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("mouseout", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+									}
+								}
+							}
+						}
+						}
+						else
+						{
+							var jParent = jCurObjDiv.find(".cl-q-vars-tf-h-td");
+							for(var i=0; i<CLZ.oStore[sQuestionId].O.length; i++)
+							{
+								iIdx = +CLZ.oStore[sQuestionId].O[i];
+								jVarDiv = $("#" + argobj.pid + "_Q_VAR_" + iIdx);
+								$(jParent[i]).append( jVarDiv );
+								if(CLZ.oStore[sQuestionId].R.length!=0)
+								{
+									if(+CLZ.oStore[sQuestionId].R[0]==iIdx)
+									{
+										jVarDiv.removeClass("cl-var-idle").addClass("cl-var-selected");
+									}
+								}
+								if(oCurObj.data.sMode=="browse")
+								{
+									jVarDiv.addClass("cl-var-disabled");
+								}
+								else
+								{ 	// bind events
+									if(!jVarDiv.hasClass("cl-var-clickable"))
+									{
+									if(CL.bTouch)
+									{
+										jVarDiv.addClass("cl-var-clickable").on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+									}
+									else
+									{
+										jVarDiv.addClass("cl-var-clickable").on("mouseover", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("mouseout", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+									}
+								}
+							}
+						}
+						}
+						break;
+					}
+					case "choice":
+					{
+						// restoring variants area
+						var jVarContainer = jCurObjDiv.find(".cl-q-vars");
+						var jVarDiv;
+						for(var i=0; i<CLZ.oStore[sQuestionId].O.length; i++)
+						{
+							iIdx = +CLZ.oStore[sQuestionId].O[i];
+							jVarDiv = $("#" + argobj.pid + "_Q_VAR_" + iIdx);
+							if(oCurObj.data.bShuffle)
+							{
+								jVarContainer.append( jVarDiv );
+							}
+							if(CLZ.oStore[sQuestionId].R.length!=0)
+							{
+								if(+CLZ.oStore[sQuestionId].R[0]==iIdx)
+								{
+									jVarDiv.removeClass("cl-var-idle").addClass("cl-var-selected");
+								}
+							}
+							if(oCurObj.data.sMode=="browse")
+							{
+								jVarDiv.addClass("cl-var-disabled");
+							}
+							else
+							{ 	// bind events
+								if(!jVarDiv.hasClass("cl-var-clickable"))
+								{
+								if(CL.bTouch)
+								{
+									jVarDiv.addClass("cl-var-clickable unselectable").on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+								}
+								else
+								{
+									jVarDiv.addClass("cl-var-clickable unselectable").on("mouseover", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("mouseout", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+								}
+							}
+						}
+						}
+						if(oCurObj.data.sMode=="browse")
+						{
+							if(CLZ.oStore[sQuestionId].sSkip!=null)
+							{
+								if(CLZ.oStore[sQuestionId].sSkip=="f")
+								{
+									jVarContainer.find(".cl-q-question-goal").html(oCurObj.jxParams.children("q_goal_failed").text());
+								}
+								else
+								{
+									jVarContainer.find(".cl-q-question-goal").html(oCurObj.jxParams.children("q_goal_skip").text());
+								}
+							}
+							else
+							{
+								jVarContainer.find(".cl-q-question-goal").html(oCurObj.jxParams.children("q_goal_last").text());
+							}
+						}
+						break;
+					}
+					case "select":
+					{
+						var jVarContainer = jCurObjDiv.find(".cl-q-vars");
+						var jVarDiv;
+						for(var i=0; i<CLZ.oStore[sQuestionId].O.length; i++)
+						{
+							iIdx = +CLZ.oStore[sQuestionId].O[i];
+							jVarDiv = $("#" + argobj.pid + "_Q_VAR_" + iIdx);
+							if(oCurObj.data.bShuffle)
+							{
+								jVarContainer.append( jVarDiv );
+							}
+							if(CLZ.oStore[sQuestionId].R.length!=0)
+							{
+								if($.inArray(iIdx, CLZ.oStore[sQuestionId].R)!=-1)
+								{
+									jVarDiv.removeClass("cl-var-idle").addClass("cl-var-selected");
+								}
+							}
+							if(oCurObj.data.sMode=="browse")
+							{
+								jVarDiv.addClass("cl-var-disabled");
+							}
+							else
+							{ 	// bind events
+								if(!jVarDiv.hasClass("cl-var-clickable"))
+								{
+								if(CL.bTouch)
+								{
+									jVarDiv.addClass("cl-var-clickable unselectable").on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+								}
+								else
+								{
+									jVarDiv.addClass("cl-var-clickable unselectable").on("mouseover", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("mouseout", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+								}
+							}
+						}
+						}
+						break;
+					}
+					case "order":
+					{
+						var jVarContainer = jCurObjDiv.find(".cl-q-vars");
+						var jVarDiv;
+						for(var i=0; i<CLZ.oStore[sQuestionId].O.length; i++)
+						{
+							iIdx = +CLZ.oStore[sQuestionId].O[i];
+							jVarDiv = $("#" + argobj.pid + "_Q_VAR_" + iIdx);
+							jVarContainer.attr({ "id": argobj.pid + "_VC" }).append(jVarDiv);
+							if(oCurObj.data.sMode=="browse")
+							{
+								jVarDiv.addClass("cl-var-disabled");
+							}
+							else
+							{ 	// bind events
+								jVarDiv.addClass("unselectable cl-drag").draggable(
+								{
+									snap: false,
+									scope: argobj.pid,
+									refreshPositions: true,
+									containment: CLZ.nZoom==1 ? $(CL.oBoard) : false,
+									axis: "y",
+									stack: ".cl-var",
+									revert: "invalid",
+									drag: function (event, ui)
+									{
+										if(CLZ.nZoom!=1) // zoom fix
+										{
+											ui.position.top = ui.position.top / CLZ.nZoom;
+											ui.position.left = ui.position.left / CLZ.nZoom;
+										}
+									},
+									stop: function (event, ui)
+									{
+										$(this).siblings(".cl-var").css({ "box-shadow": "none" });  // order needs no adjusting
+									}
+								}).droppable(
+								{
+									accept: ".cl-var",
+									scope: argobj.pid,
+									tolerance: "intersect",
+									over: function (event, ui)
+									{
+										$(this).css({ "box-shadow": "0 0 0.5em " + $(this).css("border-color") });
+									},
+									out: function (event, ui)
+									{
+										$(this).css({ "box-shadow": "none" });
+									},
+									drop: function(event, ui)
+									{
+										oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: event, elem: this, bullet: ui.draggable } });
+									}
+								});
+							}
+						}
+						break;
+					}
+					case "numeric":
+					case "fib":
+					{
+						var jVarDivs = jCurObjDiv.find(".cl-var");
+						var jInput;
+						for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+						{
+							jInput = $(jVarDivs[i]).find(".cl-var-input");
+							if(CLZ.oStore[sQuestionId].R[i]!="")
+							{
+								jInput.val(CLZ.oStore[sQuestionId].R[i]);
+							}
+							if(oCurObj.data.sMode=="browse")
+							{
+								$(jVarDivs[i]).addClass("cl-var-disabled");
+							}
+							else
+							{ 	// bind events
+								jInput.on("keyup", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("blur", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+							}
+						}
+						break;
+					}
+					case "oto":
+					{
+						var jVarDivs = jCurObjDiv.find(".cl-var-bullet");
+						oCurObj.data.jNests = [];
+						jVarDivs.each(function () { oCurObj.data.jNests.push($(this).parent()); });
+						var jVar;
+						var iIdx;
+						for(var i=0; i<CLZ.oStore[sQuestionId].O.length; i++)
+						{
+							iIdx = CLZ.oStore[sQuestionId].O[i];
+							jVar = jCurObjDiv.find(".cl-var-bullet[data-vid='"+ iIdx +"']");
+							jVar.appendTo(oCurObj.data.jNests[i]);
+							if(oCurObj.data.sMode=="browse")
+							{
+								jVar.addClass("cl-var-disabled");
+							}
+							else
+							{ 	// bind events
+								jVar.addClass("unselectable cl-drag").draggable(
+								{
+									snap: false,
+									refreshPositions: false,
+									containment: CLZ.nZoom==1 ? $(CL.oBoard) : false,
+									axis: "y",
+									stack: ".cl-var-bullet",
+									revert: "invalid",
+									drag: function (event, ui)
+									{
+										if(CLZ.nZoom!=1) // zoom fix
+										{
+											ui.position.top = ui.position.top / CLZ.nZoom;
+											ui.position.left = ui.position.left / CLZ.nZoom;
+										}
+									},
+									stop: function (event, ui)
+									{
+										jVarDivs.css({ "box-shadow": "none" });
+									}
+								}).droppable(
+								{
+									accept: ".cl-var-bullet",
+									tolerance: "intersect",
+									over: function (event, ui)
+									{
+										$(this).css({ "box-shadow": "0 0 0.5em " + $(this).css("border-color") })
+									},
+									out: function (event, ui)
+									{
+										$(this).css({ "box-shadow": "none" });
+									},
+									drop: function(event, ui)
+									{
+										oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: event, elem: this, bullet: ui.draggable } });
+									}
+								});
+							}
+						}
+						break;
+					}
+				}
+				var iAttemptsLeft = 0;
+				for(var i=0; i<CLZ.oStore[sQuestionId].A.length; i++)
+				{
+					if(CLZ.oStore[sQuestionId].A[i].u=="c") continue;
+					iAttemptsLeft = CLZ.oStore[sQuestionId].A.length - i;
+					break;
+				}
+				jCurObjDiv.find(".cl-q-attempts-num").html( iAttemptsLeft );
+				if(oCurObj.data.bTimer)
+				{
+					oCurObj.CallMethod({ sMethod: "Timer", oMethodArgs: { action: "init" } });
+				}
+				if(CL.bTouch)
+				{
+					jCurObjDiv.find(".cl-btn, .cl-q-feedback-btn").on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+				}
+				else
+				{
+					jCurObjDiv.find(".cl-btn, .cl-q-feedback-btn").on("mouseover", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("mouseout", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); }).on("click", function (e) { oCurObj.CallMethod({ sMethod: "UIEvent", oMethodArgs: { evt: e, elem: this } }); });
+				}
+				if(oCurObj.data.sMode=="init")
+				{
+					oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "submit", action: "hide" } });
+					if(oCurObj.data.bSkip)
+					{
+						oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "skip", action: "show" } });
+					}
+				}
+				else if(oCurObj.data.sMode=="continue")
+				{
+					oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "submit", action: "hide" } });
+					oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "skip", action: "remove" } });
+				}
+				else if(oCurObj.data.sMode=="browse")
+				{
+					oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "submit", action: "remove" } });
+					oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "skip", action: "remove" } });
+				}
+				oCurObj.data.bCreated = true;
+				if(!bDefer)
+				{
+					oCurObj.CallMethod({ sMethod: "Display" });
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method type="q_0000" name="Display">
+			<params></params>
+			<body>
+			<![CDATA[function Display(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				if(oCurObj==null) return false;
+				if(oCurObj.data.sMode!="browse")
+				{
+					if(oCurObj.data.bModal)
+					{
+						CL.Modal({ bOn: true, sSrcId: argobj.pid });
+					}
+					if(oCurObj.data.bTimer)
+					{
+						oCurObj.CallMethod({ sMethod: "Timer", oMethodArgs: { action: "init" } });
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="HandleEvt" label="_HandleEvt" access="private">
+            <params>
+            </params>
+            <body>
+			<![CDATA[function HandleEvt(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				if(oCurObj==null) return false;
+				switch(argobj.evt)
+				{
+					case "EVENT_OBJECT_SHOW":
+					{
+						if(!oCurObj.data.bCreated) return false;
+						oCurObj.CallMethod({ sMethod: "Display" });
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="UIEvent" label="_UIEvent" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function UIEvent(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var sQuestionId = argobj.pid;
+				var jElem;
+				if($(argobj.elem).hasClass("cl-var-spot-td"))
+				{
+					jElem = $(argobj.elem).parents(".cl-var:first");
+				}
+				else
+				{
+					jElem = $(argobj.elem);
+				}
+				if(jElem.hasClass("cl-var") || jElem.hasClass("cl-var-bullet"))
+				{
+					if(jElem.hasClass("cl-var-disabled")) return false;
+					switch(argobj.evt.type)
+					{
+						case "mouseover":
+						{
+							if(CLZ.bSoundOn && oCurObj.data.sSoundOver!="none")
+							{
+								CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioOver });
+							}
+							break;
+						}
+						case "mouseout":
+						{
+							if(CLZ.bSoundOn && oCurObj.data.sSoundOver!="none")
+							{
+								CL.Sound.CLStop({ jPlayer: oCurObj.data.jAudioOver });
+							}
+							break;
+						}
+						case "click":
+						{
+							if(CLZ.bSoundOn && oCurObj.data.sSoundClick!="none")
+							{
+								CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioClick });
+							}
+							// remove skip button if any
+							if(!oCurObj.data.bSkipRemoved)
+							{
+								oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "skip", action: "remove" } });
+								oCurObj.data.bSkipRemoved = true;
+							}
+							// hide feedback if any
+							oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { hide: true } });
+							switch(oCurObj.data.sType)
+							{
+								case "true-false":
+								case "choice":
+								{
+									if(jElem.hasClass("cl-var-selected")) return false;
+									jCurObjDiv.find(".cl-var").removeClass("cl-var-selected").addClass("cl-var-idle");  // clear all selected
+									jElem.removeClass("cl-var-idle").addClass("cl-var-selected");
+									CLZ.oStore[sQuestionId].R[0] = +jElem.attr("data-vid");
+									break;
+								}
+								case "select":
+								{
+									var iNum = +jElem.attr("data-vid");
+									var iIdx = $.inArray(iNum, CLZ.oStore[sQuestionId].R);
+									if(jElem.hasClass("cl-var-selected"))
+									{
+										jElem.removeClass("cl-var-selected").addClass("cl-var-idle");
+										if(iIdx!=-1)
+										{
+											CLZ.oStore[sQuestionId].R.splice(iIdx,1);
+										}
+									}
+									else
+									{
+										jElem.removeClass("cl-var-idle").addClass("cl-var-selected");
+										if(iIdx==-1)
+										{
+											CLZ.oStore[sQuestionId].R.push(iNum);
+										}
+									}
+									break;
+								}
+							}
+							oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "submit", action: ((CLZ.oStore[sQuestionId].R.length>0) ? "show" : "hide") } });
+							break;
+						}
+						case "drop":
+						{ // order
+							argobj.evt.stopImmediatePropagation();
+							if(!oCurObj.data.bSkipRemoved)
+							{
+								oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "skip", action: "remove" } });
+								oCurObj.data.bSkipRemoved = true;
+							}
+							var iTargetIdx = +jElem.attr("data-vid");
+							var iBulletIdx = +$(argobj.bullet).attr("data-vid");
+							var aNewOrder = JSON.parse(JSON.stringify(CLZ.oStore[sQuestionId].O));
+							var iTargetPos = aNewOrder.indexOf(iTargetIdx);
+							var iBulletPos = aNewOrder.indexOf(iBulletIdx);
+							var sMoved = aNewOrder.splice(iBulletPos, 1)[0];
+							aNewOrder.splice(iTargetPos, 0, sMoved);
+
+							if(oCurObj.data.sType=="order")
+							{
+								var jParent = jElem.parent();
+								CLZ.oStore[sQuestionId].O = [];
+								CLZ.oStore[sQuestionId].R = [];
+								for(var i=0; i<aNewOrder.length; i++)
+								{
+									$("#" + argobj.pid + "_Q_VAR_" + aNewOrder[i]).css({ "top": "", "z-index": "" }).appendTo(jParent);
+									CLZ.oStore[sQuestionId].O.push(aNewOrder[i]);
+									CLZ.oStore[sQuestionId].R.push(aNewOrder[i]);
+								}
+							}
+							else if(oCurObj.data.sType=="oto")
+							{
+								CLZ.oStore[sQuestionId].O = [];
+								CLZ.oStore[sQuestionId].R = [];
+								for(var i=0; i<aNewOrder.length; i++)
+								{
+									jCurObjDiv.find(".cl-var-bullet[data-vid='"+ aNewOrder[i] +"']").css({ "top": "", "z-index": "" }).appendTo(oCurObj.data.jNests[i]);
+									CLZ.oStore[sQuestionId].O.push(aNewOrder[i]);
+									CLZ.oStore[sQuestionId].R.push(aNewOrder[i]);
+								}
+							}
+							oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "submit", action: "show" } });
+							break;
+						}
+					}
+				}
+				else if(jElem.hasClass("cl-btn"))
+				{
+					switch(argobj.evt.type)
+					{
+						case "mouseover":
+						{
+							if(CLZ.bSoundOn && oCurObj.data.sSoundOver!="none")
+							{
+								CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioOver });
+							}
+							break;
+						}
+						case "mouseout":
+						{
+							if(CLZ.bSoundOn && oCurObj.data.sSoundOver!="none")
+							{
+								CL.Sound.CLStop({ jPlayer: oCurObj.data.jAudioOver });
+							}
+							break;
+						}
+						case "click":
+						{
+							if(CLZ.bSoundOn && oCurObj.data.sSoundClick!="none")
+							{
+								CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioClick });
+							}
+							if(jElem.attr("data-action")=="submit")
+							{
+								oCurObj.CallMethod({ sMethod: "Submit" });
+							}
+							else if(jElem.attr("data-action")=="skip")
+							{
+								oCurObj.CallMethod({ sMethod: "Skip" });
+							}
+							jElem.hide();
+							break;
+						}
+					}
+				}
+				else if(jElem.hasClass("cl-var-input"))
+				{
+					var iIdx = +jElem.attr("data-vid") - 1;
+					switch(argobj.evt.type)
+					{
+						case "blur":
+						{
+							CLZ.oStore[sQuestionId].R[iIdx] = jElem.val();
+							break;
+						}
+						case "keyup":
+						{
+							var sValue = jElem.val();
+							if(oCurObj.data.sType=="numeric")
+							{
+								sValue = CL.Q.FixNumeric({ sText: sValue });
+							}
+							jElem.val(sValue);
+							var iIdx = +jElem.attr("data-vid") - 1;
+							CLZ.oStore[sQuestionId].R[iIdx] = sValue;
+							break;
+						}
+					}
+					// remove skip button if any
+					if(!oCurObj.data.bSkipRemoved)
+					{
+						oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "skip", action: "remove" } });
+						oCurObj.data.bSkipRemoved = true;
+					}
+					oCurObj.CallMethod({ sMethod: "Button", oMethodArgs: { target: "submit", action: "show" } });
+				}
+				else if(jElem.hasClass("cl-q-feedback-btn"))
+				{
+					switch(argobj.evt.type)
+					{
+						case "mouseover":
+						{
+							if(CLZ.bSoundOn && oCurObj.data.sSoundOver!="none")
+							{
+								CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioOver });
+							}
+							break;
+						}
+						case "mouseout":
+						{
+							if(CLZ.bSoundOn && oCurObj.data.sSoundOver!="none")
+							{
+								CL.Sound.CLStop({ jPlayer: oCurObj.data.jAudioOver });
+							}
+							break;
+						}
+						case "click":
+						{
+							if(CLZ.bSoundOn && oCurObj.data.sSoundClick!="none")
+							{
+								CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioClick });
+							}
+							oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { hide: true } });
+							break;
+						}
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+ 		<method name="Skip" label="_Skip" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Skip(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var sQuestionId = argobj.pid;
+				var sMsg = "";
+				var bFail = false;
+				switch(oCurObj.jxParams.children("q_skip").text())
+				{
+					case "skip":
+					{
+						sMsg = oCurObj.jxParams.children("q_goal_skip").text();
+						CLZ.oStore[sQuestionId].sSkip = "s";
+						break;
+					}
+					case "fail_confirm":
+					{
+						if(!confirm(oCurObj.jxParams.children("q_fail_confirm").text()))
+						{
+							return false;
+						}
+					} // break omitted intentionally
+					case "fail_silent":
+					{
+						bFail = true;
+						sMsg = oCurObj.jxParams.children("q_goal_failed").text();
+						CLZ.oStore[sQuestionId].sSkip = "f";
+						break;
+					}
+				}
+				jCurObjDiv.find(".cl-q-question-goal").html(sMsg);
+				oCurObj.FireEvent({ sName: "onSkipQuestion" })
+				oCurObj.CallMethod({ sMethod: "CloseQuestion", oMethodArgs: { bFail: bFail, bSkip: true } });
+				return true;
+			}]]>
+			</body>
+		</method>
+ 		<method name="Submit" label="_Submit" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Submit(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var sQuestionId = argobj.pid;
+				oCurObj.FireEvent({ sName: "onAttempt" });
+				var bCorrect = false;
+				var iCurrentTime = (new Date()).valueOf();
+				var iAttemptIdx = -1;
+				for(var i=0; i<CLZ.oStore[sQuestionId].A.length; i++)
+				{
+					if(CLZ.oStore[sQuestionId].A[i].u=="c") continue;
+					iAttemptIdx = i;
+					break;
+				}
+				if(iAttemptIdx==-1) return false; // extra fuse
+				if(CLZ.oStore[sQuestionId].R.length==0)
+				{
+					if(argobj.sReason=="timeout")
+					{
+						oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { correct: bCorrect } });
+					}
+					oCurObj.CallMethod({ sMethod: "CloseAttempt" });
+					oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+				}
+				else
+				{
+					var nScore = 0;
+					switch(oCurObj.data.sType)
+					{
+						case "true-false":
+						{
+							switch(oCurObj.data.sScoringType)
+							{
+								case "plain":
+								case "byobj":
+								{
+									if(CLZ.oStore[sQuestionId].R.length!=0)
+									{
+										bCorrect = (+CLZ.oStore[sQuestionId].R[0]==+CLZ.oStore[sQuestionId].P[0]);
+									}
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: false, bCorrect: bCorrect } });
+									if(oCurObj.data.bFeedback)
+									{
+										oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { correct: bCorrect } });
+									}
+									if(bCorrect)
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundSuccess!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioSuccess });
+										}
+										oCurObj.FireEvent({ sName: "onSuccess" });
+										if(oCurObj.data.bCredit)
+										{
+											switch(oCurObj.data.sScoringType)
+											{
+												case "plain":
+												{
+													nScore = oCurObj.data.nBaseScore;
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+												case "byobj":
+												{
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														nScore = +$(oCurObj.data.jxObjectives[i]).children("q_weight_byobj").text();
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+											}
+										}
+										oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									}
+									else
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundFailure!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioFailure });
+										}
+										oCurObj.FireEvent({ sName: "onFailure" });
+										if(oCurObj.data.bShowCorrect) // display correct state
+										{
+											for(var i=0; i<2; i++)
+											{
+												if(i==+CLZ.oStore[sQuestionId].P[0])
+												{
+													$("#" + argobj.pid + "_Q_VAR_" + i).removeClass("cl-var-idle").addClass("cl-var-selected cl-var-disabled");
+												}
+												else
+												{
+													$("#" + argobj.pid + "_Q_VAR_" + i).removeClass("cl-var-selected").addClass("cl-var-idle cl-var-disabled");
+												}
+											}
+											jCurObjDiv.find(".cl-q-question-goal").html(oCurObj.jxParams.children("q_goal_right").text());
+										}
+										if(oCurObj.data.bCredit)
+										{
+											nScore = 0;
+											for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+											{
+												CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+											}
+										}
+										oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									}
+									break;
+								}
+								case "byvar":
+								{
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: !bCorrect, bCorrect: true } });
+									if(oCurObj.data.bCredit)
+									{
+										if(+CLZ.oStore[sQuestionId].R[0]==1)
+										{
+											nScore = +oCurObj.jxParams.children("q_weight_true").text();
+										}
+										else if(+CLZ.oStore[sQuestionId].R[0]==0)
+										{
+											nScore = +oCurObj.jxParams.children("q_weight_false").text();
+										}
+										for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+										{
+											CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+										}
+									}
+									oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									break;
+								}
+							}
+							break;
+						}
+						case "choice":
+						{
+							switch(oCurObj.data.sScoringType)
+							{
+								case "fixed": // fixed - 2.7 legacy
+								case "plain":
+								case "regressive":
+								case "byobj":
+								{
+									if(CLZ.oStore[sQuestionId].R.length!=0)
+									{
+										bCorrect = (+CLZ.oStore[sQuestionId].R[0]==+CLZ.oStore[sQuestionId].P[0]);
+									}
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: !bCorrect, bCorrect: bCorrect } });
+									if(oCurObj.data.bFeedback)
+									{
+										oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { correct: bCorrect } });
+									}
+									if(bCorrect)
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundSuccess!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioSuccess });
+										}
+										oCurObj.FireEvent({ sName: "onSuccess" });
+										if(oCurObj.data.bCredit)
+										{
+											switch(oCurObj.data.sScoringType)
+											{
+												case "fixed": // 2.7 legacy
+												case "plain":
+												{
+													nScore = oCurObj.data.nBaseScore;
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+												case "regressive":
+												{
+													nScore = oCurObj.data.nBaseScore*(CLZ.oStore[sQuestionId].A.length - iAttemptIdx);
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+												case "byobj":
+												{
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														nScore = +$(oCurObj.data.jxObjectives[i]).children("q_weight_byobj").text();
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+											}
+										}
+										oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									}
+									else
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundFailure!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioFailure });
+										}
+										oCurObj.FireEvent({ sName: "onFailure" });
+										if(oCurObj.data.bNoMoreAttempts || oCurObj.data.bTimeout)
+										{
+											if(oCurObj.data.bShowCorrect) // display correct state
+											{
+												for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+												{
+													if(i==+CLZ.oStore[sQuestionId].P[0])
+													{
+														$("#" + argobj.pid + "_Q_VAR_" + i).removeClass("cl-var-idle").addClass("cl-var-selected cl-var-disabled");
+													}
+													else
+													{
+														$("#" + argobj.pid + "_Q_VAR_" + i).removeClass("cl-var-selected").addClass("cl-var-idle cl-var-disabled");
+													}
+												}
+												jCurObjDiv.find(".cl-q-question-goal").html(oCurObj.jxParams.children("q_goal_right").text());
+											}
+											if(oCurObj.data.bCredit)
+											{
+												nScore = 0;
+												for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+												{
+													CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+												}
+											}
+											oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+										}
+									}
+									break;
+								}
+								case "byvar":
+								{
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: false, bCorrect: true } });
+									if(oCurObj.data.bCredit)
+									{
+										nScore = +$(oCurObj.data.jxVars[+CLZ.oStore[sQuestionId].R[0]-1]).children("q_weight_by_connection").text();
+										for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+										{
+											CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+										}
+									}
+									oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									break;
+								}
+							}
+							break;
+						}
+						case "select":
+						{
+							switch(oCurObj.data.sScoringType)
+							{
+								case "fixed": // 2.7 legacy
+								case "plain":
+								case "regressive":
+								case "byobj":
+								{
+									if(CLZ.oStore[sQuestionId].R.length==CLZ.oStore[sQuestionId].P.length)
+									{
+										bCorrect = true;
+										for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+										{
+											if($.inArray(+CLZ.oStore[sQuestionId].R[i], CLZ.oStore[sQuestionId].P)==-1)
+											{
+												bCorrect = false;
+												break;
+											}
+										}
+									}
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: !bCorrect, bCorrect: bCorrect } });
+									if(oCurObj.data.bFeedback)
+									{
+										oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { correct: bCorrect } });
+									}
+									if(bCorrect)
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundSuccess!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioSuccess });
+										}
+										oCurObj.FireEvent({ sName: "onSuccess" });
+										if(oCurObj.data.bCredit)
+										{
+											switch(oCurObj.data.sScoringType)
+											{
+												case "fixed": // 2.7 legacy
+												case "plain":
+												{
+													nScore = oCurObj.data.nBaseScore;
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+												case "regressive":
+												{
+													nScore = oCurObj.data.nBaseScore*(CLZ.oStore[sQuestionId].A.length - iAttemptIdx);
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+												case "byobj":
+												{
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														nScore = +$(oCurObj.data.jxObjectives[i]).children("q_weight_byobj").text();
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+											}
+										}
+										oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									}
+									else
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundFailure!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioFailure });
+										}
+										oCurObj.FireEvent({ sName: "onFailure" });
+										if(oCurObj.data.bNoMoreAttempts || oCurObj.data.bTimeout)
+										{
+											if(oCurObj.data.bShowCorrect) // display correct state
+											{
+												for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+												{
+													if($.inArray(i,CLZ.oStore[sQuestionId].P)!=-1)
+													{
+														$("#" + argobj.pid + "_Q_VAR_" + i).removeClass("cl-var-idle").addClass("cl-var-selected cl-var-disabled");
+													}
+													else
+													{
+														$("#" + argobj.pid + "_Q_VAR_" + i).removeClass("cl-var-selected").addClass("cl-var-idle cl-var-disabled");
+													}
+												}
+												jCurObjDiv.find(".cl-q-question-goal").html(oCurObj.jxParams.children("q_goal_right").text());
+											}
+											if(oCurObj.data.bCredit)
+											{
+												nScore = 0;
+												for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+												{
+													CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+												}
+											}
+											oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+										}
+									}
+									break;
+								}
+								case "sum":
+								case "avg":
+								case "max":
+								case "min":
+								{
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: false, bCorrect: true } });
+									if(oCurObj.data.bCredit)
+									{
+										var nSum = 0;
+										var nMax = -99999;
+										var nMin = 99999;
+										for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+										{
+											nScore = +$(oCurObj.data.jxVars[+CLZ.oStore[sQuestionId].R[i]-1]).children("q_weight_by_connection").text();
+											nSum += nScore;
+											if(nMax<nScore) nMax = nScore;
+											if(nMin>nScore) nMin = nScore;
+										}
+										switch(oCurObj.data.sScoringType)
+										{
+											case "sum":
+											{
+												nScore = nSum;
+												break;
+											}
+											case "avg":
+											{
+												nScore = nSum/CLZ.oStore[sQuestionId].R.length;
+												break;
+											}
+											case "max":
+											{
+												nScore = nMax;
+												break;
+											}
+											case "min":
+											{
+												nScore = nMin;
+												break;
+											}
+										}
+										for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+										{
+											CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+										}
+									}
+									oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									break;
+								}
+							}
+							break;
+						}
+						case "order":
+						{
+							switch(oCurObj.data.sScoringType)
+							{
+								case "fixed": // 2.7 legacy
+								case "plain":
+								case "regressive":
+								case "byobj":
+								{
+									if(CLZ.oStore[sQuestionId].R.length==CLZ.oStore[sQuestionId].P.length)
+									{
+										bCorrect = true;
+										for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+										{
+											if(+CLZ.oStore[sQuestionId].R[i] != +CLZ.oStore[sQuestionId].P[i])
+											{
+												bCorrect = false;
+												break;
+											}
+										}
+									}
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: !bCorrect, bCorrect: bCorrect } });
+									if(oCurObj.data.bFeedback)
+									{
+										oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { correct: bCorrect } });
+									}
+									if(bCorrect)
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundSuccess!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioSuccess });
+										}
+										oCurObj.FireEvent({ sName: "onSuccess" });
+										if(oCurObj.data.bCredit)
+										{
+											switch(oCurObj.data.sScoringType)
+											{
+												case "fixed": // 2.7 legacy
+												case "plain":
+												{
+													nScore = oCurObj.data.nBaseScore;
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+												case "regressive":
+												{
+													nScore = oCurObj.data.nBaseScore*(CLZ.oStore[sQuestionId].A.length - iAttemptIdx);
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+												case "byobj":
+												{
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														nScore = +$(oCurObj.data.jxObjectives[i]).children("q_weight_byobj").text();
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+											}
+										}
+										oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									}
+									else
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundFailure!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioFailure });
+										}
+										oCurObj.FireEvent({ sName: "onFailure" });
+										if(oCurObj.data.bNoMoreAttempts || oCurObj.data.bTimeout)
+										{
+											if(oCurObj.data.bShowCorrect) // display correct state
+											{
+												var jParent = jCurObjDiv.find(".cl-q-vars");
+												for(var i=1; i<=oCurObj.data.jxVars.length; i++)
+												{
+													$("#" + argobj.pid + "_Q_VAR_" + i).removeClass("cl-var-idle").addClass("cl-var-selected cl-var-disabled").appendTo(jParent);
+												}
+												jCurObjDiv.find(".cl-q-question-goal").html(oCurObj.jxParams.children("q_goal_right").text());
+											}
+											if(oCurObj.data.bCredit)
+											{
+												nScore = 0;
+												for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+												{
+													CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+												}
+											}
+											oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+										}
+									}
+									break;
+								}
+								case "sum":
+								case "avg":
+								case "max":
+								case "min":
+								{
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: false, bCorrect: true } });
+									if(oCurObj.data.bCredit)
+									{
+										var nSum = 0;
+										var nMax = -99999;
+										var nMin = 99999;
+										for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+										{
+											if(+CLZ.oStore[sQuestionId].R[i] != +CLZ.oStore[sQuestionId].P[i]) continue;
+											nScore = +$(oCurObj.data.jxVars[+CLZ.oStore[sQuestionId].R[i]-1]).children("q_weight_by_connection").text();
+											nSum += nScore;
+											if(nMax<nScore) nMax = nScore;
+											if(nMin>nScore) nMin = nScore;
+										}
+										switch(oCurObj.data.sScoringType)
+										{
+											case "sum":
+											{
+												nScore = nSum;
+												break;
+											}
+											case "avg":
+											{
+												nScore = nSum/CLZ.oStore[sQuestionId].R.length;
+												break;
+											}
+											case "max":
+											{
+												nScore = nMax;
+												break;
+											}
+											case "min":
+											{
+												nScore = nMin;
+												break;
+											}
+										}
+										for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+										{
+											CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+										}
+									}
+									oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									break;
+								}
+							}
+							break;
+						}
+						case "numeric":
+						case "fib":
+						{
+							var aCorrect = [];
+							for(var i=0; i<CLZ.oStore[sQuestionId].P.length; i++)
+							{
+								aCorrect.push(CL.Q.EvalSet({ sType: oCurObj.data.sType, sValue: CLZ.oStore[sQuestionId].R[i], oPattern: CLZ.oStore[sQuestionId].P[i] }));
+							}
+							bCorrect = (oCurObj.data.sOp=="AND");
+							for(var i=0; i<aCorrect.length; i++)
+							{
+								if(oCurObj.data.sOp=="AND")
+								{
+									if(aCorrect[i]!=true)
+									{
+										bCorrect = false;
+										break;
+									}
+								}
+								else if(oCurObj.data.sOp=="OR")
+								{
+									if(aCorrect[i]==true)
+									{
+										bCorrect = true;
+										break;
+									}
+								}
+							}
+							if(oCurObj.data.bFeedback)
+							{
+								oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { correct: bCorrect } });
+							}
+							oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: !bCorrect, bCorrect: bCorrect } });
+							if(bCorrect)
+							{
+								if(CLZ.bSoundOn && oCurObj.data.sSoundSuccess!="none")
+								{
+									CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioSuccess });
+								}
+								oCurObj.FireEvent({ sName: "onSuccess" });
+								if(oCurObj.data.bCredit)
+								{
+									switch(oCurObj.data.sScoringType)
+									{
+										case "fixed": // 2.7 legacy
+										case "plain":
+										{
+											nScore = oCurObj.data.nBaseScore;
+											for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+											{
+												CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+											}
+											break;
+										}
+										case "regressive":
+										{
+											nScore = oCurObj.data.nBaseScore*(CLZ.oStore[sQuestionId].A.length - iAttemptIdx);
+											for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+											{
+												CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+											}
+											break;
+										}
+										case "byobj":
+										{
+											for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+											{
+												nScore = +$(oCurObj.data.jxObjectives[i]).children("q_weight_byobj").text();
+												CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+											}
+											break;
+										}
+									}
+								}
+								oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+							}
+							else
+							{
+								if(CLZ.bSoundOn && oCurObj.data.sSoundFailure!="none")
+								{
+									CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioFailure });
+								}
+								oCurObj.FireEvent({ sName: "onFailure" });
+								if(oCurObj.data.bNoMoreAttempts || oCurObj.data.bTimeout)
+								{
+									if(oCurObj.data.bShowCorrect) // display correct state
+									{
+										var jVar;
+										var sString = "";
+										var oPattern;
+										for(var i=0; i<CLZ.oStore[sQuestionId].P.length; i++)
+										{
+											oPattern = CLZ.oStore[sQuestionId].P[i];
+											sString = "";
+											for(var j=0; j<oPattern.aConds.length; j++)
+											{
+												if(j>0) sString += " " + oPattern.sOp + " ";
+												sString += "(";
+												switch(oPattern.aConds[j].op)
+												{
+													case "eq": sString += "==" + oPattern.aConds[j].val; break;
+													case "ne": sString += "!=" + oPattern.aConds[j].val; break;
+													case "gt": sString += ">" + oPattern.aConds[j].val; break;
+													case "gte": sString += ">=" + oPattern.aConds[j].val; break;
+													case "lt": sString += "<" + oPattern.aConds[j].val; break;
+													case "lte": sString += "<=" + oPattern.aConds[j].val; break;
+													case "cn": sString += "*" + oPattern.aConds[j].val + "*"; break;
+													case "ew": sString += "*" + oPattern.aConds[j].val; break;
+													case "bw": sString += oPattern.aConds[j].val + "*"; break;
+												}
+												sString += ")";
+											}
+											jVar = $("#" + argobj.pid + "_Q_VAR_" + (i+1));
+											jVar.find(".cl-var-input").val(sString);
+											jVar.addClass("cl-var-disabled");
+										}
+										jCurObjDiv.find(".cl-q-question-goal").html(oCurObj.jxParams.children("q_goal_right").text());
+									}
+									if(oCurObj.data.bCredit)
+									{
+										nScore = 0;
+										for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+										{
+											CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+										}
+									}
+									oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+								}
+							}
+							break;
+						}
+						case "oto":
+						{
+							switch(oCurObj.data.sScoringType)
+							{
+								case "fixed": // 2.7 legacy
+								case "plain":
+								case "regressive":
+								case "byobj":
+								{
+									if(CLZ.oStore[sQuestionId].R.length==CLZ.oStore[sQuestionId].P.length)
+									{
+										bCorrect = true;
+										for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+										{
+											if(+CLZ.oStore[sQuestionId].R[i] != +CLZ.oStore[sQuestionId].P[i])
+											{
+												bCorrect = false;
+												break;
+											}
+										}
+									}
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: !bCorrect, bCorrect: bCorrect } });
+									if(oCurObj.data.bFeedback)
+									{
+										oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { correct: bCorrect } });
+									}
+									if(bCorrect)
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundSuccess!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioSuccess });
+										}
+										oCurObj.FireEvent({ sName: "onSuccess" });
+										if(oCurObj.data.bCredit)
+										{
+											switch(oCurObj.data.sScoringType)
+											{
+												case "fixed": // 2.7 legacy
+												case "plain":
+												{
+													nScore = oCurObj.data.nBaseScore;
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+												case "regressive":
+												{
+													nScore = oCurObj.data.nBaseScore*(CLZ.oStore[sQuestionId].A.length - iAttemptIdx);
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+												case "byobj":
+												{
+													for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+													{
+														nScore = +$(oCurObj.data.jxObjectives[i]).children("q_weight_byobj").text();
+														CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+													}
+													break;
+												}
+											}
+										}
+										oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									}
+									else
+									{
+										if(CLZ.bSoundOn && oCurObj.data.sSoundFailure!="none")
+										{
+											CL.Sound.CLPlay({ jPlayer: oCurObj.data.jAudioFailure });
+										}
+										oCurObj.FireEvent({ sName: "onFailure" });
+										if(oCurObj.data.bNoMoreAttempts || oCurObj.data.bTimeout)
+										{
+											if(oCurObj.data.bShowCorrect) // display correct state
+											{
+												var jParent = jCurObjDiv.find(".cl-q-vars");
+												for(var i=0; i<CLZ.oStore[sQuestionId].P.length; i++)
+												{
+													jCurObjDiv.find(".cl-var-bullet[data-vid='"+ CLZ.oStore[sQuestionId].P[i] +"']").css({ "top": "", "z-index": "" }).appendTo(oCurObj.data.jNests[i]);
+												}
+												jCurObjDiv.find(".cl-q-question-goal").html(oCurObj.jxParams.children("q_goal_right").text());
+											}
+											if(oCurObj.data.bCredit)
+											{
+												nScore = 0;
+												for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+												{
+													CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+												}
+											}
+											oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+										}
+									}
+									break;
+								}
+								case "sum":
+								case "avg":
+								case "max":
+								case "min":
+								{
+									oCurObj.CallMethod({ sMethod: "CloseAttempt", oMethodArgs: { bInitNext: false, bCorrect: true } });
+									if(oCurObj.data.bCredit)
+									{
+										var nSum = 0;
+										var nMax = -99999;
+										var nMin = 99999;
+										for(var i=0; i<CLZ.oStore[sQuestionId].R.length; i++)
+										{
+											if(+CLZ.oStore[sQuestionId].R[i] != +CLZ.oStore[sQuestionId].P[i]) continue;
+											nScore = +$(oCurObj.data.jxVars[+CLZ.oStore[sQuestionId].R[i]-1]).children("q_weight_by_connection").text();
+											nSum += nScore;
+											if(nMax<nScore) nMax = nScore;
+											if(nMin>nScore) nMin = nScore;
+										}
+										switch(oCurObj.data.sScoringType)
+										{
+											case "sum":
+											{
+												nScore = nSum;
+												break;
+											}
+											case "avg":
+											{
+												nScore = nSum/CLZ.oStore[sQuestionId].R.length;
+												break;
+											}
+											case "max":
+											{
+												nScore = nMax;
+												break;
+											}
+											case "min":
+											{
+												nScore = nMin;
+												break;
+											}
+										}
+										for(var i=0; i<oCurObj.data.jxObjectives.length; i++)
+										{
+											CL.SCO.SetObjectiveScore({ sId: $(oCurObj.data.jxObjectives[i]).children("q_board").text(), sSrcId: sQuestionId, bReplace: true, nScore: nScore });
+										}
+									}
+									oCurObj.CallMethod({ sMethod: "CloseQuestion" });
+									break;
+								}
+							}
+							break;
+						}
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="Feedback" label="_Feedback" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Feedback(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				if(oCurObj.jxParams.children("q_fb_switch").text()!="yes") return false;
+				var jFB = jCurObjDiv.find("#" + argobj.pid + "_Q_FB");
+				oCurObj.iFBTimer = 0;
+				if(jFB.is(":visible")) jFB.fadeOut();
+				if(argobj.hide!=null)
+				{
+					return true;
+				}
+				jFB.removeClass();
+				var sFB = "";
+				if(argobj.correct==true)
+				{
+					if(oCurObj.jxParams.children("q_display_fb_correct").text()=="yes")
+					{
+						sFB = "correct";
+					}
+				}
+				else if(oCurObj.data.bTimeout)
+				{
+					if(oCurObj.jxParams.children("q_display_fb_timeout").text()=="yes")
+					{
+						sFB = "timeout";
+					}
+				}
+				else if(oCurObj.data.bNoMoreAttempts)
+				{
+					if(oCurObj.jxParams.children("q_display_fb_exceed").text()=="yes")
+					{
+						sFB = "exceed";
+					}
+					else if(oCurObj.jxParams.children("q_display_fb_incorrect").text()=="yes")
+					{
+						sFB = "incorrect";
+					}
+				}
+				else
+				{
+					if(CLZ.oStore[argobj.pid].A.length>1)
+					{
+						if(oCurObj.data.bLastAttempt)
+						{
+							if(oCurObj.jxParams.children("q_display_fb_lastattempt").text()=="yes")
+							{
+								sFB = "lastattempt";
+							}
+						}
+						else
+						{
+							if(oCurObj.jxParams.children("q_display_fb_incorrect").text()=="yes")
+							{
+								sFB = "incorrect";
+							}
+						}
+					}
+					else
+					{
+						if(oCurObj.jxParams.children("q_display_fb_incorrect").text()=="yes")
+						{
+							sFB = "incorrect";
+						}
+					}
+				}
+				if(sFB!="")
+				{
+					jFB.find(".cl-q-feedback-txt").html( oCurObj.jxParams.children("q_fb_" + sFB).text() );
+					jFB.addClass("cl-q-feedback cl-q-feedback-" + sFB).fadeIn();
+					if(oCurObj.jxParams.children("q_fb_timerswitch").text()=="yes")
+					{
+						oCurObj.iFBTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Feedback", oMethodArgs: { hide: true } }); }, +oCurObj.jxParams.children("q_fb_timer").text());
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="Button" label="_Button" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Button(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var jBtn = jCurObjDiv.find("#" + argobj.pid + "_BUTTON_" + argobj.target);
+				if(jBtn.length!=0)
+				{
+					if(argobj.action=="show")
+					{
+						jBtn.show();
+					}
+					else if(argobj.action=="hide")
+					{
+						jBtn.hide();
+					}
+					else if(argobj.action=="remove")
+					{
+						jBtn.remove();
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+ 		<method name="Timer" label="_Timer" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function Timer(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var sQuestionId = argobj.pid;
+				if(!oCurObj.data.bTimer) return false;
+				var jIndicator = jCurObjDiv.find(".cl-q-timer-indicator");
+				var jValue = jCurObjDiv.find(".cl-q-timer .cl-q-timer-value-number");
+				var iTimerLeft = CLZ.oStore[sQuestionId].t - CLZ.oStore[sQuestionId].e;
+				switch(argobj.action)
+				{
+					case "init":
+					{
+						jCurObjDiv.find(".cl-q-timer").show();
+						var jValueContainer = jCurObjDiv.find(".cl-q-timer .cl-q-timer-value");
+						jValueContainer.css({ "width": jValueContainer.innerWidth + "px" });
+						jValue.html(iTimerLeft);
+						var sTW = Math.round(100 * iTimerLeft / CLZ.oStore[sQuestionId].t) + "%";
+						jIndicator.width(sTW).show();
+						if(oCurObj.data.sMode!="browse")
+						{
+							sTW = Math.round(100 * (iTimerLeft-1) / CLZ.oStore[sQuestionId].t) + "%";
+							jIndicator.animate({ "width": sTW }, { duration: 1000, easing: "linear" } );
+							oCurObj.data.iQTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Timer" }); }, 1000);
+						}
+						break;
+					}
+					case "stop":
+					{
+						jIndicator.stop(true, false);
+						clearTimeout(oCurObj.data.iQTimer);
+						oCurObj.data.iQTimer = null;
+						break;
+					}
+					case "suspend":
+					{
+						break;
+					}
+					case "count":
+					default:
+					{
+						if(jCurObjDiv.is(":visible"))
+						{
+							iTimerLeft--;
+							CLZ.oStore[sQuestionId].e++;
+							jValue.html(iTimerLeft);
+							if(iTimerLeft>0)
+							{
+								var sTW = Math.round(100 * (iTimerLeft-1) / CLZ.oStore[sQuestionId].t) + "%";
+								jIndicator.animate({ "width": sTW }, { duration: 1000, easing: "linear" });
+								if(iTimerLeft < 0.25*CLZ.oStore[sQuestionId].t)
+								{
+									if(iTimerLeft < 0.125*CLZ.oStore[sQuestionId].t)
+									{
+										jIndicator.removeClass("cl-q-timer-indicator-warn").addClass("cl-q-timer-indicator-panic");
+									}
+									else
+									{
+										jIndicator.removeClass("cl-q-timer-indicator-idle").addClass("cl-q-timer-indicator-warn");
+									}
+								}
+								oCurObj.data.iQTimer = setTimeout(function () { oCurObj.CallMethod({ sMethod: "Timer" }); }, 1000);
+							}
+							else
+							{
+								jIndicator.width(0).hide();
+								oCurObj.data.bTimeout = true;
+								oCurObj.FireEvent({ sName: "onTimeout" });
+								oCurObj.CallMethod({ sMethod: "Submit", oMethodArgs: { sReason: "timeout" } });
+							}
+						}
+						break;
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="CloseAttempt" label="_CloseAttempt" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function CloseAttempt(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var sQuestionId = argobj.pid;
+				var iAttemptIdx = -1;
+				for(var i=0; i<CLZ.oStore[sQuestionId].A.length; i++)
+				{
+					if(CLZ.oStore[sQuestionId].A[i].u=="c") continue;
+					iAttemptIdx = i;
+					break;
+				}
+				var iNow = (new Date()).valueOf();
+				var iStart = CLZ.oStore[sQuestionId].A[iAttemptIdx].s;
+				CLZ.oStore[sQuestionId].A[iAttemptIdx] =
+				{
+					R: CLZ.oStore[sQuestionId].R.slice(0),
+					s: iStart,
+					d: iNow - iStart - CLZ.oStore[sQuestionId].s,
+					u: "c"
+				}; // current attempt closed
+				iAttemptIdx++;
+				var iAttemptsLeft = CLZ.oStore[sQuestionId].A.length - iAttemptIdx;
+				if(iAttemptsLeft<0) iAttemptsLeft = 0;
+				if(argobj.bCorrect)
+				{
+					CLZ.oStore[sQuestionId].r = argobj.bCorrect ? "c" : "i";
+				}
+				jCurObjDiv.find(".cl-q-attempts-num").html( iAttemptsLeft );
+				if(iAttemptsLeft==0 || CLZ.oStore[sQuestionId].A[iAttemptIdx]==null)
+				{
+					oCurObj.data.bNoMoreAttempts = true;
+					CLO[argobj.pid].FireEvent({ sName: "onAttemptsLimit" });
+				}
+				else
+				{
+					if(argobj.bInitNext)
+					{
+						CLZ.oStore[sQuestionId].A[iAttemptIdx] =
+						{
+							s: iNow - CLZ.oStore[sQuestionId].s,
+							d: 0,
+							u: "i"
+						}
+						if((CLZ.oStore[sQuestionId].A.length>1) && (iAttemptIdx==CLZ.oStore[sQuestionId].A.length-1))
+						{
+							oCurObj.data.bLastAttempt = true;
+							oCurObj.FireEvent({ sName: "onLastAttemptStart" });
+						}
+					}
+				}
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="CloseQuestion" label="_CloseQuestion" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function CloseQuestion(argobj)
+			{
+				var oCurObj = CLO[argobj.pid];
+				var jCurObjDiv = $(oCurObj.div);
+				var sQuestionId = argobj.pid;
+				oCurObj.CallMethod({ sMethod: "Timer", oMethodArgs: { action: "stop" } });
+				if(argobj.bFail==true)
+				{
+					oCurObj.CallMethod({ sMethod: "Submit", oMethodArgs: { bFail: true } });
+				}
+				var jVars;
+				switch(oCurObj.data.sType)
+				{
+					case "true-false":
+					case "choice":
+					case "select":
+					{
+						jVars = jCurObjDiv.find(".cl-var");
+						break;
+					}
+					case "order":
+					{
+						jVars = jCurObjDiv.find(".cl-var");
+						if(jVars.hasClass("ui-draggable"))
+						{
+							jVars.draggable("destroy");
+						}
+						break;
+					}
+					case "numeric":
+					case "fib":
+					{
+						jVars = jCurObjDiv.find(".cl-var");
+						jVars.find(".cl-var-input").prop("disabled", true);
+						break;
+					}
+					case "oto":
+					case "otm":
+					case "mtm":
+					{
+						jVars = jCurObjDiv.find(".cl-var-bullet");
+						if(jVars.hasClass("ui-draggable"))
+						{
+							jVars.draggable("destroy");
+						}
+						if(jVars.hasClass("ui-droppable"))
+						{
+							jVars.droppable("destroy");
+						}
+						break;
+					}
+				}
+				jVars.addClass("cl-var-disabled");
+				jCurObjDiv.find(".cl-btn").remove();
+				if(oCurObj.data.bModal)
+				{
+					CL.Modal({ bOn: false, sSrcId: argobj.pid });
+				}
+				CLZ.oStore[sQuestionId].d = (new Date()).valueOf() - CLZ.oStore[sQuestionId].s;
+				CLZ.oStore[sQuestionId].u = "c";
+				oCurObj.FireEvent({ sName: "onQuestionEnd" })
+				return true;
+			}]]>
+			</body>
+		</method>
+		<method name="GetProperty" label="_GetProperty" access="private">
+			<params>
+			</params>
+			<body>
+			<![CDATA[function GetProperty(argobj)
+			{
+				if(argobj.pid==null || argobj.property==null) return "";
+				if(CLO[argobj.pid]==null) return "";
+				switch(argobj.property.toLowerCase())
+				{
+					case "questionmode":
+					{
+						return ((CLO[argobj.pid].data.sMode=="browse") ? "review" : "normal");
+					}
+					case "questiontype":
+					{
+						return CLO[argobj.pid].data.sType;
+					}
+					case "questionduration":
+					{
+						return ((CLO[argobj.pid].data.bTimer==true) ? CLZ.oStore[argobj.pid].t : "");
+					}
+					case "questiontimer":
+					{
+						return ((CLO[argobj.pid].data.bTimer==true) ? (CLZ.oStore[argobj.pid].t - CLZ.oStore[argobj.pid].e) : "");
+					}
+					case "itemquantity":
+					{
+						return CLO[argobj.pid].data.jxVars.length;
+					}
+					case "questionvalue":
+					{
+						var sValue = "";
+						switch(CLO[argobj.pid].data.sType)
+						{
+							case "choice":
+							case "select":
+							{
+								var aResult = [];
+								for(var i=1; i<=CLO[argobj.pid].data.jxVars.length; i++)
+								{
+									aResult.push(($.inArray(i, CLZ.oStore[argobj.pid].R)==-1) ? "0" : "1");
+								}
+								sValue = aResult.join("~");
+								break;
+							}
+							case "order":
+							case "oto":
+							{
+								break;
+							}
+							default:
+							{
+								sValue = CLZ.oStore[argobj.pid].R.join("~");
+								break;
+							}
+						}
+						return sValue;
+					}
+					case "variantselected":
+					{
+						return CLZ.oStore[argobj.pid].R.sort(function (a,b) { return (a-b); }).join("~");
+					}
+					case "attemptslast":
+					{
+						var iAttemptsLeft = 0;
+						for(var i=0; i<CLZ.oStore[argobj.pid].A.length; i++)
+						{
+							if(CLZ.oStore[sQuestionId].A[i].u=="c") continue;
+							iAttemptsLeft = CLZ.oStore[argobj.pid].A.length - i;
+							break;
+						}
+						return iAttemptsLeft;
+					}
+					case "attemptstotal":
+					{
+						return CLZ.oStore[argobj.pid].A.length;
+					}
+				}
+				return "";
+			}]]>
+			</body>
+		</method>
+    </methods>
+</params>
