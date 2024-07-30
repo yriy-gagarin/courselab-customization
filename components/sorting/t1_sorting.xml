@@ -5,7 +5,7 @@
 --><params>
     <object>
         <format>3.0</format>
-        <label>Сортировка v0.1</label>
+        <label>Сортировка v0.2</label>
         <description>Сортировка объектов по группам</description>
         <width>120</width>
         <height>60</height>
@@ -2028,8 +2028,8 @@
                 var oBullet =
                 {
                     iH: jBullet.outerHeight(),
-                    iL: jBullet.position().left,
-                    iT: jBullet.position().top,
+                    iL: jBullet.position().left/CLZ.nZoom,
+                    iT: jBullet.position().top/CLZ.nZoom,
                     iW: jBullet.outerWidth()
                 };
                 var oTarget =
@@ -3120,8 +3120,8 @@
                                             if(iIdx!=-1)
                                             {
                                                 var sId = $(this).attr("id");
-                                                CLO[sId].current.x = $(this).position().left;
-                                                CLO[sId].current.y = $(this).position().top;
+                                                CLO[sId].current.x = $(this).position().left/CLZ.nZoom;
+                                                CLO[sId].current.y = $(this).position().top/CLZ.nZoom;
                                                 break;
                                             }
                                         }
